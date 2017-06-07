@@ -1,0 +1,17 @@
+/* Class = "UINavigationItem"; title = "Motion Sensor"; ObjectID = "Xmw-3Q-SiX"; */
+"Xmw-3Q-SiX.title"="Motion Sensor";
+
+/* Class = "UINavigationItem"; title = "Sound Sensor"; ObjectID = "hL0-6m-xwa"; */
+"hL0-6m-xwa.title"="Sound Sensor";
+
+/* Class = "UILabel"; text = "Bang"; ObjectID = "taN-9n-PHR"; */
+"taN-9n-PHR.text"="Bang";
+
+/* Class = "UILabel"; text = "Seismic"; ObjectID = "uBf-D2-BU2"; */
+"uBf-D2-BU2.text"="Seismic";
+
+/* Class = "UINavigationItem"; title = "Vibration Sensor"; ObjectID = "wxM-on-Kox"; */
+"wxM-on-Kox.title"="Vibration Sensor";
+
+/* Class = "UINavigationItem"; title = "Peekaboo"; ObjectID = "zWD-iB-8pw"; */
+"zWD-iB-8pw.title"="Peekaboo";

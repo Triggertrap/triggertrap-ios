@@ -1,0 +1,146 @@
+/* Cable Release Modes */
+"Cable Release Modes"="Kabelauslöse-Modi";
+
+/* Simple Cable Release */
+"Simple Cable Release"="Einfacher Kabelauslöser";
+
+/* Quick Release */
+"Quick Release"="Schnellauslöser";
+
+/* Tap the button to take a picture */
+"Tap the button to take a picture"="Klicken um ein Foto zu machen";
+
+/* Press and Hold */
+"Press and Hold"="Drücken und Halten";
+
+/* Touch to start, release to stop */
+"Touch to start, release to stop"="Berühren zum Starten und dann Loslassen";
+
+/* Press and Lock */
+"Press and Lock"="Drücken und Sperren";
+
+/* Touch to start, touch to stop */
+"Touch to start, touch to stop"="Zum Starten und Stoppen berühren";
+
+/* Timed Release */
+"Timed Release"="Langzeitauslöser";
+
+/* Choose your shutter speed */
+"Choose your shutter speed"="Wählen Sie Ihre Verschlusszeit";
+
+/* Self Timer */
+"Self Timer"="Selbstauslöser";
+
+/* Photo in 3... 2... 1... */
+"Photo in 3... 2... 1..."="Foto in 3... 2... 1...";
+
+/* Timelapse Modes */
+"Timelapse Modes"="Zeitraffer-Modi";
+
+/* Timelapse */
+"Timelapse"="Zeitraffer";
+
+/* Travel through time */
+"Travel through time"="Den Zeitsprung wagen";
+
+/* Timelapse Pro */
+"Timelapse Pro"="Timelapse Pro";
+
+/* Advanced Timelapse */
+"Advanced Timelapse"="Fortgeschrittener Zeitraffer";
+
+/* TimeWarp */
+"TimeWarp"="TimeWarp";
+
+/* Timelapse with acceleration */
+"Timelapse with acceleration"="Zeitraffer mit Beschleunigung";
+
+/* DistanceLapse */
+"DistanceLapse"="DistanceLapse";
+
+/* Perfect for roadtrips */
+"Perfect for roadtrips"="Perfekt für Roadtrips";
+
+/* Star Trail */
+"Star Trail"="Sternspuren";
+
+/* Extreme exposure control */
+"Extreme exposure control"="Extrem-Belichtungskontrolle";
+
+/* Bramping */
+"Bramping"="Bramping";
+
+/* Bulb ramping timelapse */
+"Bulb ramping timelapse"="Bulb Ramping Zeitraffer";
+
+/* Sensor Modes */
+"Sensor Modes"="Sensor-Modi";
+
+/* Sound Sensor */
+"Sound Sensor"="Geräuschsensor";
+
+/* Clap, whistle or tap */
+"Clap, whistle or tap"="Klatschen, Pfeifen oder Klopfen";
+
+/* Vibration Sensor */
+"Vibration Sensor"="Vibrationssensor";
+
+/* Vibrations and earthquakes */
+"Vibrations and earthquakes"="Vibrationen und Erdbeben";
+
+/* Motion Sensor */
+"Motion Sensor"="Bewegungssensor";
+
+/* Detect movement */
+"Detect movement"="Bewegungen wahrnehmen";
+
+/* Peekaboo */
+"Peekaboo"="Kuckuck";
+
+/* Facial recognition */
+"Facial recognition"="Gesichtserkennung";
+
+/* HDR Modes */
+"HDR Modes"="HDR-Modi";
+
+/* LE HDR */
+"LE HDR"="LZB-HDR";
+
+/* Long exposure HDR sets */
+"Long exposure HDR sets"="Langzeitbelichtungs-HDR-Reihen";
+
+/* LE HDR Timelapse */
+"LE HDR Timelapse"="LZB-HDR Zeitraff.";
+
+/* Long exposure HDR Timelapse */
+"Long exposure HDR Timelapse"="Langzeitbelichtungs-HDR Zeitraffer";
+
+/* Remote Modes */
+"Remote Modes"="Fernmodi";
+
+/* Wearables */
+"Wearables"="Wearables";
+
+/* Trigger from your wrist */
+"Trigger from your wrist"="Vom Handgelenk auslösen";
+
+/* Wi-Fi */
+"Wi-Fi"="WLAN";
+
+/* Trigger remotely */
+"Trigger remotely"="Fernauslösung";
+
+/* Calculators */
+"Calculators"="Rechner";
+
+/* ND Calculator */
+"ND Calculator"="ND-Rechner";
+
+/* Natural Density Filter Calculator */
+"Natural Density Filter Calculator"="Graufilter-Rechner";
+
+/* Solar Calculator */
+"Solar Calculator"="Solarrechner";
+
+/* Sunrise and Sunset times */
+"Sunrise and Sunset times"="Sonnenauf- und -untergangszeiten";

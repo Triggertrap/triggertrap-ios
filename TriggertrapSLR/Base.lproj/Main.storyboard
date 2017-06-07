@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4hi-an-0Ol">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Sidebar Table View Controller-->
+        <scene sceneID="zI1-7D-bqr">
+            <objects>
+                <tableViewController id="lLc-T9-KVy" customClass="SidebarTableViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Inz-Jz-RxP">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="lLc-T9-KVy" id="Kbj-kH-5Rm"/>
+                            <outlet property="delegate" destination="lLc-T9-KVy" id="QiI-OP-3nO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="BVB-Ia-sGy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FzE-Qf-SJS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="570" y="-177"/>
+        </scene>
+        <!--Main Navigation View Controller-->
+        <scene sceneID="rXE-JL-iTe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4hi-an-0Ol" customClass="MainNavigationViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Scc-fB-irh">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lLc-T9-KVy" kind="relationship" relationship="rootViewController" id="ohO-p6-Pe1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mxn-OX-0X6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-135" y="-177"/>
+        </scene>
+        <!--LeftPanelViewController-->
+        <scene sceneID="Ji1-Vv-9Ye">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="iXj-J5-eTK" userLabel="LeftPanelViewController" customClass="LeftPanelViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="buN-fE-0Rq"/>
+                        <viewControllerLayoutGuide type="bottom" id="TMh-tk-BHn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nuL-jf-H3I">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-Ez-qKK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="iXj-J5-eTK" id="o4c-Gg-BBP"/>
+                                    <outlet property="delegate" destination="iXj-J5-eTK" id="pSR-AF-4Qh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AJc-Ez-qKK" firstAttribute="top" secondItem="buN-fE-0Rq" secondAttribute="bottom" id="72A-1o-VqZ"/>
+                            <constraint firstItem="AJc-Ez-qKK" firstAttribute="leading" secondItem="nuL-jf-H3I" secondAttribute="leading" id="F4Y-7L-llY"/>
+                            <constraint firstAttribute="trailing" secondItem="AJc-Ez-qKK" secondAttribute="trailing" id="HnB-5Y-AGV"/>
+                            <constraint firstItem="TMh-tk-BHn" firstAttribute="top" secondItem="AJc-Ez-qKK" secondAttribute="bottom" id="VRx-b1-KRh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ew8-0J-FNA"/>
+                    <connections>
+                        <outlet property="tableView" destination="AJc-Ez-qKK" id="Vpv-LN-iMN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pb-gY-55A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="621"/>
+        </scene>
+        <!--Rotation Navigation View Controller-->
+        <scene sceneID="Z5M-sA-UtV">
+            <objects>
+                <navigationController storyboardIdentifier="LeftPanelNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Anv-xA-P9V" customClass="RotationNavigationViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="IZ5-Xx-tz3">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iXj-J5-eTK" kind="relationship" relationship="rootViewController" id="UWz-PB-Bp9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cnt-8O-xKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-162" y="621"/>
+        </scene>
+    </scenes>
+</document>

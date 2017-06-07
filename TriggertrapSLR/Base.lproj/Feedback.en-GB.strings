@@ -1,0 +1,38 @@
+/* Class = "UILabel"; text = "00s.00"; ObjectID = "KbY-gN-dyP"; */
+"KbY-gN-dyP.text"="00s.00";
+
+/* Class = "UILabel"; text = "Pause:"; ObjectID = "O7t-Il-kXw"; */
+"O7t-Il-kXw.text"="Pause:";
+
+/* Class = "UILabel"; text = "0.00 mph"; ObjectID = "PE0-EW-4tP"; */
+"PE0-EW-4tP.text"="0.00 mph";
+
+/* Class = "UILabel"; text = "00s.00"; ObjectID = "QBv-FV-1qX"; */
+"QBv-FV-1qX.text"="00s.00";
+
+/* Class = "UILabel"; text = "00H 00m 00s 00"; ObjectID = "T9i-pY-zrB"; */
+"T9i-pY-zrB.text"="00H 00m 00s 00";
+
+/* Class = "UILabel"; text = "Exposure:"; ObjectID = "TaL-P8-pus"; */
+"TaL-P8-pus.text"="Exposure:";
+
+/* Class = "UILabel"; text = "Press the button to start listening. Move the slider to select the triggering threshold."; ObjectID = "Y8k-ma-0IG"; */
+"Y8k-ma-0IG.text"="Press the button to start listening. Move the slider to select the triggering threshold.";
+
+/* Class = "UILabel"; text = "00H 00m 00s 00"; ObjectID = "ZIP-nk-Hu1"; */
+"ZIP-nk-Hu1.text"="00H 00m 00s 00";
+
+/* Class = "UILabel"; text = "5 m"; ObjectID = "jO3-4v-gUi"; */
+"jO3-4v-gUi.text"="5 m";
+
+/* Class = "UILabel"; text = "25 m"; ObjectID = "jkj-oc-2a8"; */
+"jkj-oc-2a8.text"="25 m";
+
+/* Class = "UILabel"; text = "00s.00"; ObjectID = "v4w-a7-Jbt"; */
+"v4w-a7-Jbt.text"="00s.00";
+
+/* Class = "UILabel"; text = "00H 00m 00s 00"; ObjectID = "xDw-7X-gEN"; */
+"xDw-7X-gEN.text"="00H 00m 00s 00";
+
+/* Class = "UILabel"; text = "Elapsed:"; ObjectID = "xNF-Kd-Fgl"; */
+"xNF-Kd-Fgl.text"="Elapsed:";

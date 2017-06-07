@@ -1,0 +1,35 @@
+/* Class = "UILabel"; text = "Set a time, tap the red button, and get in position!"; ObjectID = "3KM-bK-D0H"; */
+"3KM-bK-D0H.text"="Zeit festlegen, auf den roten Knopf drücken und in Position gehen!";
+
+/* Class = "UINavigationItem"; title = "Simple Cable Release"; ObjectID = "3wh-IX-rtF"; */
+"3wh-IX-rtF.title"="Einfacher Kabelauslöser";
+
+/* Class = "UINavigationItem"; title = "Press and Hold"; ObjectID = "9QR-5I-PkA"; */
+"9QR-5I-PkA.title"="Drücken und Halten";
+
+/* Class = "UINavigationItem"; title = "Press and Lock"; ObjectID = "BQf-Yh-GSc"; */
+"BQf-Yh-GSc.title"="Drücken und Sperren";
+
+/* Class = "UILabel"; text = "Tap the big red button to make the magic happen, release the button to take a picture."; ObjectID = "UYx-ux-cU4"; */
+"UYx-ux-cU4.text"="Drücken Sie auf den großen roten Knopf, um die Magie zu entfesseln. Lassen Sie ihn los, um die Aufnahme anzufertigen.";
+
+/* Class = "UINavigationItem"; title = "Timed Release"; ObjectID = "UkO-ph-OPU"; */
+"UkO-ph-OPU.title"="Langzeitauslöser";
+
+/* Class = "UILabel"; text = "Select your favourite shutter speed. Press the button. Relax - the exposure ends when the timer runs down."; ObjectID = "fTY-ws-pXu"; */
+"fTY-ws-pXu.text"="Wählen Sie Ihre bevorzugte Verschlusszeit und klicken Sie auf den Knopf. Entspannen Sie sich - die Exposition endet, wenn der Timer abgelaufen ist.";
+
+/* Class = "UINavigationItem"; title = "Quick Release"; ObjectID = "gBd-wA-McX"; */
+"gBd-wA-McX.title"="Schnellauslöser";
+
+/* Class = "UINavigationItem"; title = "Self Timer"; ObjectID = "i7B-pm-Mif"; */
+"i7B-pm-Mif.title"="Selbstauslöser";
+
+/* Class = "UILabel"; text = "Tap the big red button to make the magic happen."; ObjectID = "jTD-gq-8pa"; */
+"jTD-gq-8pa.text"="Drücken Sie auf den großen roten Knopf um die Magie zu entfesseln.";
+
+/* Class = "UILabel"; text = "Touch the button to open the shutter on your camera. When you're done, touch it again to end your exposure. Easy!"; ObjectID = "vdc-pU-RrT"; */
+"vdc-pU-RrT.text"="Berühren Sie den Knopf, um den Verschluss zu öffnen. Sobald die Aufnahme fertig ist, drücken Sie noch einmal. Ganz einfach!";
+
+/* Class = "UILabel"; text = "Touch the button to open the shutter on your camera. To end your exposure, just let go."; ObjectID = "vpT-TF-exo"; */
+"vpT-TF-exo.text"="Berühren Sie den Knopf, um den Verschluss zu öffnen. Lassen Sie ihn los, sobald Sie fertig sind.";

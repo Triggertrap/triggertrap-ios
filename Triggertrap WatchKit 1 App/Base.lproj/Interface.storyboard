@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ely-Iu-NuO">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="EGO-1c-pYc">
+            <objects>
+                <controller id="Ely-Iu-NuO" customClass="InterfaceController" customModule="Triggertrap_WatchKit_1_Extension">
+                    <items>
+                        <group width="109" height="109" alignment="center" verticalAlignment="center" backgroundImage="WatchShutterButton0" layout="vertical" id="u3x-V3-Lgq">
+                            <items>
+                                <button alignment="center" verticalAlignment="center" id="1gJ-ah-i3b">
+                                    <group key="contentGroup" width="1" height="1" alignment="left" id="Yp8-Pm-bF9">
+                                        <items>
+                                            <timer alignment="center" verticalAlignment="center" hidden="YES" textAlignment="center" numberOfLines="0" format="abbreviated" previewedSeconds="0" id="1dJ-51-UOv">
+                                                <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="18"/>
+                                                <calendarUnit key="units" second="YES"/>
+                                            </timer>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <action selector="triggerButtonTapped:" destination="Ely-Iu-NuO" id="di6-0l-VlK"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </group>
+                        <group width="1" alignment="center" verticalAlignment="bottom" layout="vertical" id="cLs-oP-AQd">
+                            <items>
+                                <slider width="1" alignment="center" verticalAlignment="center" maximum="10" steps="10" id="cyK-tT-6Rl">
+                                    <color key="color" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="sliderValueChanged:" destination="Ely-Iu-NuO" id="V32-gk-IeJ"/>
+                                    </connections>
+                                </slider>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="animationGroup" destination="u3x-V3-Lgq" id="7gL-Ta-6rZ"/>
+                        <outlet property="slider" destination="cyK-tT-6Rl" id="cZH-UZ-sHl"/>
+                        <outlet property="timer" destination="1dJ-51-UOv" id="ZHW-25-go7"/>
+                        <outlet property="triggerButton" destination="1gJ-ah-i3b" id="Fh4-Ar-44x"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="402"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,188 @@
+/* No comment provided by engineer. */
+"%.0f milliseconds"="%.0f millisecondi ";
+
+/* milliseconds */
+"%.0f ms"="%.0f ms";
+
+/* No comment provided by engineer. */
+"%.0f seconds"="%.0f secondi";
+
+/* seconds */
+"%.0f secs"="%.0f sec";
+
+/* No comment provided by engineer. */
+"%.1f days"="%.1f giorni";
+
+/* No comment provided by engineer. */
+"%.1f hours"="%.1f ore";
+
+/* hours */
+"%.1f hrs"="%.1f h";
+
+/* minutes */
+"%.1f mins"="%.1f min";
+
+/* No comment provided by engineer. */
+"%.1f minutes"="%.1f minuti";
+
+/* No comment provided by engineer. */
+"%.1f seconds"="%.1f secondi";
+
+/* seconds */
+"%.1f secs"="%.1f sec";
+
+/* %@ %@ filter */
+"%@ %@ filter"="%1$@ %2$@ filtro";
+
+/* %@ stop */
+"%@ stop"="%@ Stop";
+
+/* %@ stops */
+"%@ stops"="%@ Stop";
+
+/* %d HDR set */
+"%d HDR set"="%d Impostazione HDR";
+
+/* %d HDR sets */
+"%d HDR sets"="%d impostazioni HDR";
+
+/* %i hours %i minutes and %i seconds */
+"%i hours %i minutes and %i seconds"="%1$i ore %2$i minuti e %3$i secondi";
+
+/* Broadcasting as:\n\n%@\n\n%d devices connected. */
+"Broadcasting as:\n\n%@\n\n%d devices connected."="Trasmettendo come: \n\n%1$@\n\n%2$d dispositivi connessi.";
+
+/* Broadcasting as:\n\n%@\n\nNo slave devices connected. */
+"Broadcasting as:\n\n%@\n\nNo slave devices connected."="Trasmettendo come: \n\n%@\n\nNessun dispositivo slave connesso.";
+
+/* Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device! */
+"Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!"="Trasmettendo come: \n\n%@\n\nIn attesa che il dispositivo slave si connetta a questo dispositivo!";
+
+/* Buy %@ Cable */
+"Buy %@ Cable"="Compra il cavo %@";
+
+/* Close panel */
+"Close panel"="Chiudi il pannello";
+
+/* Connect to WiFi before continuing */
+"Connect to WiFi before continuing"="Connettiti alla rete Wi-Fi prima di proseguire";
+
+/* Distance Unit */
+"Distance Unit"="Unità di distanza";
+
+/* E */
+"E"="E";
+
+/* Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed. */
+"Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed."="Le esposizioni devono essere più brevi dell'intervallo. Scegli una durata più lunga o un tempo di posa più breve.";
+
+/* First light at %@ */
+"First light at %@"="Prima luce alle %@";
+
+/* I don't know where I am... Are location services disabled, perhaps */
+"I don't know where I am... Are location services disabled, perhaps?"="Non so dove mi trovo ... per caso i servizi di localizzazione sono disattivati?";
+
+/* In %@ */
+"In %@"="Tra %@";
+
+/* km */
+"km"="km";
+
+/* km/h */
+"km/h"="km / h";
+
+/* Last light at %@ */
+"Last light at %@"="Ultima luce alle %@";
+
+/* Lost connection to Master */
+"Lost connection to Master"="Connessione al dispositivo Master perduta";
+
+/* Low Volume */
+"Low Volume"="Volume basso";
+
+/* m */
+"m"="m";
+
+/* meters */
+"meters"="metri";
+
+/* miles */
+"miles"="miglia";
+
+/* mph */
+"mph"="mph";
+
+/* N */
+"N"="N";
+
+/* Next: */
+"Next:"="Successivo:";
+
+/* No Wifi Detected */
+"No Wifi Detected"="Nessuna rete Wi-Fi rilevata";
+
+/* Not available with Wifi Master running */
+"Not available with Wifi Master running"="Non disponibile con Wi-Fi Master attivo";
+
+/* Number of exposures */
+"Number of exposures"="Numero di esposizioni";
+
+/* Number of exposures: 3 */
+"Number of exposures: 3"="Numero di esposizioni: 3";
+
+/* OK */
+"OK"="OK";
+
+/* Please set the volume to maximum to use Triggertrap mobile */
+"Please set the volume to maximum to use Triggertrap mobile"="Imposta il volume al massimo per utilizzare Triggertrap mobile";
+
+/* Pulse Length */
+"Pulse Length"="Lunghezza dell'impulso";
+
+/* S */
+"S"="S";
+
+/* Sensor Delay */
+"Sensor Delay"="Sensore di ritardo";
+
+/* Sensor Reset Delay */
+"Sensor Reset Delay"="Reset del ritardo del sensore";
+
+/* Speed Unit */
+"Speed Unit"="Unità di velocità";
+
+/* Sunrise */
+"Sunrise"="Alba";
+
+/* Sunrise Today */
+"Sunrise Today"="Alba di oggi";
+
+/* Sunrise Tomorrow */
+"Sunrise Tomorrow"="Alba di domani";
+
+/* Sunset */
+"Sunset"="Tramonto";
+
+/* Sunset Tomorrow */
+"Sunset Tomorrow"="Tramonto di domani";
+
+/* Sunset Tonight */
+"Sunset Tonight"="Tramonto di stasera";
+
+/* That's not long enough. */
+"That's not long enough."="Non è abbastanza lungo.";
+
+/* W */
+"W"="W";
+
+/* Where am I */
+"Where am I?"="Dove sono?";
+
+/* Woops */
+"Woops"="Ooops";
+
+/* yards */
+"yards"="iarde";
+
+/* You are connected to:\n\n%@\n\nWait for the master device to trigger this device! */
+"You are connected to:\n\n%@\n\nWait for the master device to trigger this device!"="Sei connesso a: \n\n%@\n\nIn attesa che il dispositivo master attivi questo dispositivo!";

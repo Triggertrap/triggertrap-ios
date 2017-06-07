@@ -1,0 +1,105 @@
+/* Class = "UILabel"; text = "Tap the volume up button"; ObjectID = "1Vd-Us-h6E"; */
+"1Vd-Us-h6E.text"="Toccare il pulsante 'volume su'";
+
+/* Class = "UILabel"; text = "Set to Manual Focus"; ObjectID = "1cn-lg-XY6"; */
+"1cn-lg-XY6.text"="Impostare su Messa a fuoco manuale";
+
+/* Class = "UILabel"; text = "Usually found on the lens"; ObjectID = "3hW-gA-ewV"; */
+"3hW-gA-ewV.text"="Di solito si trova sulla lente";
+
+/* Class = "UILabel"; text = "I already own a Triggertrap Mobile Kit"; ObjectID = "7cj-Xg-fjg"; */
+"7cj-Xg-fjg.text"="Possiedo già un Kit Triggertrap Mobile";
+
+/* Class = "UILabel"; text = "Manual Focus"; ObjectID = "9m8-Oq-ofV"; */
+"9m8-Oq-ofV.text"="Messa a fuoco manuale";
+
+/* Class = "UILabel"; text = "You're awesome"; ObjectID = "AL3-h7-rM9"; */
+"AL3-h7-rM9.text"="Sei fantastico";
+
+/* Class = "UIButton"; normalTitle = "Looks juicy"; ObjectID = "DMo-EU-VcM"; */
+"DMo-EU-VcM.normalTitle"="Sembra gustoso";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "HAc-wj-iTv"; */
+"HAc-wj-iTv.normalTitle"="Avanti";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "HNt-gK-jOi"; */
+"HNt-gK-jOi.normalTitle"="Avanti";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "LXV-5R-8AU"; */
+"LXV-5R-8AU.normalTitle"="Avanti";
+
+/* Class = "UILabel"; text = "Plug into the headphone socket"; ObjectID = "OUT-Lt-TrE"; */
+"OUT-Lt-TrE.text"="Inserire nella presa cuffie";
+
+/* Class = "UILabel"; text = "Triggertrap"; ObjectID = "Tel-gq-TVZ"; */
+"Tel-gq-TVZ.text"="Triggertrap";
+
+/* Class = "UIButton"; normalTitle = "Get this Mobile Kit"; ObjectID = "TwK-ix-ltr"; */
+"TwK-ix-ltr.normalTitle"="Acquista questo Mobile Kit";
+
+/* Class = "UILabel"; text = "Looks like you've set things up nicely."; ObjectID = "Ucp-qm-usC"; */
+"Ucp-qm-usC.text"="Sembra che tu abbia impostato tutto per bene.";
+
+/* Class = "UILabel"; text = "Select your camera"; ObjectID = "Vsv-Hh-MjD"; */
+"Vsv-Hh-MjD.text"="Seleziona la fotocamera";
+
+/* Class = "UILabel"; text = "Awesome."; ObjectID = "W4X-g7-ACc"; */
+"W4X-g7-ACc.text"="Fantastico.";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "W8C-5h-3f8"; */
+"W8C-5h-3f8.normalTitle"="Avanti";
+
+/* Class = "UILabel"; text = "Which Mobile Kit do you need?"; ObjectID = "Xgw-5Q-cTe"; */
+"Xgw-5Q-cTe.text"="Quale Mobile Kit ti serve?";
+
+/* Class = "UILabel"; text = "Connect your iOS device"; ObjectID = "YS6-0E-bfL"; */
+"YS6-0E-bfL.text"="Collega il tuo dispositivo iOS";
+
+/* Class = "UIViewController"; title = "Triggertrap"; ObjectID = "YcA-4n-gQX"; */
+"YcA-4n-gQX.title"="Triggertrap";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Ys6-wd-Lxw"; */
+"Ys6-wd-Lxw.normalTitle"="Avanti";
+
+/* Class = "UILabel"; text = "MF"; ObjectID = "afE-bA-zM6"; */
+"afE-bA-zM6.text"="MF";
+
+/* Class = "UILabel"; text = "Let's get the show on the road"; ObjectID = "afR-Bz-tXh"; */
+"afR-Bz-tXh.text"="Allora... Partiamo!";
+
+/* Class = "UIButton"; normalTitle = "Get one today"; ObjectID = "eXY-JH-gzG"; */
+"eXY-JH-gzG.normalTitle"="Prendine uno oggi";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "fRG-sd-rWr"; */
+"fRG-sd-rWr.normalTitle"="Avanti";
+
+/* Class = "UILabel"; text = "Let’s explain"; ObjectID = "gsl-dA-35G"; */
+"gsl-dA-35G.text"="Spieghiamo";
+
+/* Class = "UILabel"; text = "AF"; ObjectID = "hfr-JZ-ITX"; */
+"hfr-JZ-ITX.text"="AF";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "ijc-xD-ZGk"; */
+"ijc-xD-ZGk.normalTitle"="Fatto";
+
+/* Class = "UILabel"; text = "Time to set things up"; ObjectID = "lSy-2n-wSB"; */
+"lSy-2n-wSB.text"="È ora di sistemare le impostazioni";
+
+/* Class = "UILabel"; text = "Volume to maximum"; ObjectID = "mVC-Q6-3np"; */
+"mVC-Q6-3np.text"="Volume al massimo";
+
+/* Class = "UILabel"; text = "You need a mobile kit to connect your camera to your iOS device. Together, they’re the world’s most powerful camera remote. Ooh."; ObjectID = "mYp-Aw-z32"; */
+"mYp-Aw-z32.text"="Hai bisogno di un Kit Mobile per connettere la macchina fotografica al tuo dispositivo iOS. Insieme diventano il più potente telecomando per fotocamera al mondo. Ooh.";
+
+/* Class = "UILabel"; text = "Plug into the cable release port"; ObjectID = "mnR-my-cup"; */
+"mnR-my-cup.text"="Inserire nell'uscita di scatto via cavo";
+
+/* Class = "UILabel"; text = "Give it a tap!"; ObjectID = "tx7-Ah-uw4"; */
+"tx7-Ah-uw4.text"="Tocca il pulsante rosso!";
+
+/* Class = "UILabel"; text = "Connect your camera"; ObjectID = "vWz-zk-Fk8"; */
+"vWz-zk-Fk8.text"="Collega la tua fotocamera";
+
+/* Class = "UILabel"; text = "Triggertrap Mobile Kit"; ObjectID = "xSY-SH-sWo"; */
+"xSY-SH-sWo.text"="Triggertrap Mobile Kit";
+

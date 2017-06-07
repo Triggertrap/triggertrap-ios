@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Glance - Triggertrap Watch Kit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Notification - Triggertrap Watch Kit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Triggertrap Watch Kit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Triggertrap WatchKit 1 App (Glance).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>Triggertrap WatchKit 1 App (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>Triggertrap WatchKit 1 App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>TriggertrapSLR - German.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>TriggertrapSLR - Italian.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>TriggertrapSLR - Pseudo.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>TriggertrapSLR - United Kingdom.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>TriggertrapSLR.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9EE1F17D1B1C9EBD00FE6EB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EE1F1941B1C9EBD00FE6EB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EE1F1A61B1C9FE800FE6EB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EE1F1BD1B1C9FE800FE6EB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD0966091BF9EE49000C581B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BDD4C3B71BF0E750008CA311</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

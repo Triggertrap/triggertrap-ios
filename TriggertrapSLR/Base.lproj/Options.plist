@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>Upgrades</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Cable Selector</string>
+				<key>identifier</key>
+				<string>Cable Selector</string>
+				<key>description</key>
+				<string>Get the right kit for the job</string>
+				<key>icon</key>
+				<string>CableSelector</string>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Settings</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Settings</string>
+				<key>identifier</key>
+				<string>Settings</string>
+				<key>description</key>
+				<string>Take full control</string>
+				<key>icon</key>
+				<string>Settings</string>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Inspiration</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Inspiration</string>
+				<key>identifier</key>
+				<string>Inspiration</string>
+				<key>description</key>
+				<string>Triggering inspiration</string>
+				<key>icon</key>
+				<string>InspirationIcon</string>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Support</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Feedback &amp; Support</string>
+				<key>identifier</key>
+				<string>Feedback &amp; Support</string>
+				<key>description</key>
+				<string>Lets get this sorted</string>
+				<key>icon</key>
+				<string>FeedbackAndSupportIcon</string>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Help</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Tutorial</string>
+				<key>identifier</key>
+				<string>Tutorial</string>
+				<key>description</key>
+				<string>Welcome to Triggertrap</string>
+				<key>icon</key>
+				<string>TutorialIcon</string>
+			</dict>
+		</array>
+	</array>
+</array>
+</plist>

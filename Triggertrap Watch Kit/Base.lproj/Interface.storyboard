@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bb6-yo-81w">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Glance Interface Controller-->
+        <scene sceneID="BOz-TT-tkC">
+            <objects>
+                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="Triggertrap_Watch_Kit" customModuleProvider="target">
+                    <items>
+                        <group alignment="left" id="t8f-Gd-c4y"/>
+                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="235" y="672"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="1001"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="Triggertrap_Watch_Kit" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="1001"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="SVO-6U-vci">
+            <objects>
+                <controller id="Bb6-yo-81w" customClass="InterfaceController" customModule="Triggertrap_Watch_Kit_Extension">
+                    <items>
+                        <group width="109" height="109" alignment="center" verticalAlignment="center" backgroundImage="WatchShutterButton0" layout="vertical" id="RXq-jM-2eI">
+                            <items>
+                                <button alignment="center" verticalAlignment="center" id="wlE-qp-lJy">
+                                    <group key="contentGroup" width="1" height="1" alignment="left" id="wrl-oz-PVJ">
+                                        <items>
+                                            <timer alignment="center" verticalAlignment="center" hidden="YES" textAlignment="center" numberOfLines="0" format="abbreviated" previewedSeconds="0" id="wdD-SF-ALe">
+                                                <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="18"/>
+                                                <calendarUnit key="units" second="YES"/>
+                                            </timer>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <action selector="triggerButtonTapped:" destination="Bb6-yo-81w" id="D9G-Py-T4J"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </group>
+                        <group width="1" alignment="center" verticalAlignment="bottom" layout="vertical" id="O4Y-km-qAo">
+                            <items>
+                                <slider width="1" alignment="center" verticalAlignment="center" maximum="10" steps="10" id="u4u-aO-P03">
+                                    <color key="color" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="sliderValueChanged:" destination="Bb6-yo-81w" id="HUs-0r-GSZ"/>
+                                    </connections>
+                                </slider>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="animationGroup" destination="RXq-jM-2eI" id="Thc-QA-M5e"/>
+                        <outlet property="slider" destination="u4u-aO-P03" id="SN7-Tb-0cZ"/>
+                        <outlet property="timer" destination="wdD-SF-ALe" id="2xH-eq-t66"/>
+                        <outlet property="triggerButton" destination="wlE-qp-lJy" id="jJA-P9-Od6"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="402"/>
+        </scene>
+    </scenes>
+</document>

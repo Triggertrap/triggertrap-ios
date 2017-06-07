@@ -1,0 +1,263 @@
+/* No comment provided by engineer. */
+"%.0f milliseconds"="%.0f millisecondi ";
+
+/* milliseconds */
+"%.0f ms"="%.0f ms";
+
+/* No comment provided by engineer. */
+"%.0f seconds"="%.0f secondi";
+
+/* seconds */
+"%.0f secs"="%.0f sec";
+
+/* No comment provided by engineer. */
+"%.1f days"="%.1f giorni";
+
+/* No comment provided by engineer. */
+"%.1f hours"="%.1f ore";
+
+/* hours */
+"%.1f hrs"="%.1f h";
+
+/* minutes */
+"%.1f mins"="%.1f min";
+
+/* No comment provided by engineer. */
+"%.1f minutes"="%.1f minuti";
+
+/* No comment provided by engineer. */
+"%.1f seconds"="%.1f secondi";
+
+/* seconds */
+"%.1f secs"="%.1f sec";
+
+/* %@ %@ filter */
+"%@ %@ filter"="%1$@ %2$@ filtro";
+
+/* %@ stop */
+"%@ stop"="%@ Stop";
+
+/* %@ stops */
+"%@ stops"="%@ Stop";
+
+/* %d HDR set */
+"%d HDR set"="%d Impostazione HDR";
+
+/* %d HDR sets */
+"%d HDR sets"="%d impostazioni HDR";
+
+/* %i hours %i minutes and %i seconds */
+"%i hours %i minutes and %i seconds"="%1$i ore %2$i minuti e %3$i secondi";
+
+/* Broadcasting as:\n\n%@\n\n%d devices connected. */
+"Broadcasting as:\n\n%@\n\n%d devices connected."="Trasmettendo come: \n\n%1$@\n\n%2$d dispositivi connessi.";
+
+/* Broadcasting as:\n\n%@\n\nNo slave devices connected. */
+"Broadcasting as:\n\n%@\n\nNo slave devices connected."="Trasmettendo come: \n\n%@\n\nNessun dispositivo slave connesso.";
+
+/* Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device! */
+"Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!"="Trasmettendo come: \n\n%@\n\nIn attesa che il dispositivo slave si connetta a questo dispositivo!";
+
+/* Bulb Required! */
+"Bulb Required!"="Bulb richiesto!";
+
+/* Buy %@ Cable */
+"Buy %@ Cable"="Compra il cavo %@";
+
+/* Cancel */
+"Cancel"="Annulla";
+
+/* No comment provided by engineer. */
+"Cellular"="Cellular";
+
+/* Close panel */
+"Close panel"="Chiudi il pannello";
+
+/* Connect to WiFi before continuing */
+"Connect to WiFi before continuing"="Connettiti alla rete Wi-Fi prima di proseguire";
+
+/* Current volume: %.0f%% */
+"Current volume: %.0f%%"="Volume corrente: %.0f%%";
+
+/* Distance Unit */
+"Distance Unit"="Unità di distanza";
+
+/* E */
+"E"="E";
+
+/* Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed. */
+"Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed."="Le esposizioni devono essere più brevi dell'intervallo. Scegli una durata più lunga o un tempo di posa più breve.";
+
+/* First light at %@ */
+"First light at %@"="Prima luce alle %@";
+
+/* Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson */
+"Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson "="Fatti ispirare! Tutto ciò che creiamo, lo creiamo in modo che i fotografi come te possano andare in giro e fare scatti fantastici. Perché non spendere un paio di minuti per scoprire le meravigliose fotografie scattate dai nostri utenti su Flickr, o le immagini taggate con #triggertrap su Instagram? Le nostre pagine Twitter e Facebook sono inoltre piene delle nostre immagini preferite, di intelligenti tecniche di scatto e delle ultime novità di Triggertrap. \n\nCi piace vedere le fotografie che sono state realizzate con Triggertrap, e ci piacerebbe vedere le tue creazioni, perciò non dimenticarti di taggare le tue foto con @triggertrap, o di usare #triggertrap! \n\nUn grazie speciale a: \nImmagine 1 - Nascondiglio (\"Lurking\") di Tim Gamble\nImmagine 2 - Mulino a vento e fulmine (\"Windmill and Thunder\") di Riku Kupainen\nImmagine 3 - di David Hopley\nImmagine 4 - Luci del Nord (\"Northern Lights\") di Kolbein Svensson";
+
+/* I can't hear you */
+"I can't hear you"="Scusa?";
+
+/* I can't hear you .. Is microphone permission disabled, perhaps? */
+"I can't hear you .. Is microphone permission disabled, perhaps?"="Non riesco a sentirti... forse l'accesso al microfono è disabilitato?";
+
+/* I don't know where I am... Are location services disabled, perhaps? */
+"I don't know where I am... Are location services disabled, perhaps?"="Non so dove mi trovo ... per caso i servizi di localizzazione sono disattivati?";
+
+/* In %@ */
+"In %@"="Tra %@";
+
+/* km */
+"km"="km";
+
+/* km/h */
+"km/h"="km / h";
+
+/* Last light at %@ */
+"Last light at %@"="Ultima luce alle %@";
+
+/* Listening for your wearable. Navigate to a Wearables compatible mode, and you’re ready to use your Wearable to trigger your camera. */
+"Listening for your wearable. Navigate to a Wearables compatible mode, and you’re ready to use your Wearable to trigger your camera."="In attesa del tuo indossabile.\n\nNaviga in una modalità compatibile per Indossabili, e sarai pronto ad utilizzare il tuo Indossabile per far scattare la tua fotocamera.";
+
+/* Lost connection to Master */
+"Lost connection to Master"="Connessione al dispositivo Master perduta";
+
+/* Low Volume */
+"Low Volume"="Volume basso";
+
+/* m */
+"m"="m";
+
+/* m/s */
+"m/s"="m/s";
+
+/* meters */
+"meters"="metri";
+
+/* miles */
+"miles"="miglia";
+
+/* mph */
+"mph"="mph";
+
+/* N */
+"N"="N";
+
+/* Next: */
+"Next:"="Successivo:";
+
+/* No comment provided by engineer. */
+"No Connection"="No Connection";
+
+/* No Wifi Detected */
+"No Wifi Detected"="Nessuna rete Wi-Fi rilevata";
+
+/* Not available with Wearable mode running */
+"Not available with Wearable mode running"="Non disponbile mentre la modalità Indossabili è attiva";
+
+/* Not available with Wifi Master running */
+"Not available with Wifi Master running"="Non disponibile con Wi-Fi Master attivo";
+
+/* Number of exposures */
+"Number of exposures"="Numero di esposizioni";
+
+/* Number of exposures: 3 */
+"Number of exposures: 3"="Numero di esposizioni: 3";
+
+/* OK */
+"OK"="OK";
+
+/* Open in App Store */
+"Open in App Store"="Vedi nell'App Store";
+
+/* Open in Facebook */
+"Open in Facebook"="Apri in Safari";
+
+/* Open in Flickr */
+"Open in Flickr"="Apri in Flickr";
+
+/* Open in Instagram */
+"Open in Instagram"="Apri in Instagram";
+
+/* Open in Safari */
+"Open in Safari"="Apri in Safari";
+
+/* Open in Twitter */
+"Open in Twitter"="Apri in Twitter";
+
+/* Please make sure your camera is set to Bulb to use this mode correctly. */
+"Please make sure your camera is set to Bulb to use this mode correctly."="Assicurati che la fotocamera sia impostata su Bulb per utilizzare correttamente questa modalità.";
+
+/* Please set the volume to maximum to use Triggertrap mobile */
+"Please set the volume to maximum to use Triggertrap mobile"="Imposta il volume al massimo per utilizzare Triggertrap mobile";
+
+/* Pulse Length */
+"Pulse Length"="Lunghezza dell'impulso";
+
+/* S */
+"S"="S";
+
+/* Sensor Delay */
+"Sensor Delay"="Sensore di ritardo";
+
+/* Sensor Reset Delay */
+"Sensor Reset Delay"="Reset del ritardo del sensore";
+
+/* Set to 100% */
+"Set to 100%"="Impostato al 100%";
+
+/* Speed Unit */
+"Speed Unit"="Unità di velocità";
+
+/* Sunrise */
+"Sunrise"="Alba";
+
+/* Sunrise Today */
+"Sunrise Today"="Alba di oggi";
+
+/* Sunrise Tomorrow */
+"Sunrise Tomorrow"="Alba di domani";
+
+/* Sunset */
+"Sunset"="Tramonto";
+
+/* Sunset Tomorrow */
+"Sunset Tomorrow"="Tramonto di domani";
+
+/* Sunset Tonight */
+"Sunset Tonight"="Tramonto di stasera";
+
+/* Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master. */
+"Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master."="Premi su un dispositivo Wi-Fi Master per selezionarlo, quindi premi il pulsante rosso per collegarti! Quando il dispositivo Wi-Fi Master scatta, anche il dispositivo Slave scatterà. Premi nuovamente il pulsante rosso per interrompere il collegamento al dispositivo Wi-Fi Master.";
+
+/* Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch. */
+"Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch."="Tocca il pulsante rosso per iniziare ad ascoltare il tuo Apple Watch.\n\nUna volta che la modalità Indossabili è attiva, apri una qualsiasi modalità che supporta lo scatto da dispositivo indossabile, regola la modalità nel modo preferito e premi il pulsante di scatto sul tuo Apple Watch.";
+
+/* Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble. */
+"Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble."="Tocca il pulsante rosso per iniziare ad ascoltare il tuo Pebble.\n\nUna volta che la modalità Indossabili è attiva, apri una qualsiasi modalità che supporta lo scatto da dispositivo indossabile, regola la modalità nel modo preferito e premi il pulsante di scatto sul tuo Pebble.";
+
+/* Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active. */
+"Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active."="Premi il pulsante rosso per iniziare a trasmettere come Wi-Fi Master, quindi esegui qualsiasi modalità che supporti lo scatto via Wi-Fi ed usala normalmente. Quando il dispositivo Master scatta, anche i Wi-Fi Slave connessi scatteranno! Il numero di dispositivi Slave attivi connessi comparirà qui.";
+
+/* That's not long enough. */
+"That's not long enough."="Non è abbastanza lungo.";
+
+/* Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed. */
+"Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed."="Triggertrap Timelapse Pro è un nuovo approccio per la creazione di incredibili timelapse. Connetti il tuo dispositivo alla tua fotocamera con il Mobile kit Triggertrap, e sei pronto per nuove creazioni!\n\nTimelapse Pro ha un approccio modulare alla creazione di timelapse, e ti lascia creare sequenze utilizzando i blocchi costruttivi dei timelapse: intervallometri e ritardi. Con questi blocchi puoi creare timelapse di qualsiasi formato e dimensione. Gli intervallometri di Timelapse Pro ti consentono di stabilire l'intervallo tra gli scatti, e anche quando vorresti che l'intervallometro si spegnesse, sia dopo un determinato numero di scatto oppure dopo che sia trascorso un determinato lasso di tempo.";
+
+/* W */
+"W"="W";
+
+/* Where am I? */
+"Where am I?"="Dove sono?";
+
+/* No comment provided by engineer. */
+"WiFi"="WiFi";
+
+/* Woops */
+"Woops"="Ooops";
+
+/* yards */
+"yards"="iarde";
+
+/* You are connected to:\n\n%@\n\nWait for the master device to trigger this device! */
+"You are connected to:\n\n%@\n\nWait for the master device to trigger this device!"="Sei connesso a: \n\n%@\n\nIn attesa che il dispositivo master attivi questo dispositivo!";

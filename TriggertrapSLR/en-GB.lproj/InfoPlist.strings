@@ -1,0 +1,10 @@
+/* InfoPlist.strings
+  Triggertrap
+
+  Created by Valentin Kalchev on 03/11/2015.
+  Copyright © 2015 Triggertrap Limited. All rights reserved. */
+/* NSLocationWhenInUseUsageDescription */
+"NSLocationWhenInUseUsageDescription"="Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.";
+
+/* NSLocationAlwaysUsageDescriptio */
+"NSLocationAlwaysUsageDescription"="Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.";

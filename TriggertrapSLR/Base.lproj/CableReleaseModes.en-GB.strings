@@ -1,0 +1,35 @@
+/* Class = "UILabel"; text = "Set a time, tap the red button, and get in position!"; ObjectID = "3KM-bK-D0H"; */
+"3KM-bK-D0H.text"="Set a time, tap the red button, and get in position!";
+
+/* Class = "UINavigationItem"; title = "Simple Cable Release"; ObjectID = "3wh-IX-rtF"; */
+"3wh-IX-rtF.title"="Simple Cable Release";
+
+/* Class = "UINavigationItem"; title = "Press and Hold"; ObjectID = "9QR-5I-PkA"; */
+"9QR-5I-PkA.title"="Press and Hold";
+
+/* Class = "UINavigationItem"; title = "Press and Lock"; ObjectID = "BQf-Yh-GSc"; */
+"BQf-Yh-GSc.title"="Press and Lock";
+
+/* Class = "UILabel"; text = "Tap the big red button to make the magic happen, release the button to take a picture."; ObjectID = "UYx-ux-cU4"; */
+"UYx-ux-cU4.text"="Tap the big red button to make the magic happen, release the button to take a picture.";
+
+/* Class = "UINavigationItem"; title = "Timed Release"; ObjectID = "UkO-ph-OPU"; */
+"UkO-ph-OPU.title"="Timed Release";
+
+/* Class = "UILabel"; text = "Select your favourite shutter speed. Press the button. Relax - the exposure ends when the timer runs down."; ObjectID = "fTY-ws-pXu"; */
+"fTY-ws-pXu.text"="Select your favourite shutter speed. Press the button. Relax - the exposure ends when the timer runs down.";
+
+/* Class = "UINavigationItem"; title = "Quick Release"; ObjectID = "gBd-wA-McX"; */
+"gBd-wA-McX.title"="Quick Release";
+
+/* Class = "UINavigationItem"; title = "Self Timer"; ObjectID = "i7B-pm-Mif"; */
+"i7B-pm-Mif.title"="Self Timer";
+
+/* Class = "UILabel"; text = "Tap the big red button to make the magic happen."; ObjectID = "jTD-gq-8pa"; */
+"jTD-gq-8pa.text"="Tap the big red button to make the magic happen.";
+
+/* Class = "UILabel"; text = "Touch the button to open the shutter on your camera. When you're done, touch it again to end your exposure. Easy!"; ObjectID = "vdc-pU-RrT"; */
+"vdc-pU-RrT.text"="Touch the button to open the shutter on your camera. When you're done, touch it again to end your exposure. Easy!";
+
+/* Class = "UILabel"; text = "Touch the button to open the shutter on your camera. To end your exposure, just let go."; ObjectID = "vpT-TF-exo"; */
+"vpT-TF-exo.text"="Touch the button to open the shutter on your camera. To end your exposure, just let go.";

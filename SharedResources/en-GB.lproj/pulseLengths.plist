@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+			<key>Strings</key>
+			<array>
+				<string>30 ms - flash</string>
+				<string>150 ms - camera</string>
+				<string>500 ms - slow camera</string>
+				<string>1000 ms - slow camera</string>
+				<string>1500 ms - slow camera</string>
+				<string>3000 ms - slow camera</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<integer>30</integer>
+				<integer>150</integer>
+				<integer>500</integer>
+				<integer>1000</integer>
+				<integer>1500</integer>
+				<integer>3000</integer>
+			</array>
+</dict>
+</plist>

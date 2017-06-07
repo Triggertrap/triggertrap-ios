@@ -1,0 +1,78 @@
+/* Class = "UILabel"; text = "Duration:"; ObjectID = "19v-yZ-mwk"; */
+"19v-yZ-mwk.text"="Dauer:";
+
+/* Class = "UILabel"; text = "Trigger the shutter every"; ObjectID = "4lv-da-Ccd"; */
+"4lv-da-Ccd.text"="Den Auslöser betätigen, alle";
+
+/* Class = "UIButton"; normalTitle = "View in App Store"; ObjectID = "5oW-Hp-Jnd"; */
+"5oW-Hp-Jnd.normalTitle"="Im App Store ansehen";
+
+/* Class = "UILabel"; text = "Duration:"; ObjectID = "9h7-rY-Wc0"; */
+"9h7-rY-Wc0.text"="Dauer:";
+
+/* Class = "UILabel"; text = "exposures over"; ObjectID = "Ak5-GP-nHG"; */
+"Ak5-GP-nHG.text"="Belichtungen über";
+
+/* Class = "UILabel"; text = "Exposures:"; ObjectID = "EvD-m4-3Qs"; */
+"EvD-m4-3Qs.text"="Belichtungen:";
+
+/* Class = "UINavigationItem"; title = "DistanceLapse"; ObjectID = "Lr9-Gc-v4e"; */
+"Lr9-Gc-v4e.title"="DistanceLapse";
+
+/* Class = "UILabel"; text = "00m:00s.00"; ObjectID = "S40-Uq-DQC"; */
+"S40-Uq-DQC.text"="00m:00s.00";
+
+/* Class = "UILabel"; text = "10099"; ObjectID = "SfC-po-dSS"; */
+"SfC-po-dSS.text"="10099";
+
+/* Class = "UILabel"; text = "00m00s.00"; ObjectID = "TOn-aU-Bpg"; */
+"TOn-aU-Bpg.text"="00m00s.00";
+
+/* Class = "UILabel"; text = "Select an interval between shots, and then tap the button."; ObjectID = "Tzg-Ue-pji"; */
+"Tzg-Ue-pji.text"="Wählen Sie ein Intervall zwischen den Aufnahmen und klicken Sie dann auf den Knopf.";
+
+/* Class = "UILabel"; text = "Interval:"; ObjectID = "XL3-wx-zPv"; */
+"XL3-wx-zPv.text"="Intervall:";
+
+/* Class = "UITextView"; text = "Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed."; ObjectID = "YZp-3P-pTL"; */
+"YZp-3P-pTL.text"="Triggertrap Timelapse Pro ist eine neue Methode, um eindrucksvolle Zeitraffer zu erschaffen. Verbinden Sie Ihr Gerät per Triggertrap Mobile Kit mit Ihrer Kamera und schon sind Sie bereit, kreativ zu werden!\n\nTimelapse Pro bietet ein modulares Verfahren zum Erstellen von Zeitraffern, sodass Sie Sequenzen aus den einzelnen Bauteilen der Zeitraffer zusammenstellen können - Intervallometern und Verzögerungen. Mit diesen Bausteinen können Sie Zeitraffer aller Formen und Größen erschaffen. Die Intervallometer von Timelapse Pro erlauben es Ihnen, ein Intervall zwischen den Aufnahmen festzulegen. Sie können außerdem den Punkt einstellen, an dem das Intervallometer anhalten soll; entweder anhand der Anzahl an Aufnahmen oder nach einer gewissen Zeit.";
+
+/* Class = "UILabel"; text = "Exposures:"; ObjectID = "Zdp-h4-7Yl"; */
+"Zdp-h4-7Yl.text"="Belichtungen:";
+
+/* Class = "UINavigationItem"; title = "Timelapse Pro"; ObjectID = "d8l-9z-3Gq"; */
+"d8l-9z-3Gq.title"="Timelapse Pro";
+
+/* Class = "UILabel"; text = "meters"; ObjectID = "e7M-aL-qBb"; */
+"e7M-aL-qBb.text"="Meter";
+
+/* Class = "UILabel"; text = "with a gap between each of"; ObjectID = "fJq-Hi-t1C"; */
+"fJq-Hi-t1C.text"="mit einer Lücke zwischen ihnen von";
+
+/* Class = "UINavigationItem"; title = "Bramping"; ObjectID = "gXk-Tx-JH4"; */
+"gXk-Tx-JH4.title"="Bramping";
+
+/* Class = "UINavigationItem"; title = "Star Trail"; ObjectID = "hsB-MO-TwE"; */
+"hsB-MO-TwE.title"="Sternspuren";
+
+/* Class = "UINavigationItem"; title = "Timelapse"; ObjectID = "i8a-cr-FXA"; */
+"i8a-cr-FXA.title"="Zeitraffer";
+
+/* Class = "UILabel"; text = "Take"; ObjectID = "r1I-pJ-Oqk"; */
+"r1I-pJ-Oqk.text"="Aufnahme";
+
+/* Class = "UILabel"; text = "Start:"; ObjectID = "tC3-Dg-B0z"; */
+"tC3-Dg-B0z.text"="Start:";
+
+/* Class = "UILabel"; text = "End:"; ObjectID = "ub3-Wu-w1f"; */
+"ub3-Wu-w1f.text"="Ende:";
+
+/* Class = "UIButton"; normalTitle = "Tell me more!"; ObjectID = "w9v-tG-RB7"; */
+"w9v-tG-RB7.normalTitle"="Erzähl mir mehr!";
+
+/* Class = "UILabel"; text = "exposures of duration"; ObjectID = "y6f-Fr-B2U"; */
+"y6f-Fr-B2U.text"="Belichtungen der Dauer";
+
+/* Class = "UINavigationItem"; title = "TimeWarp"; ObjectID = "ya0-mI-drS"; */
+"ya0-mI-drS.title"="TimeWarp";
+

@@ -1,0 +1,59 @@
+/* Class = "UILabel"; text = "In 6 hrs 30 min"; ObjectID = "3tC-z5-GBq"; */
+"3tC-z5-GBq.text"="In 6 hrs 30 min";
+
+/* Class = "UILabel"; text = "Last light at 23:30"; ObjectID = "4cl-4T-aMj"; */
+"4cl-4T-aMj.text"="Last light at 23:30";
+
+/* Class = "UILabel"; text = "1/4000"; ObjectID = "Dyf-IX-b0H"; */
+"Dyf-IX-b0H.text"="1/4000";
+
+/* Class = "UILabel"; text = "Sunrise"; ObjectID = "Nrq-04-7Aq"; */
+"Nrq-04-7Aq.text"="Sunrise";
+
+/* Class = "UILabel"; text = "--:--"; ObjectID = "Ue1-XQ-LFD"; */
+"Ue1-XQ-LFD.text"="--:--";
+
+/* Class = "UILabel"; text = "--:--"; ObjectID = "XpM-9S-HlQ"; */
+"XpM-9S-HlQ.text"="--:--";
+
+/* Class = "UILabel"; text = "--:--"; ObjectID = "bl0-H5-udS"; */
+"bl0-H5-udS.text"="--:--";
+
+/* Class = "UILabel"; text = "--:--"; ObjectID = "bxu-oq-Nen"; */
+"bxu-oq-Nen.text"="--:--";
+
+/* Class = "UILabel"; text = "1 stop (ND2) filter:"; ObjectID = "e4C-VQ-V0Y"; */
+"e4C-VQ-V0Y.text"="1 stop (ND2) filter:";
+
+/* Class = "UILabel"; text = "H"; ObjectID = "eO4-3q-DXY"; */
+"eO4-3q-DXY.text"="H";
+
+/* Class = "UILabel"; text = "First light at 4:30"; ObjectID = "guo-ZI-Xnw"; */
+"guo-ZI-Xnw.text"="First light at 4:30";
+
+/* Class = "UINavigationItem"; title = "Solar Calculator"; ObjectID = "hed-2I-WeY"; */
+"hed-2I-WeY.title"="Solar Calculator";
+
+/* Class = "UILabel"; text = "05:35"; ObjectID = "j60-FM-Oiv"; */
+"j60-FM-Oiv.text"="05:35";
+
+/* Class = "UILabel"; text = "Base Shutter Speed"; ObjectID = "npn-oF-CtK"; */
+"npn-oF-CtK.text"="Base Shutter Speed";
+
+/* Class = "UILabel"; text = "22:30"; ObjectID = "rcg-C4-e4S"; */
+"rcg-C4-e4S.text"="22:30";
+
+/* Class = "UILabel"; text = "Next Sunset"; ObjectID = "sKp-Si-bMn"; */
+"sKp-Si-bMn.text"="Next Sunset";
+
+/* Class = "UILabel"; text = "Shutter Speed with"; ObjectID = "saX-ad-FoD"; */
+"saX-ad-FoD.text"="Shutter Speed with";
+
+/* Class = "UINavigationItem"; title = "ND Calculator"; ObjectID = "weN-B0-eKU"; */
+"weN-B0-eKU.title"="ND Calculator";
+
+/* Class = "UILabel"; text = "In 6 hrs 30 min"; ObjectID = "yDi-fk-pi9"; */
+"yDi-fk-pi9.text"="In 6 hrs 30 min";
+
+/* Class = "UILabel"; text = "ND Filter Strength"; ObjectID = "zPE-jD-syU"; */
+"zPE-jD-syU.text"="ND Filter Strength";

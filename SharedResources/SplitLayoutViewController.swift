@@ -1,0 +1,112 @@
+//
+//  SplitLayoutViewController.swift
+//  TriggertrapSLR
+//
+//  Created by Ross Gibson on 01/08/2014.
+//  Copyright (c) 2014 Triggertrap Ltd. All rights reserved.
+//  Last updated by Valentin Kalchev 22/09/2015
+
+import UIKit
+
+class SplitLayoutViewController: CenterViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet var topLeftView: UIView!
+    @IBOutlet var bottomRightView: UIView!
+    @IBOutlet var tlWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var tlHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var brWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var brHeightConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
+    
+    var separatorView: UIView?
+    
+    // MARK: - Computed properties
+    
+    var layoutRatio: Dictionary <String, CGFloat> = iPhone ? ["top": (2.0 / 3.0), "bottom": (1.0 / 3.0)] : ["top": (3.5 / 5.0), "bottom": (1.5 / 5.0)]
+    
+    var viewControllerTheme: Theme = .Normal
+    
+    // MARK: - Lifecycle
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    } 
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "performThemeUpdate", name: ConstThemeHasBeenUpdated, object: nil)
+        
+        // Check if the view controller's theme has been changed and perform theme update if needed
+        if viewControllerTheme != AppTheme() {
+            performThemeUpdate()
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    override func viewWillLayoutSubviews()  {
+        super.viewWillLayoutSubviews()
+        
+        // If the ratios != nil
+        if layoutRatio["top"] != nil && layoutRatio["bottom"] != nil {
+            
+            // Unwrap the values and update the constraints.
+            let portrait = self.view.bounds.size.width < self.view.bounds.size.height ? true : false
+            
+            self.tlWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["top"]!)
+            self.tlHeightConstraint.constant = portrait ? (self.view.frame.size.height * layoutRatio["top"]!) : self.view.frame.size.height
+            self.brWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["bottom"]!)
+            self.brHeightConstraint.constant = portrait ? (self.view.frame.size.height * layoutRatio["bottom"]!) : self.view.frame.size.height
+            
+            // Remove the separatorView if there is one
+            separatorView?.removeFromSuperview()
+            
+            // Create a new separatorView
+            separatorView = UIView()
+            separatorView!.backgroundColor = UIColor.triggertrap_accentColor(1.0)
+            separatorView?.translatesAutoresizingMaskIntoConstraints = false
+            
+            bottomRightView.addSubview(separatorView!)
+        
+            // Set the constraints for the separatorView
+            if portrait {
+                separatorView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[separatorView(==1)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                
+                bottomRightView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(0)-[separatorView]-(0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                
+                bottomRightView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(0)-[separatorView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+            } else {
+                separatorView!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[separatorView(==1)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                
+                bottomRightView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(0)-[separatorView]-(0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                
+                bottomRightView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(0)-[separatorView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+            }
+        }
+    }
+    
+    func performThemeUpdate() {
+        
+        self.view.backgroundColor = UIColor.triggertrap_fillColor()
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0), NSForegroundColorAttributeName: UIColor.triggertrap_iconColor(1.0)]
+        
+        self.topLeftView.backgroundColor = UIColor.triggertrap_fillColor()
+        self.bottomRightView.backgroundColor = UIColor.triggertrap_backgroundColor()
+        
+        self.separatorView?.backgroundColor = UIColor.triggertrap_accentColor(1.0)
+        
+        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_iconColor()) , forState: .Normal)
+        
+        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_iconColor()) , forState: .Normal)
+        
+        self.viewControllerTheme = AppTheme()
+    }
+}

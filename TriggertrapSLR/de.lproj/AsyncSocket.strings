@@ -1,0 +1,17 @@
+/* No comment provided by engineer. */
+"AsyncSocketCanceledError"="Connection canceled";
+
+/* No comment provided by engineer. */
+"AsyncSocketCFSocketError"="General CFSocket error";
+
+/* No comment provided by engineer. */
+"AsyncSocketConnectTimeoutError"="Attempt to connect to host timed out";
+
+/* No comment provided by engineer. */
+"AsyncSocketReadMaxedOutError"="Read operation reached set maximum length";
+
+/* No comment provided by engineer. */
+"AsyncSocketReadTimeoutError"="Read operation timed out";
+
+/* No comment provided by engineer. */
+"AsyncSocketWriteTimeoutError"="\nWrite operation timed out";

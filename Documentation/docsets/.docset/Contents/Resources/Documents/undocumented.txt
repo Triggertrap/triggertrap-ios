@@ -1,0 +1,1645 @@
+Repeat.swift
+	public let name = "Repeat"
+	public let repeatCount: Int
+	public let type: UnwrappableType
+	public var modules: [Modular]
+	public var currentModule: Int
+	public var completionHandler: CompletionHandler = { (success) -> Void in }
+	public var currentRepeatCount: Int
+	public mutating func unwrapModule()
+	public func durationInMilliseconds() -> Double
+SelfTimerViewController.swift
+	class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
+	@IBOutlet weak var numberInputView: TTTimeInput!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTTimeInput)
+	override func feedbackViewShowAnimationCompleted()
+	func setupNumberPicker()
+	func adjustMinVal()
+	override func performThemeUpdate()
+	func TTNumberInputKeyboardDidDismiss()
+	class SelfTimerViewController : CableReleaseViewController, TTNumberInputDelegate
+	func watchDidTrigger()
+OutputDispatcher.swift
+	public final class OutputDispatcher
+	public static let sharedInstance = OutputDispatcher()
+	public var activeDispatchers: [Dispatcher]?
+	public let audioPlayer = AudioPlayer.sharedInstance()
+QuickReleaseViewController.swift
+	class QuickReleaseViewController: CableReleaseViewController
+	private var notificationReceived: Bool = false
+	private var shutterButtonHasBeenReleased: Bool = false
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchDown(sender : UIButton)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func shutterButtonTouchUpOutside(sender : UIButton)
+	@IBAction func shutterButtonTouchDragOutside(sender : UIButton, event: UIEvent)
+	override func feedbackViewShowAnimationCompleted()
+	private func trigger()
+Delay.swift
+	public struct Delay: Dispatchable
+	public let name = "Delay"
+	public let type: DispatchableType
+	public let time: Time
+	public var completionHandler: CompletionHandler = { (success) -> Void in }
+	public init(time: Time)
+SettingsTableViewController.swift
+	class SettingsTableViewController : UITableViewController
+	@IBOutlet weak var sensorDelayCell: BFPaperTableViewCell!
+	@IBOutlet weak var sensorDelayTitle: UILabel!
+	@IBOutlet var sensorDelay: UILabel!
+	@IBOutlet weak var sensorResetDelayCell: BFPaperTableViewCell!
+	@IBOutlet weak var sensorResetDelayTitle: UILabel!
+	@IBOutlet var sensorResetDelay: UILabel!
+	@IBOutlet weak var pulseLengthTitle: UILabel!
+	@IBOutlet weak var pulseLengthCell: BFPaperTableViewCell!
+	@IBOutlet var pulseLength: UILabel!
+	@IBOutlet weak var speedUnitCell: BFPaperTableViewCell!
+	@IBOutlet weak var speedUnitTitle: UILabel!
+	@IBOutlet var speedUnit: UILabel!
+	@IBOutlet weak var distanceCell: BFPaperTableViewCell!
+	@IBOutlet weak var distanceTitle: UILabel!
+	@IBOutlet var distanceUnit: UILabel!
+	@IBOutlet weak var versionCell: BFPaperTableViewCell!
+	@IBOutlet weak var versionTitle: UILabel!
+	@IBOutlet var version: UILabel!
+	@IBOutlet weak var imageCreditCell: BFPaperTableViewCell!
+	@IBOutlet weak var imageCreditTitle: UILabel!
+	@IBOutlet weak var imageCredit: UILabel!
+	@IBOutlet weak var resetCell: BFPaperTableViewCell!
+	@IBOutlet weak var resetLabel: UILabel!
+	private let settingsManager = SettingsManager.sharedInstance()
+	private var type = SubSettingsViewController.SettingsType.SensorDelay
+	required init?(coder aDecoder: NSCoder)
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!)
+	private func reloadTableView()
+	private func applyThemeToCell(cell: BFPaperTableViewCell, titleLabel: UILabel, descriptionLabel: UILabel)
+	private func valueForSettingsWithType(type: SubSettingsViewController.SettingsType) -> String
+	private func timeFormatted(totalSeconds: CUnsignedLongLong) -> String
+	override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+FeedbackViewController.swift
+	class FeedbackViewController: UIViewController, TTCounterLabelDelegate, TTCircleTimerDelegate
+	@IBOutlet var counterLabel: TTCounterLabel?
+	@IBOutlet var circleTimer: TTCircleTimer?
+	@IBOutlet var exposureLabel: UILabel?
+	@IBOutlet var exposureCounterLabel: TTCounterLabel?
+	@IBOutlet var pauseLabel: UILabel?
+	@IBOutlet var pauseCounterLabel: TTCounterLabel?
+	@IBOutlet var shotsTakenLabel: UILabel?
+	@IBOutlet var elapsedLabel: UILabel?
+	@IBOutlet var elapsedCounterLabel: TTCounterLabel?
+	@IBOutlet var infoLabel: UILabel?
+	@IBOutlet var feedbackPanel: UIView?
+	@IBOutlet var circularSlider: TTCircularSlider?
+	@IBOutlet var untilLabel: UILabel?
+	@IBOutlet var sinceLabel: UILabel?
+	@IBOutlet var speedLabel: UILabel?
+	override func viewDidLoad()
+	func performThemeUpdate()
+	override func didReceiveMemoryWarning()
+	func startAnimations()
+	func stopAnimations()
+	func resumeAnimations()
+	func countdownDidEndForSource(source: TTCounterLabel!)
+	func progressComplete()
+NeutralDensityCalculatorViewController.swift
+	class NeutralDensityCalculatorViewController: SplitLayoutViewController, HorizontalPickerDelegate, TTNumberInputDelegate
+	private var kHundredHoursInMilliseconds: Int = 360000000
+	private var kHourInMilliseconds: Int = 3600000
+	@IBOutlet weak var filterStrengthLabel: UILabel!
+	@IBOutlet weak var baseShutterSpeedLabel: UILabel!
+	@IBOutlet weak var filterStrengthPicker: HorizontalPicker!
+	@IBOutlet weak var baseShutterSpeedPicker: HorizontalPicker!
+	@IBOutlet weak var holderView: UIView!
+	@IBOutlet weak var shutterSpeedLabel: UILabel!
+	@IBOutlet weak var stopFilterLabel: UILabel!
+	@IBOutlet weak var stepLabel: UILabel!
+	@IBOutlet weak var hoursLabel: UILabel!
+	@IBOutlet weak var hoursMinutesSecondsView: TTTimeInput!
+	@IBOutlet weak var hmsWidthConstraint: NSLayoutConstraint!
+	@IBOutlet weak var hmsHeightConstraint: NSLayoutConstraint!
+	private var isHoursMinutesSecondsFormat = false
+	private var ndFilterArray: NSMutableArray!
+	private var baseShutterSpeedArray: NSArray!
+	private var ndFilterPosition = 0
+	private var shutterSpeedPosition = 0
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	private func ndTime(stops: Int, withShutterSpeed speed: Int) -> String
+	func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int)
+	override func performThemeUpdate()
+HeadphoneDispatcher.swift
+	public final class HeadphoneDispatcher: NSObject, Dispatcher
+	public static let sharedInstance = HeadphoneDispatcher()
+	private var dispatchable: Dispatchable!
+	private override init()
+	public func dispatch(dispatchable: Dispatchable)
+	func didDispatchAudio()
+	func didDispatch()
+	public final class HeadphoneDispatcher : NSObject, Dispatcher
+	public func audioPlayerlDidFinishPlayingAudio()
+WifiCell.swift
+	class WifiCell: UICollectionViewCell
+	@IBOutlet var deviceImage: UIImageView!
+	@IBOutlet var deviceName: UILabel!
+	@IBOutlet var connectedImage: UIImageView!
+	override var bounds : CGRect
+	var deviceConnected: Bool = false
+TimelapseProViewController.swift
+	class TimelapseProViewController: CenterViewController
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var previewImageView: UIImageView!
+	@IBOutlet weak var previewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var textView: UITextView!
+	@IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var tellMeMoreButton: BorderButton!
+	@IBOutlet weak var viewInAppStoreButton: BorderButton!
+	@IBOutlet weak var scrollButton: UIButton!
+	@IBOutlet weak var shimmeringView: FBShimmeringView!
+	@IBOutlet weak var bottomBackgroundView: UIView!
+	@IBOutlet weak var topGradientView: GradientOverlayView!
+	@IBOutlet weak var bottomGradientView: GradientOverlayView!
+	@IBOutlet weak var separatorView: UIView!
+	private let buttonHeight: CGFloat = 44.0
+	private let padding: CGFloat = 8
+	private enum ActionSheetType
+	case TellMeMore,
+	ViewInAppStore
+	private var actionSheetType: ActionSheetType?
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidAppear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	override func viewWillDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	private func showActionSheet(rect: CGRect)
+	func performThemeUpdate()
+	@IBAction func scrollButtonTapped(button: UIButton)
+	@IBAction func tellMeMoreButtonTapped(button: BorderButton)
+	@IBAction func viewInAppStoreButtonTapped(button: BorderButton)
+	class TimelapseProViewController : CenterViewController
+	func scrollViewDidScroll(scrollView: UIScrollView)
+	class TimelapseProViewController : CenterViewController
+	func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+SidebarTableViewController.swift
+	class SidebarTableViewController: UITableViewController, UINavigationControllerDelegate
+	private var vcPointer: UIViewController!
+	private var visibleModeIdentifier: String?
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+	override func viewDidDisappear(animated: Bool)
+	private func storyboardNameForViewControllerIdentifier(identifier: String) -> String?
+	func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool)
+	func sidebarDidSelectCellWithIdentifier(sender: NSNotification)
+LeHdrViewController.swift
+	class LeHdrViewController: TTViewController, HorizontalPickerDelegate
+	@IBOutlet weak var middleExposureHorizontalPicker: HorizontalPicker!
+	@IBOutlet weak var middleExposureLabel: UILabel!
+	@IBOutlet weak var numberOfExposuresHorizontalPicker: HorizontalPicker!
+	@IBOutlet weak var exposuresLabel: UILabel!
+	@IBOutlet weak var evHorizontalPicker: HorizontalPicker!
+	@IBOutlet weak var evLabel: UILabel!
+	private var numberOfShotsTaken = 0
+	private var ev: double_t = 0
+	private var num = 0
+	private var sequence: Sequence!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	override func performThemeUpdate()
+	private func setHorizontalPickers()
+	private func updateBracketLimits()
+	private func setEV()
+	private func updateNumberOfExposures()
+	override func willDispatch(dispatchable: Dispatchable)
+	override func didDispatch(dispatchable: Dispatchable)
+	override func feedbackViewShowAnimationCompleted()
+	override func feedbackViewHideAnimationCompleted()
+	func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int)
+	func horizontalPicker(horizontalPicker: AnyObject!, didSelectValue value: NSNumber!)
+NavigationControllerDelegate.swift
+	class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate
+	@IBOutlet weak var navigationController: UINavigationController?
+	var shouldComplete: Bool = false
+	var interactionController: UIPercentDrivenInteractiveTransition?
+	var initialDirectionIsRight = false
+	var interactionDisabled: Bool = false
+	override func awakeFromNib()
+	@IBAction func panned(gestureRecognizer: UIPanGestureRecognizer)
+	func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool)
+	func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+	func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+WearablesViewController.swift
+	class WearablesViewController: TTViewController
+	@IBOutlet var segmentedControl: UISegmentedControl!
+	@IBOutlet var infoText: UILabel!
+	private enum WearableDevice
+	case Pebble, AppleWatch
+	case Pebble, AppleWatch
+	private var selectedDevice: WearableDevice = .Pebble
+	private var pebbleIsSelected: Bool
+	override func viewWillAppear(animated: Bool)
+	override func viewDidAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func segmentedControllerPressed(segmentedController: UISegmentedControl)
+	@IBAction func shutterButtonTouchUpInside(sender: UIButton)
+	func pebbleWatchStatusChanged(notification: NSNotification)
+	override func feedbackViewHideAnimationCompleted()
+	override func performThemeUpdate()
+	private func addNotificationObservers()
+	private func removeNotificationObservers()
+	private func startWearableMode()
+	private func stopWearableMode()
+SequenceManager.swift
+	func onMain(block: dispatch_block_t)
+	public final class SequenceManager
+	public static let sharedInstance = SequenceManager()
+	public var unwrappableDelegate: UnwrappableLifecycle?
+	public var dispatchableDelegate: DispatchableLifecycle?
+	public var sequenceDelegate: SequenceLifecycle?
+	public var minDelay: Delay!
+	internal var timeElapsed: Time!
+	public var activeViewController: AnyObject?
+	internal var isTriggerable: Bool
+	internal var semaphore: dispatch_semaphore_t?
+	private let sequenceSerialQueue = dispatch_queue_create("Sequence Serial Queue", DISPATCH_QUEUE_SERIAL)
+	private var canTrigger: Bool!
+	private var sequence: Sequence!
+	private init()
+	private func stopSequence()
+StarTrailViewController.swift
+	class StarTrailViewController: TTViewController, TTNumberInputDelegate
+	@IBOutlet weak var exposureNumberInputView: TTNumberInput!
+	@IBOutlet weak var durationLabel: UILabel!
+	@IBOutlet weak var durationNumberInputView: TTTimeInput!
+	@IBOutlet weak var gapLabel: UILabel!
+	@IBOutlet weak var gapNumberInputView: TTTimeInput!
+	private var shotsTakenCount = 0
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidDisappear(animated: Bool)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTTimeInput)
+	private func setupNumberPickers()
+	override func willDispatch(dispatchable: Dispatchable)
+	override func feedbackViewShowAnimationCompleted()
+	override func didDispatch(dispatchable: Dispatchable)
+	override func performThemeUpdate()
+	func TTNumberInputKeyboardDidDismiss()
+SensorViewController.swift
+	class SensorViewController: TTViewController
+	var waitingForSensorResetDelay = false
+	func triggerNow()
+	private func triggerWithSensorDelay()
+	private func triggerWithSensorResetDelay()
+	override func didFinishSequence()
+MirrorLockup.swift
+	public let name = "Mirror Lockup"
+	public let type: UnwrappableType = .MirrorLockup
+	public var modules: [Modular]
+	public var currentModule: Int
+	public var completionHandler: CompletionHandler = { (success) -> Void in }
+	private let pulse: Pulse
+	private let delay: Delay
+CameraSelectorViewController.swift
+	class CameraSelectorViewController: OnboardingViewController
+	@IBOutlet var kitImageView: UIImageView!
+	@IBOutlet var whiteView: UIView!
+	@IBOutlet var whiteViewDescriptionLabel: UILabel!
+	@IBOutlet var whiteViewTitleLabel: UILabel!
+	@IBOutlet var getMobileKitButton: UIButton!
+	@IBOutlet var greyViewInformationLabel: UILabel!
+	@IBOutlet var greyViewPraiseLabel: UILabel!
+	@IBOutlet var pickersView: UIView!
+	@IBOutlet var separatorLine: UIView!
+	@IBOutlet var pageControl: UIPageControl!
+	@IBOutlet var informationView: UIView!
+	@IBOutlet var dismissButton: UIButton!
+	var cableSelector = CableSelector()
+	var cameraManufacturers: [String] = Array()
+	var cameraModelsForSelectedManufacturer: [String] = Array()
+	var lastCameraManufacturerSelected: Int = 0
+	var lastCameraModelSelected: Int = 0
+	var urlForCable: String?
+	let defaults = NSUserDefaults.standardUserDefaults()
+	@IBOutlet var cameraManufacturerPicker: UIPickerView!
+	@IBOutlet var cameraModelPicker: UIPickerView!
+	@IBOutlet var buyButton: UIButton!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	func commonInit()
+	override func didReceiveMemoryWarning()
+	@IBAction func buyButtonTapped(button: UIButton)
+	class CameraSelectorViewController : OnboardingViewController
+	func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
+	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+	class CameraSelectorViewController : OnboardingViewController
+	func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
+	class CameraSelectorViewController : OnboardingViewController
+	private func showActionSheet(rect: CGRect)
+	func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+SunriseSunsetCalculatorViewController.swift
+	class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocationManagerDelegate
+	private enum DayTimeStatus : Int
+	case DayTime = 0,
+	NightTime = 1
+	@IBOutlet var whiteView: UIView!
+	@IBOutlet var titleLabelTop: UILabel!
+	@IBOutlet var timeLabelTop: UILabel!
+	@IBOutlet var timeRemainingLabelTop: UILabel!
+	@IBOutlet var lightTimeLabelTop: UILabel!
+	@IBOutlet var titleLabelBottom: UILabel!
+	@IBOutlet var timeLabelBottom: UILabel!
+	@IBOutlet var timeRemainingLabelBottom: UILabel!
+	@IBOutlet var lightTimeLabelBottom: UILabel!
+	@IBOutlet var firstLightDiagramLabel: UILabel!
+	@IBOutlet var sunriseDiagramLabel: UILabel!
+	@IBOutlet var sunsetDiagramLabel: UILabel!
+	@IBOutlet var lastLightDiagramLabel: UILabel!
+	@IBOutlet var sunToCenterConstraint: NSLayoutConstraint!
+	@IBOutlet var cityLabel: UILabel!
+	@IBOutlet var sunView: UIView!
+	@IBOutlet var arcImageView: UIImageView!
+	@IBOutlet var lineVerticalConstraint: NSLayoutConstraint!
+	@IBOutlet var arcToLineConstraint: NSLayoutConstraint!
+	@IBOutlet var flatLineImageView: UIImageView!
+	@IBOutlet var sunImageView: UIImageView!
+	@IBOutlet var sunRotationCenterView: UIView!
+	private var nextAstronomicalDateForFirstLight: NSDate!
+	private var nextAstronomicalDateForLastLight: NSDate!
+	private var nextAstronomicalDateForSunrise: NSDate!
+	private var nextAstronomicalDateForSunset: NSDate!
+	private var hasAstronomicalDatePassedForSunrise = false
+	private var hasAstronomicalDatePassedForSunset = false
+	private var locationManager: CLLocationManager!
+	private var calculator: SunriseSunsetCalculator!
+	private var displayTimer: NSTimer!
+	private var startTime: CFAbsoluteTime!
+	private var absoluteTimeSunrise: CFAbsoluteTime!
+	private var absoluteTimeSunset: CFAbsoluteTime!
+	private var timeRemainingUntilSunrise: CFAbsoluteTime!
+	private var timeRemainingUntilSunset: CFAbsoluteTime!
+	private var _displayedAlert: Bool!
+	private var initialSunAnimationDone: Bool!
+	private var isSunAnimating: Bool!
+	private var isDayTimeStatusChanging: Bool!
+	private var oneDegreeAbsoluteTime: CFAbsoluteTime!
+	private var absoluteTimeBetweenSunriseAndSunset: CFAbsoluteTime!
+	private var degrees: Int = 0
+	private var dayTimeStatus: DayTimeStatus!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidAppear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	override func viewWillDisappear(animated: Bool)
+	deinit
+	override func willMoveToParentViewController(parent: UIViewController?)
+	func updateTodayTomorrow()
+	func startLocationManager()
+	func stopLocationManager()
+	private func removeLocationManager()
+	private func registerForNotifications()
+	private func createEmptyUI()
+	private func astronomicalTime()
+	private func createGreyViewContent()
+	private func createWhiteViewContent()
+	private func refreshLocationServices()
+	private func retrieveCity()
+	private func getDateAsString(date: NSDate, dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle) -> NSString
+	private func updateCalculator()
+	private func degreesToRadians(degreesToConvert: Int) -> CGFloat
+	private func hoursAndMinutesForDate(date: NSDate) -> NSArray
+	private func is24hSettingsOn() -> Bool
+	private func animateSunWithDuration(duration: Int, delay: Int, objectDegrees: Int)
+	private func updateSunConstraint()
+	private func startTimer()
+	private func stopTimer()
+	private func updateDisplay(elapsedTime: CFAbsoluteTime)
+	func timerFired(timer: NSTimer)
+	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus)
+	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+	private func updateInterfaceForUnknownLocation()
+	override func performThemeUpdate()
+BorderButton.swift
+	@IBDesignable class BorderButton: UIButton
+	@IBInspectable var cornerRadius: CGFloat = 2.0
+	@IBInspectable var borderWidth: CGFloat = 2.0
+	@IBInspectable var borderColor: UIColor = UIColor.triggertrap_primaryColor(1.0)
+	@IBInspectable var fillColor: UIColor = UIColor.clearColor()
+	override func layoutSubviews()
+	func refreshView()
+UIColor.swift
+	convenience init(hex: Int, alpha: CGFloat = 1.0)
+	class func triggertrap_color(color: UIColor, change percent: CGFloat) -> UIColor
+	class func triggertrap_primaryColor(alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_shadeRedColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_trackTintColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_timeWarpDarkRedColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_fillColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_backgroundColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_naturalColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_mediumDarkGreyColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_foregroundColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_accentColor (alpha: CGFloat = 1.0) -> UIColor
+	class func triggertrap_clearColor() -> UIColor
+PressAndLockViewController.swift
+	class PressAndLockViewController: CableReleaseViewController
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	override func feedbackViewShowAnimationCompleted()
+	class PressAndLockViewController : CableReleaseViewController
+	func watchDidTrigger()
+CustomTransition.swift
+	class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning
+	enum State
+	case Push,
+	Pop
+	var containerView: UIView!
+	var state: State = State.Push
+	var viewsToShow: [UIView] = []
+	var snapshotViews: [UIView] = []
+	var fadedViews: [UIView] = []
+	weak var transitionContext: UIViewControllerContextTransitioning?
+	let duration = 0.5
+	func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+	func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
+	override func animationDidStop(anim: CAAnimation, finished flag: Bool)
+	func createSnapshotView(view: UIView) -> UIView
+	func removeSnapshotViews()
+	func snapshotView(view: UIView)
+	func fadeInSnapshots()
+	func fadeInView(view: UIView)
+	func fadeOutViews()
+	func showViews()
+Functions.swift
+	enum Theme: Int
+	case Normal = 0,
+	Night
+	func AppTheme() -> Theme
+	func delay(delay:Double, closure:()->())
+	func SizeForText(text: NSString, withFont font: UIFont, constrainedToSize size: CGSize) -> CGSize
+	func pathForResource(resource: String!) -> String
+	func componentInBounds(component: CGFloat) -> CGFloat
+	func ImageWithColor(image: UIImage, color: UIColor) -> UIImage
+	func applyThemeUpdateToNumberInput(numberInput: TTNumberInput?)
+	func applyThemeUpdateToTimeInput(timeInput: TTTimeInput?)
+	func applyThemeUpdateToPicker(picker: HorizontalPicker?)
+	func applyThemeUpdateToDescriptionLabel(label: UILabel)
+PressAndHoldViewController.swift
+	class PressAndHoldViewController: CableReleaseViewController
+	private var notificationReceived = false
+	private var shutterButtonHasBeenReleased = false
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchDown(sender : UIButton)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func shutterButtonTouchUpOutside(sender : UIButton)
+	@IBAction func shutterButtonTouchDragOutside(sender : UIButton, event: UIEvent)
+	override func feedbackViewShowAnimationCompleted()
+Sequence.swift
+	public struct Sequence
+	public var modules: [Modular]
+	internal var currentModule: Int
+	internal var completionHandler: CompletionHandler = { (success) -> Void in }
+	public init(modules: [Modular])
+	internal mutating func unwrap(completionHandler: CompletionHandler) -> Void
+	internal mutating func nextModule()
+	internal mutating func unwrapModule()
+	internal func didUnwrap()
+	func durationInMilliseconds() -> Double
+OptionsTableViewController.swift
+	class OptionsTableViewController: UIViewController
+	private let applicationDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	private var options: NSArray?
+	@IBOutlet weak var tableView: UITableView!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func doneButtonTapped(sender: AnyObject)
+	private func applyTheme()
+	class OptionsTableViewController : UIViewController
+	func numberOfSectionsInTableView(tableView: UITableView) -> Int
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+	class OptionsTableViewController : UIViewController
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+GradientOverlayView.swift
+	@IBDesignable class GradientOverlayView: UIView
+	@IBInspectable var color: UIColor = UIColor.whiteColor()
+	@IBInspectable var direction: Int = 1
+	var grayScale: CGFloat?
+	enum GradientDirection: Int
+	case Up = 1,
+	Down = 2,
+	Left = 3,
+	Right = 4
+	override func drawRect(rect: CGRect)
+WifiDispatcher.swift
+	public final class WifiDispatcher: NSObject, Dispatcher
+	private var dispatchable: Dispatchable!
+	private var reachability: Reachability!
+	private var name: String!
+	var remoteOutputServer: RemoteOutputServer!
+	var wifiIsAvailable = false
+	public static let sharedInstance = WifiDispatcher()
+	private override init()
+	deinit
+	public func dispatch(dispatchable: Dispatchable)
+	public func reachabilityChanged()
+	public func remoteOutputServerStatusChanged()
+	private func refreshWifiState()
+	private func wifiConnected(connected: Bool)
+LeftPanelViewController.swift
+	class LeftPanelViewController: UIViewController
+	@IBOutlet var tableView: UITableView!
+	@IBOutlet var nightTimeSwitch: UISwitch!
+	private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	private var modes: NSArray?
+	override func viewDidLoad()
+	deinit
+	override func viewWillAppear(animated: Bool)
+	func removeActiveCell(sender: NSNotification)
+	@IBAction func nightTimeSwitchValueChanged(nightTimeSwitch: UISwitch)
+	class LeftPanelViewController : UIViewController
+	func numberOfSectionsInTableView(tableView: UITableView) -> Int
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+	func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+	class LeftPanelViewController : UIViewController
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+WiFiViewController.swift
+	class WiFiViewController: TTViewController
+	@IBOutlet var wifiSegmentedControl: UISegmentedControl!
+	@IBOutlet var wifiInfoText: UILabel!
+	@IBOutlet var collectionView: UICollectionView!
+	private var masterIsSelected = true
+	private let remoteClient = RemoteClient.sharedInstance
+	private var server = ""
+	private var hotspotCanBeEnabled = false
+	private enum Type: Int
+	case Master = 0,
+	Slave = 1
+	private var broadcastingType: Type = Type.Master
+	private var masterName: String = ""
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	deinit
+	@IBAction func segmentedControllerPressed(segmentedController: UISegmentedControl)
+	@IBAction func shutterButtonTouchUpInside(sender: UIButton)
+	private func broadcastAs(type: Type)
+	func wifiDidDisconnect()
+	private func updateLabel()
+	func netServiceDidPublish(name: String!)
+	override func didFinishSequence()
+	override func performThemeUpdate()
+	class WiFiViewController : TTViewController
+	func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+	func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+	class WiFiViewController : TTViewController
+	func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+	class WiFiViewController : TTViewController
+	func remoteClientDidConnectToHost()
+	func remoteClientDidDisconnect()
+	func remoteClientDidRefreshServers()
+	class WiFiViewController : TTViewController
+	func socketDidReadData()
+	func socketDidAcceptNewSocket()
+	func socketDidDisconnect()
+UnwrappableLifecycle.swift
+	public protocol UnwrappableLifecycle
+ConnectToVolumeTransition.swift
+	class ConnectToVolumeTransition: CustomTransition
+	override func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+PeekabooViewController.swift
+	class PeekabooViewController: SensorViewController, FaceDetectorDelegate
+	private var faceDetectionViewController: FaceDetectionViewController!
+	override func viewDidLoad()
+	override func viewWillDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	func facesDetected(faces: UInt)
+	override func didCancelSequence()
+	override func performThemeUpdate()
+CableReleaseViewController.swift
+	class CableReleaseViewController: TTViewController
+	@IBOutlet weak var descriptionLabel: UILabel!
+	override func performThemeUpdate()
+KitToConnectTransition.swift
+	class KitToConnectTransition: CustomTransition
+	override func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+Unit.swift
+	public enum Unit: Symbol
+	case Milliseconds, Seconds, Minutes, Hours, Days
+	case Milliseconds, Seconds, Minutes, Hours, Days
+	case Milliseconds, Seconds, Minutes, Hours, Days
+	case Milliseconds, Seconds, Minutes, Hours, Days
+	case Milliseconds, Seconds, Minutes, Hours, Days
+	public var symbol: String
+MotionSensorViewController.swift
+	class MotionSensorViewController: SensorViewController, MotionDelegate
+	private var motionDetectionViewController: MotionDetectionViewController!
+	override func viewDidLoad()
+	override func viewWillDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	func motionDetected(detected: Bool)
+	override func didCancelSequence()
+	override func performThemeUpdate()
+SequenceCalculator.swift
+	let MinimumGapBetweenHDRExposures = 1000.0
+	class SequenceCalculator
+	static let sharedInstance = SequenceCalculator()
+	func starTrailSequenceForExposures(expCount: Int, pulse: Pulse, delay: Delay) -> Sequence
+	func hdrSequenceForExposures(var expCount: Int, midExpDuration: Double, evStep: Double, interval: Double) -> Sequence
+	func timeForSequence(sequence: [Double]) -> Double
+	func durationForModulesInMilliseconds(modules: [Modular]) -> Double
+	func maximumNumberOfExposuresForMinumumExposure(minExposure: Double, midExposure: Double, evStep: Double) -> Int
+	func minimumExposureForHDRExposures(expCount: Int, midExposure: Double, evStep: Double) -> Double
+	func brampingSequenceForExposures(expCount: Int, firstExposure: Double, lastExposure: Double, interval: Double) -> Sequence
+	func timeWarpSequenceForExposures(expCount: Int,  duration: Double, pulseLength: Double, minimumGap: Double, interpolator: CubicBezierInterpolator) -> Sequence
+CarouselViewController.swift
+	class CarouselViewController: UIViewController
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var previousButton: UIButton!
+	@IBOutlet weak var nextButton: UIButton!
+	var imagesOffsetConstraints: [NSLayoutConstraint] = []
+	let imageData = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
+	var currentIndex = 0
+	override func viewDidLoad()
+	override func viewDidLayoutSubviews()
+	private func setupScrollViewImages()
+	@IBAction func nextButtonTapped(button: UIButton)
+	@IBAction func previousButtonTapped(button: UIButton)
+	class CarouselViewController : UIViewController
+	func scrollViewDidEndDecelerating(scrollView: UIScrollView)
+	func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool)
+	func scrollViewWillBeginDragging(scrollView: UIScrollView)
+	private func moveContentOfScrollView(scrollView: UIScrollView, toIndex index: Int, withAnimation animation: Bool)
+CameraToManualFocusTransition.swift
+	class CameraToManualFocusTransition: CustomTransition
+	override func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+Array.swift
+	func sum() -> Int
+ShutterButton.swift
+	class ShutterButton: UIButton
+	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	var ringColor : UIColor = UIColor.triggertrap_naturalColor(1.0)
+	var centerColor : UIColor = UIColor.triggertrap_primaryColor(1.0)
+	var strokeColor : UIColor = UIColor.triggertrap_foregroundColor(1.0)
+	var ringAlpha : CGFloat = 1.0
+	var centerAlpha : CGFloat = 1.0
+	var strokeAlpha : CGFloat = 0.7
+	var ringWidth : CGFloat = 5.0
+	var centerRadius : CGFloat = 40.0
+	var strokeWidth : CGFloat = 1.0
+	let animationInterval = 1.0
+	let ringScaleSize: CGFloat = 2.4
+	let motionOffset = 0
+	var animating = false
+	var continuous = true
+	var timer = NSTimer()
+	var ring1 = CAShapeLayer()
+	var ring2 = CAShapeLayer()
+	var animationLayer = CALayer()
+	override init(frame: CGRect)
+	required  init?(coder aDecoder: NSCoder)
+	func animateOnce()
+	func performThemeUpdate()
+	func startAnimating()
+	func stopAnimating()
+	private func commonInit()
+	func refreshView()
+	func timerFired()
+	func animateRing1()
+	func animateRing2()
+	func addAnimationLayers()
+	func removeAnimationLayers()
+	override func drawRect(rect: CGRect)
+VibrationSensorViewController.swift
+	class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
+	@IBOutlet var circularSlider: TTCircularSlider!
+	@IBOutlet var circularVibrationLevel: TTCircularSlider!
+	@IBOutlet var nameLabel: UILabel!
+	private var sensitivityValue: Float = 0.0
+	private let motionManager = CMMotionManager()
+	private let filter = HighpassFilter(sampleRate: 30.0, cutoffFrequency: 5.0)
+	private var isTriggering: Bool = false
+	private var shouldPopNameLabel: Bool = false
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	override func didReceiveMemoryWarning()
+	override func viewDidDisappear(animated: Bool)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	override func willDispatch(dispatchable: Dispatchable)
+	override func didDispatch(dispatchable: Dispatchable)
+	override func performThemeUpdate()
+	func circularSliderValueChanged(newValue: NSNumber!)
+LeHdrTimelapseViewController.swift
+	class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTNumberPadViewDelegate
+	@IBOutlet weak var middleExposureHorizontalPicker: HorizontalPicker!
+	@IBOutlet weak var middleExposureLabel: UILabel!
+	@IBOutlet weak var numberInputView: TTTimeInput!
+	@IBOutlet weak var timelapseIntervalLabel: UILabel!
+	@IBOutlet weak var evHorizontalPicker: HorizontalPicker!
+	@IBOutlet weak var evLabel: UILabel!
+	private var count: Int = 0
+	private var numberOfShotsTaken: Int = 0
+	private var ev: double_t = 0
+	private var sequence: Sequence!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTTimeInput)
+	private func adjustMinValue()
+	private func setHorizontalPickers()
+	private func setNumberPicker()
+	private func setEV()
+	private func updateBracketLimits()
+	override func willDispatch(dispatchable: Dispatchable)
+	override func didDispatch(dispatchable: Dispatchable)
+	override func feedbackViewShowAnimationCompleted()
+	override func feedbackViewHideAnimationCompleted()
+	override func didFinishSequence()
+	override func performThemeUpdate()
+	class LeHdrTimelapseViewController : TTViewController, TTNumberInputDelegate, TTNumberPadViewDelegate
+	func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int)
+	func horizontalPicker(horizontalPicker: AnyObject!, didSelectValue value: NSNumber!)
+OnboardingNavigationViewController.swift
+	class OnboardingNavigationViewController: UINavigationController
+	override func viewDidLoad()
+	override func shouldAutorotate() -> Bool
+	override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
+	override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation
+	override func viewDidDisappear(animated: Bool)
+SoundSensorViewController.swift
+	class SoundSensorViewController: SensorViewController
+	@IBOutlet var circularSlider: TTCircularSlider!
+	@IBOutlet var circularSoundLevel: TTCircularSlider!
+	@IBOutlet var nameLabel: UILabel!
+	private var sensitivityValue: Float = 0.0
+	private var audioListener: AudioListener!
+	private var isTriggering = false
+	private var shouldPopNameLabel = false
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	override func didReceiveMemoryWarning()
+	override func viewDidDisappear(animated: Bool)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	override func willDispatch(dispatchable: Dispatchable)
+	override func didDispatch(dispatchable: Dispatchable)
+	private func showPermissionDeniedAlert()
+	override func performThemeUpdate()
+	class SoundSensorViewController : SensorViewController
+	func audioLevelsUpdated(listner: AudioListener!, averageLevel: Float, peakLevel: Float)
+	class SoundSensorViewController : SensorViewController
+	func circularSliderValueChanged(newValue: NSNumber!)
+ManualFocusToTestTriggerTransition.swift
+	class ManualFocusToTestTriggerTransition: CustomTransition
+	override func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+TimelapseViewController.swift
+	class TimelapseViewController: TTViewController, TTNumberInputDelegate
+	@IBOutlet weak var numberInputView: TTTimeInput!
+	private var numberOfShotsTaken = 0
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	private func setupNumberPicker()
+	private func adjustMinVal()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTTimeInput)
+	override func feedbackViewShowAnimationCompleted()
+	override func performThemeUpdate()
+	func TTNumberInputKeyboardDidDismiss()
+	override func willDispatch(dispatchable: Dispatchable)
+	class TimelapseViewController : TTViewController, TTNumberInputDelegate
+	func watchDidTrigger()
+Intervalometer.swift
+	case LessThanMinDelay,
+	NoMinDelay
+	public struct Intervalometer: Unwrappable
+	public let name = "Intervalometer"
+	public let time: Time
+	public let type: UnwrappableType = .Intervalometer
+	public var completionHandler: CompletionHandler = { (success) -> Void in }
+	public var modules: [Modular]
+	public var currentModule: Int
+	private let mirrorLockup: MirrorLockup?
+	private let pulse: Pulse
+	private let delay: Delay
+Time.swift
+	public struct Time
+	private let duration: Double
+	private let unit: Unit
+	public init(duration: Double, unit: Unit)
+	public var durationInMilliseconds: Double
+	public var durationInSeconds: Double
+	public var durationInMinutes: Double
+	public var durationInHours: Double
+	public var durationInDays: Double
+	public func symbol() -> String
+SplashViewController.swift
+	class SplashViewController: UIViewController
+TTViewController.swift
+	@IBOutlet weak var shutterButton: ShutterButton!
+	@IBOutlet weak var bulbButton: UIButton?
+	private var notification = MPGNotification(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
+	private var shownVolumeAlert = false
+	private var feedbackView: MGFashionMenuView!
+	private var feedbackViewIsVisible = false
+	override func viewWillAppear(animated: Bool)
+	override func viewDidAppear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	override func performThemeUpdate()
+	private func registerObservers()
+	private func showVolumeAlert()
+	private func showVolumeNotification()
+	func shutterButtonEnabled(enabled: Bool)
+	func startShutterButtonAnimation()
+	func stopShutterButtonAnimation()
+	func pop(viewToAnimate: UIView, fromScale: CGFloat, toScale: CGFloat)
+	func sufficientVolumeToTrigger() -> Bool
+	func prepareForSequence()
+	func didRemoveActiveViewController()
+	func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int)
+	func handelCancel()
+	func showFeedbackView(storyboardIdentifier: String)
+	func hideFeedbackView()
+	func feedbackViewShowAnimationCompleted()
+	func feedbackViewHideAnimationCompleted()
+	func willDispatch(dispatchable: Dispatchable)
+	func didDispatch(dispatchable: Dispatchable)
+	func didCancelSequence()
+	func didFinishSequence()
+UIFont.swift
+	class func triggertrap_metric_regular (size: CGFloat = 20.0) -> UIFont { return UIFont(name: "Metric-Regular", size: size)!}
+	class func triggertrap_metric_light (size: CGFloat = 20.0) -> UIFont { return UIFont(name: "Metric-Light", size: size)!}
+	class func triggertrap_metric_bold (size: CGFloat = 20.0) -> UIFont { return UIFont(name: "Metric-Semibold", size: size)!}
+	class func triggertrap_openSans_regular (size: CGFloat = 20.0) -> UIFont { return UIFont(name: "OpenSans", size: size)!}
+	class func triggertrap_openSans_bold (size: CGFloat = 20.0) -> UIFont { return UIFont(name: "OpenSans-Bold", size: size)!}
+Pulse.swift
+	public struct Pulse: Dispatchable
+	public let name = "Pulse"
+	public let type: DispatchableType
+	public let time: Time
+	public var completionHandler: CompletionHandler = { (success) -> Void in }
+	public init(time: Time)
+CableSelectorViewController.swift
+	class CableSelectorViewController: SplitLayoutViewController
+	private let LastCameraManufacturerSelected = "LastCameraManufacturerSelected"
+	private let LastCameraModelSelected = "LastCameraModelSelected"
+	private let LastCableModelSelected = "LastCableModelSelected"
+	private let cableSelector = CableSelector()
+	private var cameraManufacturers: [String] = Array()
+	private var cameraModelsForSelectedManufacturer: [String] = Array()
+	private var lastCameraManufacturerSelected: Int = 0
+	private var lastCameraModelSelected: Int = 0
+	private var urlForCable: String?
+	private let defaults = NSUserDefaults.standardUserDefaults()
+	@IBOutlet weak var cameraManufacturerPicker: UIPickerView!
+	@IBOutlet weak var cameraModelPicker: UIPickerView!
+	@IBOutlet weak var cableImageView: UIImageView!
+	@IBOutlet weak var buyButton: UIButton!
+	required init?(coder aDecoder: NSCoder)
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillLayoutSubviews()
+	override func viewDidDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	private func commonInit()
+	@IBAction func buyButtonTapped(_: AnyObject)
+	@IBAction func dismissViewController(button: UIButton)
+	class CableSelectorViewController : SplitLayoutViewController
+	func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+	func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView
+	class CableSelectorViewController : SplitLayoutViewController
+	func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int
+AppDelegate.swift
+	class AppDelegate: UIResponder, UIApplicationDelegate
+	var window: UIWindow?
+	private var _deviceSupportsCustomTransitions = true
+	var deviceSupportsCustomTransitions: Bool
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+	func applicationWillResignActive(application: UIApplication)
+	func applicationDidEnterBackground(application: UIApplication)
+	func applicationWillEnterForeground(application: UIApplication)
+	func applicationDidBecomeActive(application: UIApplication)
+	func applicationWillTerminate(application: UIApplication)
+	func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void)
+	func presentTutorial(vc: UIViewController)
+	func presentCableSelector(vc: UIViewController)
+	func presentInspiration(vc: UIViewController)
+SLRConstants.swift
+	let ConstAppTheme = "AppTheme"
+	let ConstThemeHasBeenUpdated = "ThemeHasBeenUpdated"
+	let ConstStoryboardIdentifierMain = "Main"
+	let ConstStoryboardIdentifierFeedback = "Feedback"
+	let ConstStoryboardIdentifierCableReleaseModes = "CableReleaseModes"
+	let ConstStoryboardIdentifierTimelapseModes = "TimelapseModes"
+	let ConstStoryboardIdentifierSensorModes = "SensorModes"
+	let ConstStoryboardIdentifierHDRModes = "HDRModes"
+	let ConstStoryboardIdentifierRemoteModes = "RemoteModes"
+	let ConstStoryboardIdentifierCalculators = "Calculators"
+	let ConstStoryboardIdentifierOptions = "Options"
+	let ConstStoryboardIdentifierLeftPanel = "LeftPanelNavigationController"
+	let ConstStoryboardIdentifierCableReleaseFeedbackView = "CableReleaseFeedbackView"
+	let ConstStoryboardIdentifierInfoFeedbackView = "InfoFeedbackView"
+	let ConstStoryboardIdentifierElapsedFeedbackView = "ElapsedFeedbackView"
+	let ConstStoryboardIdentifierDistanceFeedbackView = "DistanceFeedbackView"
+	let ConstStoryboardIdentifierExposureAndPauseFeedbackView = "ExposureAndPauseFeedbackView"
+	let ConstFirstAppLaunch = "FirstAppLaunch"
+	let ConstDefaultLastSelectedMode = "LastSelectedMode"
+	let ConstLeftPanelTableViewController = "LeftPanelTableViewController"
+	let ConstSimpleCableReleaseModeIdentifier = "Simple Cable Release"
+	let ConstQuickReleaseModeIdentifier = "Quick Release"
+	let ConstPressAndHoldIdentifier = "Press and Hold"
+	let ConstPressAndLockIdentifier = "Press and Lock"
+	let ConstTimedReleaseIdentifier = "Timed Release"
+	let ConstSelfTimerIdentifier = "Self Timer"
+	let ConstCableReleaseModes = [ConstSimpleCableReleaseModeIdentifier, ConstQuickReleaseModeIdentifier, ConstPressAndHoldIdentifier, ConstPressAndLockIdentifier, ConstTimedReleaseIdentifier, ConstSelfTimerIdentifier]
+	let ConstTimelapseModeIdentifier = "Timelapse"
+	let ConstTimelapseProModeIdentifier = "Timelapse Pro"
+	let ConstTimeWarpModeIdentifier = "TimeWarp"
+	let ConstDistanceLapseModeIdentifier = "DistanceLapse"
+	let ConstStarTrailModeIdentifier = "Star Trail"
+	let ConstBrampingModeIdentifier = "Bramping"
+	let ConstTimelapseModes = [ConstTimelapseModeIdentifier, ConstTimelapseProModeIdentifier, ConstTimeWarpModeIdentifier, ConstDistanceLapseModeIdentifier, ConstStarTrailModeIdentifier, ConstBrampingModeIdentifier]
+	let ConstSoundSensorModeIdentifier = "Sound Sensor"
+	let ConstVibrationSensorModeIdentifier = "Vibration Sensor"
+	let ConstMotionSensorModeIdentifier = "Motion Sensor"
+	let ConstPeekabooModeIdentifier = "Peekaboo"
+	let ConstSensorModes = [ConstSoundSensorModeIdentifier, ConstVibrationSensorModeIdentifier, ConstMotionSensorModeIdentifier, ConstPeekabooModeIdentifier]
+	let ConstLEHDRModeIdentifier = "LE HDR"
+	let ConstLEHDRTimelapseModeIdentifier = "LE HDR Timelapse"
+	let ConstHDRModes = [ConstLEHDRModeIdentifier, ConstLEHDRTimelapseModeIdentifier]
+	let ConstWifiMasterIsSelected = "wifiMasterIsSelected"
+	let ConstWifiDisconnected = "WifiDisconnected"
+	let ConstWifiModeIdentifier = "Wi-Fi"
+	let ConstWearablesModeIdentifier = "Wearables"
+	let ConstRemoteModes = [ConstWifiModeIdentifier, ConstWearablesModeIdentifier]
+	let ConstNDCalculatorIdentifier = "ND Calculator"
+	let ConstSolarCalculatorIdentifier = "Solar Calculator"
+	let ConstCalculators = [ConstNDCalculatorIdentifier, ConstSolarCalculatorIdentifier]
+AppleWatchManager.swift
+	class AppleWatchManager: NSObject
+	static let sharedInstance = AppleWatchManager()
+	private var session: WCSession?
+	func startSession()
+	func stopSession()
+	func updateWatchKitApplicationWithContext(title: String, running: Bool, completeExposures: Int, totalExposures: Int, timeRemaining: String)
+	private func errorHandler (error: NSError) -> Void
+	private func returnWatchError (errorCode: Int) -> String?
+	class AppleWatchManager : NSObject
+	func session(session: WCSession, didReceiveMessage message: [String : AnyObject])
+PebbleManager.swift
+	class PebbleManager: NSObject
+	private var pebbleWatch: PBWatch?
+	private let pebbleCentral = PBPebbleCentral.defaultCentral()
+	private var pebbleConnected = false
+	static let sharedInstance = PebbleManager()
+	func setupPebbleWatch()
+	func isPebbleConnected() -> Bool
+	func openPebbleApp()
+	class PebbleManager : NSObject
+	func pebbleCentral(central: PBPebbleCentral!, watchDidConnect watch: PBWatch!, isNew: Bool)
+	func pebbleCentral(central: PBPebbleCentral!, watchDidDisconnect watch: PBWatch!)
+	class PebbleManager : NSObject
+	func dataLoggingService(service: PBDataLoggingService!, hasByteArrays bytes: UnsafePointer<UInt8>, numberOfItems: UInt16, forDataLoggingSession session: PBDataLoggingSessionMetadata!) -> Bool
+SubSettingsViewController.swift
+	class SubSettingsViewController: UITableViewController
+	enum SettingsType : Int
+	case SensorDelay = 0,
+	SensorResetDelay = 1,
+	PulseLength = 2,
+	SpeedUnit = 3,
+	DistanceUnit = 4
+	var settingsType = SettingsType.SensorDelay
+	private var strings: [String] = Array()
+	private var values: [Int] = Array()
+	required init?(coder aDecoder: NSCoder)
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+VolumeToCameraTransition.swift
+	class VolumeToCameraTransition: CustomTransition
+	override func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+DistanceLapseViewController.swift
+	class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKeyboardDelegate
+	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var metersLabel: UILabel!
+	@IBOutlet weak var numberInputView: TTNumberInput!
+	private var locationManager: CLLocationManager?
+	private var locationAccuracy: CLLocationAccuracy?
+	private var distanceMajorUnit = ""
+	private var distanceMinorUnit = ""
+	private var speedUnit = ""
+	private var distanceMajorFactor: Float = 0.0
+	private var distanceMinorFactor: Float = 0.0
+	private var distanceElapsed: Float = 0.0
+	private var distanceRemaining: Float = 0.0
+	private var interval: Float = 0.0
+	private var speedMultiplier: Float = 0.0
+	private var numberOfShotsTaken = 0
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidAppear(animated: Bool)
+	override func willMoveToParentViewController(parent: UIViewController?)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTNumberInput)
+	private func refreshLocationServices()
+	private func setupCircularSlider()
+	private func setupNumberPicker()
+	private func resetDistance()
+	private func updateDistanceDisplay()
+	private func formatDistance(metres: Float) -> String
+	private func updateInterfaceForUnknownLocation()
+	private func registerForNotifications()
+	private func removeNotificationObservers()
+	func setupUnits()
+	override func performThemeUpdate()
+	override func feedbackViewShowAnimationCompleted()
+	override func didFinishSequence()
+	override func didCancelSequence()
+	class DistanceLapseViewController : TTViewController, CicularSliderDelegate, TTKeyboardDelegate
+	func TTNumberInputKeyboardDidDismiss()
+	class DistanceLapseViewController : TTViewController, CicularSliderDelegate, TTKeyboardDelegate
+	func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus)
+	func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation)
+	func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
+DongleObserver.swift
+	class DongleObserver
+	var dongleConnected = false
+	private var audioJackObserver: AnyObject!
+	static let sharedInstance = DongleObserver()
+	func dongleConnectedToPhone()
+	func startSession()
+	func endSession()
+Constants.swift
+	let MillisecondsPerSecond = 1000.0
+	let MillisecondsPerMinute = 60000.0
+	let MillisecondsPerHour = 3600000.0
+	let MillisecondsPerDay = 86400000.0
+	let SecondsInMinute = 60.0
+	let MinutesInHour = 60.0
+	let HoursInDay = 24.0
+BrampingViewController.swift
+	class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumberInputDelegate
+	@IBOutlet weak var photosNumberInputView: TTNumberInput!
+	@IBOutlet weak var exposuresLabel: UILabel!
+	@IBOutlet weak var intervalNumberInputView: TTTimeInput!
+	@IBOutlet weak var intervalLabel: UILabel!
+	@IBOutlet weak var durationDisplayLabel: TTCounterLabel!
+	@IBOutlet weak var durationLabel: UILabel!
+	@IBOutlet weak var startExposurePicker: HorizontalPicker!
+	@IBOutlet weak var startExposureLabel: UILabel!
+	@IBOutlet weak var endExposurePicker: HorizontalPicker!
+	@IBOutlet weak var endExposureLabel: UILabel!
+	private var maxValue = 0.0
+	private var shotsTakenCount = 0
+	private var currentPulseLength = 0
+	private let kStartExposurePickerTag = 111
+	private let kEndExposurePickerTag = 222
+	private var sequence: Sequence!
+	private var currentPulse = 0
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTNumberInput)
+	override func willDispatch(dispatchable: Dispatchable)
+	override func didDispatch(dispatchable: Dispatchable)
+	override func feedbackViewShowAnimationCompleted()
+	private func setupHorizontalPickers()
+	private func setupNumberPickers()
+	private func updateDisplayDuration()
+	private func updateDuration()
+	private func updateExposureValues()
+	private func setDurationMinimum()
+	func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int)
+	func horizontalPicker(horizontalPicker: AnyObject!, didSelectString string: String!)
+	func TTNumberInputKeyboardDidDismiss()
+	func numberInputDisplayValueChanged()
+	override func performThemeUpdate()
+VolumeViewController.swift
+	class VolumeViewController: OnboardingViewController
+	@IBOutlet var whiteViewDescriptionLabel: UILabel!
+	@IBOutlet var whiteViewTitleLabel: UILabel!
+	@IBOutlet var separatorLine: UIView!
+	@IBOutlet var pageControl: UIPageControl!
+	@IBOutlet var plugView: UIView! // For transition
+	@IBOutlet var donglePlugImageView: UIImageView!
+	@IBOutlet var phoneImageView: UIImageView! // For transition
+	@IBOutlet var informationView: UIView!
+	@IBOutlet var greyViewInformationLabel: UILabel! // For transition
+	@IBOutlet var greyViewPraiseLabel: UILabel! // For transition
+	@IBOutlet var dongleCableView: DongleCableView!
+	@IBOutlet var dongleView: UIView!
+	@IBOutlet var dongleBodyTopImageView: UIImageView!
+	@IBOutlet var cameraCableView: DongleCableView!
+	@IBOutlet var cameraView: UIImageView!
+	@IBOutlet var cameraConnectorBodyImageView: UIImageView!
+	@IBOutlet var dongleCoilImageView: UIImageView!
+	@IBOutlet var cameraCoilImageView: UIImageView!
+	@IBOutlet var cameraConnectorView: UIView!
+	@IBOutlet var dismissButton: UIButton!
+	private var currentPercent: Float = 50.0
+	private var myVolumeView: MPVolumeView!
+	dynamic var audioSession = AVAudioSession.sharedInstance()
+	private var outputVolume = 0
+	override func viewDidLoad()
+	override func viewDidLayoutSubviews()
+	deinit
+	private func updateDongleCableView()
+	private func updateCameraCableView()
+	private func setVolumeLabel()
+	override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+CircleTimer.swift
+	class CircleTimer: UIView
+	private var angle: CGFloat = 90
+	private var startTime: Double!
+	private var timer: NSTimer?
+	var clockwise = false
+	var progress: CGFloat = 0
+	var nightTime = false
+	var cycleDuration: Double = 1.0
+	var continuous = true
+	var indeterminate = false
+	var lineThickness: CGFloat = 4.0
+	override func awakeFromNib()
+	func start()
+	func clockDidTick(timer: NSTimer)
+	func stop()
+	func repeatProcess()
+	override func drawRect(rect: CGRect)
+KitSelectorViewController.swift
+	class KitSelectorViewController: OnboardingViewController
+	@IBOutlet var kitImageView: UIImageView!
+	@IBOutlet var whiteViewDescriptionLabel: UILabel!
+	@IBOutlet var whiteViewTitleLabel: UILabel!
+	@IBOutlet var notYetButton: UIButton!
+	@IBOutlet var descriptionLabel: UILabel!
+	@IBOutlet var separatorLine: UIView!
+	@IBOutlet var informationView: UIView!
+	@IBOutlet var greyViewInformationLabel: UILabel!
+	@IBOutlet var greyViewPraiseLabel: UILabel!
+	@IBOutlet var pageControl: UIPageControl!
+	@IBOutlet var dismissButton: UIButton!
+RemoteClient.swift
+	@objc public protocol RemoteClientDelegate
+	optional func remoteClientDidConnectToHost()
+	optional func remoteClientDidDisconnect()
+	optional func remoteClientDidRefreshServers()
+	public final class RemoteClient: NSObject
+	public static let sharedInstance = RemoteClient()
+	public var delegate: RemoteClientDelegate?
+	public var netServiceBrowser: NSNetServiceBrowser?
+	public var servers: [String: NSNetService]?
+	public var asyncSocket: GCDAsyncSocket?
+	public var serverIndices: [String?]?
+	public var currentServerName: String!
+	public var connected: Bool!
+	private var disconnecting: Bool!
+	private override init()
+	public func startSearchingForServers()
+	public func disconnectAndStop()
+	public func refreshServerList()
+	private func connectToService(service: NSNetService)
+	public func connectToCurrentServer()
+	func socket(sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16)
+	func socket(sock: GCDAsyncSocket, didReadData data: NSData, withTag tag: Double)
+	func parseData(data: NSData) -> String
+	func socketDidDisconnect(sock: GCDAsyncSocket, withError error: NSError?)
+	public final class RemoteClient : NSObject
+	public func netServiceBrowserWillSearch(browser: NSNetServiceBrowser)
+	public func netServiceBrowser(browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber])
+	public func netServiceBrowser(browser: NSNetServiceBrowser, didFindService service: NSNetService, moreComing: Bool)
+	public func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing: Bool)
+	public func netServiceBrowserDidStopSearch(browser: NSNetServiceBrowser)
+	public func netServiceDidResolveAddress(service: NSNetService)
+WearablesManager.swift
+	protocol WearableManagerDelegate
+	func watchDidTrigger()
+	class WearablesManager: NSObject
+	private var isRunning: Bool = false
+	static let sharedInstance = WearablesManager()
+	var delegate: WearableManagerDelegate?
+	func startSession()
+	func endSession()
+	func isWearablesModeRunning() -> Bool
+	func watchDidTrigger()
+Dispatchable.swift
+	public protocol Dispatchable: Modular
+	var time: Time { get }
+	var type: DispatchableType { get }
+	public protocol Dispatchable : Modular
+	public mutating func unwrap(completionHandler: CompletionHandler) -> Void
+	public func didUnwrap()
+	public func durationInMilliseconds() -> Double
+	internal func unwrapWithDispatchers()
+UIBezierPath.swift
+	class func smoothPathWithPoints(point1: CGPoint, point2: CGPoint, centerPoint: CGPoint?, cp1: CGPoint, cp2: CGPoint, cp3: CGPoint?, cp4: CGPoint?) -> UIBezierPath
+OnboardingViewController.swift
+	class OnboardingViewController: UIViewController
+	@IBAction func dismissViewController(button: UIButton)
+DispatchableLifecycle.swift
+	public protocol DispatchableLifecycle
+InspirationViewController.swift
+	class InspirationViewController: UIViewController
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var carouselHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var textView: UITextView!
+	@IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var scrollButton: UIButton!
+	@IBOutlet weak var shimmeringView: FBShimmeringView!
+	@IBOutlet weak var topGradientOverlayView: GradientOverlayView!
+	@IBOutlet weak var bottomGradientOverlayView: GradientOverlayView!
+	let padding: CGFloat = 8.0
+	let buttonHeight: CGFloat = 44.0
+	enum ActionSheetType
+	case Flickr,
+	Instagram,
+	Twitter,
+	Facebook
+	var actionSheetType: ActionSheetType?
+	override func viewDidLoad()
+	override func viewDidAppear(animated: Bool)
+	override func viewWillAppear(animated: Bool)
+	override func viewDidDisappear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	private func showActionSheet(rect: CGRect)
+	@IBAction func dismissViewController(button: UIButton)
+	@IBAction func scrollButtonTapped(button: UIButton)
+	@IBAction func flickrButtonTapped(button: UIButton)
+	@IBAction func instagramButtonTapped(button: UIButton)
+	@IBAction func twitterButtonTapped(button: UIButton)
+	@IBAction func facebookButtonTapped(button: UIButton)
+	class InspirationViewController : UIViewController
+	func scrollViewDidScroll(scrollView: UIScrollView)
+	class InspirationViewController : UIViewController
+	func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+	private func openURL(url: NSURL, withBackupURL backupURL: NSURL)
+DispatchableType.swift
+	public enum DispatchableType: String
+	case Pulse = "Pulse"
+	case Delay = "Delay"
+SequenceLifecycle.swift
+	@objc public protocol SequenceLifecycle
+SimpleCableReleaseViewController.swift
+	class SimpleCableReleaseViewController: CableReleaseViewController
+	let minimumAnimationDuration = 500
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	@IBAction func shutterButtonTouchDown(sender : UIButton)
+	override func feedbackViewShowAnimationCompleted()
+	class SimpleCableReleaseViewController : CableReleaseViewController
+	func watchDidTrigger()
+RotationNavigationViewController.swift
+	class RotationNavigationViewController: UINavigationController
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+	override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
+	override func shouldAutorotate() -> Bool
+Unwrappable.swift
+	public protocol Unwrappable: Modular
+	var modules: [Modular] { get set }
+	var currentModule: Int { get set }
+	var type: UnwrappableType { get }
+	mutating func nextModule()
+	mutating func unwrapModule()
+	public protocol Unwrappable : Modular
+	public mutating func unwrap(completionHandler: CompletionHandler) -> Void
+	public mutating func unwrapModule()
+	public mutating func nextModule()
+	public func didUnwrap()
+	public func durationInMilliseconds() -> Double
+CenterViewController.swift
+	@IBDesignable class CenterViewController: UIViewController
+	@IBInspectable var displayMenuButton: Bool = true
+	@IBInspectable var displayOptionsButton: Bool = true
+	var leftButton: UIButton?
+	var rightButton: UIButton?
+	required init?(coder aDecoder: NSCoder)
+	override func viewDidLoad()
+SensorDelayViewController.swift
+	class SensorDelayViewController: SplitLayoutViewController, TTNumberInputDelegate, TTKeyboardDelegate
+	@IBOutlet var numberInputView: TTTimeInput!
+	enum SettingsType : Int
+	case SensorDelay = 0,
+	SensorResetDelay = 1
+	var settingsType : SettingsType = SettingsType.SensorDelay
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillLayoutSubviews()
+	override func viewDidLayoutSubviews()
+	func numberInputValueChanged()
+	func dismissButtonPressed()
+ConnectKitViewController.swift
+	class ConnectKitViewController: OnboardingViewController
+	@IBOutlet var separatorLine: UIView!
+	@IBOutlet var pageControl: UIPageControl!
+	@IBOutlet var informationView: UIView!
+	@IBOutlet var greyViewInformationLabel: UILabel! // For transition
+	@IBOutlet var greyViewPraiseLabel: UILabel! // For transition
+	@IBOutlet var phoneImageView: UIImageView! // For transition
+	@IBOutlet var dongleCableView: DongleCableView! // For transition
+	@IBOutlet var plugedInView: UIView!
+	@IBOutlet var plugView: UIView!
+	@IBOutlet var donglePlugImageView: UIImageView!
+	@IBOutlet var dongleBodyTopImageView: UIImageView!
+	@IBOutlet var dongleView: UIView!
+	@IBOutlet var dongleCoilImageView: UIImageView!
+	@IBOutlet var dismissButton: UIButton!
+	override func viewDidLoad()
+	override func viewDidLayoutSubviews()
+	func updateDongleCableView()
+KitToCameraSelectorTransition.swift
+	class KitToCameraSelectorTransition: CustomTransition
+	override func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+Dispatcher.swift
+	public protocol Dispatcher
+	func dispatch(dispatchable: Dispatchable)
+UnwrappableType.swift
+	public enum UnwrappableType: String
+	case Intervalometer = "Intervalometer"
+	case MirrorLockup = "MirrorLockup"
+	case Repeat = "Repeat"
+TimedReleaseViewController.swift
+	class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDelegate
+	@IBOutlet weak var numberInputView: TTTimeInput!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	override func performThemeUpdate()
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTTimeInput)
+	override func feedbackViewShowAnimationCompleted()
+	func setupNumberPicker()
+	func adjustMinVal()
+	func TTNumberInputKeyboardDidDismiss()
+	class TimedReleaseViewController : CableReleaseViewController, TTNumberInputDelegate
+	func watchDidTrigger()
+MixpanelManager.swift
+	class MixpanelManager: NSObject
+	static let sharedInstance = MixpanelManager()
+	var enteringBackground: Bool!
+	var mixpanel: Mixpanel!
+	var startTime: NSDate!
+	var photoTaken = false
+	var timelapseCreated = false
+	func startSession()
+	func endSession()
+	func applicationDidBecomeActive(notification: NSNotification)
+	func applicationWillResignActive()
+	func trackEvent(eventName: String)
+	func trackEvent(eventName: String, withProperties properties: NSDictionary)
+TimerStyleKit.swift
+	public class TimerStyleKit : NSObject
+Symbol.swift
+	public protocol Symbol
+	var symbol: String { get }
+MainNavigationViewController.swift
+	class MainNavigationViewController: RotationNavigationViewController
+	private var sidePanelSize: CGSize
+	private var leftPanelViewController: MCPanelViewController!
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func didReceiveMemoryWarning()
+	override func viewDidDisappear(animated: Bool)
+	override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+	func menuButtonTapped(sender: UIBarButtonItem)
+	func optionsButtonTapped(sender: UIBarButtonItem)
+	func dismissLeftPanel(sender: AnyObject)
+ManualFocusViewController.swift
+	class ManualFocusViewController: OnboardingViewController
+	@IBOutlet var separatorLine: UIView!
+	@IBOutlet var greyViewInformationLabel: UILabel! // For transition
+	@IBOutlet var greyViewPraiseLabel: UILabel! // For transition
+	@IBOutlet var pageControl: UIPageControl!
+	@IBOutlet var informationView: UIView!
+	@IBOutlet var plugView: UIView! // For transition
+	@IBOutlet var plugImageView: UIImageView!
+	@IBOutlet var phoneImageView: UIImageView! // For transition
+	@IBOutlet var dongleCableView: DongleCableView!
+	@IBOutlet var dongleView: UIView!
+	@IBOutlet var dongleBodyTopImageView: UIImageView!
+	@IBOutlet var cameraCableView: DongleCableView!
+	@IBOutlet var cameraView: UIImageView!
+	@IBOutlet var cameraConnectorView: UIView!
+	@IBOutlet var cameraConnectorBodyImageView: UIImageView!
+	@IBOutlet var cameraConnectorPlugImageView: UIImageView!
+	@IBOutlet var dongleCoilImageView: UIImageView!
+	@IBOutlet var popoutShapeView: UIView!
+	@IBOutlet var manualSwitch: UISwitch!
+	@IBOutlet var dismissButton: UIButton!
+	override func viewDidLayoutSubviews()
+	func updateDongleCableView()
+	func updateCameraCableView()
+	override func viewDidAppear(animated: Bool)
+	private func turnSwitchOn()
+CameraViewController.swift
+	class CameraViewController: OnboardingViewController
+	@IBOutlet var separatorLine: UIView!
+	@IBOutlet var greyViewInformationLabel: UILabel! // For transition
+	@IBOutlet var greyViewPraiseLabel: UILabel! // For transition
+	@IBOutlet var pageControl: UIPageControl!
+	@IBOutlet var informationView: UIView!
+	@IBOutlet var pluggedView: UIView!
+	@IBOutlet var plugView: UIView! // For transition
+	@IBOutlet var plugImageView: UIImageView!
+	@IBOutlet var phoneImageView: UIImageView! // For transition
+	@IBOutlet var dongleCableView: DongleCableView!
+	@IBOutlet var cameraCableView: DongleCableView!
+	@IBOutlet var dongleView: UIView!
+	@IBOutlet var dongleBodyTopImageView: UIImageView!
+	@IBOutlet var cameraView: UIImageView!
+	@IBOutlet var cameraConnectorView: UIView!
+	@IBOutlet var cameraConnectorBodyImageView: UIImageView!
+	@IBOutlet var cameraConnectorPlugImageView: UIImageView!
+	@IBOutlet var dongleCoilImageView: UIImageView!
+	@IBOutlet var dismissButton: UIButton!
+	override func viewDidLayoutSubviews()
+	func updateDongleCableView()
+	func updateCameraCableView()
+SplitLayoutViewController.swift
+	class SplitLayoutViewController: CenterViewController
+	@IBOutlet var topLeftView: UIView!
+	@IBOutlet var bottomRightView: UIView!
+	@IBOutlet var tlWidthConstraint: NSLayoutConstraint!
+	@IBOutlet var tlHeightConstraint: NSLayoutConstraint!
+	@IBOutlet var brWidthConstraint: NSLayoutConstraint!
+	@IBOutlet var brHeightConstraint: NSLayoutConstraint!
+	var separatorView: UIView?
+	var layoutRatio: Dictionary <String, CGFloat> = iPhone ? ["top": (2.0 / 3.0), "bottom": (1.0 / 3.0)] : ["top": (3.5 / 5.0), "bottom": (1.5 / 5.0)]
+	required init?(coder aDecoder: NSCoder)
+	override func viewWillAppear(animated: Bool)
+	override func viewWillDisappear(animated: Bool)
+	override func viewWillLayoutSubviews()
+	func performThemeUpdate()
+ModeTableViewCell.swift
+	class ModeTableViewCell: BFPaperTableViewCell
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var icon: UIImageView!
+	@IBOutlet weak var square: UIView!
+	@IBOutlet weak var dividerLine: UIView!
+	var remoteSupport = false
+	var identifier: String?
+Modular.swift
+	public protocol Modular
+	var name: String { get }
+	var completionHandler: CompletionHandler { get set }
+TimeWarpViewController.swift
+	class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboardDelegate, TTControlPointDelegate
+	private let kMaxNumberOverlaps: Int =  300
+	private let kShutterButtonAnimationDuration: Double = 0.25
+	private let kClockAnimationDuration : Double = 2.5
+	@IBOutlet weak var photosNumberInputView: TTNumberInput!
+	@IBOutlet weak var durationNumberInputView: TTTimeInput!
+	@IBOutlet weak var exposuresTextLabel: UILabel!
+	@IBOutlet weak var takeTextLabel: UILabel!
+	private let interpolator = CubicBezierInterpolator()
+	private var shotsTakenCount: Int = 0
+	private var shotsToTakeCount: Int = 0
+	@IBOutlet weak var bezierGraphView: BezierGraph!
+	@IBOutlet weak var timeWarpView: UIView!
+	@IBOutlet weak var visibleView: UIView!
+	@IBOutlet weak var timeWarpInfoView: UIView!
+	@IBOutlet weak var feedbackToWhiteViewConstraint: NSLayoutConstraint!
+	@IBOutlet weak var durationFeedbackLabel: TTCounterLabel!
+	@IBOutlet weak var exposuresFeedbackLabel: UILabel!
+	@IBOutlet weak var exposuresLabel: UILabel!
+	@IBOutlet weak var durationLabel: UILabel!
+	@IBOutlet weak var tickImageView: UIImageView!
+	private var isViewHidden: Bool!
+	@IBOutlet weak var previewButton: UIButton!
+	@IBOutlet weak var clockView: UIView!
+	@IBOutlet weak var secondsView: UIView!
+	@IBOutlet weak var clockImageView:UIImageView!
+	@IBOutlet weak var clockCenterImageView: UIImageView!
+	@IBOutlet weak var clockHandleImageView: UIImageView!
+	private var clockIsAnimating: Bool = false
+	private var pauseIndex: Int = 0
+	private var sequence: Sequence!
+	private var shutterButtonAnimatingDuringPreview = false
+	override func viewDidLoad()
+	override func viewWillAppear(animated: Bool)
+	override func viewDidLayoutSubviews()
+	override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+	override func performThemeUpdate()
+	@IBAction func previewButtonPressed(sender: UIButton)
+	@IBAction func feedbackButtonPressed(sender: UIButton)
+	@IBAction func shutterButtonTouchUpInside(sender : UIButton)
+	@IBAction func openKeyboard(sender : TTNumberInput)
+	func controlPointReleased()
+	private func animateShutterButton()
+	private func animateClock()
+	private func showPreviewButtonAnimation()
+	private func hidePreviewButtonAnimation()
+	private func dismissFeedbackView(animated: Bool)
+	private func presentFeedbackView(animated: Bool)
+	private func configureInterpolator()
+	private func degreesToRadians(degrees: Double) -> Double
+	private func radiansToDegrees(radians: Double) -> Double
+	override func didDispatch(dispatchable: Dispatchable)
+	override func willDispatch(dispatchable: Dispatchable)
+	override func feedbackViewShowAnimationCompleted()
+	override func feedbackViewHideAnimationCompleted()
+	func TTNumberInputKeyboardDidDismiss()
+	func editingChanged()
+DongleCableView.swift
+	class DongleCableView: UIView
+	enum BezierPathType
+	case Dongle,
+	Camera
+	var bezierType = BezierPathType.Dongle
+	var shapeLayer: CAShapeLayer!
+	var displayLink: CADisplayLink!
+	var point1: CGPoint = CGPointZero
+	var point2: CGPoint = CGPointZero
+	var centerPoint: CGPoint = CGPointZero
+	var controlPoint1: CGPoint = CGPointZero
+	var controlPoint2: CGPoint = CGPointZero
+	var controlPoint3: CGPoint = CGPointZero
+	var controlPoint4: CGPoint = CGPointZero
+	var oldPath: CGPath!
+	override func awakeFromNib()
+	func addShapeLayer()
+	func animateShapeLayereWithDuration(duration: Double)
+	private func updateControlPoints()
+CameraSelectorToConnectTransition.swift
+	class CameraSelectorToConnectTransition: CustomTransition
+	override func animateTransition(transitionContext: UIViewControllerContextTransitioning)
+TestTriggertViewController.swift
+	class TestTriggertViewController: OnboardingViewController
+	@IBOutlet var separatorLine: UIView!
+	@IBOutlet var pageControl: UIPageControl!
+	@IBOutlet var triggertrapView: UIView!
+	@IBOutlet var bottomRightView: UIView!
+	@IBOutlet var topLeftView: UIView!
+	@IBOutlet var shutterButton: ShutterButton!
+	let sequenceManager = SequenceManager.sharedInstance
+	override func viewDidLoad()
+	override func didReceiveMemoryWarning()
+	override func viewWillAppear(animated: Bool)
+	@IBAction func shutterButtonTouchUpInside(shutterButton: ShutterButton)
+	private func dismissOnboarding()
+	class TestTriggertViewController : OnboardingViewController
+	func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int)
+SharedConstansts.swift
+	let iPhone = UIDevice.currentDevice().userInterfaceIdiom == .Phone
+	let iPad = UIDevice.currentDevice().userInterfaceIdiom == .Pad
+	let Unspecified = UIDevice.currentDevice().userInterfaceIdiom == .Unspecified
+	let constStoryboardIdentifierInspiration = "Inspiration"
+	let constStoryboardIdentifierCableSelector = "CableSelector"
+	let constStoryboardIdentifierOnboarding = "Onboarding"
+	let constSplashScreenIdentifier = "SplashScreen"
+	let constMobileKitIdentifier = "MobileKit"
+	let constUserDefaultsUserHasSeenTutorial = "UserHasSeenTutorial"
+	let constUserDefaultsScreenDimming = "ScreenDimming"
+	let constUserDefaultsscreenDimmingCurrentState = "screenDimmingCurrentState"
+	let constUserDefaultsBatteryThreshold = "BatteryThreshold"
+	let constUserDefaultsBatteryThresholdEnabled = "BatteryThresholdEnabled"
+	let constUserDefaultsWearablesEnabled = "WearablesEnabled"
+	let constUserAcquired = "User Acquired"
+	let constUserActivated = "User Activated"
+	let constMixpanelDevelopmentToken = "MixpanelDevelopmentToken"
+	let constMixpanelProductionToken = "MixpanelProductionToken"
+	let constAnalyticsEventSessionCompleted = "Session Completed"
+	let constAnalyticsPropertySessionDuration = "Session Duration"
+	let constAnalyticsPropertyLanguage = "Language"
+	let constPhotoTaken = "Photo Taken"
+	let constPebbleAppId = "PebbleAppId"
+	let constPebbleIsSelected = "PebbleIsSelected"
+	let constWatchDidTrigger = "WatchDidTrigger"
+	let constPebbleWatchStatusChanged = "PebbleWatchStatusChanged"

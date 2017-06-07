@@ -1,0 +1,69 @@
+
+/* Class = "UILabel"; text = "Sensor Reset Delay"; ObjectID = "6md-Q4-l2r"; */
+"6md-Q4-l2r.text" = "Sensor Reset Delay";
+
+/* Class = "UILabel"; text = "Kilometers per hour"; ObjectID = "7uh-K5-75U"; */
+"7uh-K5-75U.text" = "Kilometers per hour";
+
+/* Class = "UILabel"; text = "Image Credit"; ObjectID = "8P7-qA-pgX"; */
+"8P7-qA-pgX.text" = "Image Credit";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "93i-aI-ylI"; */
+"93i-aI-ylI.text" = "Version";
+
+/* Class = "UILabel"; text = "3000 ms - slow camera"; ObjectID = "CAo-u6-J8W"; */
+"CAo-u6-J8W.text" = "3000 ms - slow camera";
+
+/* Class = "UITableViewSection"; headerTitle = "App Info"; ObjectID = "GIz-xK-QjM"; */
+"GIz-xK-QjM.headerTitle" = "App Info";
+
+/* Class = "UINavigationItem"; title = "Options"; ObjectID = "HD4-rz-LCi"; */
+"HD4-rz-LCi.title" = "Options";
+
+/* Class = "UILabel"; text = "0.003 s"; ObjectID = "K35-ET-8FB"; */
+"K35-ET-8FB.text" = "0.003 s";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "Rpn-fS-YBe"; */
+"Rpn-fS-YBe.title" = "Settings";
+
+/* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "Txu-nB-aB3"; */
+"Txu-nB-aB3.headerTitle" = " ";
+
+/* Class = "UILabel"; text = "Kilometers per hour"; ObjectID = "XDZ-6q-vor"; */
+"XDZ-6q-vor.text" = "Kilometers per hour";
+
+/* Class = "UILabel"; text = "Night mode"; ObjectID = "XKg-Gn-65x"; */
+"XKg-Gn-65x.text" = "Night mode";
+
+/* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "Y07-na-HOe"; */
+"Y07-na-HOe.headerTitle" = "Settings";
+
+/* Class = "UILabel"; text = "Chris Martino"; ObjectID = "Y18-26-Qsv"; */
+"Y18-26-Qsv.text" = "Chris Martino";
+
+/* Class = "UITableViewSection"; headerTitle = "Preferences"; ObjectID = "bbK-rO-8Nr"; */
+"bbK-rO-8Nr.headerTitle" = "Preferences";
+
+/* Class = "UILabel"; text = "Speed Unit"; ObjectID = "bkn-b2-REf"; */
+"bkn-b2-REf.text" = "Speed Unit";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "cxe-fg-elU"; */
+"cxe-fg-elU.title" = "Done";
+
+/* Class = "UILabel"; text = "1s"; ObjectID = "i1e-lp-vkx"; */
+"i1e-lp-vkx.text" = "1s";
+
+/* Class = "UILabel"; text = "Reset"; ObjectID = "ujl-M8-xRn"; */
+"ujl-M8-xRn.text" = "Reset";
+
+/* Class = "UILabel"; text = "Sensor Delay"; ObjectID = "wG8-Ij-sko"; */
+"wG8-Ij-sko.text" = "Sensor Delay";
+
+/* Class = "UILabel"; text = "3.0 (241)"; ObjectID = "xWd-W7-Sf9"; */
+"xWd-W7-Sf9.text" = "3.0 (241)";
+
+/* Class = "UILabel"; text = "Pulse Length"; ObjectID = "y79-Fn-iQi"; */
+"y79-Fn-iQi.text" = "Pulse Length";
+
+/* Class = "UILabel"; text = "Distance Unit"; ObjectID = "yN5-5E-e75"; */
+"yN5-5E-e75.text" = "Distance Unit";

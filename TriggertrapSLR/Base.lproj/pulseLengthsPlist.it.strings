@@ -1,0 +1,17 @@
+/* 30 ms - flash */
+"30 ms - flash"="30 ms - flash";
+
+/* 150 ms - camera */
+"150 ms - camera"="150 ms - fotocamera";
+
+/* 500 ms - slow camera */
+"500 ms - slow camera"="500 ms - fotocamera lenta";
+
+/* 1000 ms - slow camera */
+"1000 ms - slow camera"="1000 ms - fotocamera lenta";
+
+/* 1500 ms - slow camera */
+"1500 ms - slow camera"="1500 ms - fotocamera lenta";
+
+/* 3000 ms - slow camera */
+"3000 ms - slow camera"="3000 ms - fotocamera lenta";

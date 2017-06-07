@@ -1,0 +1,194 @@
+/* No comment provided by engineer. */
+"%.0f milliseconds"="%.0f milliseconds";
+
+/* milliseconds */
+"%.0f ms"="%.0f ms";
+
+/* No comment provided by engineer. */
+"%.0f seconds"="%.0f seconds";
+
+/* seconds */
+"%.0f secs"="%.0f secs";
+
+/* No comment provided by engineer. */
+"%.1f days"="%.1f days";
+
+/* No comment provided by engineer. */
+"%.1f hours"="%.1f hours";
+
+/* hours */
+"%.1f hrs"="%.1f hrs";
+
+/* minutes */
+"%.1f mins"="%.1f mins";
+
+/* No comment provided by engineer. */
+"%.1f minutes"="%.1f minutes";
+
+/* No comment provided by engineer. */
+"%.1f seconds"="%.1f seconds";
+
+/* seconds */
+"%.1f secs"="%.1f secs";
+
+/* %@ %@ filter */
+"%@ %@ filter"="%1$@ %2$@ filter";
+
+/* %@ stop */
+"%@ stop"="%@ stop";
+
+/* %@ stops */
+"%@ stops"="%@ stops";
+
+/* %d HDR set */
+"%d HDR set"="%d HDR set";
+
+/* %d HDR sets */
+"%d HDR sets"="%d HDR sets";
+
+/* %i hours %i minutes and %i seconds */
+"%i hours %i minutes and %i seconds"="%1$i hours %2$i minutes and %3$i seconds";
+
+/* Broadcasting as:\n\n%@\n\n%d devices connected. */
+"Broadcasting as:\n\n%@\n\n%d devices connected."="Broadcasting as:\n\n%1$@\n\n%2$d devices connected.";
+
+/* Broadcasting as:\n\n%@\n\nNo slave devices connected. */
+"Broadcasting as:\n\n%@\n\nNo slave devices connected."="Broadcasting as:\n\n%@\n\nNo slave devices connected.";
+
+/* Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device! */
+"Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!"="Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!";
+
+/* Buy %@ Cable */
+"Buy %@ Cable"="Buy %@ Cable";
+
+/* Close panel */
+"Close panel"="Close panel";
+
+/* Connect to WiFi before continuing */
+"Connect to WiFi before continuing"="Connect to WiFi before continuing";
+
+/* Distance Unit */
+"Distance Unit"="Distance Unit";
+
+/* E */
+"E"="E";
+
+/* Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed. */
+"Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed."="Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed.";
+
+/* First light at %@ */
+"First light at %@"="First light at %@";
+
+/* Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson */
+"Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson "="Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson ";
+
+/* I don't know where I am... Are location services disabled, perhaps? */
+"I don't know where I am... Are location services disabled, perhaps?"="I don't know where I am... Are location services disabled, perhaps?";
+
+/* In %@ */
+"In %@"="In %@";
+
+/* km */
+"km"="km";
+
+/* km/h */
+"km/h"="km/h";
+
+/* Last light at %@ */
+"Last light at %@"="Last light at %@";
+
+/* Lost connection to Master */
+"Lost connection to Master"="Lost connection to Master";
+
+/* Low Volume */
+"Low Volume"="Low Volume";
+
+/* m */
+"m"="m";
+
+/* meters */
+"meters"="metres";
+
+/* miles */
+"miles"="miles";
+
+/* mph */
+"mph"="mph";
+
+/* N */
+"N"="N";
+
+/* Next: */
+"Next:"="Next:";
+
+/* No Wifi Detected */
+"No Wifi Detected"="No Wifi Detected";
+
+/* Not available with Wifi Master running */
+"Not available with Wifi Master running"="Not available with Wifi Master running";
+
+/* Number of exposures */
+"Number of exposures"="Number of exposures";
+
+/* Number of exposures: 3 */
+"Number of exposures: 3"="Number of exposures: 3";
+
+/* OK */
+"OK"="OK";
+
+/* Please set the volume to maximum to use Triggertrap mobile */
+"Please set the volume to maximum to use Triggertrap mobile"="Please set the volume to maximum to use Triggertrap mobile";
+
+/* Pulse Length */
+"Pulse Length"="Pulse Length";
+
+/* S */
+"S"="S";
+
+/* Sensor Delay */
+"Sensor Delay"="Sensor Delay";
+
+/* Sensor Reset Delay */
+"Sensor Reset Delay"="Sensor Reset Delay";
+
+/* Speed Unit */
+"Speed Unit"="Speed Unit";
+
+/* Sunrise */
+"Sunrise"="Sunrise";
+
+/* Sunrise Today */
+"Sunrise Today"="Sunrise Today";
+
+/* Sunrise Tomorrow */
+"Sunrise Tomorrow"="Sunrise Tomorrow";
+
+/* Sunset */
+"Sunset"="Sunset";
+
+/* Sunset Tomorrow */
+"Sunset Tomorrow"="Sunset Tomorrow";
+
+/* Sunset Tonight */
+"Sunset Tonight"="Sunset Tonight";
+
+/* That's not long enough. */
+"That's not long enough."="That's not long enough.";
+
+/* Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed. */
+"Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed."="Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.";
+
+/* W */
+"W"="W";
+
+/* Where am I? */
+"Where am I?"="Where am I?";
+
+/* Woops */
+"Woops"="Woops";
+
+/* yards */
+"yards"="yards";
+
+/* You are connected to:\n\n%@\n\nWait for the master device to trigger this device! */
+"You are connected to:\n\n%@\n\nWait for the master device to trigger this device!"="You are connected to:\n\n%@\n\nWait for the master device to trigger this device!";

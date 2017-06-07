@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="SharedResources/CableSelector/Base.lproj/CableSelector.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="Hp5-zW-ToT.normalTitle">
+        <source>Buy Cable</source>
+        <target>Buy Cable</target>
+        <note>Class = "UIButton"; normalTitle = "Buy Cable"; ObjectID = "Hp5-zW-ToT";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SharedResources/Inspiration/Base.lproj/Inspiration.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="40K-5z-nYo.text">
+        <source>Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.
+
+We love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!
+
+Many thanks to:
+Image 1 - Lurking by Tim Gamble
+Image 2 - Windmill and Thunder by Riku Kupainen
+Image 3 - by David Hopley
+Image 4 - Northern Lights by Kolbein Svensson </source>
+        <target>Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.
+
+We love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!
+
+Many thanks to:
+Image 1 - Lurking by Tim Gamble
+Image 2 - Windmill and Thunder by Riku Kupainen
+Image 3 - by David Hopley
+Image 4 - Northern Lights by Kolbein Svensson </target>
+        <note>Class = "UITextView"; text = "Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson "; ObjectID = "40K-5z-nYo";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SharedResources/Onboarding/Base.lproj/Onboarding.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="1Vd-Us-h6E.text">
+        <source>Tap the volume up button</source>
+        <target>Tap the volume up button</target>
+        <note>Class = "UILabel"; text = "Tap the volume up button"; ObjectID = "1Vd-Us-h6E";</note>
+      </trans-unit>
+      <trans-unit id="1cn-lg-XY6.text">
+        <source>Set to Manual Focus</source>
+        <target>Set to Manual Focus</target>
+        <note>Class = "UILabel"; text = "Set to Manual Focus"; ObjectID = "1cn-lg-XY6";</note>
+      </trans-unit>
+      <trans-unit id="3hW-gA-ewV.text">
+        <source>Usually found on the lens</source>
+        <target>Usually found on the lens</target>
+        <note>Class = "UILabel"; text = "Usually found on the lens"; ObjectID = "3hW-gA-ewV";</note>
+      </trans-unit>
+      <trans-unit id="7cj-Xg-fjg.text">
+        <source>I already own a Triggertrap Mobile Kit</source>
+        <target>I already own a Triggertrap Mobile Kit</target>
+        <note>Class = "UILabel"; text = "I already own a Triggertrap Mobile Kit"; ObjectID = "7cj-Xg-fjg";</note>
+      </trans-unit>
+      <trans-unit id="9m8-Oq-ofV.text">
+        <source>Manual Focus</source>
+        <target>Manual Focus</target>
+        <note>Class = "UILabel"; text = "Manual Focus"; ObjectID = "9m8-Oq-ofV";</note>
+      </trans-unit>
+      <trans-unit id="AL3-h7-rM9.text">
+        <source>You're awesome</source>
+        <target>You're awesome</target>
+        <note>Class = "UILabel"; text = "You're awesome"; ObjectID = "AL3-h7-rM9";</note>
+      </trans-unit>
+      <trans-unit id="DMo-EU-VcM.normalTitle">
+        <source>Looks juicy</source>
+        <target>Looks juicy</target>
+        <note>Class = "UIButton"; normalTitle = "Looks juicy"; ObjectID = "DMo-EU-VcM";</note>
+      </trans-unit>
+      <trans-unit id="HAc-wj-iTv.normalTitle">
+        <source>Next</source>
+        <target>Next</target>
+        <note>Class = "UIButton"; normalTitle = "Next"; ObjectID = "HAc-wj-iTv";</note>
+      </trans-unit>
+      <trans-unit id="HNt-gK-jOi.normalTitle">
+        <source>Next</source>
+        <target>Next</target>
+        <note>Class = "UIButton"; normalTitle = "Next"; ObjectID = "HNt-gK-jOi";</note>
+      </trans-unit>
+      <trans-unit id="LXV-5R-8AU.normalTitle">
+        <source>Next</source>
+        <target>Next</target>
+        <note>Class = "UIButton"; normalTitle = "Next"; ObjectID = "LXV-5R-8AU";</note>
+      </trans-unit>
+      <trans-unit id="OUT-Lt-TrE.text">
+        <source>Plug into the headphone socket</source>
+        <target>Plug into the headphone socket</target>
+        <note>Class = "UILabel"; text = "Plug into the headphone socket"; ObjectID = "OUT-Lt-TrE";</note>
+      </trans-unit>
+      <trans-unit id="Tel-gq-TVZ.text">
+        <source>Triggertrap</source>
+        <target>Triggertrap</target>
+        <note>Class = "UILabel"; text = "Triggertrap"; ObjectID = "Tel-gq-TVZ";</note>
+      </trans-unit>
+      <trans-unit id="TwK-ix-ltr.normalTitle">
+        <source>Get this Mobile Kit</source>
+        <target>Get this Mobile Kit</target>
+        <note>Class = "UIButton"; normalTitle = "Get this Mobile Kit"; ObjectID = "TwK-ix-ltr";</note>
+      </trans-unit>
+      <trans-unit id="Ucp-qm-usC.text">
+        <source>Looks like you've set things up nicely.</source>
+        <target>Looks like you've set things up nicely.</target>
+        <note>Class = "UILabel"; text = "Looks like you've set things up nicely."; ObjectID = "Ucp-qm-usC";</note>
+      </trans-unit>
+      <trans-unit id="Vsv-Hh-MjD.text">
+        <source>Select your camera</source>
+        <target>Select your camera</target>
+        <note>Class = "UILabel"; text = "Select your camera"; ObjectID = "Vsv-Hh-MjD";</note>
+      </trans-unit>
+      <trans-unit id="W4X-g7-ACc.text">
+        <source>Awesome.</source>
+        <target>Awesome.</target>
+        <note>Class = "UILabel"; text = "Awesome."; ObjectID = "W4X-g7-ACc";</note>
+      </trans-unit>
+      <trans-unit id="W8C-5h-3f8.normalTitle">
+        <source>Next</source>
+        <target>Next</target>
+        <note>Class = "UIButton"; normalTitle = "Next"; ObjectID = "W8C-5h-3f8";</note>
+      </trans-unit>
+      <trans-unit id="Xgw-5Q-cTe.text">
+        <source>Which Mobile Kit do you need?</source>
+        <target>Which Mobile Kit do you need?</target>
+        <note>Class = "UILabel"; text = "Which Mobile Kit do you need?"; ObjectID = "Xgw-5Q-cTe";</note>
+      </trans-unit>
+      <trans-unit id="YS6-0E-bfL.text">
+        <source>Connect your iOS device</source>
+        <target>Connect your iOS device</target>
+        <note>Class = "UILabel"; text = "Connect your iOS device"; ObjectID = "YS6-0E-bfL";</note>
+      </trans-unit>
+      <trans-unit id="YcA-4n-gQX.title">
+        <source>Triggertrap</source>
+        <target>Triggertrap</target>
+        <note>Class = "UIViewController"; title = "Triggertrap"; ObjectID = "YcA-4n-gQX";</note>
+      </trans-unit>
+      <trans-unit id="Ys6-wd-Lxw.normalTitle">
+        <source>Next</source>
+        <target>Next</target>
+        <note>Class = "UIButton"; normalTitle = "Next"; ObjectID = "Ys6-wd-Lxw";</note>
+      </trans-unit>
+      <trans-unit id="afE-bA-zM6.text">
+        <source>MF</source>
+        <target>MF</target>
+        <note>Class = "UILabel"; text = "MF"; ObjectID = "afE-bA-zM6";</note>
+      </trans-unit>
+      <trans-unit id="afR-Bz-tXh.text">
+        <source>Let's get the show on the road</source>
+        <target>Let's get the show on the road</target>
+        <note>Class = "UILabel"; text = "Let's get the show on the road"; ObjectID = "afR-Bz-tXh";</note>
+      </trans-unit>
+      <trans-unit id="eXY-JH-gzG.normalTitle">
+        <source>Get one today</source>
+        <target>Get one today</target>
+        <note>Class = "UIButton"; normalTitle = "Get one today"; ObjectID = "eXY-JH-gzG";</note>
+      </trans-unit>
+      <trans-unit id="fRG-sd-rWr.normalTitle">
+        <source>Next</source>
+        <target>Next</target>
+        <note>Class = "UIButton"; normalTitle = "Next"; ObjectID = "fRG-sd-rWr";</note>
+      </trans-unit>
+      <trans-unit id="gsl-dA-35G.text">
+        <source>Let’s explain</source>
+        <target>Let’s explain</target>
+        <note>Class = "UILabel"; text = "Let’s explain"; ObjectID = "gsl-dA-35G";</note>
+      </trans-unit>
+      <trans-unit id="hfr-JZ-ITX.text">
+        <source>AF</source>
+        <target>AF</target>
+        <note>Class = "UILabel"; text = "AF"; ObjectID = "hfr-JZ-ITX";</note>
+      </trans-unit>
+      <trans-unit id="ijc-xD-ZGk.normalTitle">
+        <source>Done</source>
+        <target>Done</target>
+        <note>Class = "UIButton"; normalTitle = "Done"; ObjectID = "ijc-xD-ZGk";</note>
+      </trans-unit>
+      <trans-unit id="lSy-2n-wSB.text">
+        <source>Time to set things up</source>
+        <target>Time to set things up</target>
+        <note>Class = "UILabel"; text = "Time to set things up"; ObjectID = "lSy-2n-wSB";</note>
+      </trans-unit>
+      <trans-unit id="mVC-Q6-3np.text">
+        <source>Volume to maximum</source>
+        <target>Volume to maximum</target>
+        <note>Class = "UILabel"; text = "Volume to maximum"; ObjectID = "mVC-Q6-3np";</note>
+      </trans-unit>
+      <trans-unit id="mYp-Aw-z32.text">
+        <source>You need a mobile kit to connect your camera to your iOS device. Together, they’re the world’s most powerful camera remote. Ooh.</source>
+        <target>You need a mobile kit to connect your camera to your iOS device. Together, they’re the world’s most powerful camera remote. Ooh.</target>
+        <note>Class = "UILabel"; text = "You need a mobile kit to connect your camera to your iOS device. Together, they’re the world’s most powerful camera remote. Ooh."; ObjectID = "mYp-Aw-z32";</note>
+      </trans-unit>
+      <trans-unit id="mnR-my-cup.text">
+        <source>Plug into the cable release port</source>
+        <target>Plug into the cable release port</target>
+        <note>Class = "UILabel"; text = "Plug into the cable release port"; ObjectID = "mnR-my-cup";</note>
+      </trans-unit>
+      <trans-unit id="tx7-Ah-uw4.text">
+        <source>Give it a tap!</source>
+        <target>Give it a tap!</target>
+        <note>Class = "UILabel"; text = "Give it a tap!"; ObjectID = "tx7-Ah-uw4";</note>
+      </trans-unit>
+      <trans-unit id="vWz-zk-Fk8.text">
+        <source>Connect your camera</source>
+        <target>Connect your camera</target>
+        <note>Class = "UILabel"; text = "Connect your camera"; ObjectID = "vWz-zk-Fk8";</note>
+      </trans-unit>
+      <trans-unit id="xSY-SH-sWo.text">
+        <source>Triggertrap Mobile Kit</source>
+        <target>Triggertrap Mobile Kit</target>
+        <note>Class = "UILabel"; text = "Triggertrap Mobile Kit"; ObjectID = "xSY-SH-sWo";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/AsyncSocket.strings" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="AsyncSocketCFSocketError">
+        <source>General CFSocket error</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="AsyncSocketCanceledError">
+        <source>Connection canceled</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="AsyncSocketConnectTimeoutError">
+        <source>Attempt to connect to host timed out</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="AsyncSocketReadMaxedOutError">
+        <source>Read operation reached set maximum length</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="AsyncSocketReadTimeoutError">
+        <source>Read operation timed out</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="AsyncSocketWriteTimeoutError">
+        <source>Write operation timed out</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/CableReleaseModes.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="3KM-bK-D0H.text">
+        <source>Set a time, tap the red button, and get in position!</source>
+        <target>Set a time, tap the red button, and get in position!</target>
+        <note>Class = "UILabel"; text = "Set a time, tap the red button, and get in position!"; ObjectID = "3KM-bK-D0H";</note>
+      </trans-unit>
+      <trans-unit id="3wh-IX-rtF.title">
+        <source>Simple Cable Release</source>
+        <target>Simple Cable Release</target>
+        <note>Class = "UINavigationItem"; title = "Simple Cable Release"; ObjectID = "3wh-IX-rtF";</note>
+      </trans-unit>
+      <trans-unit id="9QR-5I-PkA.title">
+        <source>Press and Hold</source>
+        <target>Press and Hold</target>
+        <note>Class = "UINavigationItem"; title = "Press and Hold"; ObjectID = "9QR-5I-PkA";</note>
+      </trans-unit>
+      <trans-unit id="BQf-Yh-GSc.title">
+        <source>Press and Lock</source>
+        <target>Press and Lock</target>
+        <note>Class = "UINavigationItem"; title = "Press and Lock"; ObjectID = "BQf-Yh-GSc";</note>
+      </trans-unit>
+      <trans-unit id="UYx-ux-cU4.text">
+        <source>Tap the big red button to make the magic happen, release the button to take a picture.</source>
+        <target>Tap the big red button to make the magic happen, release the button to take a picture.</target>
+        <note>Class = "UILabel"; text = "Tap the big red button to make the magic happen, release the button to take a picture."; ObjectID = "UYx-ux-cU4";</note>
+      </trans-unit>
+      <trans-unit id="UkO-ph-OPU.title">
+        <source>Timed Release</source>
+        <target>Timed Release</target>
+        <note>Class = "UINavigationItem"; title = "Timed Release"; ObjectID = "UkO-ph-OPU";</note>
+      </trans-unit>
+      <trans-unit id="fTY-ws-pXu.text">
+        <source>Select your favourite shutter speed. Press the button. Relax - the exposure ends when the timer runs down.</source>
+        <target>Select your favourite shutter speed. Press the button. Relax - the exposure ends when the timer runs down.</target>
+        <note>Class = "UILabel"; text = "Select your favourite shutter speed. Press the button. Relax - the exposure ends when the timer runs down."; ObjectID = "fTY-ws-pXu";</note>
+      </trans-unit>
+      <trans-unit id="gBd-wA-McX.title">
+        <source>Quick Release</source>
+        <target>Quick Release</target>
+        <note>Class = "UINavigationItem"; title = "Quick Release"; ObjectID = "gBd-wA-McX";</note>
+      </trans-unit>
+      <trans-unit id="i7B-pm-Mif.title">
+        <source>Self Timer</source>
+        <target>Self Timer</target>
+        <note>Class = "UINavigationItem"; title = "Self Timer"; ObjectID = "i7B-pm-Mif";</note>
+      </trans-unit>
+      <trans-unit id="jTD-gq-8pa.text">
+        <source>Tap the big red button to make the magic happen.</source>
+        <target>Tap the big red button to make the magic happen.</target>
+        <note>Class = "UILabel"; text = "Tap the big red button to make the magic happen."; ObjectID = "jTD-gq-8pa";</note>
+      </trans-unit>
+      <trans-unit id="vdc-pU-RrT.text">
+        <source>Touch the button to open the shutter on your camera. When you're done, touch it again to end your exposure. Easy!</source>
+        <target>Touch the button to open the shutter on your camera. When you're done, touch it again to end your exposure. Easy!</target>
+        <note>Class = "UILabel"; text = "Touch the button to open the shutter on your camera. When you're done, touch it again to end your exposure. Easy!"; ObjectID = "vdc-pU-RrT";</note>
+      </trans-unit>
+      <trans-unit id="vpT-TF-exo.text">
+        <source>Touch the button to open the shutter on your camera. To end your exposure, just let go.</source>
+        <target>Touch the button to open the shutter on your camera. To end your exposure, just let go.</target>
+        <note>Class = "UILabel"; text = "Touch the button to open the shutter on your camera. To end your exposure, just let go."; ObjectID = "vpT-TF-exo";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/Calculators.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="3tC-z5-GBq.text">
+        <source>In 6 hrs 30 min</source>
+        <target>In 6 hrs 30 min</target>
+        <note>Class = "UILabel"; text = "In 6 hrs 30 min"; ObjectID = "3tC-z5-GBq";</note>
+      </trans-unit>
+      <trans-unit id="4cl-4T-aMj.text">
+        <source>Last light at 23:30</source>
+        <target>Last light at 23:30</target>
+        <note>Class = "UILabel"; text = "Last light at 23:30"; ObjectID = "4cl-4T-aMj";</note>
+      </trans-unit>
+      <trans-unit id="Dyf-IX-b0H.text">
+        <source>1/4000</source>
+        <target>1/4000</target>
+        <note>Class = "UILabel"; text = "1/4000"; ObjectID = "Dyf-IX-b0H";</note>
+      </trans-unit>
+      <trans-unit id="Nrq-04-7Aq.text">
+        <source>Sunrise</source>
+        <target>Sunrise</target>
+        <note>Class = "UILabel"; text = "Sunrise"; ObjectID = "Nrq-04-7Aq";</note>
+      </trans-unit>
+      <trans-unit id="Ue1-XQ-LFD.text">
+        <source>--:--</source>
+        <target>--:--</target>
+        <note>Class = "UILabel"; text = "--:--"; ObjectID = "Ue1-XQ-LFD";</note>
+      </trans-unit>
+      <trans-unit id="XpM-9S-HlQ.text">
+        <source>--:--</source>
+        <target>--:--</target>
+        <note>Class = "UILabel"; text = "--:--"; ObjectID = "XpM-9S-HlQ";</note>
+      </trans-unit>
+      <trans-unit id="bl0-H5-udS.text">
+        <source>--:--</source>
+        <target>--:--</target>
+        <note>Class = "UILabel"; text = "--:--"; ObjectID = "bl0-H5-udS";</note>
+      </trans-unit>
+      <trans-unit id="bxu-oq-Nen.text">
+        <source>--:--</source>
+        <target>--:--</target>
+        <note>Class = "UILabel"; text = "--:--"; ObjectID = "bxu-oq-Nen";</note>
+      </trans-unit>
+      <trans-unit id="e4C-VQ-V0Y.text">
+        <source>1 stop (ND2) filter:</source>
+        <target>1 stop (ND2) filter:</target>
+        <note>Class = "UILabel"; text = "1 stop (ND2) filter:"; ObjectID = "e4C-VQ-V0Y";</note>
+      </trans-unit>
+      <trans-unit id="eO4-3q-DXY.text">
+        <source>H</source>
+        <target>H</target>
+        <note>Class = "UILabel"; text = "H"; ObjectID = "eO4-3q-DXY";</note>
+      </trans-unit>
+      <trans-unit id="guo-ZI-Xnw.text">
+        <source>First light at 4:30</source>
+        <target>First light at 4:30</target>
+        <note>Class = "UILabel"; text = "First light at 4:30"; ObjectID = "guo-ZI-Xnw";</note>
+      </trans-unit>
+      <trans-unit id="hed-2I-WeY.title">
+        <source>Solar Calculator</source>
+        <target>Solar Calculator</target>
+        <note>Class = "UINavigationItem"; title = "Solar Calculator"; ObjectID = "hed-2I-WeY";</note>
+      </trans-unit>
+      <trans-unit id="j60-FM-Oiv.text">
+        <source>05:35</source>
+        <target>05:35</target>
+        <note>Class = "UILabel"; text = "05:35"; ObjectID = "j60-FM-Oiv";</note>
+      </trans-unit>
+      <trans-unit id="npn-oF-CtK.text">
+        <source>Base Shutter Speed</source>
+        <target>Base Shutter Speed</target>
+        <note>Class = "UILabel"; text = "Base Shutter Speed"; ObjectID = "npn-oF-CtK";</note>
+      </trans-unit>
+      <trans-unit id="rcg-C4-e4S.text">
+        <source>22:30</source>
+        <target>22:30</target>
+        <note>Class = "UILabel"; text = "22:30"; ObjectID = "rcg-C4-e4S";</note>
+      </trans-unit>
+      <trans-unit id="sKp-Si-bMn.text">
+        <source>Next Sunset</source>
+        <target>Next Sunset</target>
+        <note>Class = "UILabel"; text = "Next Sunset"; ObjectID = "sKp-Si-bMn";</note>
+      </trans-unit>
+      <trans-unit id="saX-ad-FoD.text">
+        <source>Shutter Speed with</source>
+        <target>Shutter Speed with</target>
+        <note>Class = "UILabel"; text = "Shutter Speed with"; ObjectID = "saX-ad-FoD";</note>
+      </trans-unit>
+      <trans-unit id="weN-B0-eKU.title">
+        <source>ND Calculator</source>
+        <target>ND Calculator</target>
+        <note>Class = "UINavigationItem"; title = "ND Calculator"; ObjectID = "weN-B0-eKU";</note>
+      </trans-unit>
+      <trans-unit id="yDi-fk-pi9.text">
+        <source>In 6 hrs 30 min</source>
+        <target>In 6 hrs 30 min</target>
+        <note>Class = "UILabel"; text = "In 6 hrs 30 min"; ObjectID = "yDi-fk-pi9";</note>
+      </trans-unit>
+      <trans-unit id="zPE-jD-syU.text">
+        <source>ND Filter Strength</source>
+        <target>ND Filter Strength</target>
+        <note>Class = "UILabel"; text = "ND Filter Strength"; ObjectID = "zPE-jD-syU";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/Feedback.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="KbY-gN-dyP.text">
+        <source>00s.00</source>
+        <target>00s.00</target>
+        <note>Class = "UILabel"; text = "00s.00"; ObjectID = "KbY-gN-dyP";</note>
+      </trans-unit>
+      <trans-unit id="O7t-Il-kXw.text">
+        <source>Pause:</source>
+        <target>Pause:</target>
+        <note>Class = "UILabel"; text = "Pause:"; ObjectID = "O7t-Il-kXw";</note>
+      </trans-unit>
+      <trans-unit id="PE0-EW-4tP.text">
+        <source>0.00 mph</source>
+        <target>0.00 mph</target>
+        <note>Class = "UILabel"; text = "0.00 mph"; ObjectID = "PE0-EW-4tP";</note>
+      </trans-unit>
+      <trans-unit id="QBv-FV-1qX.text">
+        <source>00s.00</source>
+        <target>00s.00</target>
+        <note>Class = "UILabel"; text = "00s.00"; ObjectID = "QBv-FV-1qX";</note>
+      </trans-unit>
+      <trans-unit id="T9i-pY-zrB.text">
+        <source>00H 00m 00s 00</source>
+        <target>00H 00m 00s 00</target>
+        <note>Class = "UILabel"; text = "00H 00m 00s 00"; ObjectID = "T9i-pY-zrB";</note>
+      </trans-unit>
+      <trans-unit id="TaL-P8-pus.text">
+        <source>Exposure:</source>
+        <target>Exposure:</target>
+        <note>Class = "UILabel"; text = "Exposure:"; ObjectID = "TaL-P8-pus";</note>
+      </trans-unit>
+      <trans-unit id="Y8k-ma-0IG.text">
+        <source>Press the button to start listening. Move the slider to select the triggering threshold.</source>
+        <target>Press the button to start listening. Move the slider to select the triggering threshold.</target>
+        <note>Class = "UILabel"; text = "Press the button to start listening. Move the slider to select the triggering threshold."; ObjectID = "Y8k-ma-0IG";</note>
+      </trans-unit>
+      <trans-unit id="ZIP-nk-Hu1.text">
+        <source>00H 00m 00s 00</source>
+        <target>00H 00m 00s 00</target>
+        <note>Class = "UILabel"; text = "00H 00m 00s 00"; ObjectID = "ZIP-nk-Hu1";</note>
+      </trans-unit>
+      <trans-unit id="jO3-4v-gUi.text">
+        <source>5 m</source>
+        <target>5 m</target>
+        <note>Class = "UILabel"; text = "5 m"; ObjectID = "jO3-4v-gUi";</note>
+      </trans-unit>
+      <trans-unit id="jkj-oc-2a8.text">
+        <source>25 m</source>
+        <target>25 m</target>
+        <note>Class = "UILabel"; text = "25 m"; ObjectID = "jkj-oc-2a8";</note>
+      </trans-unit>
+      <trans-unit id="v4w-a7-Jbt.text">
+        <source>00s.00</source>
+        <target>00s.00</target>
+        <note>Class = "UILabel"; text = "00s.00"; ObjectID = "v4w-a7-Jbt";</note>
+      </trans-unit>
+      <trans-unit id="xDw-7X-gEN.text">
+        <source>00H 00m 00s 00</source>
+        <target>00H 00m 00s 00</target>
+        <note>Class = "UILabel"; text = "00H 00m 00s 00"; ObjectID = "xDw-7X-gEN";</note>
+      </trans-unit>
+      <trans-unit id="xNF-Kd-Fgl.text">
+        <source>Elapsed:</source>
+        <target>Elapsed:</target>
+        <note>Class = "UILabel"; text = "Elapsed:"; ObjectID = "xNF-Kd-Fgl";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/HDRModes.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="7nC-3z-TTL.text">
+        <source>EV step</source>
+        <target>EV step</target>
+        <note>Class = "UILabel"; text = "EV step"; ObjectID = "7nC-3z-TTL";</note>
+      </trans-unit>
+      <trans-unit id="9ZK-Go-Gn3.text">
+        <source>Timelapse interval</source>
+        <target>Timelapse interval</target>
+        <note>Class = "UILabel"; text = "Timelapse interval"; ObjectID = "9ZK-Go-Gn3";</note>
+      </trans-unit>
+      <trans-unit id="dJJ-75-kgd.text">
+        <source>Middle exposure</source>
+        <target>Middle exposure</target>
+        <note>Class = "UILabel"; text = "Middle exposure"; ObjectID = "dJJ-75-kgd";</note>
+      </trans-unit>
+      <trans-unit id="hyB-bU-9vA.text">
+        <source>EV step</source>
+        <target>EV step</target>
+        <note>Class = "UILabel"; text = "EV step"; ObjectID = "hyB-bU-9vA";</note>
+      </trans-unit>
+      <trans-unit id="lIp-qA-TRO.title">
+        <source>LE HDR</source>
+        <target>LE HDR</target>
+        <note>Class = "UINavigationItem"; title = "LE HDR"; ObjectID = "lIp-qA-TRO";</note>
+      </trans-unit>
+      <trans-unit id="q54-Jl-Wzy.text">
+        <source>Number of exposures</source>
+        <target>Number of exposures</target>
+        <note>Class = "UILabel"; text = "Number of exposures"; ObjectID = "q54-Jl-Wzy";</note>
+      </trans-unit>
+      <trans-unit id="qHk-rj-9ka.title">
+        <source>LE HDR Timelapse</source>
+        <target>LE HDR Timelapse</target>
+        <note>Class = "UINavigationItem"; title = "LE HDR Timelapse"; ObjectID = "qHk-rj-9ka";</note>
+      </trans-unit>
+      <trans-unit id="tP0-Pw-5Gu.text">
+        <source>Middle exposure</source>
+        <target>Middle exposure</target>
+        <note>Class = "UILabel"; text = "Middle exposure"; ObjectID = "tP0-Pw-5Gu";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body/>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/Options.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="6md-Q4-l2r.text">
+        <source>Sensor Reset Delay</source>
+        <target>Sensor Reset Delay</target>
+        <note>Class = "UILabel"; text = "Sensor Reset Delay"; ObjectID = "6md-Q4-l2r";</note>
+      </trans-unit>
+      <trans-unit id="7uh-K5-75U.text">
+        <source>Kilometers per hour</source>
+        <target>Kilometers per hour</target>
+        <note>Class = "UILabel"; text = "Kilometers per hour"; ObjectID = "7uh-K5-75U";</note>
+      </trans-unit>
+      <trans-unit id="8P7-qA-pgX.text">
+        <source>Image Credit</source>
+        <target>Image Credit</target>
+        <note>Class = "UILabel"; text = "Image Credit"; ObjectID = "8P7-qA-pgX";</note>
+      </trans-unit>
+      <trans-unit id="93i-aI-ylI.text">
+        <source>Version</source>
+        <target>Version</target>
+        <note>Class = "UILabel"; text = "Version"; ObjectID = "93i-aI-ylI";</note>
+      </trans-unit>
+      <trans-unit id="CAo-u6-J8W.text">
+        <source>3000 ms - slow camera</source>
+        <target>3000 ms - slow camera</target>
+        <note>Class = "UILabel"; text = "3000 ms - slow camera"; ObjectID = "CAo-u6-J8W";</note>
+      </trans-unit>
+      <trans-unit id="GIz-xK-QjM.headerTitle">
+        <source>App Info</source>
+        <target>App Info</target>
+        <note>Class = "UITableViewSection"; headerTitle = "App Info"; ObjectID = "GIz-xK-QjM";</note>
+      </trans-unit>
+      <trans-unit id="HD4-rz-LCi.title">
+        <source>Options</source>
+        <target>Options</target>
+        <note>Class = "UINavigationItem"; title = "Options"; ObjectID = "HD4-rz-LCi";</note>
+      </trans-unit>
+      <trans-unit id="K35-ET-8FB.text">
+        <source>0.003 s</source>
+        <target>0.003 s</target>
+        <note>Class = "UILabel"; text = "0.003 s"; ObjectID = "K35-ET-8FB";</note>
+      </trans-unit>
+      <trans-unit id="Rpn-fS-YBe.title">
+        <source>Settings</source>
+        <target>Settings</target>
+        <note>Class = "UITableViewController"; title = "Settings"; ObjectID = "Rpn-fS-YBe";</note>
+      </trans-unit>
+      <trans-unit id="Txu-nB-aB3.headerTitle">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UITableViewSection"; headerTitle = " "; ObjectID = "Txu-nB-aB3";</note>
+      </trans-unit>
+      <trans-unit id="XDZ-6q-vor.text">
+        <source>Kilometers per hour</source>
+        <target>Kilometers per hour</target>
+        <note>Class = "UILabel"; text = "Kilometers per hour"; ObjectID = "XDZ-6q-vor";</note>
+      </trans-unit>
+      <trans-unit id="XKg-Gn-65x.text">
+        <source>Night mode</source>
+        <target>Night mode</target>
+        <note>Class = "UILabel"; text = "Night mode"; ObjectID = "XKg-Gn-65x";</note>
+      </trans-unit>
+      <trans-unit id="Y07-na-HOe.headerTitle">
+        <source>Settings</source>
+        <target>Settings</target>
+        <note>Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "Y07-na-HOe";</note>
+      </trans-unit>
+      <trans-unit id="Y18-26-Qsv.text">
+        <source>Chris Martino</source>
+        <target>Chris Martino</target>
+        <note>Class = "UILabel"; text = "Chris Martino"; ObjectID = "Y18-26-Qsv";</note>
+      </trans-unit>
+      <trans-unit id="bbK-rO-8Nr.headerTitle">
+        <source>Preferences</source>
+        <target>Preferences</target>
+        <note>Class = "UITableViewSection"; headerTitle = "Preferences"; ObjectID = "bbK-rO-8Nr";</note>
+      </trans-unit>
+      <trans-unit id="bkn-b2-REf.text">
+        <source>Speed Unit</source>
+        <target>Speed Unit</target>
+        <note>Class = "UILabel"; text = "Speed Unit"; ObjectID = "bkn-b2-REf";</note>
+      </trans-unit>
+      <trans-unit id="cxe-fg-elU.title">
+        <source>Done</source>
+        <target>Done</target>
+        <note>Class = "UIBarButtonItem"; title = "Done"; ObjectID = "cxe-fg-elU";</note>
+      </trans-unit>
+      <trans-unit id="i1e-lp-vkx.text">
+        <source>1s</source>
+        <target>1s</target>
+        <note>Class = "UILabel"; text = "1s"; ObjectID = "i1e-lp-vkx";</note>
+      </trans-unit>
+      <trans-unit id="ujl-M8-xRn.text">
+        <source>Reset</source>
+        <target>Reset</target>
+        <note>Class = "UILabel"; text = "Reset"; ObjectID = "ujl-M8-xRn";</note>
+      </trans-unit>
+      <trans-unit id="wG8-Ij-sko.text">
+        <source>Sensor Delay</source>
+        <target>Sensor Delay</target>
+        <note>Class = "UILabel"; text = "Sensor Delay"; ObjectID = "wG8-Ij-sko";</note>
+      </trans-unit>
+      <trans-unit id="xWd-W7-Sf9.text">
+        <source>3.0 (241)</source>
+        <target>3.0 (241)</target>
+        <note>Class = "UILabel"; text = "3.0 (241)"; ObjectID = "xWd-W7-Sf9";</note>
+      </trans-unit>
+      <trans-unit id="y79-Fn-iQi.text">
+        <source>Pulse Length</source>
+        <target>Pulse Length</target>
+        <note>Class = "UILabel"; text = "Pulse Length"; ObjectID = "y79-Fn-iQi";</note>
+      </trans-unit>
+      <trans-unit id="yN5-5E-e75.text">
+        <source>Distance Unit</source>
+        <target>Distance Unit</target>
+        <note>Class = "UILabel"; text = "Distance Unit"; ObjectID = "yN5-5E-e75";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/RemoteModes.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="LqI-pz-Qt0.segmentTitles[0]">
+        <source>Master</source>
+        <target>Master</target>
+        <note>Class = "UISegmentedControl"; LqI-pz-Qt0.segmentTitles[0] = "Master"; ObjectID = "LqI-pz-Qt0";</note>
+      </trans-unit>
+      <trans-unit id="LqI-pz-Qt0.segmentTitles[1]">
+        <source>Slave</source>
+        <target>Slave</target>
+        <note>Class = "UISegmentedControl"; LqI-pz-Qt0.segmentTitles[1] = "Slave"; ObjectID = "LqI-pz-Qt0";</note>
+      </trans-unit>
+      <trans-unit id="Mbn-wc-wn6.title">
+        <source>Wi-Fi</source>
+        <target>Wi-Fi</target>
+        <note>Class = "UINavigationItem"; title = "Wi-Fi"; ObjectID = "Mbn-wc-wn6";</note>
+      </trans-unit>
+      <trans-unit id="OWD-9d-SuA.segmentTitles[0]">
+        <source>Pebble</source>
+        <target>Pebble</target>
+        <note>Class = "UISegmentedControl"; OWD-9d-SuA.segmentTitles[0] = "Pebble"; ObjectID = "OWD-9d-SuA";</note>
+      </trans-unit>
+      <trans-unit id="OWD-9d-SuA.segmentTitles[1]">
+        <source>Apple Watch</source>
+        <target>Apple Watch</target>
+        <note>Class = "UISegmentedControl"; OWD-9d-SuA.segmentTitles[1] = "Apple Watch"; ObjectID = "OWD-9d-SuA";</note>
+      </trans-unit>
+      <trans-unit id="ee8-vF-7lb.title">
+        <source>Wearables</source>
+        <target>Wearables</target>
+        <note>Class = "UINavigationItem"; title = "Wearables"; ObjectID = "ee8-vF-7lb";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/SensorModes.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="Xmw-3Q-SiX.title">
+        <source>Motion Sensor</source>
+        <target>Motion Sensor</target>
+        <note>Class = "UINavigationItem"; title = "Motion Sensor"; ObjectID = "Xmw-3Q-SiX";</note>
+      </trans-unit>
+      <trans-unit id="hL0-6m-xwa.title">
+        <source>Sound Sensor</source>
+        <target>Sound Sensor</target>
+        <note>Class = "UINavigationItem"; title = "Sound Sensor"; ObjectID = "hL0-6m-xwa";</note>
+      </trans-unit>
+      <trans-unit id="taN-9n-PHR.text">
+        <source>Bang</source>
+        <target>Bang</target>
+        <note>Class = "UILabel"; text = "Bang"; ObjectID = "taN-9n-PHR";</note>
+      </trans-unit>
+      <trans-unit id="uBf-D2-BU2.text">
+        <source>Seismic</source>
+        <target>Seismic</target>
+        <note>Class = "UILabel"; text = "Seismic"; ObjectID = "uBf-D2-BU2";</note>
+      </trans-unit>
+      <trans-unit id="wxM-on-Kox.title">
+        <source>Vibration Sensor</source>
+        <target>Vibration Sensor</target>
+        <note>Class = "UINavigationItem"; title = "Vibration Sensor"; ObjectID = "wxM-on-Kox";</note>
+      </trans-unit>
+      <trans-unit id="zWD-iB-8pw.title">
+        <source>Peekaboo</source>
+        <target>Peekaboo</target>
+        <note>Class = "UINavigationItem"; title = "Peekaboo"; ObjectID = "zWD-iB-8pw";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/TimelapseModes.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="4lv-da-Ccd.text">
+        <source>Trigger the shutter every</source>
+        <target>Trigger the shutter every</target>
+        <note>Class = "UILabel"; text = "Trigger the shutter every"; ObjectID = "4lv-da-Ccd";</note>
+      </trans-unit>
+      <trans-unit id="5oW-Hp-Jnd.normalTitle">
+        <source>View in App Store</source>
+        <target>View in App Store</target>
+        <note>Class = "UIButton"; normalTitle = "View in App Store"; ObjectID = "5oW-Hp-Jnd";</note>
+      </trans-unit>
+      <trans-unit id="9h7-rY-Wc0.text">
+        <source>Duration:</source>
+        <target>Duration:</target>
+        <note>Class = "UILabel"; text = "Duration:"; ObjectID = "9h7-rY-Wc0";</note>
+      </trans-unit>
+      <trans-unit id="19v-yZ-mwk.text">
+        <source>Duration:</source>
+        <target>Duration:</target>
+        <note>Class = "UILabel"; text = "Duration:"; ObjectID = "19v-yZ-mwk";</note>
+      </trans-unit>
+      <trans-unit id="Ak5-GP-nHG.text">
+        <source>exposures over</source>
+        <target>exposures over</target>
+        <note>Class = "UILabel"; text = "exposures over"; ObjectID = "Ak5-GP-nHG";</note>
+      </trans-unit>
+      <trans-unit id="EvD-m4-3Qs.text">
+        <source>Exposures:</source>
+        <target>Exposures:</target>
+        <note>Class = "UILabel"; text = "Exposures:"; ObjectID = "EvD-m4-3Qs";</note>
+      </trans-unit>
+      <trans-unit id="Lr9-Gc-v4e.title">
+        <source>DistanceLapse</source>
+        <target>DistanceLapse</target>
+        <note>Class = "UINavigationItem"; title = "DistanceLapse"; ObjectID = "Lr9-Gc-v4e";</note>
+      </trans-unit>
+      <trans-unit id="S40-Uq-DQC.text">
+        <source>00m:00s.00</source>
+        <target>00m:00s.00</target>
+        <note>Class = "UILabel"; text = "00m:00s.00"; ObjectID = "S40-Uq-DQC";</note>
+      </trans-unit>
+      <trans-unit id="SfC-po-dSS.text">
+        <source>10099</source>
+        <target>10099</target>
+        <note>Class = "UILabel"; text = "10099"; ObjectID = "SfC-po-dSS";</note>
+      </trans-unit>
+      <trans-unit id="TOn-aU-Bpg.text">
+        <source>00m00s.00</source>
+        <target>00m00s.00</target>
+        <note>Class = "UILabel"; text = "00m00s.00"; ObjectID = "TOn-aU-Bpg";</note>
+      </trans-unit>
+      <trans-unit id="Tzg-Ue-pji.text">
+        <source>Select an interval between shots, and then tap the button.</source>
+        <target>Select an interval between shots, and then tap the button.</target>
+        <note>Class = "UILabel"; text = "Select an interval between shots, and then tap the button."; ObjectID = "Tzg-Ue-pji";</note>
+      </trans-unit>
+      <trans-unit id="XL3-wx-zPv.text">
+        <source>Interval:</source>
+        <target>Interval:</target>
+        <note>Class = "UILabel"; text = "Interval:"; ObjectID = "XL3-wx-zPv";</note>
+      </trans-unit>
+      <trans-unit id="YZp-3P-pTL.text">
+        <source>Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
+
+Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</source>
+        <target>Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
+
+Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</target>
+        <note>Class = "UITextView"; text = "Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed."; ObjectID = "YZp-3P-pTL";</note>
+      </trans-unit>
+      <trans-unit id="Zdp-h4-7Yl.text">
+        <source>Exposures:</source>
+        <target>Exposures:</target>
+        <note>Class = "UILabel"; text = "Exposures:"; ObjectID = "Zdp-h4-7Yl";</note>
+      </trans-unit>
+      <trans-unit id="d8l-9z-3Gq.title">
+        <source>Timelapse Pro</source>
+        <target>Timelapse Pro</target>
+        <note>Class = "UINavigationItem"; title = "Timelapse Pro"; ObjectID = "d8l-9z-3Gq";</note>
+      </trans-unit>
+      <trans-unit id="e7M-aL-qBb.text">
+        <source>meters</source>
+        <target>meters</target>
+        <note>Class = "UILabel"; text = "meters"; ObjectID = "e7M-aL-qBb";</note>
+      </trans-unit>
+      <trans-unit id="fJq-Hi-t1C.text">
+        <source>with a gap between each of</source>
+        <target>with a gap between each of</target>
+        <note>Class = "UILabel"; text = "with a gap between each of"; ObjectID = "fJq-Hi-t1C";</note>
+      </trans-unit>
+      <trans-unit id="gXk-Tx-JH4.title">
+        <source>Bramping</source>
+        <target>Bramping</target>
+        <note>Class = "UINavigationItem"; title = "Bramping"; ObjectID = "gXk-Tx-JH4";</note>
+      </trans-unit>
+      <trans-unit id="hsB-MO-TwE.title">
+        <source>Star Trail</source>
+        <target>Star Trail</target>
+        <note>Class = "UINavigationItem"; title = "Star Trail"; ObjectID = "hsB-MO-TwE";</note>
+      </trans-unit>
+      <trans-unit id="i8a-cr-FXA.title">
+        <source>Timelapse</source>
+        <target>Timelapse</target>
+        <note>Class = "UINavigationItem"; title = "Timelapse"; ObjectID = "i8a-cr-FXA";</note>
+      </trans-unit>
+      <trans-unit id="r1I-pJ-Oqk.text">
+        <source>Take</source>
+        <target>Take</target>
+        <note>Class = "UILabel"; text = "Take"; ObjectID = "r1I-pJ-Oqk";</note>
+      </trans-unit>
+      <trans-unit id="tC3-Dg-B0z.text">
+        <source>Start:</source>
+        <target>Start:</target>
+        <note>Class = "UILabel"; text = "Start:"; ObjectID = "tC3-Dg-B0z";</note>
+      </trans-unit>
+      <trans-unit id="ub3-Wu-w1f.text">
+        <source>End:</source>
+        <target>End:</target>
+        <note>Class = "UILabel"; text = "End:"; ObjectID = "ub3-Wu-w1f";</note>
+      </trans-unit>
+      <trans-unit id="w9v-tG-RB7.normalTitle">
+        <source>Tell me more!</source>
+        <target>Tell me more!</target>
+        <note>Class = "UIButton"; normalTitle = "Tell me more!"; ObjectID = "w9v-tG-RB7";</note>
+      </trans-unit>
+      <trans-unit id="y6f-Fr-B2U.text">
+        <source>exposures of duration</source>
+        <target>exposures of duration</target>
+        <note>Class = "UILabel"; text = "exposures of duration"; ObjectID = "y6f-Fr-B2U";</note>
+      </trans-unit>
+      <trans-unit id="ya0-mI-drS.title">
+        <source>TimeWarp</source>
+        <target>TimeWarp</target>
+        <note>Class = "UINavigationItem"; title = "TimeWarp"; ObjectID = "ya0-mI-drS";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Base.lproj/WifiCell.xib" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="aRY-gO-E4J.text">
+        <source>No devices connected</source>
+        <target>No devices connected</target>
+        <note>Class = "UILabel"; text = "No devices connected"; ObjectID = "aRY-gO-E4J";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/GCDAsyncSocket.strings" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="GCDAsyncSocketClosedError">
+        <source>Socket closed by remote peer</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="GCDAsyncSocketConnectTimeoutError">
+        <source>Attempt to connect to host timed out</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="GCDAsyncSocketReadMaxedOutError">
+        <source>Read operation reached set maximum length</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="GCDAsyncSocketReadTimeoutError">
+        <source>Read operation timed out</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="GCDAsyncSocketWriteTimeoutError">
+        <source>Write operation timed out</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/GCDAsyncUdpSocket.strings" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="GCDAsyncUdpSocketClosedError">
+        <source>Socket closed</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="GCDAsyncUdpSocketSendTimeoutError">
+        <source>Send operation timed out</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/Info.plist" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>Triggertrap</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>4.0</source>
+      </trans-unit>
+      <trans-unit id="NSLocationAlwaysUsageDescription">
+        <source>I don't know where I am... Are location services disabled, perhaps?</source>
+        <target>Ich weiß nicht, wo ich bin... Sind die Ortungsdienste vielleicht deaktiviert?</target>
+      </trans-unit>
+      <trans-unit id="NSLocationWhenInUseUsageDescription">
+        <source>I don't know where I am... Are location services disabled, perhaps?</source>
+        <target>Ich weiß nicht, wo ich bin... Sind die Ortungsdienste vielleicht deaktiviert?</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLR/en.lproj/Localizable.strings" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="%.0f milliseconds">
+        <source>%.0f milliseconds</source>
+        <target>%.0f milliseconds</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%.0f ms">
+        <source>%.0f ms</source>
+        <target>%.0f ms</target>
+        <note>milliseconds</note>
+      </trans-unit>
+      <trans-unit id="%.0f seconds">
+        <source>%.0f seconds</source>
+        <target>%.0f seconds</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%.0f secs">
+        <source>%.0f secs</source>
+        <target>%.0f secs</target>
+        <note>seconds</note>
+      </trans-unit>
+      <trans-unit id="%.1f days">
+        <source>%.1f days</source>
+        <target>%.1f days</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%.1f hours">
+        <source>%.1f hours</source>
+        <target>%.1f hours</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%.1f hrs">
+        <source>%.1f hrs</source>
+        <target>%.1f hrs</target>
+        <note>hours</note>
+      </trans-unit>
+      <trans-unit id="%.1f mins">
+        <source>%.1f mins</source>
+        <target>%.1f mins</target>
+        <note>minutes</note>
+      </trans-unit>
+      <trans-unit id="%.1f minutes">
+        <source>%.1f minutes</source>
+        <target>%.1f minutes</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%.1f seconds">
+        <source>%.1f seconds</source>
+        <target>%.1f seconds</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%.1f secs">
+        <source>%.1f secs</source>
+        <target>%.1f secs</target>
+        <note>seconds</note>
+      </trans-unit>
+      <trans-unit id="%@ %@ filter">
+        <source>%1$@ %2$@ filter</source>
+        <target>%1$@ %2$@ filter</target>
+        <note>%@ %@ filter</note>
+      </trans-unit>
+      <trans-unit id="%@ stop">
+        <source>%@ stop</source>
+        <target>%@ stop</target>
+        <note>%@ stop</note>
+      </trans-unit>
+      <trans-unit id="%@ stops">
+        <source>%@ stops</source>
+        <target>%@ stops</target>
+        <note>%@ stops</note>
+      </trans-unit>
+      <trans-unit id="%d HDR set">
+        <source>%d HDR set</source>
+        <target>%d HDR set</target>
+        <note>%d HDR set</note>
+      </trans-unit>
+      <trans-unit id="%d HDR sets">
+        <source>%d HDR sets</source>
+        <target>%d HDR sets</target>
+        <note>%d HDR sets</note>
+      </trans-unit>
+      <trans-unit id="%i hours %i minutes and %i seconds">
+        <source>%1$i hours %2$i minutes and %3$i seconds</source>
+        <target>%1$i hours %2$i minutes and %3$i seconds</target>
+        <note>%i hours %i minutes and %i seconds</note>
+      </trans-unit>
+      <trans-unit id="A mode is already running in the background.">
+        <source>A mode is already running in the background.</source>
+        <target>A mode is already running in the background.</target>
+        <note>A mode is already running in the background.</note>
+      </trans-unit>
+      <trans-unit id="Broadcasting as:\n\n%@\n\n%d devices connected.">
+        <source>Broadcasting as:
+
+%1$@
+
+%2$d devices connected.</source>
+        <target>Broadcasting as:
+
+%1$@
+
+%2$d devices connected.</target>
+        <note>Broadcasting as:\n\n%@\n\n%d devices connected.</note>
+      </trans-unit>
+      <trans-unit id="Broadcasting as:\n\n%@\n\nNo slave devices connected.">
+        <source>Broadcasting as:
+
+%@
+
+No slave devices connected.</source>
+        <target>Broadcasting as:
+
+%@
+
+No slave devices connected.</target>
+        <note>Broadcasting as:\n\n%@\n\nNo slave devices connected.</note>
+      </trans-unit>
+      <trans-unit id="Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!">
+        <source>Broadcasting as:
+
+%@
+
+Wait for slave devices to connect to this device!</source>
+        <target>Broadcasting as:
+
+%@
+
+Wait for slave devices to connect to this device!</target>
+        <note>Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!</note>
+      </trans-unit>
+      <trans-unit id="Bulb Required!">
+        <source>Bulb Required!</source>
+        <target>Bulb Required!</target>
+        <note>Bulb Required!</note>
+      </trans-unit>
+      <trans-unit id="Buy %@ Cable">
+        <source>Buy %@ Cable</source>
+        <target>Buy %@ Cable</target>
+        <note>Buy %@ Cable</note>
+      </trans-unit>
+      <trans-unit id="Camera busy">
+        <source>Camera busy</source>
+        <target>Camera busy</target>
+        <note>Camera busy</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Cancel</note>
+      </trans-unit>
+      <trans-unit id="Cellular">
+        <source>Cellular</source>
+        <target>Cellular</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Close panel">
+        <source>Close panel</source>
+        <target>Close panel</target>
+        <note>Close panel</note>
+      </trans-unit>
+      <trans-unit id="Connect to WiFi before continuing">
+        <source>Connect to WiFi before continuing</source>
+        <target>Connect to WiFi before continuing</target>
+        <note>Connect to WiFi before continuing</note>
+      </trans-unit>
+      <trans-unit id="Current volume: %.0f%%">
+        <source>Current volume: %.0f%%</source>
+        <target>Current volume: %.0f%%</target>
+        <note>Current volume: %.0f%%</note>
+      </trans-unit>
+      <trans-unit id="Distance Unit">
+        <source>Distance Unit</source>
+        <target>Distance Unit</target>
+        <note>Distance Unit</note>
+      </trans-unit>
+      <trans-unit id="E">
+        <source>E</source>
+        <target>E</target>
+        <note>E</note>
+      </trans-unit>
+      <trans-unit id="Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed.">
+        <source>Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed.</source>
+        <target>Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed.</target>
+        <note>Exposures need to be shorter than the interval. Choose a longer duration or shorter shutter speed.</note>
+      </trans-unit>
+      <trans-unit id="First light at %@">
+        <source>First light at %@</source>
+        <target>First light at %@</target>
+        <note>First light at %@</note>
+      </trans-unit>
+      <trans-unit id="Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson ">
+        <source>Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.
+
+We love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!
+
+Many thanks to:
+Image 1 - Lurking by Tim Gamble
+Image 2 - Windmill and Thunder by Riku Kupainen
+Image 3 - by David Hopley
+Image 4 - Northern Lights by Kolbein Svensson </source>
+        <target>Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.
+
+We love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!
+
+Many thanks to:
+Image 1 - Lurking by Tim Gamble
+Image 2 - Windmill and Thunder by Riku Kupainen
+Image 3 - by David Hopley
+Image 4 - Northern Lights by Kolbein Svensson </target>
+        <note>Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson</note>
+      </trans-unit>
+      <trans-unit id="I can't hear you">
+        <source>I can't hear you</source>
+        <target>I can't hear you</target>
+        <note>I can't hear you</note>
+      </trans-unit>
+      <trans-unit id="I can't hear you .. Is microphone permission disabled, perhaps?">
+        <source>I can't hear you .. Is microphone permission disabled, perhaps?</source>
+        <target>I can't hear you .. Is microphone permission disabled, perhaps?</target>
+        <note>I can't hear you .. Is microphone permission disabled, perhaps?</note>
+      </trans-unit>
+      <trans-unit id="I don't know where I am... Are location services disabled, perhaps?">
+        <source>I don't know where I am... Are location services disabled, perhaps?</source>
+        <target>I don't know where I am... Are location services disabled, perhaps?</target>
+        <note>I don't know where I am... Are location services disabled, perhaps?</note>
+      </trans-unit>
+      <trans-unit id="In %@">
+        <source>In %@</source>
+        <target>In %@</target>
+        <note>In %@</note>
+      </trans-unit>
+      <trans-unit id="Last light at %@">
+        <source>Last light at %@</source>
+        <target>Last light at %@</target>
+        <note>Last light at %@</note>
+      </trans-unit>
+      <trans-unit id="Listening for your wearable. Navigate to a Wearables compatible mode, and you’re ready to use your Wearable to trigger your camera.">
+        <source>Listening for your wearable. Navigate to a Wearables compatible mode, and you’re ready to use your Wearable to trigger your camera.</source>
+        <target>Listening for your wearable. Navigate to a Wearables compatible mode, and you’re ready to use your Wearable to trigger your camera.</target>
+        <note>Listening for your wearable. Navigate to a Wearables compatible mode, and you’re ready to use your Wearable to trigger your camera.</note>
+      </trans-unit>
+      <trans-unit id="Lost connection to Master">
+        <source>Lost connection to Master</source>
+        <target>Lost connection to Master</target>
+        <note>Lost connection to Master</note>
+      </trans-unit>
+      <trans-unit id="Low Volume">
+        <source>Low Volume</source>
+        <target>Low Volume</target>
+        <note>Low Volume</note>
+      </trans-unit>
+      <trans-unit id="N">
+        <source>N</source>
+        <target>N</target>
+        <note>N</note>
+      </trans-unit>
+      <trans-unit id="Next:">
+        <source>Next:</source>
+        <target>Next:</target>
+        <note>Next:</note>
+      </trans-unit>
+      <trans-unit id="No Connection">
+        <source>No Connection</source>
+        <target>No Connection</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No Wifi Detected">
+        <source>No Wifi Detected</source>
+        <target>No Wifi Detected</target>
+        <note>No Wifi Detected</note>
+      </trans-unit>
+      <trans-unit id="Not available with Wearable mode running">
+        <source>Not available with Wearable mode running</source>
+        <target>Not available with Wearable mode running</target>
+        <note>Not available with Wearable mode running</note>
+      </trans-unit>
+      <trans-unit id="Not available with Wifi Master running">
+        <source>Not available with Wifi Master running</source>
+        <target>Not available with Wifi Master running</target>
+        <note>Not available with Wifi Master running</note>
+      </trans-unit>
+      <trans-unit id="Number of exposures">
+        <source>Number of exposures</source>
+        <target>Number of exposures</target>
+        <note>Number of exposures</note>
+      </trans-unit>
+      <trans-unit id="Number of exposures: 3">
+        <source>Number of exposures: 3</source>
+        <target>Number of exposures: 3</target>
+        <note>Number of exposures: 3</note>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>OK</source>
+        <target>OK</target>
+        <note>OK</note>
+      </trans-unit>
+      <trans-unit id="Open in App Store">
+        <source>Open in App Store</source>
+        <target>Open in App Store</target>
+        <note>Open in App Store</note>
+      </trans-unit>
+      <trans-unit id="Open in Facebook">
+        <source>Open in Facebook</source>
+        <target>Open in Facebook</target>
+        <note>Open in Facebook</note>
+      </trans-unit>
+      <trans-unit id="Open in Flickr">
+        <source>Open in Flickr</source>
+        <target>Open in Flickr</target>
+        <note>Open in Flickr</note>
+      </trans-unit>
+      <trans-unit id="Open in Instagram">
+        <source>Open in Instagram</source>
+        <target>Open in Instagram</target>
+        <note>Open in Instagram</note>
+      </trans-unit>
+      <trans-unit id="Open in Safari">
+        <source>Open in Safari</source>
+        <target>Open in Safari</target>
+        <note>Open in Safari</note>
+      </trans-unit>
+      <trans-unit id="Open in Twitter">
+        <source>Open in Twitter</source>
+        <target>Open in Twitter</target>
+        <note>Open in Twitter</note>
+      </trans-unit>
+      <trans-unit id="Please make sure your camera is set to Bulb to use this mode correctly.">
+        <source>Please make sure your camera is set to Bulb to use this mode correctly.</source>
+        <target>Please make sure your camera is set to Bulb to use this mode correctly.</target>
+        <note>Please make sure your camera is set to Bulb to use this mode correctly.</note>
+      </trans-unit>
+      <trans-unit id="Please set the volume to maximum to use Triggertrap mobile">
+        <source>Please set the volume to maximum to use Triggertrap mobile</source>
+        <target>Please set the volume to maximum to use Triggertrap mobile</target>
+        <note>Please set the volume to maximum to use Triggertrap mobile</note>
+      </trans-unit>
+      <trans-unit id="Pulse Length">
+        <source>Pulse Length</source>
+        <target>Pulse Length</target>
+        <note>Pulse Length</note>
+      </trans-unit>
+      <trans-unit id="S">
+        <source>S</source>
+        <target>S</target>
+        <note>S</note>
+      </trans-unit>
+      <trans-unit id="Sensor Delay">
+        <source>Sensor Delay</source>
+        <target>Sensor Delay</target>
+        <note>Sensor Delay</note>
+      </trans-unit>
+      <trans-unit id="Sensor Reset Delay">
+        <source>Sensor Reset Delay</source>
+        <target>Sensor Reset Delay</target>
+        <note>Sensor Reset Delay</note>
+      </trans-unit>
+      <trans-unit id="Set to 100%">
+        <source>Set to 100%</source>
+        <target>Set to 100%</target>
+        <note>Set to 100%</note>
+      </trans-unit>
+      <trans-unit id="Speed Unit">
+        <source>Speed Unit</source>
+        <target>Speed Unit</target>
+        <note>Speed Unit</note>
+      </trans-unit>
+      <trans-unit id="Sunrise">
+        <source>Sunrise</source>
+        <target>Sunrise</target>
+        <note>Sunrise</note>
+      </trans-unit>
+      <trans-unit id="Sunrise Today">
+        <source>Sunrise Today</source>
+        <target>Sunrise Today</target>
+        <note>Sunrise Today</note>
+      </trans-unit>
+      <trans-unit id="Sunrise Tomorrow">
+        <source>Sunrise Tomorrow</source>
+        <target>Sunrise Tomorrow</target>
+        <note>Sunrise Tomorrow</note>
+      </trans-unit>
+      <trans-unit id="Sunset">
+        <source>Sunset</source>
+        <target>Sunset</target>
+        <note>Sunset</note>
+      </trans-unit>
+      <trans-unit id="Sunset Tomorrow">
+        <source>Sunset Tomorrow</source>
+        <target>Sunset Tomorrow</target>
+        <note>Sunset Tomorrow</note>
+      </trans-unit>
+      <trans-unit id="Sunset Tonight">
+        <source>Sunset Tonight</source>
+        <target>Sunset Tonight</target>
+        <note>Sunset Tonight</note>
+      </trans-unit>
+      <trans-unit id="Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master.">
+        <source>Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master.</source>
+        <target>Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master.</target>
+        <note>Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master.</note>
+      </trans-unit>
+      <trans-unit id="Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch.">
+        <source>Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch.</source>
+        <target>Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch.</target>
+        <note>Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch.</note>
+      </trans-unit>
+      <trans-unit id="Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble.">
+        <source>Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble.</source>
+        <target>Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble.</target>
+        <note>Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble.</note>
+      </trans-unit>
+      <trans-unit id="Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active.">
+        <source>Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active.</source>
+        <target>Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active.</target>
+        <note>Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active.</note>
+      </trans-unit>
+      <trans-unit id="That's not long enough.">
+        <source>That's not long enough.</source>
+        <target>That's not long enough.</target>
+        <note>That's not long enough.</note>
+      </trans-unit>
+      <trans-unit id="Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.">
+        <source>Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
+
+Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</source>
+        <target>Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
+
+Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</target>
+        <note>Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</note>
+      </trans-unit>
+      <trans-unit id="W">
+        <source>W</source>
+        <target>W</target>
+        <note>W</note>
+      </trans-unit>
+      <trans-unit id="Where am I?">
+        <source>Where am I?</source>
+        <target>Where am I?</target>
+        <note>Where am I?</note>
+      </trans-unit>
+      <trans-unit id="WiFi">
+        <source>WiFi</source>
+        <target>WiFi</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Woops">
+        <source>Woops</source>
+        <target>Woops</target>
+        <note>Woops</note>
+      </trans-unit>
+      <trans-unit id="You are connected to:\n\n%@\n\nWait for the master device to trigger this device!">
+        <source>You are connected to:
+
+%@
+
+Wait for the master device to trigger this device!</source>
+        <target>You are connected to:
+
+%@
+
+Wait for the master device to trigger this device!</target>
+        <note>You are connected to:\n\n%@\n\nWait for the master device to trigger this device!</note>
+      </trans-unit>
+      <trans-unit id="km">
+        <source>km</source>
+        <target>km</target>
+        <note>km</note>
+      </trans-unit>
+      <trans-unit id="km/h">
+        <source>km/h</source>
+        <target>km/h</target>
+        <note>km/h</note>
+      </trans-unit>
+      <trans-unit id="m">
+        <source>m</source>
+        <target>m</target>
+        <note>m</note>
+      </trans-unit>
+      <trans-unit id="m/s">
+        <source>m/s</source>
+        <target>m/s</target>
+        <note>m/s</note>
+      </trans-unit>
+      <trans-unit id="meters">
+        <source>meters</source>
+        <target>meters</target>
+        <note>meters</note>
+      </trans-unit>
+      <trans-unit id="miles">
+        <source>miles</source>
+        <target>miles</target>
+        <note>miles</note>
+      </trans-unit>
+      <trans-unit id="mph">
+        <source>mph</source>
+        <target>mph</target>
+        <note>mph</note>
+      </trans-unit>
+      <trans-unit id="yards">
+        <source>yards</source>
+        <target>yards</target>
+        <note>yards</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapSLRTests/Info.plist" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapTLP/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="8ie-xW-0ye.text">
+        <source>Copyright (c) 2015 Triggertrap Limited. All rights reserved.</source>
+        <target>  Copyright (c) 2015 Triggertrap Limited. All rights reserved.</target>
+        <note>Class = "UILabel"; text = "Copyright (c) 2015 Triggertrap Limited. All rights reserved."; ObjectID = "8ie-xW-0ye";</note>
+      </trans-unit>
+      <trans-unit id="kId-c2-rCX.text">
+        <source>TriggertrapTLP</source>
+        <target>TriggertrapTLP</target>
+        <note>Class = "UILabel"; text = "TriggertrapTLP"; ObjectID = "kId-c2-rCX";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapTLP/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body/>
+  </file>
+  <file original="TriggertrapTLP/Info.plist" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>Timelapse Pro</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>2.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapTLP/Localizable.strings" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="A mode is already running in the background.">
+        <source>A mode is already running in the background.</source>
+        <note>A mode is already running in the background.</note>
+      </trans-unit>
+      <trans-unit id="Buy %@ Cable">
+        <source>Buy %@ Cable</source>
+        <note>Buy %@ Cable</note>
+      </trans-unit>
+      <trans-unit id="Camera busy">
+        <source>Camera busy</source>
+        <note>Camera busy</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <note>Cancel</note>
+      </trans-unit>
+      <trans-unit id="Cellular">
+        <source>Cellular</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Current volume: %.0f%%">
+        <source>Current volume: %.0f%%</source>
+        <note>Current volume: %.0f%%</note>
+      </trans-unit>
+      <trans-unit id="Lost connection to Master">
+        <source>Lost connection to Master</source>
+        <note>Lost connection to Master</note>
+      </trans-unit>
+      <trans-unit id="No Connection">
+        <source>No Connection</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>OK</source>
+        <note>OK</note>
+      </trans-unit>
+      <trans-unit id="Open in Safari">
+        <source>Open in Safari</source>
+        <note>Open in Safari</note>
+      </trans-unit>
+      <trans-unit id="Set to 100%">
+        <source>Set to 100%</source>
+        <note>Set to 100%</note>
+      </trans-unit>
+      <trans-unit id="WiFi">
+        <source>WiFi</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Woops">
+        <source>Woops</source>
+        <note>Woops</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="TriggertrapTLPTests/Info.plist" source-language="en" datatype="plaintext" target-language="de">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.1" build-num="7B91b"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>Cable Release Modes</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Simple Cable Release</string>
+				<key>identifier</key>
+				<string>Simple Cable Release</string>
+				<key>description</key>
+				<string>Tap the button to take a picture</string>
+				<key>icon</key>
+				<string>SimpleCableReleaseIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Quick Release</string>
+				<key>identifier</key>
+				<string>Quick Release</string>
+				<key>description</key>
+				<string>Release button to take a picture</string>
+				<key>icon</key>
+				<string>QuickReleaseIcon</string>
+				<key>wearablesSupported</key>
+				<false/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Press and Hold</string>
+				<key>identifier</key>
+				<string>Press and Hold</string>
+				<key>description</key>
+				<string>Touch to start, release to stop</string>
+				<key>icon</key>
+				<string>PressAndHoldIcon</string>
+				<key>wearablesSupported</key>
+				<false/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Press and Lock</string>
+				<key>identifier</key>
+				<string>Press and Lock</string>
+				<key>description</key>
+				<string>Touch to start, touch to stop</string>
+				<key>icon</key>
+				<string>PressAndLockIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Timed Release</string>
+				<key>identifier</key>
+				<string>Timed Release</string>
+				<key>description</key>
+				<string>Choose your shutter speed</string>
+				<key>icon</key>
+				<string>TimedReleaseIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Self Timer</string>
+				<key>identifier</key>
+				<string>Self Timer</string>
+				<key>description</key>
+				<string>Photo in 3... 2... 1...</string>
+				<key>icon</key>
+				<string>SelfTimerIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Timelapse Modes</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Timelapse</string>
+				<key>identifier</key>
+				<string>Timelapse</string>
+				<key>description</key>
+				<string>Travel through time</string>
+				<key>icon</key>
+				<string>TimelapseIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Timelapse Pro</string>
+				<key>identifier</key>
+				<string>Timelapse Pro</string>
+				<key>description</key>
+				<string>Advanced Timelapse</string>
+				<key>icon</key>
+				<string>TimelapseProIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>TimeWarp</string>
+				<key>identifier</key>
+				<string>TimeWarp</string>
+				<key>description</key>
+				<string>Timelapse with acceleration</string>
+				<key>icon</key>
+				<string>TimeWarpIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>DistanceLapse</string>
+				<key>identifier</key>
+				<string>DistanceLapse</string>
+				<key>description</key>
+				<string>Perfect for roadtrips</string>
+				<key>icon</key>
+				<string>DistanceLapseIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Star Trail</string>
+				<key>identifier</key>
+				<string>Star Trail</string>
+				<key>description</key>
+				<string>Extreme exposure control</string>
+				<key>icon</key>
+				<string>StarTrailIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Bramping</string>
+				<key>identifier</key>
+				<string>Bramping</string>
+				<key>description</key>
+				<string>Bulb ramping timelapse</string>
+				<key>icon</key>
+				<string>BrampingIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Sensor Modes</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Sound Sensor</string>
+				<key>identifier</key>
+				<string>Sound Sensor</string>
+				<key>description</key>
+				<string>Clap, whistle or tap</string>
+				<key>icon</key>
+				<string>SoundSensorIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Vibration Sensor</string>
+				<key>identifier</key>
+				<string>Vibration Sensor</string>
+				<key>description</key>
+				<string>Vibrations and earthquakes</string>
+				<key>icon</key>
+				<string>VibrationSensorIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Motion Sensor</string>
+				<key>identifier</key>
+				<string>Motion Sensor</string>
+				<key>description</key>
+				<string>Detect movement</string>
+				<key>icon</key>
+				<string>MotionSensorIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Peekaboo</string>
+				<key>identifier</key>
+				<string>Peekaboo</string>
+				<key>description</key>
+				<string>Facial recognition</string>
+				<key>icon</key>
+				<string>PeekabooIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>HDR Modes</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>LE HDR</string>
+				<key>identifier</key>
+				<string>LE HDR</string>
+				<key>description</key>
+				<string>Long exposure HDR sets</string>
+				<key>icon</key>
+				<string>LeHdrIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>LE HDR Timelapse</string>
+				<key>identifier</key>
+				<string>LE HDR Timelapse</string>
+				<key>description</key>
+				<string>Long exposure HDR Timelapse</string>
+				<key>icon</key>
+				<string>LeHdrTimelapseIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Remote Modes</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Wearables</string>
+				<key>identifier</key>
+				<string>Wearables</string>
+				<key>description</key>
+				<string>Trigger from your wrist</string>
+				<key>icon</key>
+				<string>WearablesIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Wi-Fi</string>
+				<key>identifier</key>
+				<string>Wi-Fi</string>
+				<key>description</key>
+				<string>Trigger remotely</string>
+				<key>icon</key>
+				<string>WifiIcon</string>
+				<key>wearablesSupported</key>
+				<false/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+		</array>
+	</array>
+	<array>
+		<string>Calculators</string>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>ND Calculator</string>
+				<key>identifier</key>
+				<string>ND Calculator</string>
+				<key>description</key>
+				<string>Neutral Density Filter Calculator</string>
+				<key>icon</key>
+				<string>NDCalculatorIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Solar Calculator</string>
+				<key>identifier</key>
+				<string>Solar Calculator</string>
+				<key>description</key>
+				<string>Sunrise and Sunset times</string>
+				<key>icon</key>
+				<string>SolarCalculatorIcon</string>
+				<key>wearablesSupported</key>
+				<true/>
+				<key>remoteSupported</key>
+				<true/>
+			</dict>
+		</array>
+	</array>
+</array>
+</plist>

@@ -1,0 +1,42 @@
+PODS:
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
+  - CTFeedback (1.0.23)
+  - Fabric (1.6.7)
+  - GPUImage (0.1.7)
+  - Mixpanel (2.9.4):
+    - Mixpanel/Mixpanel (= 2.9.4)
+  - Mixpanel/Mixpanel (2.9.4)
+  - PebbleKit (3.1.1)
+  - pop (1.0.9)
+  - Shimmer (1.0.2)
+  - TTCounterLabel (1.2.0):
+    - TTTAttributedLabel
+  - TTTAttributedLabel (1.13.4)
+
+DEPENDENCIES:
+  - Crashlytics
+  - CTFeedback
+  - Fabric
+  - GPUImage
+  - Mixpanel
+  - PebbleKit
+  - pop
+  - Shimmer
+  - TTCounterLabel
+
+SPEC CHECKSUMS:
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
+  CTFeedback: 145ffb449fea2e5076f57056e3dee2999349ed98
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  Mixpanel: 80d2ca9bb38ae91c1044d738e80fe448377ac89f
+  PebbleKit: 390181163256815738e467f183e7c65e16b56d25
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  TTCounterLabel: 184be6e977525c57019d9ed03787048bd2fb115f
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+
+PODFILE CHECKSUM: fe738d9941a3cc78952b00ccd626e31e56997f51
+
+COCOAPODS: 1.1.1

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Metric-Regular.otf">
+            <string>Metric-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WifiCell" customModule="TriggertrapSLR" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No devices connected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aRY-gO-E4J">
+                    <rect key="frame" x="50" y="0.0" width="216" height="44"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="17"/>
+                    <color key="textColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifiMaster" translatesAutoresizingMaskIntoConstraints="NO" id="cLB-bD-CuP">
+                    <rect key="frame" x="8" y="3" width="42" height="39"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cLB-bD-CuP" secondAttribute="height" multiplier="1:1" id="WDq-bF-Pmd"/>
+                        <constraint firstAttribute="height" constant="39" id="kvZ-oh-EKh"/>
+                        <constraint firstAttribute="width" constant="42" id="v9B-Xv-fGP"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="WDq-bF-Pmd"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAf-AI-jOv" userLabel="Separator View">
+                    <rect key="frame" x="0.0" y="43" width="300" height="1"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="vez-fb-yo9"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifiRedTick" translatesAutoresizingMaskIntoConstraints="NO" id="BQo-ki-pxQ">
+                    <rect key="frame" x="266" y="11" width="26" height="21"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="BQo-ki-pxQ" secondAttribute="height" multiplier="1:1" id="D73-aW-I74"/>
+                        <constraint firstAttribute="height" constant="21" id="FpQ-TM-TO1"/>
+                        <constraint firstAttribute="width" constant="26" id="tih-9G-Ry2"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="D73-aW-I74"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cLB-bD-CuP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4mg-uR-5Tb"/>
+                <constraint firstItem="cLB-bD-CuP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="5gU-dc-ZJT"/>
+                <constraint firstItem="aRY-gO-E4J" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9uu-YB-Jqe"/>
+                <constraint firstItem="cLB-bD-CuP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BoG-fQ-5Ap"/>
+                <constraint firstItem="BQo-ki-pxQ" firstAttribute="leading" secondItem="aRY-gO-E4J" secondAttribute="trailing" id="E7K-Dr-Lga"/>
+                <constraint firstAttribute="bottom" secondItem="cLB-bD-CuP" secondAttribute="bottom" id="GlX-YX-iAq"/>
+                <constraint firstAttribute="bottom" secondItem="vAf-AI-jOv" secondAttribute="bottom" id="Kg8-s3-BJv"/>
+                <constraint firstItem="aRY-gO-E4J" firstAttribute="leading" secondItem="cLB-bD-CuP" secondAttribute="trailing" id="WJ1-Ay-VcV"/>
+                <constraint firstAttribute="trailing" secondItem="BQo-ki-pxQ" secondAttribute="trailing" constant="8" id="aYU-iy-SNu"/>
+                <constraint firstItem="cLB-bD-CuP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bS4-LJ-Guv"/>
+                <constraint firstAttribute="bottom" secondItem="BQo-ki-pxQ" secondAttribute="bottom" id="dgj-Ra-ahe"/>
+                <constraint firstAttribute="trailing" secondItem="vAf-AI-jOv" secondAttribute="trailing" id="feA-nW-60M"/>
+                <constraint firstAttribute="bottom" secondItem="aRY-gO-E4J" secondAttribute="bottom" id="l9x-lc-0KP"/>
+                <constraint firstItem="vAf-AI-jOv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nna-Nb-Q8B"/>
+                <constraint firstItem="BQo-ki-pxQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tAt-IC-o7o"/>
+                <constraint firstItem="BQo-ki-pxQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="y9z-LV-PLm"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4mg-uR-5Tb"/>
+                    <exclude reference="GlX-YX-iAq"/>
+                    <exclude reference="bS4-LJ-Guv"/>
+                    <exclude reference="dgj-Ra-ahe"/>
+                    <exclude reference="y9z-LV-PLm"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="connectedImage" destination="BQo-ki-pxQ" id="m4g-tg-09P"/>
+                <outlet property="deviceImage" destination="cLB-bD-CuP" id="AjQ-HW-Svo"/>
+                <outlet property="deviceName" destination="aRY-gO-E4J" id="obh-su-8XC"/>
+                <outlet property="separatorView" destination="vAf-AI-jOv" id="LKJ-Wj-AHK"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="wifiMaster" width="42" height="39"/>
+        <image name="wifiRedTick" width="26" height="21"/>
+    </resources>
+</document>

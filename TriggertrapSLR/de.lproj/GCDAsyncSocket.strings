@@ -1,0 +1,14 @@
+/* No comment provided by engineer. */
+"GCDAsyncSocketClosedError"="Socket closed by remote peer";
+
+/* No comment provided by engineer. */
+"GCDAsyncSocketConnectTimeoutError"="Attempt to connect to host timed out";
+
+/* No comment provided by engineer. */
+"GCDAsyncSocketReadMaxedOutError"="Read operation reached set maximum length";
+
+/* No comment provided by engineer. */
+"GCDAsyncSocketReadTimeoutError"="Read operation timed out";
+
+/* No comment provided by engineer. */
+"GCDAsyncSocketWriteTimeoutError"="Write operation timed out";

@@ -1,0 +1,105 @@
+/* Class = "UILabel"; text = "Tap the volume up button"; ObjectID = "1Vd-Us-h6E"; */
+"1Vd-Us-h6E.text" = "Tap the volume up button";
+
+/* Class = "UILabel"; text = "Set to Manual Focus"; ObjectID = "1cn-lg-XY6"; */
+"1cn-lg-XY6.text" = "Set to Manual Focus";
+
+/* Class = "UILabel"; text = "Usually found on the lens"; ObjectID = "3hW-gA-ewV"; */
+"3hW-gA-ewV.text" = "Usually found on the lens";
+
+/* Class = "UILabel"; text = "I already own a Triggertrap Mobile Kit"; ObjectID = "7cj-Xg-fjg"; */
+"7cj-Xg-fjg.text" = "I already own a Triggertrap Mobile Kit";
+
+/* Class = "UILabel"; text = "Manual Focus"; ObjectID = "9m8-Oq-ofV"; */
+"9m8-Oq-ofV.text" = "Manual Focus";
+
+/* Class = "UILabel"; text = "You're awesome"; ObjectID = "AL3-h7-rM9"; */
+"AL3-h7-rM9.text" = "You're awesome";
+
+/* Class = "UIButton"; normalTitle = "Looks juicy"; ObjectID = "DMo-EU-VcM"; */
+"DMo-EU-VcM.normalTitle" = "Looks juicy";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "HAc-wj-iTv"; */
+"HAc-wj-iTv.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "HNt-gK-jOi"; */
+"HNt-gK-jOi.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "LXV-5R-8AU"; */
+"LXV-5R-8AU.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Plug into the headphone socket"; ObjectID = "OUT-Lt-TrE"; */
+"OUT-Lt-TrE.text" = "Plug into the headphone socket";
+
+/* Class = "UILabel"; text = "Triggertrap"; ObjectID = "Tel-gq-TVZ"; */
+"Tel-gq-TVZ.text" = "Triggertrap";
+
+/* Class = "UIButton"; normalTitle = "Get this Mobile Kit"; ObjectID = "TwK-ix-ltr"; */
+"TwK-ix-ltr.normalTitle" = "Get this Mobile Kit";
+
+/* Class = "UILabel"; text = "Looks like you've set things up nicely."; ObjectID = "Ucp-qm-usC"; */
+"Ucp-qm-usC.text" = "Looks like you've set things up nicely.";
+
+/* Class = "UILabel"; text = "Select your camera"; ObjectID = "Vsv-Hh-MjD"; */
+"Vsv-Hh-MjD.text" = "Select your camera";
+
+/* Class = "UILabel"; text = "Awesome."; ObjectID = "W4X-g7-ACc"; */
+"W4X-g7-ACc.text" = "Awesome.";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "W8C-5h-3f8"; */
+"W8C-5h-3f8.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Which Mobile Kit do you need?"; ObjectID = "Xgw-5Q-cTe"; */
+"Xgw-5Q-cTe.text" = "Which Mobile Kit do you need?";
+
+/* Class = "UILabel"; text = "Connect your iOS device"; ObjectID = "YS6-0E-bfL"; */
+"YS6-0E-bfL.text" = "Connect your iOS device";
+
+/* Class = "UIViewController"; title = "Triggertrap"; ObjectID = "YcA-4n-gQX"; */
+"YcA-4n-gQX.title" = "Triggertrap";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "Ys6-wd-Lxw"; */
+"Ys6-wd-Lxw.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "MF"; ObjectID = "afE-bA-zM6"; */
+"afE-bA-zM6.text" = "MF";
+
+/* Class = "UILabel"; text = "Let's get the show on the road"; ObjectID = "afR-Bz-tXh"; */
+"afR-Bz-tXh.text" = "Let's get the show on the road";
+
+/* Class = "UIButton"; normalTitle = "Get one today"; ObjectID = "eXY-JH-gzG"; */
+"eXY-JH-gzG.normalTitle" = "Get one today";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "fRG-sd-rWr"; */
+"fRG-sd-rWr.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Let’s explain"; ObjectID = "gsl-dA-35G"; */
+"gsl-dA-35G.text" = "Let’s explain";
+
+/* Class = "UILabel"; text = "AF"; ObjectID = "hfr-JZ-ITX"; */
+"hfr-JZ-ITX.text" = "AF";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "ijc-xD-ZGk"; */
+"ijc-xD-ZGk.normalTitle" = "Done";
+
+/* Class = "UILabel"; text = "Time to set things up"; ObjectID = "lSy-2n-wSB"; */
+"lSy-2n-wSB.text" = "Time to set things up";
+
+/* Class = "UILabel"; text = "Volume to maximum"; ObjectID = "mVC-Q6-3np"; */
+"mVC-Q6-3np.text" = "Volume to maximum";
+
+/* Class = "UILabel"; text = "You need a mobile kit to connect your camera to your iOS device. Together, they’re the world’s most powerful camera remote. Ooh."; ObjectID = "mYp-Aw-z32"; */
+"mYp-Aw-z32.text" = "You need a mobile kit to connect your camera to your iOS device. Together, they’re the world’s most powerful camera remote. Ooh.";
+
+/* Class = "UILabel"; text = "Plug into the cable release port"; ObjectID = "mnR-my-cup"; */
+"mnR-my-cup.text" = "Plug into the cable release port";
+
+/* Class = "UILabel"; text = "Give it a tap!"; ObjectID = "tx7-Ah-uw4"; */
+"tx7-Ah-uw4.text" = "Give it a tap!";
+
+/* Class = "UILabel"; text = "Connect your camera"; ObjectID = "vWz-zk-Fk8"; */
+"vWz-zk-Fk8.text" = "Connect your camera";
+
+/* Class = "UILabel"; text = "Triggertrap Mobile Kit"; ObjectID = "xSY-SH-sWo"; */
+"xSY-SH-sWo.text" = "Triggertrap Mobile Kit";
+
