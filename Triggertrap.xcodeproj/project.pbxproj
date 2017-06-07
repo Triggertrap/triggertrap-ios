@@ -190,9 +190,6 @@
 		BDD44D331BB161A900B98FF6 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD44D321BB161A900B98FF6 /* Functions.swift */; };
 		BDD44D3B1BB1620500B98FF6 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD44D361BB1620500B98FF6 /* OpenSans-Bold.ttf */; };
 		BDD44D3D1BB1620500B98FF6 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDD44D371BB1620500B98FF6 /* OpenSans-Regular.ttf */; };
-		BDD44D3F1BB1620500B98FF6 /* Metric-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDD44D381BB1620500B98FF6 /* Metric-Light.otf */; };
-		BDD44D411BB1620500B98FF6 /* Metric-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDD44D391BB1620500B98FF6 /* Metric-Regular.otf */; };
-		BDD44D431BB1620500B98FF6 /* Metric-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDD44D3A1BB1620500B98FF6 /* Metric-Semibold.otf */; };
 		BDD44D4A1BB163B200B98FF6 /* SLRConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD44D491BB163B200B98FF6 /* SLRConstants.swift */; };
 		BDD4C3791BEA828D008CA311 /* ModesPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDD4C37B1BEA828D008CA311 /* ModesPlist.strings */; };
 		BDD4C3821BEA829B008CA311 /* OptionsPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDD4C3841BEA829B008CA311 /* OptionsPlist.strings */; };
@@ -579,9 +576,6 @@
 		BDD44D321BB161A900B98FF6 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		BDD44D361BB1620500B98FF6 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		BDD44D371BB1620500B98FF6 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		BDD44D381BB1620500B98FF6 /* Metric-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metric-Light.otf"; sourceTree = "<group>"; };
-		BDD44D391BB1620500B98FF6 /* Metric-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metric-Regular.otf"; sourceTree = "<group>"; };
-		BDD44D3A1BB1620500B98FF6 /* Metric-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Metric-Semibold.otf"; sourceTree = "<group>"; };
 		BDD44D491BB163B200B98FF6 /* SLRConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLRConstants.swift; sourceTree = "<group>"; };
 		BDD4C37A1BEA828D008CA311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/ModesPlist.strings; sourceTree = "<group>"; };
 		BDD4C37C1BEA8291008CA311 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ModesPlist.strings; sourceTree = "<group>"; };
@@ -1574,9 +1568,6 @@
 			children = (
 				BDD44D361BB1620500B98FF6 /* OpenSans-Bold.ttf */,
 				BDD44D371BB1620500B98FF6 /* OpenSans-Regular.ttf */,
-				BDD44D381BB1620500B98FF6 /* Metric-Light.otf */,
-				BDD44D391BB1620500B98FF6 /* Metric-Regular.otf */,
-				BDD44D3A1BB1620500B98FF6 /* Metric-Semibold.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -1823,7 +1814,6 @@
 				BDD75BBB1BE77A690014DA3D /* HDRModes.storyboard in Resources */,
 				BD11342E1BB3F29A006ED87A /* StoreLinks.JSON in Resources */,
 				BDD75B981BE7799C0014DA3D /* Feedback.storyboard in Resources */,
-				BDD44D3F1BB1620500B98FF6 /* Metric-Light.otf in Resources */,
 				BDD75BD01BE77A8E0014DA3D /* WifiCell.xib in Resources */,
 				BD7144E11BBA89D300E7A34B /* InspirationImages.xcassets in Resources */,
 				BDD75BB41BE77A5C0014DA3D /* SensorModes.storyboard in Resources */,
@@ -1847,7 +1837,6 @@
 				BDD4C3A31BEB7F4F008CA311 /* pulseLengthsPlist.strings in Resources */,
 				BDD4C3821BEA829B008CA311 /* OptionsPlist.strings in Resources */,
 				BDD4C3791BEA828D008CA311 /* ModesPlist.strings in Resources */,
-				BDD44D431BB1620500B98FF6 /* Metric-Semibold.otf in Resources */,
 				9EE1F1B41B1C9FE800FE6EB7 /* Main.storyboard in Resources */,
 				BDD75BC91BE77A800014DA3D /* Calculators.storyboard in Resources */,
 				BDD4C3A91BEB7F55008CA311 /* speedUnitsPlist.strings in Resources */,
@@ -1858,7 +1847,6 @@
 				9EE1F1B61B1C9FE800FE6EB7 /* Images.xcassets in Resources */,
 				BD11342C1BB3F29A006ED87A /* CameraChooser.JSON in Resources */,
 				BDD75CA41BE91D050014DA3D /* InfoPlist.strings in Resources */,
-				BDD44D411BB1620500B98FF6 /* Metric-Regular.otf in Resources */,
 				BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */,
 				BDD75BA61BE779F10014DA3D /* Options.storyboard in Resources */,
 				BDD75CA01BE91BEF0014DA3D /* Localizable.strings in Resources */,
