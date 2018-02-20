@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DF0B459EB8E6F5EC09B5C5C /* Pods_TriggertrapSLR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C94759E9ADAD35B7D584C7 /* Pods_TriggertrapSLR.framework */; };
 		9E23FEBA1BFF3AC50021E659 /* iTunesConnect.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E23FEBC1BFF3AC50021E659 /* iTunesConnect.strings */; };
 		9E67C6831D423BAD00C560CD /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67C6821D423BAD00C560CD /* SettingsManager.m */; };
 		9E67C69D1D423F6800C560CD /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E67C69C1D423F6800C560CD /* FeedbackViewController.swift */; };
@@ -224,7 +225,6 @@
 		BDD75CD71BEA56280014DA3D /* pulseLengths.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CD91BEA56280014DA3D /* pulseLengths.plist */; };
 		BDD75CDD1BEA56310014DA3D /* speedUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CDF1BEA56310014DA3D /* speedUnits.plist */; };
 		BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CE51BEA56380014DA3D /* distanceUnits.plist */; };
-		CD578E7B0986E970412B2FFB /* libPods-TriggertrapSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D11CA82E27655B2378E8C9E9 /* libPods-TriggertrapSLR.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +306,7 @@
 
 /* Begin PBXFileReference section */
 		2A67406A758D2F2F0B332A3B /* Pods-TriggertrapSLR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.release.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.release.xcconfig"; sourceTree = "<group>"; };
+		45C94759E9ADAD35B7D584C7 /* Pods_TriggertrapSLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TriggertrapSLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844F872778F016FF771D8B21 /* Pods-TriggertrapTLP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapTLP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapTLP/Pods-TriggertrapTLP.release.xcconfig"; sourceTree = "<group>"; };
 		9E23FEBB1BFF3AC50021E659 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/iTunesConnect.strings; sourceTree = "<group>"; };
 		9E23FEBD1BFF3ACB0021E659 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/iTunesConnect.strings; sourceTree = "<group>"; };
@@ -688,7 +689,6 @@
 		BDD75CE71BEA563A0014DA3D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/distanceUnits.plist; sourceTree = "<group>"; };
 		BDD75CE81BEA563B0014DA3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/distanceUnits.plist; sourceTree = "<group>"; };
 		CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapTLP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D11CA82E27655B2378E8C9E9 /* libPods-TriggertrapSLR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapSLR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -711,7 +711,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD578E7B0986E970412B2FFB /* libPods-TriggertrapSLR.a in Frameworks */,
+				1DF0B459EB8E6F5EC09B5C5C /* Pods_TriggertrapSLR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,8 +735,8 @@
 		79374477B2F7DCA0830A2DD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D11CA82E27655B2378E8C9E9 /* libPods-TriggertrapSLR.a */,
 				CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */,
+				45C94759E9ADAD35B7D584C7 /* Pods_TriggertrapSLR.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1903,11 +1903,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel/Mixpanel.framework",
 				"${PODS_ROOT}/PebbleKit/PebbleKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
+				"${BUILT_PRODUCTS_DIR}/TTCounterLabel/TTCounterLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTFeedback.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PebbleKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTCounterLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
