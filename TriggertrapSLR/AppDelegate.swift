@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if error == nil {
                 print("Indexed activity items: \(items.count)")
             } else {
-                print("Error: \(error)")
+                print("Error: \(String(describing: error))")
             }
         })
     }

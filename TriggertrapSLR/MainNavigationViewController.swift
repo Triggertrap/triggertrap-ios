@@ -79,7 +79,7 @@ class MainNavigationViewController: RotationNavigationViewController {
     }
     
     // MARK: - Actions
-    func menuButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func menuButtonTapped(_ sender: UIBarButtonItem) {
         DispatchQueue.main.async(execute: {
             self.present(self.leftPanelViewController, with: MCPanelAnimationDirection.left)
         })

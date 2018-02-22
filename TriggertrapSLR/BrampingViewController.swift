@@ -63,7 +63,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         
         endExposurePicker.currentIndex = IndexPath(row:endExposurePicker.savedIndex(forKey: "bramping-endExposure") , section: 0)
         
-        NotificationCenter.default.addObserver(self, selector: Selector("didTrigger:"), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("didTrigger:")), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
         WearablesManager.sharedInstance.delegate = self
     }
@@ -309,7 +309,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
     
     // MARK: - Horizontal Picker Delegate
     
-    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAt index: Int) {
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectObjectFromDataSourceAt index: Int) {
         let picker: HorizontalPicker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {
@@ -355,7 +355,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         }
     }
     
-    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelect string: String!) {
+    func horizontalPicker(_ horizontalPicker: Any!, didSelect string: String!) {
         maxValue = round(max(Double(startExposurePicker.value), Double(endExposurePicker.value)))
         intervalNumberInputView.minValue = CUnsignedLongLong(maxValue * Double(photosNumberInputView.value) / 1000.0)
     }

@@ -286,13 +286,13 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         for i in 0..<overlaps.count {
             // Calculate the time overlap by dividing the overlap indicie int value by the amount of exposures
-            timeOverlap = Float(overlaps[i] as! NSNumber) / Float(photosNumberInputView.value)
+            timeOverlap = Float(truncating: overlaps[i] as! NSNumber) / Float(photosNumberInputView.value)
             
             // Add the Time Overlap to the timeOverlapIndicies Array
             timeOverlapIndicies.add(NSNumber(value: timeOverlap as Float))
             
             // Use the interpolation function from the CubicBezierCalculator to calculate progression from each time overlap
-            progressionOverlapIndicies.add(NSNumber(value: interpolator?.interpolation(timeOverlap) as! Float))
+            progressionOverlapIndicies.add(NSNumber(value: interpolator!.interpolation(timeOverlap) ))
         }
         
         // Pass the overlapping points to the bezier graph view to display them
@@ -331,7 +331,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         let animation = AccelerationAnimation.animation(withKeyPath: "transform.rotation", startValue: 0.0, endValue: degreesToRadians(360.0), evaluationObject: interpolator, interstitialSteps: UInt(photosNumberInputView.value)) as! AccelerationAnimation
         
-        animation.delegate = self as! CAAnimationDelegate
+        animation.delegate = self as? CAAnimationDelegate
         
         secondsView.layer.add(animation, forKey: "rotation")
         
@@ -458,11 +458,11 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     }
     
     fileprivate func degreesToRadians(_ degrees: Double) -> Double {
-        return degrees / 180.0 * M_PI
+        return degrees / 180.0 * Double.pi
     }
     
     fileprivate func radiansToDegrees(_ radians: Double) -> Double {
-        return radians  * (180.0 / M_PI)
+        return radians  * (180.0 / Double.pi)
     }
     
     override func didDispatch(_ dispatchable: Dispatchable) {

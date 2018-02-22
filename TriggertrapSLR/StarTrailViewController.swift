@@ -32,7 +32,7 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
         durationNumberInputView.value = durationNumberInputView.savedValue(forKey: "starTrail-duration")
         gapNumberInputView.value = gapNumberInputView.savedValue(forKey: "starTrail-gap")
         
-        NotificationCenter.default.addObserver(self, selector: Selector("didTrigger:"), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("didTrigger:")), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
         WearablesManager.sharedInstance.delegate = self
     }

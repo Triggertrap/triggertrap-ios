@@ -34,7 +34,7 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: Selector("didTrigger:"), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("didTrigger:")), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
         middleExposureHorizontalPicker.currentIndex = IndexPath(row: middleExposureHorizontalPicker.savedIndex(forKey: "lehdrTimelapse-middleExposure"), section: 0)
         evHorizontalPicker.currentIndex = IndexPath(row: evHorizontalPicker.savedIndex(forKey: "lehdrTimelapse-ev"), section: 0)
@@ -297,7 +297,7 @@ extension LeHdrTimelapseViewController: HorizontalPickerDelegate {
     
     // MARK - Horizontal Picker Delegate
     
-    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAt index: Int) {
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectObjectFromDataSourceAt index: Int) {
         
         let picker = horizontalPicker as! HorizontalPicker
         
@@ -319,7 +319,7 @@ extension LeHdrTimelapseViewController: HorizontalPickerDelegate {
         }
     }
     
-    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectValue value: NSNumber!) {
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectValue value: NSNumber!) {
         
         let picker = horizontalPicker as! HorizontalPicker
         
