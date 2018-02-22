@@ -19,7 +19,7 @@ class PebbleManager: NSObject {
     func setupPebbleWatch() {
 
         let pebbleAppId = NSBundle.mainBundle().objectForInfoDictionaryKey(constPebbleAppId) as! String
-        let myAppUUID = NSUUID(UUIDString:pebbleAppId)!
+        let myAppUUID = NSUUID()
         
         pebbleCentral.appUUID = myAppUUID
         pebbleCentral.run()
