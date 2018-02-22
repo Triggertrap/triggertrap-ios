@@ -19,14 +19,14 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let panGesture = UIPanGestureRecognizer(target: self, action: Selector("panned:"))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(NavigationControllerDelegate.panned(_:)))
         self.navigationController!.view.addGestureRecognizer(panGesture)
     }
   
     @IBAction func panned(gestureRecognizer: UIPanGestureRecognizer) {
         
         if interactionDisabled {
-            print("Interaction Disabled - Animation is still in process")
+            print("Interaction Disabled - Animation is still in process", terminator: "")
             return
         }
         
@@ -108,16 +108,16 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        print("From VC: \(fromVC) To VC: \(toVC)")
+        print("From VC: \(fromVC) To VC: \(toVC)", terminator: "")
         
         // Stage 1 transitions
         if fromVC.isKindOfClass(KitSelectorViewController) && toVC.isKindOfClass(CameraSelectorViewController) {
             
-            print("KitToCameraSelectorTransition")
+            print("KitToCameraSelectorTransition", terminator: "")
             return KitToCameraSelectorTransition()
             
         } else if fromVC.isKindOfClass(KitSelectorViewController) && toVC.isKindOfClass(ConnectKitViewController) {
-            print("KitToConnectTransition Push")
+            print("KitToConnectTransition Push", terminator: "")
             
             let transition = KitToConnectTransition()
             transition.state = KitToConnectTransition.State.Push
@@ -125,77 +125,77 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
             
         } else if fromVC.isKindOfClass(ConnectKitViewController) && toVC.isKindOfClass(KitSelectorViewController) {
             
-            print("KitToConnectTransition Pop")
+            print("KitToConnectTransition Pop", terminator: "")
             let transition = KitToConnectTransition()
             transition.state = KitToConnectTransition.State.Pop
             return transition
             
         } else if fromVC.isKindOfClass(CameraSelectorViewController) && toVC.isKindOfClass(ConnectKitViewController) {
             
-            print("CameraSelectorToConnectTransition Push")
+            print("CameraSelectorToConnectTransition Push", terminator: "")
             let transition = CameraSelectorToConnectTransition()
             transition.state = CameraSelectorToConnectTransition.State.Push
             return transition
             
         } else if fromVC.isKindOfClass(ConnectKitViewController) && toVC.isKindOfClass(CameraSelectorViewController) {
             
-            print("CameraSelectorToConnectTransition Pop")
+            print("CameraSelectorToConnectTransition Pop", terminator: "")
             let transition = CameraSelectorToConnectTransition()
             transition.state = CameraSelectorToConnectTransition.State.Pop
             return transition
             
         } else if fromVC.isKindOfClass(ConnectKitViewController) && toVC.isKindOfClass(VolumeViewController) {
             
-            print("ConnectToVolumeTransition Push")
+            print("ConnectToVolumeTransition Push", terminator: "")
             let transition = ConnectToVolumeTransition()
             transition.state = ConnectToVolumeTransition.State.Push
             return transition
             
         } else if fromVC.isKindOfClass(VolumeViewController) && toVC.isKindOfClass(ConnectKitViewController) {
             
-            print("ConnectToVolumeTransition Pop")
+            print("ConnectToVolumeTransition Pop", terminator: "")
             let transition = ConnectToVolumeTransition()
             transition.state = ConnectToVolumeTransition.State.Pop
             return transition
             
         } else if fromVC.isKindOfClass(VolumeViewController) && toVC.isKindOfClass(CameraViewController) {
             
-            print("VolumeToCameraTransition Push")
+            print("VolumeToCameraTransition Push", terminator: "")
             let transition = VolumeToCameraTransition()
             transition.state = VolumeToCameraTransition.State.Push
             return transition
             
         } else if fromVC.isKindOfClass(CameraViewController) && toVC.isKindOfClass(VolumeViewController) {
             
-            print("VolumeToCameraTransition Pop")
+            print("VolumeToCameraTransition Pop", terminator: "")
             let transition = VolumeToCameraTransition()
             transition.state = VolumeToCameraTransition.State.Pop
             return transition
             
         } else if fromVC.isKindOfClass(CameraViewController) && toVC.isKindOfClass(ManualFocusViewController) {
             
-            print("CameraToManualFocusTransition Push")
+            print("CameraToManualFocusTransition Push", terminator: "")
             let transition = CameraToManualFocusTransition()
             transition.state = CameraToManualFocusTransition.State.Push
             return transition
             
         }  else if fromVC.isKindOfClass(ManualFocusViewController) && toVC.isKindOfClass(CameraViewController) {
             
-            print("CameraToManualFocusTransition Pop")
+            print("CameraToManualFocusTransition Pop", terminator: "")
             let transition = CameraToManualFocusTransition()
             transition.state = CameraToManualFocusTransition.State.Pop
             return transition
             
         } else if fromVC.isKindOfClass(ManualFocusViewController) && toVC.isKindOfClass(TestTriggertViewController) {
             
-            print("ManualFocusToTestTriggerTransition Push")
+            print("ManualFocusToTestTriggerTransition Push", terminator: "")
             let transition = ManualFocusToTestTriggerTransition()
             transition.state = ManualFocusToTestTriggerTransition.State.Push
             return transition
             
         } else if fromVC.isKindOfClass(TestTriggertViewController) && toVC.isKindOfClass(ManualFocusViewController) {
             
-            print("ManualFocusToTestTriggerTransition Pop")
+            print("ManualFocusToTestTriggerTransition Pop", terminator: "")
             let transition = ManualFocusToTestTriggerTransition()
             transition.state = ManualFocusToTestTriggerTransition.State.Pop
             return transition
@@ -207,7 +207,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
             return nil
         }
         
-        print("Nil")
+        print("Nil", terminator: "")
         return nil
     }
   

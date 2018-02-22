@@ -11,9 +11,9 @@ import CoreGraphics
 import AVFoundation
 
 /**
-The `TTViewController`
-*/
-class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, DispatchableLifecycle, SequenceLifecycle {
+ The `TTViewController`
+ */
+class TTViewController: SplitLayoutViewController, DispatchableLifecycle, SequenceLifecycle {
     
     @IBOutlet weak var shutterButton: ShutterButton!
     @IBOutlet weak var bulbButton: UIButton?
@@ -31,9 +31,9 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
     var feedbackViewController: FeedbackViewController!
     
     private var notification = MPGNotification(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
-        subtitle: nil,
-        backgroundColor: UIColor.triggertrap_primaryColor(1.0),
-        iconImage: nil)
+                                               subtitle: nil,
+                                               backgroundColor: UIColor.triggertrap_primaryColor(1.0),
+                                               iconImage: nil)
     
     private var shownVolumeAlert = false
     
@@ -53,9 +53,9 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
         super.viewWillAppear(animated) 
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "enableShutterButton", name: FeedbackViewHideAnimationCompleted, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTViewController.enableShutterButton), name: FeedbackViewHideAnimationCompleted, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "activeViewControllerLostFocus", name: "ActiveViewControllerLostFocus", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTViewController.activeViewControllerLostFocus), name: "ActiveViewControllerLostFocus", object: nil)
         
         guard let activeViewController = sequenceManager.activeViewController else {
             // There is no active view controller, check that wifi and wearables are also not present and dismiss the red view if visible
@@ -87,7 +87,7 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
             // Show the tutorial after half a second
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW,
-                Int64(0.5 * Double(NSEC_PER_SEC)))
+                                          Int64(0.5 * Double(NSEC_PER_SEC)))
             
             dispatch_after(delayTime, dispatch_get_main_queue()) {
                 
@@ -144,25 +144,20 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
     
     private func showVolumeAlert() {
         dispatch_async(dispatch_get_main_queue(), {
-            if #available(iOS 8.0, *) {
-                let alert = UIAlertController(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
-                    message: NSLocalizedString("Please set the volume to maximum to use Triggertrap mobile", comment: "Please set the volume to maximum to use Triggertrap mobile"),
-                    preferredStyle: UIAlertControllerStyle.Alert)
-                
-                // The order in which we add the buttons matters.
-                // Add the Cancel button first to match the iOS 7 default style,
-                // where the cancel button is at index 0.
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
-                    style: UIAlertActionStyle.Default,
-                    handler: { (action: UIAlertAction!) in
-                        self.handelCancel()
-                }))
-                
-                self.presentViewController(alert, animated: true, completion: nil)
-            } else {
-                let alert = UIAlertView(title: NSLocalizedString("Low Volume", comment: "Low Volume"), message: NSLocalizedString("Please set the volume to maximum to use Triggertrap mobile", comment: "Please set the volume to maximum to use Triggertrap mobile"), delegate: self, cancelButtonTitle: NSLocalizedString("OK", comment: "OK"))
-                alert.show()
-            }
+            let alert = UIAlertController(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
+                message: NSLocalizedString("Please set the volume to maximum to use Triggertrap mobile", comment: "Please set the volume to maximum to use Triggertrap mobile"),
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            // The order in which we add the buttons matters.
+            // Add the Cancel button first to match the iOS 7 default style,
+            // where the cancel button is at index 0.
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
+                style: UIAlertActionStyle.Default,
+                handler: { (action: UIAlertAction!) in
+                    self.handelCancel()
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
         })
     }
     
@@ -184,11 +179,11 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
     // MARK: - Actions
     
     /**
-    Shows an alert to the user, indicating that the camera needs to be set to Bulb.
-    
-    - Parameters:
-    - sender: The `UIButton` that recieves the action.
-    */
+     Shows an alert to the user, indicating that the camera needs to be set to Bulb.
+     
+     - Parameters:
+     - sender: The `UIButton` that recieves the action.
+     */
     @IBAction func bulbButtonTapped(sender: UIButton) {
         
         ShowAlertInViewController(self, title: NSLocalizedString("Bulb Required!", comment: "Bulb Required!"), message: NSLocalizedString("Please make sure your camera is set to Bulb to use this mode correctly.", comment: "Please make sure your camera is set to Bulb to use this mode correctly."), cancelButton: NSLocalizedString("OK", comment: "OK"))
@@ -252,9 +247,9 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
     }
     
     /*!
-    * prepareForSequence should be called before sending a sequence to the output manager.
-    * This sets the revelant delegates on the view controller.
-    */
+     * prepareForSequence should be called before sending a sequence to the output manager.
+     * This sets the revelant delegates on the view controller.
+     */
     
     func prepareForSequence() {
         sequenceManager.sequenceDelegate = self
@@ -271,12 +266,6 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
     }
     
     // MARK: - UIAlertViewDelegate
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 0 {
-            handelCancel()
-        }
-    }
     
     func handelCancel() {
         shownVolumeAlert = true

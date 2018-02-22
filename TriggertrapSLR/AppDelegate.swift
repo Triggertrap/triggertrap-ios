@@ -28,23 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func indexActivities() {
 
-        if #available(iOS 9.0, *) {
-            CSSearchableIndex.defaultSearchableIndex().deleteAllSearchableItemsWithCompletionHandler(nil)
-            
-            let items = UserActivityManager.sharedInstance.activities.map { a in
-                return
-                    CSSearchableItem(uniqueIdentifier: a.title, domainIdentifier: "Activities", attributeSet: a.searchableAttributeSet())
-            }
-            
-            CSSearchableIndex.defaultSearchableIndex().indexSearchableItems(items, completionHandler: { (error) -> Void in
-                
-                if error == nil {
-                    print("Indexed activity items: \(items.count)")
-                } else {
-                    print("Error: \(error)")
-                }
-            })
+        CSSearchableIndex.defaultSearchableIndex().deleteAllSearchableItemsWithCompletionHandler(nil)
+        
+        let items = UserActivityManager.sharedInstance.activities.map { a in
+            return
+                CSSearchableItem(uniqueIdentifier: a.title, domainIdentifier: "Activities", attributeSet: a.searchableAttributeSet())
         }
+        
+        CSSearchableIndex.defaultSearchableIndex().indexSearchableItems(items, completionHandler: { (error) -> Void in
+            
+            if error == nil {
+                print("Indexed activity items: \(items.count)")
+            } else {
+                print("Error: \(error)")
+            }
+        })
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -82,31 +80,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 8.0, *)
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        if #available(iOS 9.0, *) {
             
-            // Check that user activity title is not the same as the current view controller as otherwise iOS will try to allocate a view controller which is being deallocated and crash the app
-            if let identifier = userActivity.title where identifier != NSUserDefaults.standardUserDefaults().objectForKey(ConstDefaultLastSelectedMode) as? String {
+        // Check that user activity title is not the same as the current view controller as otherwise iOS will try to allocate a view controller which is being deallocated and crash the app
+        if let identifier = userActivity.title where identifier != NSUserDefaults.standardUserDefaults().objectForKey(ConstDefaultLastSelectedMode) as? String {
+            
+            // Get the destination view controller from the identifier
+            if let rootViewController = self.window?.rootViewController as? MainNavigationViewController, let sidebarViewController = rootViewController.viewControllers.first as? SidebarTableViewController, let storyboardName = StoryboardNameForViewControllerIdentifier(identifier) {
+                    
+                // Save the identifer to the user defaults for the last selected mode
+                NSUserDefaults.standardUserDefaults().setObject(identifier, forKey: ConstDefaultLastSelectedMode)
+                NSUserDefaults.standardUserDefaults().synchronize()
                 
-                // Get the destination view controller from the identifier
-                if let rootViewController = self.window?.rootViewController as? MainNavigationViewController, let sidebarViewController = rootViewController.viewControllers.first as? SidebarTableViewController, let storyboardName = StoryboardNameForViewControllerIdentifier(identifier) {
-                        
-                    // Save the identifer to the user defaults for the last selected mode
-                    NSUserDefaults.standardUserDefaults().setObject(identifier, forKey: ConstDefaultLastSelectedMode)
-                    NSUserDefaults.standardUserDefaults().synchronize()
-                    
-                    let storyboard = UIStoryboard(name: storyboardName, bundle: NSBundle.mainBundle())
-                    
-                    let viewController = storyboard.instantiateViewControllerWithIdentifier(identifier)
-                    
-                    // Push the mode to be visible
-                    CachedPushNoAnimationStoryboardSegue(identifier: identifier, source: sidebarViewController, destination: viewController).perform()
-                }
+                let storyboard = UIStoryboard(name: storyboardName, bundle: NSBundle.mainBundle())
+                
+                let viewController = storyboard.instantiateViewControllerWithIdentifier(identifier)
+                
+                // Push the mode to be visible
+                CachedPushNoAnimationStoryboardSegue(identifier: identifier, source: sidebarViewController, destination: viewController).perform()
             }
-            
-            return true
         }
         
-        return false
+        return true
     }
     
     func applicationWillResignActive(application: UIApplication) {

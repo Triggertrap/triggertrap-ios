@@ -1739,6 +1739,7 @@
 		9EE1F13B1B1C9DFD00FE6EB7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Triggertrap Limited";

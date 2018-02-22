@@ -240,7 +240,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
                 
                 feedbackViewController.shotsTakenLabel?.text = "0/\(shotsToTakeCount)"
             }
-        
+            
         } else {
             sequenceManager.cancel()
         }
@@ -261,7 +261,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         var sequenceLength: Double = 0
         
-        for (var i = 0; i < interpolator.adjustedPauses().count; i++) {
+        for i in 0..<interpolator.adjustedPauses().count {
             sequenceLength = sequenceLength + Double(interpolator.adjustedPauses()[i] as! NSNumber) + triggerLength
         }
         
@@ -271,11 +271,11 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         let overlaps = NSMutableArray()
         
-        for var i = 0; i < overlapIndicies.count; i++ {
+        for i in 0..<overlapIndicies.count {
             
             if (i < kMaxNumberOverlaps / 3 || (i > (overlapIndicies.count / 2 - kMaxNumberOverlaps / 6) && i < (overlapIndicies.count / 2 + kMaxNumberOverlaps / 6)) ||
                 i > overlapIndicies.count - kMaxNumberOverlaps / 3) {
-                    overlaps.addObject(overlapIndicies[i])
+                overlaps.addObject(overlapIndicies[i])
             }
         }
         
@@ -284,7 +284,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         var timeOverlap: Float = 0.0
         
-        for var i = 0; i < overlaps.count; i++ {
+        for i in 0..<overlaps.count {
             // Calculate the time overlap by dividing the overlap indicie int value by the amount of exposures
             timeOverlap = Float(overlaps[i] as! NSNumber) / Float(photosNumberInputView.value)
             
@@ -343,19 +343,19 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         UIView.animateWithDuration(kShutterButtonAnimationDuration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.previewButton.transform = CGAffineTransformMakeScale(1, 1)
-            }) { (finished: Bool) -> Void in
+        }) { (finished: Bool) -> Void in
+            
+            if finished == true {
                 
-                if finished == true {
+                self.clockIsAnimating = false
+                
+                //When preview button is hidden check whether shutter button is still supposed to be animating
+                if self.shutterButtonAnimatingDuringPreview == true {
                     
-                    self.clockIsAnimating = false
-                    
-                    //When preview button is hidden check whether shutter button is still supposed to be animating
-                    if self.shutterButtonAnimatingDuringPreview == true {
-                        
-                        //Start animation of the shutter button
-                        self.shutterButton.startAnimating()
-                    }
+                    //Start animation of the shutter button
+                    self.shutterButton.startAnimating()
                 }
+            }
         }
     }
     
@@ -384,7 +384,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         UIView.animateWithDuration(duration, animations: { () -> Void in
             
-            for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+            for i in 0..<self.timeWarpView.subviews.count {
                 
                 let subView = self.timeWarpView.subviews[i]
                 
@@ -400,7 +400,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
                 self.view.layoutIfNeeded()
                 }, completion: { (finished: Bool) -> Void in
                     
-                    for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+                    for i in 0..<self.timeWarpView.subviews.count {
                         
                         let subView = self.timeWarpView.subviews[i] 
                         
@@ -431,7 +431,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
             
             UIView.animateWithDuration(duration - delay, delay: delay, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
                 
-                for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+                for i in 0..<self.timeWarpView.subviews.count {
                     let subView: UIView = self.timeWarpView.subviews[i] 
                     subView.alpha = 1.0
                 }
@@ -440,7 +440,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
                     self.timeWarpView.alpha = 1.0
                     self.feedbackToWhiteViewConstraint.constant = self.topLeftView.frame.size.height - self.visibleView.frame.size.height
                     
-                    for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+                    for i in 0..<self.timeWarpView.subviews.count {
                         let subView: UIView = self.timeWarpView.subviews[i] 
                         subView.alpha = 1.0
                     }
@@ -469,7 +469,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         super.didDispatch(dispatchable)
         
         if let activeViewController = sequenceManager.activeViewController where activeViewController is TimeWarpViewController && dispatchable is Pulse {
-            shotsTakenCount++
+            shotsTakenCount += 1
             feedbackViewController.shotsTakenLabel?.text = "\(shotsTakenCount)/\(shotsToTakeCount)"
         }
     }

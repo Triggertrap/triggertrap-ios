@@ -199,6 +199,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     // expected subtitle calculations
     // TODO: this method is deprecated; update this (use Evil Studios NSString category?)
     static const CGFloat kSubtitleHeight = 50;
+    
     CGSize expectedSubtitleSize = [self.subtitle sizeWithFont:self.subtitleLabel.font
                                             constrainedToSize:CGSizeMake(textWidth, kSubtitleHeight)];
     

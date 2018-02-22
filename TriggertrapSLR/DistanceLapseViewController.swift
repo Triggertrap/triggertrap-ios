@@ -127,12 +127,8 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
                 locationManager?.desiredAccuracy = kCLLocationAccuracyBest
                 
                 // Asks the user to grant permission to use the location services while using the application. If statement is required for iOS7 otherwise app will crash.
-                if let locationManager = locationManager where locationManager.respondsToSelector("requestWhenInUseAuthorization") {
-                    if #available(iOS 8.0, *) {
-                        locationManager.requestWhenInUseAuthorization()
-                    } else {
-                        // Fallback on earlier versions
-                    }
+                if let locationManager = locationManager where locationManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization)) {
+                    locationManager.requestWhenInUseAuthorization()
                 }
             }
         }
@@ -211,7 +207,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
     // MARK: - Notifications
 
     private func registerForNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "setupUnits", name: NSUserDefaultsDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DistanceLapseViewController.setupUnits), name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
     private func removeNotificationObservers() {

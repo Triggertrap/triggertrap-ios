@@ -48,7 +48,7 @@ extension Unwrappable {
     
     public mutating func nextModule() {
         
-        self.currentModule++
+        self.currentModule += 1
         
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
             unwrapModule()

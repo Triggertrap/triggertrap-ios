@@ -28,7 +28,7 @@ class SidebarTableViewController: UITableViewController, UINavigationControllerD
         super.viewDidLoad()
         self.navigationController?.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "sidebarDidSelectCellWithIdentifier:", name: "SidebarDidSelectCellWithIdentifier", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SidebarTableViewController.sidebarDidSelectCellWithIdentifier(_:)), name: "SidebarDidSelectCellWithIdentifier", object: nil)
         
         if let lastSelectedViewControllerIdentifier = NSUserDefaults.standardUserDefaults().objectForKey(ConstDefaultLastSelectedMode) as? String, let storyboardName = StoryboardNameForViewControllerIdentifier(lastSelectedViewControllerIdentifier) {
             
@@ -69,24 +69,22 @@ class SidebarTableViewController: UITableViewController, UINavigationControllerD
     // MARK: NSUserActivity
     
     private func createUserActivityWithIdentifier(identifier: String) {
-        if #available(iOS 9.0, *) {
             
-            for userActivity in UserActivityManager.sharedInstance.activities {
-                if userActivity.identifier == identifier {
+        for userActivity in UserActivityManager.sharedInstance.activities {
+            if userActivity.identifier == identifier {
+                
+                let activity = NSUserActivity(activityType: "com.triggertrap.Triggertrap")
+                activity.title = identifier
+                activity.keywords = Set<String>(ConstUserActivityKeywords)
+                activity.delegate = self
+                activity.eligibleForSearch = true
+                activity.eligibleForPublicIndexing = true
+                activity.eligibleForHandoff = false
+                activity.contentAttributeSet = userActivity.searchableAttributeSet()
                     
-                    let activity = NSUserActivity(activityType: "com.triggertrap.Triggertrap")
-                    activity.title = identifier
-                    activity.keywords = Set<String>(ConstUserActivityKeywords)
-                    activity.delegate = self
-                    activity.eligibleForSearch = true
-                    activity.eligibleForPublicIndexing = true
-                    activity.eligibleForHandoff = false
-                    activity.contentAttributeSet = userActivity.searchableAttributeSet()
-                        
-                    UserActivityManager.sharedInstance.userActivity = activity
-                    UserActivityManager.sharedInstance.userActivity?.delegate = self
-                    UserActivityManager.sharedInstance.userActivity?.becomeCurrent()
-                }
+                UserActivityManager.sharedInstance.userActivity = activity
+                UserActivityManager.sharedInstance.userActivity?.delegate = self
+                UserActivityManager.sharedInstance.userActivity?.becomeCurrent()
             }
         }
     }
@@ -96,7 +94,7 @@ class SidebarTableViewController: UITableViewController, UINavigationControllerD
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         
         if ((vcPointer) != nil) {
-            if vcPointer.respondsToSelector("viewWillDisappear:") {
+            if vcPointer.respondsToSelector(#selector(UIViewController.viewWillDisappear(_:))) {
                 vcPointer.viewWillDisappear(animated)
             }
         }

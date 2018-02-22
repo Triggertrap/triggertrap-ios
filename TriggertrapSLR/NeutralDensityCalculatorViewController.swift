@@ -45,12 +45,12 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         
         if isEmbedded {
             
-            let leftBarButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .Plain, target: self, action: "cancelButtonTapped:")
+            let leftBarButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .Plain, target: self, action: #selector(NeutralDensityCalculatorViewController.cancelButtonTapped(_:)))
             leftBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], forState: .Normal)
             self.navigationItem.leftBarButtonItem = leftBarButton
         
             // Set the right bar button item.
-            let rightBarButton = UIBarButtonItem(title: NSLocalizedString("OK", comment: "OK"), style: .Plain, target: self, action: "calculateButtonTapped:")
+            let rightBarButton = UIBarButtonItem(title: NSLocalizedString("OK", comment: "OK"), style: .Plain, target: self, action: #selector(NeutralDensityCalculatorViewController.calculateButtonTapped(_:)))
             rightBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], forState: .Normal)
             self.navigationItem.rightBarButtonItem = rightBarButton
             
@@ -59,7 +59,7 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         
         ndFilterArray = NSMutableArray(contentsOfFile: pathForResource("NDFilter"))
         
-        for var i: Int = 0; i < ndFilterArray.count; i++ {
+        for i in 0..<ndFilterArray.count {
             
             let filter: String = ndFilterArray[i].objectForKey("string") as! String
             
@@ -128,7 +128,7 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         } else {
             isHoursMinutesSecondsFormat = false
             
-            for var i: Int = speed; result >= baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double ; i++ {
+            for var i: Int = speed; result >= baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double ; i += 1 {
                 
                 if result > baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double {
                     
@@ -172,7 +172,7 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
             break
             
         default:
-            print("default")
+            print("default", terminator: "")
             break
         }
         

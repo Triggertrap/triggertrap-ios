@@ -34,7 +34,7 @@
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didTrigger:"), name: "kTTDongleDidTriggerNotification", object: nil)
         
         middleExposureHorizontalPicker.currentIndex = NSIndexPath(forRow: middleExposureHorizontalPicker.savedIndexForKey("lehdr-middleExposure"), inSection: 0)
         numberOfExposuresHorizontalPicker.currentIndex = NSIndexPath(forRow: numberOfExposuresHorizontalPicker.savedIndexForKey("lehdr-exposures"), inSection: 0)
@@ -196,7 +196,7 @@
         super.willDispatch(dispatchable)
         
         if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrViewController && dispatchable is Pulse {
-            numberOfShotsTaken++
+            numberOfShotsTaken += 1
             
             feedbackViewController.shotsTakenLabel?.text = "\(numberOfShotsTaken)/\(num)"
             feedbackViewController.exposureCounterLabel?.startValue = UInt64(dispatchable.durationInMilliseconds())
@@ -264,7 +264,7 @@
             break
             
         default:
-            print("Default")
+            print("Default", terminator: "")
             break
         }
     }

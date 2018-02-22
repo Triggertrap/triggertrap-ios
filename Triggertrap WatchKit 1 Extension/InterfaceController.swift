@@ -108,7 +108,7 @@ class InterfaceController: WKInterfaceController {
             })
         }
         
-        delayTimer = NSTimer(timeInterval: seconds, target: self, selector: "delayTimer:", userInfo: ["triggerInstantly": triggerInstantly], repeats: false)
+        delayTimer = NSTimer(timeInterval: seconds, target: self, selector: #selector(InterfaceController.delayTimer(_:)), userInfo: ["triggerInstantly": triggerInstantly], repeats: false)
         NSRunLoop.mainRunLoop().addTimer(delayTimer!, forMode: NSDefaultRunLoopMode)
     }
     

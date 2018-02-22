@@ -202,9 +202,9 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     // MARK: - Private
     
     private func registerForNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "startLocationManager", name: UIApplicationDidBecomeActiveNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "stopLocationManager", name: UIApplicationWillResignActiveNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTodayTomorrow", name: UIApplicationSignificantTimeChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.startLocationManager), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.stopLocationManager), name: UIApplicationWillResignActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.updateTodayTomorrow), name: UIApplicationSignificantTimeChangeNotification, object: nil)
     }
     
     private func createEmptyUI() {
@@ -429,12 +429,8 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
             locationManager.distanceFilter = 500.0
             
-            if locationManager.respondsToSelector("requestWhenInUseAuthorization") {
-                if #available(iOS 8.0, *) {
-                    locationManager.requestWhenInUseAuthorization()
-                } else {
-                    // Fallback on earlier versions
-                }
+            if locationManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization)) {
+                locationManager.requestWhenInUseAuthorization()
             } 
 
             updateCalculator()
@@ -447,7 +443,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
                 
                 if let placemarks = placemarks {
-                    for var i = 0; i < placemarks.count; i++ {
+                    for i in 0..<placemarks.count {
                         let placemark = placemarks[i]
                         
                         if let locality = placemark.locality, country = placemark.country {
@@ -562,7 +558,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         
         startTime = CFAbsoluteTimeGetCurrent()
         
-        displayTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
+        displayTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(SunriseSunsetCalculatorViewController.timerFired(_:)), userInfo: nil, repeats: true)
         
         absoluteTimeSunrise = nextAstronomicalDateForSunrise.timeIntervalSinceReferenceDate
         absoluteTimeSunset = nextAstronomicalDateForSunset.timeIntervalSinceReferenceDate

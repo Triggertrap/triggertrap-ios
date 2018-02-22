@@ -39,7 +39,7 @@ public struct Repeat: Unwrappable {
         if currentModule > self.modules.count - 1 {
             
             // Increment the repeat count
-            currentRepeatCount++
+            currentRepeatCount += 1
             
             // Check if the repeat count is greater than the total repeat module counts
             if currentRepeatCount > repeatCount {

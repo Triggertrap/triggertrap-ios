@@ -28,7 +28,7 @@ import UIKit
         if displayMenuButton {
             
             leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
-            leftButton?.addTarget(self.navigationController, action: "menuButtonTapped:", forControlEvents: UIControlEvents.TouchDown)
+            leftButton?.addTarget(self.navigationController, action: Selector("menuButtonTapped:"), forControlEvents: UIControlEvents.TouchDown)
             leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_fillColor()) , forState: .Normal)
             
             let leftBarButton = UIBarButtonItem(customView: leftButton!)
@@ -43,7 +43,7 @@ import UIKit
             // Set the right bar button item.
             
             rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
-            rightButton?.addTarget(self.navigationController, action: "optionsButtonTapped:", forControlEvents: UIControlEvents.TouchDown)
+            rightButton?.addTarget(self.navigationController, action: Selector("optionsButtonTapped:"), forControlEvents: UIControlEvents.TouchDown)
             rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_fillColor()) , forState: .Normal)
             let rightBarButton = UIBarButtonItem(customView: rightButton!)
             rightBarButton.style = UIBarButtonItemStyle.Plain

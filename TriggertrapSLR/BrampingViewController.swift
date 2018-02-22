@@ -63,7 +63,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         
         endExposurePicker.currentIndex = NSIndexPath(forRow:endExposurePicker.savedIndexForKey("bramping-endExposure") , inSection: 0)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didTrigger:"), name: "kTTDongleDidTriggerNotification", object: nil)
         
         WearablesManager.sharedInstance.delegate = self
     }
@@ -172,7 +172,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         
         if let activeViewController = sequenceManager.activeViewController where activeViewController is BrampingViewController && dispatchable is Pulse {
             
-            shotsTakenCount++
+            shotsTakenCount += 1
             feedbackViewController.shotsTakenLabel?.text = "\(shotsTakenCount)/\(Int(photosNumberInputView.value))"
         }
     }
@@ -241,7 +241,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
     private func updateExposureValues() {
         var startValue = Int(intervalNumberInputView.value)
         
-        for var i: Int = 0; i < startExposurePicker.dataSource.count; i++ {
+        for i in 0..<startExposurePicker.dataSource.count {
             let dict: NSDictionary = startExposurePicker.dataSource[i] as! NSDictionary
             let num: NSNumber = dict.objectForKey("value") as! NSNumber
             
@@ -267,7 +267,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         
         var endValue = Int(intervalNumberInputView.value)
         
-        for var i: Int = endExposurePicker.dataSource.count; i > 0; i-- {
+        for var i: Int = endExposurePicker.dataSource.count; i > 0; i -= 1 {
             
             let dict = endExposurePicker.dataSource[i - 1] as! NSDictionary
             

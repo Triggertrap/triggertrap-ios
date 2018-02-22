@@ -25,7 +25,7 @@ public class HeadphoneDispatcher: NSObject, Dispatcher {
             // Audio buffer is only precise for less than 15 seconds duration (less than 50ms discrepancy). Otherwise use the precise timer to get accurate duration.
             if dispatchable.time.durationInMilliseconds > Time(duration: 15, unit: .Seconds).durationInMilliseconds {
                 OutputDispatcher.sharedInstance.audioPlayer.delegate = nil
-                PreciseTimer.scheduleAction("didDispatchAudio", target: self, inTimeInterval: dispatchable.time.durationInSeconds)
+                PreciseTimer.scheduleAction(#selector(HeadphoneDispatcher.didDispatchAudio), target: self, inTimeInterval: dispatchable.time.durationInSeconds)
                 OutputDispatcher.sharedInstance.audioPlayer.playAudioForDuration(UInt64.max)
             } else {
                 OutputDispatcher.sharedInstance.audioPlayer.delegate = self
@@ -34,7 +34,7 @@ public class HeadphoneDispatcher: NSObject, Dispatcher {
             
         case .Delay:
             OutputDispatcher.sharedInstance.audioPlayer.delegate = nil
-            PreciseTimer.scheduleAction("didDispatch", target: self, inTimeInterval: dispatchable.time.durationInSeconds)
+            PreciseTimer.scheduleAction(#selector(HeadphoneDispatcher.didDispatch), target: self, inTimeInterval: dispatchable.time.durationInSeconds)
         }
     }
     

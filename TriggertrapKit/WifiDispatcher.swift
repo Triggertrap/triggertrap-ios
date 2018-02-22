@@ -22,9 +22,9 @@ public class WifiDispatcher: NSObject, Dispatcher {
         
         self.name = "Wifi"
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged", name: kReachabilityChangedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WifiDispatcher.reachabilityChanged), name: kReachabilityChangedNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "remoteOutputServerStatusChanged", name: kRemoteOutputServerStatusChangedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WifiDispatcher.remoteOutputServerStatusChanged), name: kRemoteOutputServerStatusChangedNotification, object: nil)
         
         self.reachability = Reachability.reachabilityForLocalWiFi()
         self.remoteOutputServer = RemoteOutputServer.sharedInstance()

@@ -9,23 +9,18 @@
 import UIKit
 
 func ShowAlertInViewController(viewController: UIViewController, title: String, message: String, cancelButton: String) {
-    if #available(iOS 8.0, *) {
-        let alert = UIAlertController(title: title,
-            message: message,
-            preferredStyle: UIAlertControllerStyle.Alert)
-        
-        // The order in which we add the buttons matters.
-        // Add the Cancel button first to match the iOS 7 default style,
-        // where the cancel button is at index 0.
-        alert.addAction(UIAlertAction(title: cancelButton,
-            style: .Default,
-            handler: nil))
-        
-        viewController.presentViewController(alert, animated: true, completion: nil)
-    } else {
-        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: cancelButton)
-        alert.show()
-    }
+    let alert = UIAlertController(title: title,
+                                  message: message,
+                                  preferredStyle: UIAlertControllerStyle.Alert)
+    
+    // The order in which we add the buttons matters.
+    // Add the Cancel button first to match the iOS 7 default style,
+    // where the cancel button is at index 0.
+    alert.addAction(UIAlertAction(title: cancelButton,
+        style: .Default,
+        handler: nil))
+    
+    viewController.presentViewController(alert, animated: true, completion: nil)
 }
 
 func StoryboardNameForViewControllerIdentifier(identifier: String) -> String? {
@@ -136,33 +131,33 @@ func ImageWithColor(image: UIImage, color: UIColor) -> UIImage {
 // MARK: - Theme Updates
 
 #if SLR
-func applyThemeUpdateToNumberInput(numberInput: TTNumberInput?) {
+    func applyThemeUpdateToNumberInput(numberInput: TTNumberInput?) {
+        
+        numberInput?.displayView.textColor = UIColor.triggertrap_accentColor()
+        numberInput?.borderColor = UIColor.triggertrap_accentColor()
+        numberInput?.borderHighlightColor = UIColor.triggertrap_primaryColor()
+        numberInput?.setNeedsDisplay()
+    }
     
-    numberInput?.displayView.textColor = UIColor.triggertrap_accentColor()
-    numberInput?.borderColor = UIColor.triggertrap_accentColor()
-    numberInput?.borderHighlightColor = UIColor.triggertrap_primaryColor()
-    numberInput?.setNeedsDisplay()
-}
-
-func applyThemeUpdateToTimeInput(timeInput: TTTimeInput?) {
-    timeInput?.setFontColor(UIColor.triggertrap_accentColor())
-    timeInput?.borderColor = UIColor.triggertrap_accentColor()
-    timeInput?.borderHighlightColor = UIColor.triggertrap_primaryColor()
-    timeInput?.setNeedsDisplay()
-}
-
-func applyThemeUpdateToPicker(picker: HorizontalPicker?) {
+    func applyThemeUpdateToTimeInput(timeInput: TTTimeInput?) {
+        timeInput?.setFontColor(UIColor.triggertrap_accentColor())
+        timeInput?.borderColor = UIColor.triggertrap_accentColor()
+        timeInput?.borderHighlightColor = UIColor.triggertrap_primaryColor()
+        timeInput?.setNeedsDisplay()
+    }
     
-    picker?.fontColor = UIColor.triggertrap_accentColor()
-    picker?.gradientView.leftGradientStartColor = UIColor.triggertrap_fillColor()
-    picker?.gradientView.leftGradientEndColor = UIColor.triggertrap_clearColor()
-    picker?.gradientView.rightGradientEndColor = UIColor.triggertrap_fillColor()
-    picker?.gradientView.rightGradientStartColor = UIColor.triggertrap_clearColor()
-    picker?.gradientView.horizontalLinesColor = UIColor.triggertrap_foregroundColor()
-    picker?.gradientView.verticalLinesColor = UIColor.triggertrap_primaryColor()
-    picker?.gradientView.setNeedsDisplay()
-    picker?.layoutSubviews()
-}
+    func applyThemeUpdateToPicker(picker: HorizontalPicker?) {
+        
+        picker?.fontColor = UIColor.triggertrap_accentColor()
+        picker?.gradientView.leftGradientStartColor = UIColor.triggertrap_fillColor()
+        picker?.gradientView.leftGradientEndColor = UIColor.triggertrap_clearColor()
+        picker?.gradientView.rightGradientEndColor = UIColor.triggertrap_fillColor()
+        picker?.gradientView.rightGradientStartColor = UIColor.triggertrap_clearColor()
+        picker?.gradientView.horizontalLinesColor = UIColor.triggertrap_foregroundColor()
+        picker?.gradientView.verticalLinesColor = UIColor.triggertrap_primaryColor()
+        picker?.gradientView.setNeedsDisplay()
+        picker?.layoutSubviews()
+    }
 #endif
 
 func applyThemeUpdateToDescriptionLabel(label: UILabel) {

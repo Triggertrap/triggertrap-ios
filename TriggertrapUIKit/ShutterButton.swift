@@ -115,7 +115,7 @@ class ShutterButton: UIButton {
     func startAnimating() {
         addAnimationLayers()
         animateRing1()
-        timer = NSTimer.scheduledTimerWithTimeInterval(animationInterval, target: self, selector: Selector("timerFired"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(animationInterval, target: self, selector: #selector(ShutterButton.timerFired), userInfo: nil, repeats: true)
         animating = true
 //        } else {
 //            ringColor = UIColor.triggertrap_primaryColor(1.0)

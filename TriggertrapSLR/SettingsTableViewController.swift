@@ -220,7 +220,7 @@ class SettingsTableViewController : UITableViewController {
             
         case SubSettingsViewController.SettingsType.PulseLength:
             
-            for var i = 0; i < settingsValues.count; i++ {
+            for i in 0..<settingsValues.count {
                 if settingsValues[i] as Int == settingsManager.pulseLength.integerValue {
                     settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "pulseLengthsPlist", bundle: NSBundle.mainBundle(), value: "", comment: "")
                     break
@@ -230,7 +230,7 @@ class SettingsTableViewController : UITableViewController {
             
         case SubSettingsViewController.SettingsType.SpeedUnit:
             
-            for var i = 0; i < settingsValues.count; i++ {
+            for i in 0..<settingsValues.count {
                 if settingsValues[i] as Int == settingsManager.speedUnit.integerValue { 
                     settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "speedUnitsPlist", bundle: NSBundle.mainBundle(), value: "", comment: "")
                     break
@@ -240,7 +240,7 @@ class SettingsTableViewController : UITableViewController {
             
         case SubSettingsViewController.SettingsType.DistanceUnit:
             
-            for var i = 0; i < settingsValues.count; i++ {
+            for i in 0..<settingsValues.count {
                 
                 if settingsValues[i] as Int == settingsManager.distanceUnit.integerValue { 
                     settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "distanceUnitsPlist", bundle: NSBundle.mainBundle(), value: "", comment: "")

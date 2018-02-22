@@ -44,7 +44,7 @@ class MainNavigationViewController: RotationNavigationViewController {
     override func viewWillAppear(animated: Bool)  {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissLeftPanel:", name: "DismissLeftPanel", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainNavigationViewController.dismissLeftPanel(_:)), name: "DismissLeftPanel", object: nil)
         
         self.addGestureRecognizerToViewForScreenEdgeGestureWithPanelViewController(leftPanelViewController, withDirection: MCPanelAnimationDirection.Left)
     }

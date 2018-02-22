@@ -137,7 +137,7 @@ class TimelapseViewController: TTViewController, TTNumberInputDelegate {
             feedbackViewController.circleTimer?.stop()
             feedbackViewController.circleTimer?.start()
             
-            numberOfShotsTaken++
+            numberOfShotsTaken += 1
             
             feedbackViewController.shotsTakenLabel?.text = "\(numberOfShotsTaken)"
         }

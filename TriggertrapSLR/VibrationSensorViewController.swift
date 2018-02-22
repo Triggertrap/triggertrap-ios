@@ -48,7 +48,7 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didTrigger:"), name: "kTTDongleDidTriggerNotification", object: nil)
         
         let previousVibrationThreshold  = NSUserDefaults.standardUserDefaults().floatForKey("lastUsedVibrationThreshold")
         

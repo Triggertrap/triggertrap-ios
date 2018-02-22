@@ -43,7 +43,7 @@ class WiFiViewController: TTViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         // Add notification observer which calls wifiDidDisconnect when device goes into airplain mode/wifi is disabled
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "wifiDidDisconnect", name: ConstWifiMasterIsSelected, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WiFiViewController.wifiDidDisconnect), name: ConstWifiMasterIsSelected, object: nil)
         
         wifiSegmentedControl.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_light(20.0)]
             , forState: .Normal)

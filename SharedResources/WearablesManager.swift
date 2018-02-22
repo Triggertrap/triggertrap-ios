@@ -20,19 +20,15 @@ class WearablesManager: NSObject {
     func startSession() {
         isRunning = true
         
-        if #available(iOS 9.0, *) {
-            AppleWatchManager.sharedInstance.startSession()
-        }
+        AppleWatchManager.sharedInstance.startSession()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "watchDidTrigger", name: constWatchDidTrigger, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WearablesManager.watchDidTrigger), name: constWatchDidTrigger, object: nil)
     }
     
     func endSession() {
         isRunning = false
         
-        if #available(iOS 9.0, *) {
-            AppleWatchManager.sharedInstance.stopSession()
-        }
+        AppleWatchManager.sharedInstance.stopSession()
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: constWatchDidTrigger, object: nil)
     }

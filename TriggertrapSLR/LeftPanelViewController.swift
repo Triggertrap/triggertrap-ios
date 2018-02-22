@@ -29,7 +29,7 @@ class LeftPanelViewController: UIViewController {
         
         modes = NSArray(contentsOfFile: pathForResource("Modes")) 
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "removeActiveCell:", name: "DidRemoveActiveViewController", object: nil) 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftPanelViewController.removeActiveCell(_:)), name: "DidRemoveActiveViewController", object: nil) 
     }
     
     deinit {

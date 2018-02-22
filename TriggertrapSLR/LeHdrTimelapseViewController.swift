@@ -34,7 +34,7 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didTrigger:"), name: "kTTDongleDidTriggerNotification", object: nil)
         
         middleExposureHorizontalPicker.currentIndex = NSIndexPath(forRow: middleExposureHorizontalPicker.savedIndexForKey("lehdrTimelapse-middleExposure"), inSection: 0)
         evHorizontalPicker.currentIndex = NSIndexPath(forRow: evHorizontalPicker.savedIndexForKey("lehdrTimelapse-ev"), inSection: 0)
@@ -112,7 +112,7 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         var j = 0
         let step = (3 - 1) / 2
         
-        for var i: Int = -step; i <= step; i++ {
+        for var i = -step; i <= step; i += 1 {
             let exposure: Double = pow(Double(pow(2.0, ev)), Double(i)) * Double(middleExposureHorizontalPicker.value)
             calcSequence[j] = exposure
             calcSequence[j + 1] = 1000.0
@@ -222,11 +222,11 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrTimelapseViewController && dispatchable is Pulse {
             var pauseLength = sequence.modules[count * 2 + 1].durationInMilliseconds()
             
-            count++
+            count += 1
             
             if count == 3 {
                 count = 0
-                numberOfShotsTaken++
+                numberOfShotsTaken += 1
                 
                 if numberOfShotsTaken == 1 {
                     let set = String(format: NSLocalizedString("%d HDR set", comment: "%d HDR set"), numberOfShotsTaken)

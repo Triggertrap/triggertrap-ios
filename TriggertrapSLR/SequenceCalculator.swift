@@ -32,17 +32,14 @@ class SequenceCalculator {
     
     // MARK: - HDR Calculations
     
-    func hdrSequenceForExposures(var expCount: Int, midExpDuration: Double, evStep: Double, interval: Double) -> Sequence {
-        if expCount % 2 != 1 {
-            expCount++
-        }
+    func hdrSequenceForExposures(expCount: Int, midExpDuration: Double, evStep: Double, interval: Double) -> Sequence {
         
         var modules = [Modular](count: expCount * 2, repeatedValue: Pulse(time: Time(duration: 0, unit: .Milliseconds)))
         
         var j = 0
         let step = (expCount - 1) / 2
         
-        for var index = -step; index <= step; index++ {
+        for var index = -step; index <= step; index += 1 {
             let exposure = (pow(pow(2, evStep), Double(index)) * midExpDuration)
             modules[j] = Pulse(time: Time(duration: exposure, unit: .Milliseconds))
             modules[j + 1] = Delay(time: Time(duration: MinimumGapBetweenHDRExposures, unit: .Milliseconds))
@@ -110,7 +107,7 @@ class SequenceCalculator {
     func brampingSequenceForExposures(expCount: Int, firstExposure: Double, lastExposure: Double, interval: Double) -> Sequence {
         var modules = [Modular](count: expCount * 2, repeatedValue: Pulse(time: Time(duration: 0, unit: .Milliseconds)))
         
-        for var index = 0; index < expCount; index++ {
+        for index in 0..<expCount {
             let fraction = Double(index) / Double(expCount - 1)
             let exposure = fraction * (lastExposure - firstExposure) + firstExposure
             

@@ -28,7 +28,7 @@ class CircleTimer: UIView {
     func start() {
         
         self.startTime = CFAbsoluteTimeGetCurrent();
-        timer = NSTimer(timeInterval: 0.02, target: self, selector: "clockDidTick:", userInfo: nil, repeats: true)
+        timer = NSTimer(timeInterval: 0.02, target: self, selector: #selector(CircleTimer.clockDidTick(_:)), userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
     }
     

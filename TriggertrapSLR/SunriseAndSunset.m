@@ -79,9 +79,9 @@
 - (double) sunriseOrSunsetForYear:(int)year andMonth:(int)month andDay:(int)day atLongitude:(double)longitude andLatitude:(double)latitude withZenith:(double)zenith andType:(int)type{
     
     int dayOfYear = [self dayOfYearForYear:year andMonth:month andDay:day];
-   
+    
     double sunMeanAnomaly = [self meanAnomalyForDayOfYear:dayOfYear atLongitude:longitude forCalculationType:type];
-   
+    
     double sunTrueLong = [self sunTrueLongitudeFromAnomaly:sunMeanAnomaly];
     
     double sunRightAscensionHours = [self sunRightAscensionHoursForLongitude:sunTrueLong];
@@ -92,14 +92,14 @@
     
     if (type == kTypeSunrise) {
         if (cosLocalHourAngle > 1) { // no rise. No need for an Exception
-            // since the calculation
-            // will return Double.NaN
+                                     // since the calculation
+                                     // will return Double.NaN
         }
         localHourAngle = 360.0 - acosDeg(cosLocalHourAngle);
     } else /* if (type == TYPE_SUNSET) */{
         if (cosLocalHourAngle < -1) {// no SET. No need for an Exception
-            // since the calculation
-            // will return Double.NaN
+                                     // since the calculation
+                                     // will return Double.NaN
         }
         localHourAngle = acosDeg(cosLocalHourAngle);
     }
@@ -108,15 +108,15 @@
     double localMeanTime = [self localMeanTimeForHour:localHour andAscension:sunRightAscensionHours andApproxTimeDays:[self approxTimeDaysForDayOfYear:dayOfYear withHoursFromMeridian:[self hoursFromMeridianForLongitude:longitude] forCalculationType:type]];
     
     double processedTime = localMeanTime - [self hoursFromMeridianForLongitude:longitude];
-
-	while (processedTime < 0.0) {
-		processedTime = processedTime + 24.0;
-	}
-	
-	while (processedTime >= 24.0) {
-		processedTime = processedTime - 24.0;
-	}
-
+    
+    while (processedTime < 0.0) {
+        processedTime = processedTime + 24.0;
+    }
+    
+    while (processedTime >= 24.0) {
+        processedTime = processedTime - 24.0;
+    }
+    
     return processedTime;
 }
 
@@ -140,7 +140,7 @@
     //DLog(@"- (double) localMeanTimeForHour:(double)localHour andAscension:(double)sunRightAscensionHours andApproxTimeDays:(double)approxTimeDays; %.15f", temp);
     
     return temp;
-
+    
 }
 
 //
@@ -148,7 +148,7 @@
 //
 
 - (double) cosLocalHourAngleForAngle:(double)sunTrueLongitude andLatitude:(double)latitude andZenith:(double)zenith{
-
+    
     //DLog(@"\n\n\n Long: %.15f \n\n Lat: %.15f \n\n Zen: %.15f\n\n\n", sunTrueLongitude, latitude, zenith);
     double sinDec = 0.39782 * (sinDeg(sunTrueLongitude));
     double cosDec = cosDeg((asinDeg(sinDec)));
@@ -311,7 +311,7 @@
     }
     
     int year = [[[self yearMonthAndDayFromDate:date] objectAtIndex:0]intValue];
-
+    
     int month = [[[self yearMonthAndDayFromDate:date] objectAtIndex:1]intValue];
     
     int day = [[[self yearMonthAndDayFromDate:date] objectAtIndex:2]intValue];
@@ -361,7 +361,7 @@
     
     double earthRadius = kEarthRadius;
     
-     //double elevationAdjustment = 0.0347 * sqrt(elevation);
+    //double elevationAdjustment = 0.0347 * sqrt(elevation);
     double elevationAdjustment = toDegrees(acos(earthRadius/(earthRadius + (elevation / 1000))));
     
     ////DLog(@"Elevation Adjustment: %.15f", elevationAdjustment);
@@ -416,13 +416,13 @@
     //  Create a calendar
     //
     
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
     //
     //  Set up the date components
     //
     
-    NSDateComponents *parts = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:date];
+    NSDateComponents *parts = [gregorianCalendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:date];
     
     
     //

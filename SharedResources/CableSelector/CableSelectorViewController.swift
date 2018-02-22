@@ -48,7 +48,8 @@ class CableSelectorViewController: SplitLayoutViewController {
         super.viewWillAppear(animated)
         
         // Hide the status bar with animation
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        
+        self.prefersStatusBarHidden()
         
         cameraManufacturerPicker.selectRow(lastCameraManufacturerSelected, inComponent: 0, animated: false)
         cameraModelPicker.selectRow(lastCameraModelSelected, inComponent: 0, animated: false)
@@ -67,7 +68,6 @@ class CableSelectorViewController: SplitLayoutViewController {
         super.viewDidDisappear(animated)
         
         // Show the status bar with animation
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Slide)
     }
     
     override func didReceiveMemoryWarning() {

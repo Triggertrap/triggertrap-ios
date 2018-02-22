@@ -48,7 +48,7 @@ class TimelapseProViewController: CenterViewController {
         
         performThemeUpdate()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "performThemeUpdate", name: ConstThemeHasBeenUpdated, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TimelapseProViewController.performThemeUpdate), name: ConstThemeHasBeenUpdated, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {

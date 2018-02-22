@@ -37,7 +37,7 @@ class SplitLayoutViewController: CenterViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "performThemeUpdate", name: ConstThemeHasBeenUpdated, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SplitLayoutViewController.performThemeUpdate), name: ConstThemeHasBeenUpdated, object: nil)
         
         // Check if the view controller's theme has been changed and perform theme update if needed
         if viewControllerTheme != AppTheme() {

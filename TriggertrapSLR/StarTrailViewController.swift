@@ -32,7 +32,7 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
         durationNumberInputView.value = durationNumberInputView.savedValueForKey("starTrail-duration")
         gapNumberInputView.value = gapNumberInputView.savedValueForKey("starTrail-gap")
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didTrigger:"), name: "kTTDongleDidTriggerNotification", object: nil)
         
         WearablesManager.sharedInstance.delegate = self
     }
@@ -157,7 +157,7 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
         super.didDispatch(dispatchable)
         
         if let activeViewController = sequenceManager.activeViewController where activeViewController is StarTrailViewController && dispatchable is Pulse {
-            shotsTakenCount++
+            shotsTakenCount += 1
             feedbackViewController.shotsTakenLabel?.text = "\(shotsTakenCount)/\(exposureNumberInputView.value)"
         }
     }

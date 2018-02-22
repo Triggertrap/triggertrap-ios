@@ -115,7 +115,7 @@ public class SequenceManager {
                         // Inform the active view controller that the dispatchable has ended its execution
                         onMain {
                             self.dispatchableDelegate?.didDispatch(dispatchable)
-                            self.currentModule++
+                            self.currentModule += 1
                             self.unwrapSequence(sequence)
                         }
                     } else {
