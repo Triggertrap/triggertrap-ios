@@ -12,11 +12,11 @@
 
 import UIKit
 
-public class TimerStyleKit : NSObject {
+open class TimerStyleKit : NSObject {
 
     //// Drawing Methods
 
-    public class func drawCircleTimer(fraction fraction: CGFloat = 0.337, clockwise: Bool = false, angle: CGFloat = 90, size: CGSize = CGSizeMake(200, 200), lineThickness: CGFloat = 4, nightTime: Bool = true) {
+    open class func drawCircleTimer(fraction: CGFloat = 0.337, clockwise: Bool = false, angle: CGFloat = 90, size: CGSize = CGSize(width: 200, height: 200), lineThickness: CGFloat = 4, nightTime: Bool = true) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -35,31 +35,31 @@ public class TimerStyleKit : NSObject {
         let fillColor = nightTime ? fill_Night : fill
 
         //// CircleBackground Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, circleCenter, circleCenter)
+        context?.saveGState()
+        context?.translateBy(x: circleCenter, y: circleCenter)
 
-        let circleBackgroundPath = UIBezierPath(ovalInRect: CGRectMake(expression2, expression2, circleSize, circleSize))
+        let circleBackgroundPath = UIBezierPath(ovalIn: CGRect(x: expression2, y: expression2, width: circleSize, height: circleSize))
         foregroundColor.setStroke()
         circleBackgroundPath.lineWidth = lineThickness
         circleBackgroundPath.stroke()
 
-        CGContextRestoreGState(context)
+        context?.restoreGState()
 
 
         //// CircleBackground 2 Drawing
-        CGContextSaveGState(context)
-        CGContextTranslateCTM(context, circleCenter, circleCenter)
-        CGContextRotateCTM(context, -angle * CGFloat(M_PI) / 180)
+        context?.saveGState()
+        context?.translateBy(x: circleCenter, y: circleCenter)
+        context?.rotate(by: -angle * CGFloat(M_PI) / 180)
 
-        let circleBackground2Rect = CGRectMake(expression2, expression2, circleSize, circleSize)
+        let circleBackground2Rect = CGRect(x: expression2, y: expression2, width: circleSize, height: circleSize)
         let circleBackground2Path = UIBezierPath()
-        circleBackground2Path.addArcWithCenter(CGPointMake(circleBackground2Rect.midX, circleBackground2Rect.midY), radius: circleBackground2Rect.width / 2, startAngle: 0 * CGFloat(M_PI)/180, endAngle: -expression * CGFloat(M_PI)/180, clockwise: true)
+        circleBackground2Path.addArc(withCenter: CGPoint(x: circleBackground2Rect.midX, y: circleBackground2Rect.midY), radius: circleBackground2Rect.width / 2, startAngle: 0 * CGFloat(M_PI)/180, endAngle: -expression * CGFloat(M_PI)/180, clockwise: true)
 
         fillColor.setStroke()
         circleBackground2Path.lineWidth = lineThickness
         circleBackground2Path.stroke()
 
-        CGContextRestoreGState(context)
+        context?.restoreGState()
     }
 
 }

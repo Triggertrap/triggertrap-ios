@@ -7,6 +7,13 @@
 //
 
 public struct Pulse: Dispatchable {
+    public /** Unwraps the module
+     - parameter completionHandler: informs whether the module has been unwrapped successfully
+     */
+    func unwrap(_ completionHandler: (Bool) -> Void) {
+        
+    }
+
     
     public let name = "Pulse"
     public let type: DispatchableType

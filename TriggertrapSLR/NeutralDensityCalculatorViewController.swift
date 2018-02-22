@@ -8,15 +8,15 @@
 
 import UIKit
 
-typealias NDCalculatorCompletionBlock = ((duration: UInt64) -> Void)
+typealias NDCalculatorCompletionBlock = ((_ duration: UInt64) -> Void)
 
 class NeutralDensityCalculatorViewController: SplitLayoutViewController, HorizontalPickerDelegate, TTNumberInputDelegate {
     
     var isEmbedded = false
     var ndCalculatorCompletionBlock: NDCalculatorCompletionBlock?
     
-    private var kHundredHoursInMilliseconds: Int = 360000000
-    private var kHourInMilliseconds: Int = 3600000
+    fileprivate var kHundredHoursInMilliseconds: Int = 360000000
+    fileprivate var kHourInMilliseconds: Int = 3600000
     
     @IBOutlet weak var filterStrengthLabel: UILabel!
     @IBOutlet weak var baseShutterSpeedLabel: UILabel!
@@ -31,12 +31,12 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
     @IBOutlet weak var hmsWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var hmsHeightConstraint: NSLayoutConstraint!
     
-    private var isHoursMinutesSecondsFormat = false
-    private var ndFilterArray: NSMutableArray!
-    private var baseShutterSpeedArray: NSArray!
-    private var ndFilterPosition = 0
-    private var shutterSpeedPosition = 0
-    private var duration: UInt64 = 0
+    fileprivate var isHoursMinutesSecondsFormat = false
+    fileprivate var ndFilterArray: NSMutableArray!
+    fileprivate var baseShutterSpeedArray: NSArray!
+    fileprivate var ndFilterPosition = 0
+    fileprivate var shutterSpeedPosition = 0
+    fileprivate var duration: UInt64 = 0
     
     // MARK: - Lifecycle
     
@@ -45,13 +45,13 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         
         if isEmbedded {
             
-            let leftBarButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .Plain, target: self, action: #selector(NeutralDensityCalculatorViewController.cancelButtonTapped(_:)))
-            leftBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], forState: .Normal)
+            let leftBarButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .plain, target: self, action: #selector(NeutralDensityCalculatorViewController.cancelButtonTapped(_:)))
+            leftBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], for: UIControlState())
             self.navigationItem.leftBarButtonItem = leftBarButton
             
             // Set the right bar button item.
-            let rightBarButton = UIBarButtonItem(title: NSLocalizedString("OK", comment: "OK"), style: .Plain, target: self, action: #selector(NeutralDensityCalculatorViewController.calculateButtonTapped(_:)))
-            rightBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], forState: .Normal)
+            let rightBarButton = UIBarButtonItem(title: NSLocalizedString("OK", comment: "OK"), style: .plain, target: self, action: #selector(NeutralDensityCalculatorViewController.calculateButtonTapped(_:)))
+            rightBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], for: UIControlState())
             self.navigationItem.rightBarButtonItem = rightBarButton
             
             self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()
@@ -61,38 +61,38 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         
         for i in 0..<ndFilterArray.count {
             
-            let filter: String = ndFilterArray[i].objectForKey("string") as! String
+            let filter: String = (ndFilterArray[i] as AnyObject).object(forKey: "string") as! String
             
             let stop = String(format: NSLocalizedString("%@ stop", comment: "%@ stop"), filter)
             let stops = String(format: NSLocalizedString("%@ stops", comment: "%@ stops"), filter)
             
             let string: String = (i == 0) ? stop : stops
             
-            ndFilterArray[i].setValue(string, forKey: "string")
+            (ndFilterArray[i] as AnyObject).setValue(string, forKey: "string")
         }
         
         baseShutterSpeedArray = NSArray(contentsOfFile: pathForResource("ShutterSpeed"))
         
         filterStrengthPicker.delegate = self
         filterStrengthPicker.dataSource = ndFilterArray as Array
-        filterStrengthPicker.minimumValue = NSNumber(integer: 1)
-        filterStrengthPicker.maximumValue = NSNumber(integer: 20)
+        filterStrengthPicker.minimumValue = NSNumber(value: 1 as Int)
+        filterStrengthPicker.maximumValue = NSNumber(value: 20 as Int)
         filterStrengthPicker.defaultIndex = ndFilterPosition
         filterStrengthPicker.tag = 0
         
         baseShutterSpeedPicker.delegate = self
         baseShutterSpeedPicker.dataSource = baseShutterSpeedArray as Array
-        baseShutterSpeedPicker.minimumValue = NSNumber(float: 0.12)
-        baseShutterSpeedPicker.maximumValue = NSNumber(integer: 30000)
+        baseShutterSpeedPicker.minimumValue = NSNumber(value: 0.12 as Float)
+        baseShutterSpeedPicker.maximumValue = NSNumber(value: 30000 as Int)
         baseShutterSpeedPicker.defaultIndex = shutterSpeedPosition
         baseShutterSpeedPicker.tag = 1
         
         hoursMinutesSecondsView.setFontColor(UIColor.triggertrap_primaryColor(1.0))
         hoursMinutesSecondsView.showFractions = false
-        hoursMinutesSecondsView.borderColor  = UIColor.clearColor()
+        hoursMinutesSecondsView.borderColor  = UIColor.clear
         hoursMinutesSecondsView.maxValue = 359999990
         hoursMinutesSecondsView.value = 30000
-        hoursMinutesSecondsView.displayView.textAlignment = NSTextAlignment.Center
+        hoursMinutesSecondsView.displayView.textAlignment = NSTextAlignment.center
         
         let adjPoint = hoursMinutesSecondsView.adjustedSize()
         hmsHeightConstraint.constant = adjPoint.y
@@ -100,29 +100,29 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         hoursMinutesSecondsView.layoutIfNeeded()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        filterStrengthPicker.currentIndex = NSIndexPath(forRow: filterStrengthPicker.savedIndexForKey("nd-calculator.filterStrengthPicker"), inSection: 0)
-        baseShutterSpeedPicker.currentIndex = NSIndexPath(forRow: baseShutterSpeedPicker.savedIndexForKey("nd-calculator.baseShutterSpeedPicker"), inSection: 0)
+        filterStrengthPicker.currentIndex = IndexPath(row: filterStrengthPicker.savedIndex(forKey: "nd-calculator.filterStrengthPicker"), section: 0)
+        baseShutterSpeedPicker.currentIndex = IndexPath(row: baseShutterSpeedPicker.savedIndex(forKey: "nd-calculator.baseShutterSpeedPicker"), section: 0)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Private
     
-    private func ndTime(stops: Int, withShutterSpeed speed: Int) -> String {
+    fileprivate func ndTime(_ stops: Int, withShutterSpeed speed: Int) -> String {
         
         var ndTimeString = ""
         
-        let result = Double(baseShutterSpeedArray[speed].objectForKey("value")! as! Double) * pow(2.0, Double(stops + 1))
+        let result = Double((baseShutterSpeedArray[speed] as AnyObject).object(forKey: "value")! as! Double) * pow(2.0, Double(stops + 1))
         
         duration = UInt64(result)
         
-        if result >= baseShutterSpeedArray.lastObject!.objectForKey("value")! as! Double {
+        if result >= (baseShutterSpeedArray.lastObject! as AnyObject).object(forKey: "value")! as! Double {
             isHoursMinutesSecondsFormat = true
             ndTimeString = "\(result)"
         } else {
@@ -130,17 +130,17 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
             
             var i = speed
             
-            while result >= baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double {
+            while result >= (baseShutterSpeedArray.object(at: i) as AnyObject).object(forKey: "value")! as! Double {
                 
-                if result > baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double {
+                if result > (baseShutterSpeedArray.object(at: i) as AnyObject).object(forKey: "value")! as! Double {
                     
-                    let lowerDif = result - Double(baseShutterSpeedArray.objectAtIndex(i).objectForKey("value") as! Double)
+                    let lowerDif = result - Double((baseShutterSpeedArray.object(at: i) as AnyObject).object(forKey: "value") as! Double)
                     
-                    let higherDif = (baseShutterSpeedArray.objectAtIndex(i + 1).objectForKey("value")! as! Double) - result
+                    let higherDif = ((baseShutterSpeedArray.object(at: i + 1) as AnyObject).object(forKey: "value")! as! Double) - result
                     
                     let minimum = min(lowerDif, higherDif)
                     
-                    ndTimeString = (minimum == lowerDif) ? baseShutterSpeedArray[i].objectForKey("string")! as! String : baseShutterSpeedArray[i + 1].objectForKey("string")! as! String
+                    ndTimeString = (minimum == lowerDif) ? (baseShutterSpeedArray[i] as AnyObject).object(forKey: "string")! as! String : (baseShutterSpeedArray[i + 1] as AnyObject).object(forKey: "string")! as! String
                 }
                 
                 i += 1
@@ -152,17 +152,17 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
     
     // MARK: - Horizontal Picker Delegate
     
-    func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int) {
+    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAt index: Int) {
         let picker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {
             
         case 0:
-            filterStrengthPicker.saveIndex(index, forKey: "nd-calculator.filterStrengthPicker")
+            filterStrengthPicker.save(index, forKey: "nd-calculator.filterStrengthPicker")
             let array = picker.dataSource as NSArray
             
-            let stops = array.objectAtIndex(index).objectForKey("string")! as! String
-            let filter = array.objectAtIndex(index).objectForKey("string1")! as! String
+            let stops = (array.object(at: index) as AnyObject).object(forKey: "string")! as! String
+            let filter = (array.object(at: index) as AnyObject).object(forKey: "string1")! as! String
             
             let filterText = String(format: NSLocalizedString("%@ %@ filter", comment: "%@ %@ filter"), stops, filter)
             
@@ -171,7 +171,7 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
             break
             
         case 1:
-            baseShutterSpeedPicker.saveIndex(index, forKey: "nd-calculator.baseShutterSpeedPicker")
+            baseShutterSpeedPicker.save(index, forKey: "nd-calculator.baseShutterSpeedPicker")
             shutterSpeedPosition = Int(index)
             break
             
@@ -185,37 +185,37 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         if isHoursMinutesSecondsFormat {
             
             if (shutterSpeedText as NSString).longLongValue > CLongLong(kHundredHoursInMilliseconds) {
-                stepLabel.hidden = false
-                hoursLabel.hidden = false
+                stepLabel.isHidden = false
+                hoursLabel.isHidden = false
                 stepLabel.text = "\((shutterSpeedText as NSString).longLongValue / CLongLong(kHourInMilliseconds))"
-                hoursMinutesSecondsView.hidden = true
+                hoursMinutesSecondsView.isHidden = true
             } else {
-                stepLabel.hidden = true
-                hoursLabel.hidden = true
-                hoursMinutesSecondsView.hidden = false
+                stepLabel.isHidden = true
+                hoursLabel.isHidden = true
+                hoursMinutesSecondsView.isHidden = false
                 hoursMinutesSecondsView.value = CUnsignedLongLong((shutterSpeedText as NSString).longLongValue)
             }
         } else {
-            stepLabel.hidden = false
-            hoursLabel.hidden = true
+            stepLabel.isHidden = false
+            hoursLabel.isHidden = true
             stepLabel.text = shutterSpeedText
-            hoursMinutesSecondsView.hidden = true
+            hoursMinutesSecondsView.isHidden = true
         } 
     }
     
     // MARK: - Action
     
-    func cancelButtonTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func cancelButtonTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func calculateButtonTapped(sender: AnyObject) {
+    func calculateButtonTapped(_ sender: AnyObject) {
         
         if duration < UInt64(ConstMinDuration) {
             ShowAlertInViewController(self, title: NSLocalizedString("Slow down, buddy!", comment: "Slow down, buddy!"),  message: NSLocalizedString("This shutter speed is a bit too fast for bulb mode. Try using Shutter Priority on your camera, and Triggertrap as a cable release.", comment: "This shutter speed is a bit too fast for bulb mode. Try using Shutter Priority on your camera, and Triggertrap as a cable release."), cancelButton: NSLocalizedString("OK", comment: "OK"))
         } else {
-            ndCalculatorCompletionBlock?(duration: duration)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            ndCalculatorCompletionBlock?(duration)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -244,7 +244,7 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         hoursLabel.textColor = UIColor.triggertrap_primaryColor()
         
         hoursMinutesSecondsView.setFontColor(UIColor.triggertrap_primaryColor())
-        hoursMinutesSecondsView.borderColor = UIColor.clearColor()
+        hoursMinutesSecondsView.borderColor = UIColor.clear
         hoursMinutesSecondsView.borderHighlightColor = UIColor.triggertrap_primaryColor()
         hoursMinutesSecondsView.setNeedsDisplay()
     }

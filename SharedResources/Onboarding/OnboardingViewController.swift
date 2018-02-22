@@ -13,7 +13,7 @@ class OnboardingViewController: UIViewController {
     // TODO: When refactoring, move all common Onboarding vc variables to this view controller
     
     // Call this function to dismiss the view controller from a storyboard vc button
-    @IBAction func dismissViewController(button: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismissViewController(_ button: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

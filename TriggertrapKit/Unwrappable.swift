@@ -20,18 +20,18 @@ extension Unwrappable {
     
     // MARK: - Public
     
-    public mutating func unwrap(completionHandler: CompletionHandler) -> Void {
+    public mutating func unwrap(_ completionHandler: @escaping CompletionHandler) -> Void {
         self.completionHandler = completionHandler
         
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
             // Inform the modules lifecycle protocol subscriber that the current module will be unwrapped
             onMain {
-                SequenceManager.sharedInstance.unwrappableDelegate?.willUnwrap(self)
+                //SequenceManager.sharedInstance.unwrappableDelegate?.willUnwrap(self)
             }
             
             unwrapModule()
         } else {
-            self.completionHandler(success: false)
+            self.completionHandler(false)
         }
     }
     
@@ -41,7 +41,7 @@ extension Unwrappable {
             self.didUnwrap()
         } else {
             self.modules[currentModule].unwrap({ (success) -> Void in 
-                success ? self.nextModule() : self.completionHandler(success: false)
+                success ? self.nextModule() : self.completionHandler(false)
             })
         }
     }
@@ -53,18 +53,18 @@ extension Unwrappable {
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
             unwrapModule()
         } else {
-            self.completionHandler(success: false)
+            self.completionHandler(false)
         }
     }
     
-    public func didUnwrap() { 
+    public func didUnwrap() {
         
         // Inform the modules lifecycle protocol subscriber that the current module was unwrapped
         onMain {
             SequenceManager.sharedInstance.unwrappableDelegate?.didUnwrap(self)
         }
         
-        self.completionHandler(success: true)
+        self.completionHandler(true)
     }
     
     public func durationInMilliseconds() -> Double {

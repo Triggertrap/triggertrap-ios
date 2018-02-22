@@ -15,36 +15,36 @@ class OnboardingNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad() 
         
-        if !(UIDevice.currentDevice().model == "iPad") && !(UIDevice.currentDevice().model == "iPad Simulator") {
+        if !(UIDevice.current.model == "iPad") && !(UIDevice.current.model == "iPad Simulator") {
             // Force the device in portrait mode when the navigation controller gets loaded
-            UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         }
         
         // Hide the status bar with animation
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         // Lock autorotate
         return false
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         
         // Only allow Portrait for the onboarding
-        return UIInterfaceOrientationMask.Portrait
+        return UIInterfaceOrientationMask.portrait
     }
     
-    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+    override var preferredInterfaceOrientationForPresentation : UIInterfaceOrientation {
         
         // Only allow Portrait for the onboarding
-        return UIInterfaceOrientation.Portrait
+        return UIInterfaceOrientation.portrait
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         // Show the status bar with animation
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Slide)
+        UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.slide)
     }
 }

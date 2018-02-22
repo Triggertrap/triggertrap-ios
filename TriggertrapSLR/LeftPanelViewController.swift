@@ -13,30 +13,30 @@ class LeftPanelViewController: UIViewController {
     // Cable Release modes
     @IBOutlet var tableView: UITableView! 
     
-    private let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    fileprivate let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    private var modes: NSArray?
+    fileprivate var modes: NSArray?
     
     // MARK - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        self.tableView.separatorColor = UIColor.clearColor()
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.separatorColor = UIColor.clear
         
-        tableView.registerNib(UINib(nibName: "ModeTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "ModeTableViewCell")
+        tableView.register(UINib(nibName: "ModeTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "ModeTableViewCell")
         
         modes = NSArray(contentsOfFile: pathForResource("Modes")) 
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeftPanelViewController.removeActiveCell(_:)), name: "DidRemoveActiveViewController", object: nil) 
+        NotificationCenter.default.addObserver(self, selector: #selector(LeftPanelViewController.removeActiveCell(_:)), name: NSNotification.Name(rawValue: "DidRemoveActiveViewController"), object: nil) 
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         
@@ -51,10 +51,10 @@ class LeftPanelViewController: UIViewController {
         if let superview = self.view.superview {
             
             // Get the table view origin from the superview
-            let tableViewOrigin = superview.convertPoint(self.tableView.frame.origin, fromView: self.view)
+            let tableViewOrigin = superview.convert(self.tableView.frame.origin, from: self.view)
             
             // Get status bar size
-            let statusBarSize = UIApplication.sharedApplication().statusBarFrame.size
+            let statusBarSize = UIApplication.shared.statusBarFrame.size
             
             // Change navigation bar height to the difference between table view origin and size of the status bar
             if let navigationBarFrame = self.navigationController?.navigationBar.frame {
@@ -66,28 +66,28 @@ class LeftPanelViewController: UIViewController {
     
     // MARK: - Notifications
     
-    func removeActiveCell(sender: NSNotification) {
+    func removeActiveCell(_ sender: Notification) {
         self.tableView.reloadData()
     } 
 }
 
 extension LeftPanelViewController: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return modes?.count ?? 0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (modes?[section].objectAtIndex(1) as! NSArray).count ?? 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ((modes?[section] as AnyObject).object(at: 1) as! NSArray).count ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ModeTableViewCell", forIndexPath: indexPath) as! ModeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ModeTableViewCell", for: indexPath) as! ModeTableViewCell
         
-        if let modes = modes, modesSection = (modes[indexPath.section] as? NSArray), modesInSection = modesSection[1] as? NSArray, mode = modesInSection[indexPath.row] as? NSDictionary {
+        if let modes = modes, let modesSection = (modes[indexPath.section] as? NSArray), let modesInSection = modesSection[1] as? NSArray, let mode = modesInSection[indexPath.row] as? NSDictionary {
             
-            cell.titleLabel.text = NSLocalizedString(mode["title"] as! String, tableName: "ModesPlist", bundle: NSBundle.mainBundle(), value: "Title", comment: "Ignore when translating")
+            cell.titleLabel.text = NSLocalizedString(mode["title"] as! String, tableName: "ModesPlist", bundle: Bundle.main, value: "Title", comment: "Ignore when translating")
             
             cell.titleLabel.textColor = UIColor.triggertrap_accentColor()
             cell.identifier = mode["identifier"] as? String
@@ -105,14 +105,14 @@ extension LeftPanelViewController: UITableViewDataSource {
                 cell.descriptionLabel.text = NSLocalizedString("Not available with Wifi Master running", comment: "Not available with Wifi Master running")
                 cell.square.backgroundColor = UIColor.triggertrap_color(UIColor.triggertrap_naturalColor(), change: CGFloat(indexPath.row) * 0.1)
             } else {
-                cell.descriptionLabel.text = NSLocalizedString(mode["description"] as! String, tableName: "ModesPlist", bundle: NSBundle.mainBundle(), value: "Description", comment: "Ignore when translating")
+                cell.descriptionLabel.text = NSLocalizedString(mode["description"] as! String, tableName: "ModesPlist", bundle: Bundle.main, value: "Description", comment: "Ignore when translating")
                 cell.square.backgroundColor = UIColor.triggertrap_color(UIColor.triggertrap_primaryColor(), change: CGFloat(indexPath.row) * 0.1)
             }
             
             cell.descriptionLabel.textColor = UIColor.triggertrap_foregroundColor()
             cell.separatorView.backgroundColor = UIColor.triggertrap_clearColor()
             
-            if let activeViewController = SequenceManager.sharedInstance.activeViewController where cell.identifier == activeViewController.restorationIdentifier {
+            if let activeViewController = SequenceManager.sharedInstance.activeViewController, cell.identifier == activeViewController.restorationIdentifier {
                 cell.activityIndicator.startAnimating()
             } else {
                 cell.activityIndicator.stopAnimating()
@@ -122,13 +122,13 @@ extension LeftPanelViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 22.0))
         view.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
         
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: self.tableView.frame.width, height: 22.0))
         
-        label.text = NSLocalizedString(modes?[section].objectAtIndex(0) as! String, tableName: "ModesPlist", bundle: NSBundle.mainBundle(), value: "Section", comment: "Ignore when translating")
+        label.text = NSLocalizedString((modes?[section] as AnyObject).object(at: 0) as! String, tableName: "ModesPlist", bundle: Bundle.main, value: "Section", comment: "Ignore when translating")
         label.font = UIFont.triggertrap_metric_regular(18.0)
         label.textColor = UIColor.triggertrap_accentColor(1.0)
         
@@ -140,30 +140,30 @@ extension LeftPanelViewController: UITableViewDataSource {
 
 extension LeftPanelViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ModeTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! ModeTableViewCell
         
         guard let identifier = cell.identifier else {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
+            self.dismiss(animated: true, completion: nil)
             return
         }
         
         if WifiDispatcher.sharedInstance.remoteOutputServer.delegate != nil {
             
             if cell.remoteSupported {
-                NSNotificationCenter.defaultCenter().postNotificationName("SidebarDidSelectCellWithIdentifier", object:identifier)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "SidebarDidSelectCellWithIdentifier"), object:identifier)
             }
         } else if WearablesManager.sharedInstance.isWearablesModeRunning() {
             if cell.wearablesSupported {
-                NSNotificationCenter.defaultCenter().postNotificationName("SidebarDidSelectCellWithIdentifier", object:identifier)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "SidebarDidSelectCellWithIdentifier"), object:identifier)
             }
         } else {
-            NSNotificationCenter.defaultCenter().postNotificationName("SidebarDidSelectCellWithIdentifier", object:identifier)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "SidebarDidSelectCellWithIdentifier"), object:identifier)
         }
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -44,31 +44,31 @@ class CarouselViewController: UIViewController {
     
     // MARK: - Private
     
-    private func setupScrollViewImages() {
+    fileprivate func setupScrollViewImages() {
         
         for index in 0..<imageData.count {
             let imageView = UIImageView(frame: CGRect(x: CGFloat(index) * scrollView.frame.width, y: 0, width: scrollView.frame.width, height: scrollView.frame.height))
-            imageView.contentMode = UIViewContentMode.ScaleAspectFill
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
             imageView.image = UIImage(named: imageData[index])
             imageView.clipsToBounds = true
             
             scrollView.addSubview(imageView)
             imageView.translatesAutoresizingMaskIntoConstraints = false 
             
-            scrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: scrollView, attribute: NSLayoutAttribute.Height, multiplier: 1.0, constant: 0.0))
+            scrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.height, multiplier: 1.0, constant: 0.0))
             
-            scrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: scrollView, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0.0))
+            scrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0.0))
             
-            scrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: scrollView, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+            scrollView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 0.0))
             
-            imagesOffsetConstraints.append(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: scrollView, attribute: NSLayoutAttribute.Leading, multiplier: 1.0, constant: CGFloat(index) * scrollView.frame.width))
+            imagesOffsetConstraints.append(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.leading, multiplier: 1.0, constant: CGFloat(index) * scrollView.frame.width))
             
             scrollView.addConstraint(imagesOffsetConstraints[index])
         }
     }
     
     // MARK: - Action
-    @IBAction func nextButtonTapped(button: UIButton) {
+    @IBAction func nextButtonTapped(_ button: UIButton) {
         
         if currentIndex < (imageData.count - 1) {
             currentIndex += 1
@@ -77,7 +77,7 @@ class CarouselViewController: UIViewController {
         moveContentOfScrollView(scrollView, toIndex: currentIndex, withAnimation: true)
     }
     
-    @IBAction func previousButtonTapped(button: UIButton) {
+    @IBAction func previousButtonTapped(_ button: UIButton) {
         if currentIndex > 0 {
             currentIndex -= 1
         }
@@ -88,27 +88,27 @@ class CarouselViewController: UIViewController {
 
 extension CarouselViewController: UIScrollViewDelegate {
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
         moveContentOfScrollView(scrollView, toIndex: index, withAnimation: true)
     } 
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let index = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
         moveContentOfScrollView(scrollView, toIndex: index, withAnimation: true)
     }
     
     // Hide the previous and next button while user starts scrolling
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        previousButton.hidden = true
-        nextButton.hidden = true
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        previousButton.isHidden = true
+        nextButton.isHidden = true
     }
     
-    private func moveContentOfScrollView(scrollView: UIScrollView, toIndex index: Int, withAnimation animation: Bool) {
+    fileprivate func moveContentOfScrollView(_ scrollView: UIScrollView, toIndex index: Int, withAnimation animation: Bool) {
         currentIndex = index
         
-        previousButton.hidden = (index == 0) ? true : false
-        nextButton.hidden = (index == (imageData.count - 1)) ? true : false
+        previousButton.isHidden = (index == 0) ? true : false
+        nextButton.isHidden = (index == (imageData.count - 1)) ? true : false
         
         scrollView.setContentOffset(CGPoint(x: scrollView.frame.width * CGFloat(index), y: 0.0), animated: true)
     }

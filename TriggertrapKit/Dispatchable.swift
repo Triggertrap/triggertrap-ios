@@ -15,23 +15,23 @@ extension Dispatchable {
     
     // MARK: - Public
     
-    public mutating func unwrap(completionHandler: CompletionHandler) -> Void {
+    public mutating func unwrap(_ completionHandler: @escaping CompletionHandler) -> Void {
         self.completionHandler = completionHandler
         
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
             // Inform the modules lifecycle protocol subscriber that the current module will be unwrapped
             unwrapWithDispatchers()
         } else {
-            self.completionHandler(success: false)
+            self.completionHandler(false)
         }
     }
     
     public func didUnwrap() {
         let timeElapsed = SequenceManager.sharedInstance.timeElapsed.durationInMilliseconds + self.time.durationInMilliseconds
-        SequenceManager.sharedInstance.timeElapsed = Time(duration: timeElapsed, unit: .Milliseconds)
+        SequenceManager.sharedInstance.timeElapsed = Time(duration: timeElapsed, unit: .milliseconds)
         SequenceManager.sharedInstance.sequenceDelegate?.didElapseTime?(timeElapsed) 
         
-        self.completionHandler(success: true)
+        self.completionHandler(true)
     }
     
     public func durationInMilliseconds() -> Double {

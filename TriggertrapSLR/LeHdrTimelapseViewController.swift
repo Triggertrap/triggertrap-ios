@@ -19,10 +19,10 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
     @IBOutlet weak var evHorizontalPicker: HorizontalPicker!
     @IBOutlet weak var evLabel: UILabel!
     
-    private var count: Int = 0
-    private var numberOfShotsTaken: Int = 0
-    private var ev: double_t = 0
-    private var sequence: Sequence!
+    fileprivate var count: Int = 0
+    fileprivate var numberOfShotsTaken: Int = 0
+    fileprivate var ev: double_t = 0
+    fileprivate var sequence: Sequence!
     
     // MARK: - Lifecycle
     
@@ -32,15 +32,15 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         setNumberPicker()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didTrigger:"), name: "kTTDongleDidTriggerNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector("didTrigger:"), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
-        middleExposureHorizontalPicker.currentIndex = NSIndexPath(forRow: middleExposureHorizontalPicker.savedIndexForKey("lehdrTimelapse-middleExposure"), inSection: 0)
-        evHorizontalPicker.currentIndex = NSIndexPath(forRow: evHorizontalPicker.savedIndexForKey("lehdrTimelapse-ev"), inSection: 0)
+        middleExposureHorizontalPicker.currentIndex = IndexPath(row: middleExposureHorizontalPicker.savedIndex(forKey: "lehdrTimelapse-middleExposure"), section: 0)
+        evHorizontalPicker.currentIndex = IndexPath(row: evHorizontalPicker.savedIndex(forKey: "lehdrTimelapse-ev"), section: 0)
         
         // Load the previous value
-        numberInputView.value = numberInputView.savedValueForKey("lehdrTimelapse-interval")
+        numberInputView.value = numberInputView.savedValue(forKey: "lehdrTimelapse-interval")
         numberInputView.updateValueDisplay()
         
         updateBracketLimits()
@@ -48,14 +48,14 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,7 +64,7 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             if sufficientVolumeToTrigger() {
@@ -82,15 +82,15 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
                 let interval = sequence.durationInMilliseconds() / 1000.0
                 
                 //Setup counter label and circle timer so that they are populated when red view animates
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionUp.rawValue
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionUp.rawValue
                 feedbackViewController.counterLabel?.startValue = 0
                 
                 feedbackViewController.circleTimer?.cycleDuration = interval
                 feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.progressDirectionAntiClockwise.rawValue
                 
-                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
-                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
+                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
             }
             
         } else {
@@ -98,16 +98,16 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         }
     }
     
-    @IBAction func openKeyboard(sender : TTTimeInput) {
+    @IBAction func openKeyboard(_ sender : TTTimeInput) {
         adjustMinValue()
         //Adjust min value
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Private
     
-    private func adjustMinValue() {
-        var calcSequence = [Double](count: 6, repeatedValue: 0.0)
+    fileprivate func adjustMinValue() {
+        var calcSequence = [Double](repeating: 0.0, count: 6)
         
         var j = 0
         let step = (3 - 1) / 2
@@ -132,41 +132,41 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         }
     }
     
-    private func setHorizontalPickers() {
+    fileprivate func setHorizontalPickers() {
         
         // Middle Horizontal Picker
-        let middleExposureValues: String = NSBundle.mainBundle().pathForResource("middleExposures", ofType: "plist")!
+        let middleExposureValues: String = Bundle.main.path(forResource: "middleExposures", ofType: "plist")!
         middleExposureHorizontalPicker.delegate = self
         
         middleExposureHorizontalPicker.dataSource = NSArray(contentsOfFile: middleExposureValues) as! Array
-        middleExposureHorizontalPicker.minimumValue = NSNumber(integer: 63)
-        middleExposureHorizontalPicker.maximumValue = NSNumber(integer: 6800000)
+        middleExposureHorizontalPicker.minimumValue = NSNumber(value: 63 as Int)
+        middleExposureHorizontalPicker.maximumValue = NSNumber(value: 6800000 as Int)
         middleExposureHorizontalPicker.defaultIndex = 15
         middleExposureHorizontalPicker.tag = 0
         
         // EV Horizontal Picker
-        let evValues: String = NSBundle.mainBundle().pathForResource("evValues", ofType: "plist")!
+        let evValues: String = Bundle.main.path(forResource: "evValues", ofType: "plist")!
         evHorizontalPicker.delegate = self
         evHorizontalPicker.dataSource = NSArray(contentsOfFile:evValues) as! Array
-        evHorizontalPicker.minimumValue = NSNumber(integer: 0)
-        evHorizontalPicker.maximumValue = NSNumber(integer: 3)
+        evHorizontalPicker.minimumValue = NSNumber(value: 0 as Int)
+        evHorizontalPicker.maximumValue = NSNumber(value: 3 as Int)
         evHorizontalPicker.defaultIndex = 1
         evHorizontalPicker.tag = 1
     }
     
-    private func setNumberPicker() {
+    fileprivate func setNumberPicker() {
         
         numberInputView.delegate = self
         numberInputView.maxValue = 359999900
         numberInputView.value = 10000
-        numberInputView.displayView.textAlignment = NSTextAlignment.Center
+        numberInputView.displayView.textAlignment = NSTextAlignment.center
         adjustMinValue()
         
         //Adjust min value
         numberInputView.updateValueDisplay()
     }
     
-    private func setEV() {
+    fileprivate func setEV() {
         ev = 1.0;
         
         switch Int(roundf(evHorizontalPicker.value)) {
@@ -194,22 +194,22 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         
     }
     
-    private func updateBracketLimits() {
+    fileprivate func updateBracketLimits() {
         
         if ev < 2.0 {
-            middleExposureHorizontalPicker.minimumValue = NSNumber(integer: 63)
+            middleExposureHorizontalPicker.minimumValue = NSNumber(value: 63 as Int)
         } else {
-            middleExposureHorizontalPicker.minimumValue = NSNumber(integer: 125)
+            middleExposureHorizontalPicker.minimumValue = NSNumber(value: 125 as Int)
         }
         adjustMinValue()
     }
     
     // MARK: - Public
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrTimelapseViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is LeHdrTimelapseViewController && dispatchable is Pulse {
             
             feedbackViewController.exposureCounterLabel?.startValue = UInt64(sequence.modules[count * 2].durationInMilliseconds())
             feedbackViewController.exposureCounterLabel?.start()
@@ -219,10 +219,10 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         }
     }
     
-    override func didDispatch(dispatchable: Dispatchable) {
+    override func didDispatch(_ dispatchable: Dispatchable) {
         super.didDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrTimelapseViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is LeHdrTimelapseViewController && dispatchable is Pulse {
             var pauseLength = sequence.modules[count * 2 + 1].durationInMilliseconds()
             
             count += 1
@@ -259,7 +259,7 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrTimelapseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is LeHdrTimelapseViewController {
             
             //Start counter label and circle timer
             feedbackViewController.startAnimations()
@@ -297,16 +297,16 @@ extension LeHdrTimelapseViewController: HorizontalPickerDelegate {
     
     // MARK - Horizontal Picker Delegate
     
-    func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int) {
+    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAt index: Int) {
         
         let picker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {
         case 0:
-            middleExposureHorizontalPicker.saveIndex(index, forKey: "lehdrTimelapse-middleExposure")
+            middleExposureHorizontalPicker.save(index, forKey: "lehdrTimelapse-middleExposure")
             break
         case 1:
-            evHorizontalPicker.saveIndex(index, forKey: "lehdrTimelapse-ev")
+            evHorizontalPicker.save(index, forKey: "lehdrTimelapse-ev")
             setEV()
             updateBracketLimits()
             middleExposureHorizontalPicker.refreshCurrentIndex()
@@ -319,7 +319,7 @@ extension LeHdrTimelapseViewController: HorizontalPickerDelegate {
         }
     }
     
-    func horizontalPicker(horizontalPicker: AnyObject!, didSelectValue value: NSNumber!) {
+    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectValue value: NSNumber!) {
         
         let picker = horizontalPicker as! HorizontalPicker
         

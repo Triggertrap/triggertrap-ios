@@ -7,6 +7,13 @@
 //
 
 public struct Delay: Dispatchable {
+    public /** Unwraps the module
+     - parameter completionHandler: informs whether the module has been unwrapped successfully
+     */
+    func unwrap(_ completionHandler: (Bool) -> Void) {
+        
+    }
+
     
     public let name = "Delay"
     public let type: DispatchableType

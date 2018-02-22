@@ -8,8 +8,8 @@
 
 public struct Time {
     
-    private let duration: Double
-    private let unit: Unit
+    fileprivate let duration: Double
+    fileprivate let unit: Unit
     
     // MARK: Lifecycle
     
@@ -25,11 +25,11 @@ public struct Time {
     public var durationInMilliseconds: Double {
         get {
             switch unit {
-                case .Milliseconds: return duration
-                case .Seconds: return duration * MillisecondsPerSecond
-                case .Minutes: return duration * MillisecondsPerMinute
-                case .Hours: return duration * MillisecondsPerHour
-                case .Days: return duration * MillisecondsPerDay
+                case .milliseconds: return duration
+                case .seconds: return duration * MillisecondsPerSecond
+                case .minutes: return duration * MillisecondsPerMinute
+                case .hours: return duration * MillisecondsPerHour
+                case .days: return duration * MillisecondsPerDay
             }
         }
     }

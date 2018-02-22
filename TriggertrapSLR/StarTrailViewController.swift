@@ -16,7 +16,7 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
     @IBOutlet weak var gapLabel: UILabel!
     @IBOutlet weak var gapNumberInputView: TTTimeInput!
     
-    private var shotsTakenCount = 0
+    fileprivate var shotsTakenCount = 0
     
     // MARK: - Lifecycle
     
@@ -25,31 +25,31 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
         setupNumberPickers()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Load the previous value
-        exposureNumberInputView.value = exposureNumberInputView.savedValueForKey("starTrail-exposures")
-        durationNumberInputView.value = durationNumberInputView.savedValueForKey("starTrail-duration")
-        gapNumberInputView.value = gapNumberInputView.savedValueForKey("starTrail-gap")
+        exposureNumberInputView.value = exposureNumberInputView.savedValue(forKey: "starTrail-exposures")
+        durationNumberInputView.value = durationNumberInputView.savedValue(forKey: "starTrail-duration")
+        gapNumberInputView.value = gapNumberInputView.savedValue(forKey: "starTrail-gap")
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("didTrigger:"), name: "kTTDongleDidTriggerNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector("didTrigger:"), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
     // MARK: - IBAction
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -66,15 +66,15 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
                 let interval: Double = Double((exposureNumberInputView.value * (durationNumberInputView.value + gapNumberInputView.value) - gapNumberInputView.value) / CUnsignedLongLong(1000.0))
                 
                 //Setup counter label and circle timer so that they are populated when red view animates
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
                 feedbackViewController.counterLabel?.startValue = CUnsignedLongLong(interval * 1000.0)
                 
                 feedbackViewController.circleTimer?.cycleDuration = interval
                 feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.progressDirectionAntiClockwise.rawValue
                 
-                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
-                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
+                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
             }
             
         } else {
@@ -82,37 +82,37 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
         }
     }
     
-    @IBAction func openKeyboard(sender : TTTimeInput) {
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+    @IBAction func openKeyboard(_ sender : TTTimeInput) {
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Private
     
-    private func setupNumberPickers() {
+    fileprivate func setupNumberPickers() {
         exposureNumberInputView.delegate = self
         exposureNumberInputView.minValue = 1
         exposureNumberInputView.maxNumberLength = 5
         exposureNumberInputView.maxValue = 99999
         exposureNumberInputView.value = 10
-        exposureNumberInputView.displayView.textAlignment = NSTextAlignment.Center
+        exposureNumberInputView.displayView.textAlignment = NSTextAlignment.center
         
         durationNumberInputView.delegate = self
         durationNumberInputView.maxValue = 359999990 // = 99 hours  99 mins ...
         durationNumberInputView.value = 90000 // default 1 min 30 secs
-        durationNumberInputView.displayView.textAlignment = NSTextAlignment.Center
+        durationNumberInputView.displayView.textAlignment = NSTextAlignment.center
         durationNumberInputView.minValue = 0
         
         gapNumberInputView.delegate = self
         gapNumberInputView.maxValue = 359999990 // = 99 hours  99 mins ...
         gapNumberInputView.value = 5000 // default 5 secs
-        gapNumberInputView.displayView.textAlignment = NSTextAlignment.Center;
+        gapNumberInputView.displayView.textAlignment = NSTextAlignment.center;
         gapNumberInputView.minValue = 0
     }
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is StarTrailViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is StarTrailViewController && dispatchable is Pulse {
             
             feedbackViewController.pauseCounterLabel?.stop()
             feedbackViewController.pauseCounterLabel?.startValue = 0
@@ -120,7 +120,7 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
             feedbackViewController.exposureCounterLabel?.startValue = durationNumberInputView.value
             feedbackViewController.exposureCounterLabel?.start()
         }
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is StarTrailViewController && dispatchable is Delay {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is StarTrailViewController && dispatchable is Delay {
             
             feedbackViewController.pauseCounterLabel?.stop()
             feedbackViewController.pauseCounterLabel?.startValue = gapNumberInputView.value
@@ -136,13 +136,13 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is StarTrailViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is StarTrailViewController {
             
             //Start counter label and circle timer
             feedbackViewController.startAnimations()
             
-            let pulse = Pulse(time: Time(duration: Double(durationNumberInputView.value), unit: .Milliseconds))
-            let delay = Delay(time: Time(duration: Double(gapNumberInputView.value), unit: .Milliseconds))
+            let pulse = Pulse(time: Time(duration: Double(durationNumberInputView.value), unit: .milliseconds))
+            let delay = Delay(time: Time(duration: Double(gapNumberInputView.value), unit: .milliseconds))
             
             let sequence = SequenceCalculator.sharedInstance.starTrailSequenceForExposures(Int(exposureNumberInputView.value), pulse: pulse, delay: delay)
             
@@ -153,10 +153,10 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
         }
     }
     
-    override func didDispatch(dispatchable: Dispatchable) {
+    override func didDispatch(_ dispatchable: Dispatchable) {
         super.didDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is StarTrailViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is StarTrailViewController && dispatchable is Pulse {
             shotsTakenCount += 1
             feedbackViewController.shotsTakenLabel?.text = "\(shotsTakenCount)/\(exposureNumberInputView.value)"
         }
@@ -176,7 +176,7 @@ class StarTrailViewController: TTViewController, TTNumberInputDelegate {
     
     // MARK: - TTNumberInput Delegate
     
-    func TTNumberInputKeyboardDidDismiss() {
+    func ttNumberInputKeyboardDidDismiss() {
         exposureNumberInputView.saveValue(exposureNumberInputView.value, forKey: "starTrail-exposures")
         durationNumberInputView.saveValue(durationNumberInputView.value, forKey: "starTrail-duration")
         gapNumberInputView.saveValue(gapNumberInputView.value, forKey: "starTrail-gap")

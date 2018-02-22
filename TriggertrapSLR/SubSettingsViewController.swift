@@ -11,19 +11,19 @@ import Foundation
 class SubSettingsViewController: UITableViewController {
     
     enum SettingsType : Int {
-        case SensorDelay = 0,
-        SensorResetDelay = 1,
-        PulseLength = 2,
-        SpeedUnit = 3,
-        DistanceUnit = 4
+        case sensorDelay = 0,
+        sensorResetDelay = 1,
+        pulseLength = 2,
+        speedUnit = 3,
+        distanceUnit = 4
     }
     
     // MARK: - Properties
     
-    var settingsType = SettingsType.SensorDelay
+    var settingsType = SettingsType.sensorDelay
     
-    private var strings: [String] = []
-    private var values: [Int] = []
+    fileprivate var strings: [String] = []
+    fileprivate var values: [Int] = []
     
     // MARK: - Lifecycle
     
@@ -38,28 +38,28 @@ class SubSettingsViewController: UITableViewController {
         
         switch settingsType {
             
-        case .SensorDelay:
-            path = NSBundle.mainBundle().pathForResource("sensorDelays", ofType: "plist")
+        case .sensorDelay:
+            path = Bundle.main.path(forResource: "sensorDelays", ofType: "plist")
             break
             
-        case .SensorResetDelay:
-            path = NSBundle.mainBundle().pathForResource("sensorResetDelays", ofType: "plist")
+        case .sensorResetDelay:
+            path = Bundle.main.path(forResource: "sensorResetDelays", ofType: "plist")
             break
             
-        case .PulseLength:
-            path = NSBundle.mainBundle().pathForResource("pulseLengths", ofType: "plist")
+        case .pulseLength:
+            path = Bundle.main.path(forResource: "pulseLengths", ofType: "plist")
             title = NSLocalizedString("Pulse Length", comment: "Pulse Length")
             //            GenerateStringsFileFromPlist("pulseLengths", plistType: .Dictionary)
             break
             
-        case .SpeedUnit:
-            path = NSBundle.mainBundle().pathForResource("speedUnits", ofType: "plist")
+        case .speedUnit:
+            path = Bundle.main.path(forResource: "speedUnits", ofType: "plist")
             title = NSLocalizedString("Speed Unit", comment: "Speed Unit")
             //            GenerateStringsFileFromPlist("speedUnits", plistType: .Dictionary)
             break
             
-        case .DistanceUnit:
-            path = NSBundle.mainBundle().pathForResource("distanceUnits", ofType: "plist")
+        case .distanceUnit:
+            path = Bundle.main.path(forResource: "distanceUnits", ofType: "plist")
             title = NSLocalizedString("Distance Unit", comment: "Distance Unit")
             //            GenerateStringsFileFromPlist("distanceUnits", plistType: .Dictionary)
             break
@@ -67,12 +67,12 @@ class SubSettingsViewController: UITableViewController {
         
         let dict = NSDictionary(contentsOfFile: path!)
         
-        strings = dict?.objectForKey("Strings") as! Array
-        values = dict?.objectForKey("Values") as! Array
+        strings = dict?.object(forKey: "Strings") as! Array
+        values = dict?.object(forKey: "Values") as! Array
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.backgroundColor = UIColor.triggertrap_fillColor()
         self.tableView.separatorColor = UIColor.triggertrap_foregroundColor()
@@ -85,17 +85,17 @@ class SubSettingsViewController: UITableViewController {
     
     // MARK: - UITableView Data Source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return strings.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell") as! BFPaperTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! BFPaperTableViewCell
         
         // Set the font to Metric
         cell.backgroundColor = UIColor.triggertrap_fillColor()
@@ -108,41 +108,41 @@ class SubSettingsViewController: UITableViewController {
         cell.textLabel?.text = strings[indexPath.row]
         
         // Clear all checkmarks when reloading the cells
-        if cell.accessoryType == UITableViewCellAccessoryType.Checkmark {
-            cell.accessoryType = UITableViewCellAccessoryType.None
+        if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
+            cell.accessoryType = UITableViewCellAccessoryType.none
         }
         
         var value: Int?
         
         switch settingsType {
             
-        case .SensorDelay:
-            value = SettingsManager.sharedInstance().sensorDelay.integerValue
+        case .sensorDelay:
+            value = SettingsManager.sharedInstance().sensorDelay.intValue
             break
             
-        case .SensorResetDelay:
-            value = SettingsManager.sharedInstance().sensorResetDelay.integerValue
+        case .sensorResetDelay:
+            value = SettingsManager.sharedInstance().sensorResetDelay.intValue
             break
             
-        case .PulseLength:
-            cell.textLabel?.text = NSLocalizedString(strings[indexPath.row], tableName: "pulseLengthsPlist", bundle: .mainBundle(), value: "150 ms - camera", comment: "Ignore when translating")
-            value = SettingsManager.sharedInstance().pulseLength.integerValue
+        case .pulseLength:
+            cell.textLabel?.text = NSLocalizedString(strings[indexPath.row], tableName: "pulseLengthsPlist", bundle: .main, value: "150 ms - camera", comment: "Ignore when translating")
+            value = SettingsManager.sharedInstance().pulseLength.intValue
             break
             
-        case .SpeedUnit:
-            value = SettingsManager.sharedInstance().speedUnit.integerValue
-            cell.textLabel?.text = NSLocalizedString(strings[indexPath.row], tableName: "speedUnitsPlist", bundle: .mainBundle(), value: "Kilometers per hour", comment: "Ignore when translating")
+        case .speedUnit:
+            value = SettingsManager.sharedInstance().speedUnit.intValue
+            cell.textLabel?.text = NSLocalizedString(strings[indexPath.row], tableName: "speedUnitsPlist", bundle: .main, value: "Kilometers per hour", comment: "Ignore when translating")
             break
             
-        case .DistanceUnit:
-            value = SettingsManager.sharedInstance().distanceUnit.integerValue
-            cell.textLabel?.text = NSLocalizedString(strings[indexPath.row], tableName: "distanceUnitsPlist", bundle: .mainBundle(), value: "Meters / Kilometers", comment: "Ignore when translating")
+        case .distanceUnit:
+            value = SettingsManager.sharedInstance().distanceUnit.intValue
+            cell.textLabel?.text = NSLocalizedString(strings[indexPath.row], tableName: "distanceUnitsPlist", bundle: .main, value: "Meters / Kilometers", comment: "Ignore when translating")
             break
         }
         
         // Add red checkmark to the cell with value equal to value from settings
         if value == (values[indexPath.row] as Int) {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
             cell.tintColor = UIColor.triggertrap_primaryColor(1.0)
         }
         
@@ -151,27 +151,27 @@ class SubSettingsViewController: UITableViewController {
     
     // MARK: - UITableView Delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch settingsType {
             
-        case .SensorDelay:
+        case .sensorDelay:
             SettingsManager.sharedInstance().sensorDelay = values[indexPath.row] as NSNumber
             break
             
-        case .SensorResetDelay:
+        case .sensorResetDelay:
             SettingsManager.sharedInstance().sensorResetDelay = values[indexPath.row] as NSNumber
             break
             
-        case .PulseLength:
+        case .pulseLength:
             SettingsManager.sharedInstance().pulseLength = values[indexPath.row] as NSNumber
             break
             
-        case .SpeedUnit:
+        case .speedUnit:
             SettingsManager.sharedInstance().speedUnit = values[indexPath.row] as NSNumber
             break
             
-        case .DistanceUnit:
+        case .distanceUnit:
             SettingsManager.sharedInstance().distanceUnit = values[indexPath.row] as NSNumber
             break
         }

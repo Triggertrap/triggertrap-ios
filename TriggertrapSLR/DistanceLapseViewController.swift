@@ -15,22 +15,22 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
     @IBOutlet weak var metersLabel: UILabel!
     @IBOutlet weak var numberInputView: TTNumberInput!
     
-    private var locationManager: CLLocationManager?
-    private var locationAccuracy: CLLocationAccuracy?
+    fileprivate var locationManager: CLLocationManager?
+    fileprivate var locationAccuracy: CLLocationAccuracy?
     
     // Local variables
-    private var distanceMajorUnit = ""
-    private var distanceMinorUnit = ""
-    private var speedUnit = ""
+    fileprivate var distanceMajorUnit = ""
+    fileprivate var distanceMinorUnit = ""
+    fileprivate var speedUnit = ""
     
-    private var distanceMajorFactor: Float = 0.0
-    private var distanceMinorFactor: Float = 0.0
-    private var distanceElapsed: Float = 0.0
-    private var distanceRemaining: Float = 0.0
-    private var interval: Float = 0.0
-    private var speedMultiplier: Float = 0.0
+    fileprivate var distanceMajorFactor: Float = 0.0
+    fileprivate var distanceMinorFactor: Float = 0.0
+    fileprivate var distanceElapsed: Float = 0.0
+    fileprivate var distanceRemaining: Float = 0.0
+    fileprivate var interval: Float = 0.0
+    fileprivate var speedMultiplier: Float = 0.0
     
-    private var numberOfShotsTaken = 0
+    fileprivate var numberOfShotsTaken = 0
     
     // MARK: - Lifecycle
     
@@ -42,16 +42,16 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         registerForNotifications()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //Setup units depending on phone locality
         setupUnits()
         
         // Load the previous value for number input
-        numberInputView.value = numberInputView.savedValueForKey("distanceLapse-distance")
+        numberInputView.value = numberInputView.savedValue(forKey: "distanceLapse-distance")
         
-        if (settingsManager.distanceUnit.integerValue == 0) {
+        if (settingsManager?.distanceUnit.intValue == 0) {
             self.metersLabel.text = NSLocalizedString("meters", comment: "meters");
         } else {
             self.metersLabel.text = NSLocalizedString("yards", comment: "yards");
@@ -60,16 +60,16 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is DistanceLapseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is DistanceLapseViewController {
             refreshLocationServices()
         } 
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         removeNotificationObservers()
         
         WearablesManager.sharedInstance.delegate = nil
@@ -77,7 +77,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
     
     // MARK: - IBActions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -111,15 +111,15 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         }
     }
     
-    @IBAction func openKeyboard(sender : TTNumberInput) {
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+    @IBAction func openKeyboard(_ sender : TTNumberInput) {
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Private
     
-    private func refreshLocationServices() {
+    fileprivate func refreshLocationServices() {
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is DistanceLapseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is DistanceLapseViewController {
             
             if locationManager == nil {
                 locationManager = CLLocationManager()
@@ -127,7 +127,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
                 locationManager?.desiredAccuracy = kCLLocationAccuracyBest
                 
                 // Asks the user to grant permission to use the location services while using the application. If statement is required for iOS7 otherwise app will crash.
-                if let locationManager = locationManager where locationManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization)) {
+                if let locationManager = locationManager, locationManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization)) {
                     locationManager.requestWhenInUseAuthorization()
                 }
             }
@@ -136,16 +136,16 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         locationManager?.startUpdatingLocation()
     }
     
-    private func setupCircularSlider() {
+    fileprivate func setupCircularSlider() {
         feedbackViewController.circularSlider?.minimumValue = 0.0
         feedbackViewController.circularSlider?.maximumValue = 1.0
         feedbackViewController.circularSlider?.lineWidth = 12.0
         feedbackViewController.circularSlider?.thumbImage = nil
-        feedbackViewController.circularSlider?.userInteractionEnabled = false
-        feedbackViewController.circularSlider?.transform = CGAffineTransformMakeRotation(CGFloat(((2.0 * M_PI) - (1.6 * M_PI)) / 2.0))
+        feedbackViewController.circularSlider?.isUserInteractionEnabled = false
+        feedbackViewController.circularSlider?.transform = CGAffineTransform(rotationAngle: CGFloat(((2.0 * M_PI) - (1.6 * M_PI)) / 2.0))
     }
 
-    private func setupNumberPicker() {
+    fileprivate func setupNumberPicker() {
         
         numberInputView.ttKeyboardDelegate = self
         numberInputView.delegate = self
@@ -153,17 +153,17 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         numberInputView.maxNumberLength = 5
         numberInputView.maxValue = 99999
         numberInputView.value = 25
-        numberInputView.displayView.textAlignment = NSTextAlignment.Center
+        numberInputView.displayView.textAlignment = NSTextAlignment.center
     }
     
-    private func resetDistance() {
+    fileprivate func resetDistance() {
         distanceElapsed = 0.0
         distanceRemaining = interval
         
         updateDistanceDisplay()
     }
     
-    private func updateDistanceDisplay() {
+    fileprivate func updateDistanceDisplay() {
         
         feedbackViewController.sinceLabel?.text = formatDistance(distanceElapsed)
         feedbackViewController.untilLabel?.text = formatDistance(distanceRemaining)
@@ -177,7 +177,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         }
     }
     
-    private func formatDistance(metres: Float) -> String {
+    fileprivate func formatDistance(_ metres: Float) -> String {
         
         var value: Float = 0.0
         var unit: String = ""
@@ -196,7 +196,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         return String.localizedStringWithFormat(pattern, value, unit)
     }
     
-    private func updateInterfaceForUnknownLocation() {
+    fileprivate func updateInterfaceForUnknownLocation() {
         
         ShowAlertInViewController(self, title: NSLocalizedString("Where am I?", comment: "Where am I?"), message: NSLocalizedString("I don't know where I am... Are location services disabled, perhaps?", comment: "I don't know where I am... Are location services disabled, perhaps?"), cancelButton: NSLocalizedString("OK", comment: "OK"))
         
@@ -206,19 +206,19 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
     
     // MARK: - Notifications
 
-    private func registerForNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DistanceLapseViewController.setupUnits), name: NSUserDefaultsDidChangeNotification, object: nil)
+    fileprivate func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(DistanceLapseViewController.setupUnits), name: UserDefaults.didChangeNotification, object: nil)
     }
     
-    private func removeNotificationObservers() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSUserDefaultsDidChangeNotification, object: nil)
+    fileprivate func removeNotificationObservers() {
+        NotificationCenter.default.removeObserver(self, name: UserDefaults.didChangeNotification, object: nil)
     }
     
     // MARK: - Public 
     
     func setupUnits() {
         
-        switch settingsManager.speedUnit.integerValue {
+        switch settingsManager!.speedUnit.intValue {
         case 0:
             // Meters per second
             speedUnit = NSLocalizedString("m/s", comment: "m/s")
@@ -244,7 +244,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
             break
         }
         
-        switch settingsManager.distanceUnit.integerValue {
+        switch settingsManager!.distanceUnit.intValue {
         case 0:
             // Meters / Kilometers
             distanceMajorUnit = NSLocalizedString("km", comment: "km")
@@ -286,13 +286,13 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is DistanceLapseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is DistanceLapseViewController {
             
             // Assign delegates
             prepareForSequence()
             
             // Trigger the camera
-            sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: settingsManager.pulseLength.doubleValue, unit: .Milliseconds))]), repeatSequence: false)
+            sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: (settingsManager?.pulseLength.doubleValue)!, unit: .milliseconds))]), repeatSequence: false)
         }
     }
     
@@ -309,7 +309,7 @@ extension DistanceLapseViewController: TTNumberInputDelegate {
     
     // MARK: - TTNumberInput Delegate
     
-    func TTNumberInputKeyboardDidDismiss() {
+    func ttNumberInputKeyboardDidDismiss() {
         numberInputView.saveValue(numberInputView.value, forKey: "distanceLapse-distance")
     }
 }
@@ -319,25 +319,25 @@ extension DistanceLapseViewController: CLLocationManagerDelegate {
     
     // MARK: - Location Manager Delegate
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         switch status {
             
-        case CLAuthorizationStatus.NotDetermined:
+        case CLAuthorizationStatus.notDetermined:
             manager.startUpdatingLocation()
             break
             
-        case CLAuthorizationStatus.Restricted:
+        case CLAuthorizationStatus.restricted:
             updateInterfaceForUnknownLocation()
             break
             
-        case CLAuthorizationStatus.Denied:
+        case CLAuthorizationStatus.denied:
             updateInterfaceForUnknownLocation()
             break
             
-        case CLAuthorizationStatus.AuthorizedAlways:
+        case CLAuthorizationStatus.authorizedAlways:
             
-            if let location = manager.location where location.GPSSignalStrength() == 0 {
+            if let location = manager.location, location.gpsSignalStrength() == 0 {
                 updateInterfaceForUnknownLocation()
                 sequenceManager.cancel()
             } else {
@@ -346,10 +346,10 @@ extension DistanceLapseViewController: CLLocationManagerDelegate {
             
             break
             
-        case CLAuthorizationStatus.AuthorizedWhenInUse:
+        case CLAuthorizationStatus.authorizedWhenInUse:
             
             if let location = manager.location {
-                if location.GPSSignalStrength() == 0 {
+                if location.gpsSignalStrength() == 0 {
                     updateInterfaceForUnknownLocation()
                     sequenceManager.cancel()
                 } else {
@@ -363,43 +363,8 @@ extension DistanceLapseViewController: CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-        
-        let moved = Float(newLocation.distanceFromLocation(oldLocation))
-        
-        if moved < 0.0 {
-            return
-        }
-        
-        if moved > 10000.0 {
-            resetDistance()
-            return
-        }
-        
-        if locationAccuracy != newLocation.horizontalAccuracy {
-            locationAccuracy = newLocation.horizontalAccuracy
-            updateDistanceDisplay()
-            return
-        }
-        
-        distanceElapsed += moved
-        
-        if distanceElapsed >= interval {
-            distanceElapsed = Float(lroundf(distanceElapsed) % lroundf(interval))
-            
-            // Assign delegates
-            prepareForSequence()
-            // Trigger the camera
-            sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: settingsManager.pulseLength.doubleValue, unit: .Milliseconds))]), repeatSequence: false)
-            numberOfShotsTaken += 1
-        }
-        
-        distanceRemaining = interval - distanceElapsed
-        
-        updateDistanceDisplay()
-    }
          
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error)")
         updateInterfaceForUnknownLocation()
         sequenceManager.cancel()

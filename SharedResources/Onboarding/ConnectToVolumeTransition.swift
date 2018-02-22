@@ -10,14 +10,14 @@ import UIKit
 
 class ConnectToVolumeTransition: CustomTransition {
     
-    override func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         self.transitionContext = transitionContext
-        self.containerView = transitionContext.containerView()
+        self.containerView = transitionContext.containerView
         
         switch state {
-        case .Push:
+        case .push:
             
-            let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! ConnectKitViewController
+            let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! ConnectKitViewController
             snapshotView(fromViewController.pageControl)
             
             // Create snapshots of the views that are going to change between the two view controllers
@@ -33,17 +33,17 @@ class ConnectToVolumeTransition: CustomTransition {
             // Create the cable using bezier path
             
             let pathView: DongleCableView = DongleCableView()
-             pathView.bezierType = DongleCableView.BezierPathType.Dongle
+             pathView.bezierType = DongleCableView.BezierPathType.dongle
             pathView.frame = fromViewController.dongleCableView.frame
             
-            let plugCenter = fromViewController.dongleCableView.convertPoint(fromViewController.donglePlugImageView.center, fromView: fromViewController.plugView)
-            let dongleCenter = fromViewController.dongleCableView.convertPoint(fromViewController.dongleBodyTopImageView.center, fromView: fromViewController.dongleView)
+            let plugCenter = fromViewController.dongleCableView.convert(fromViewController.donglePlugImageView.center, from: fromViewController.plugView)
+            let dongleCenter = fromViewController.dongleCableView.convert(fromViewController.dongleBodyTopImageView.center, from: fromViewController.dongleView)
             
             pathView.point1 = CGPoint(x: plugCenter.x, y: plugCenter.y + fromViewController.donglePlugImageView.frame.size.height / 2 + 2)
             pathView.point2 = CGPoint(x: dongleCenter.x, y: dongleCenter.y - fromViewController.dongleBodyTopImageView.frame.size.height / 2 - 2)
             pathView.addShapeLayer()
             
-            let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! VolumeViewController
+            let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! VolumeViewController
             
             // Alpha out the grey view controls
             
@@ -52,15 +52,15 @@ class ConnectToVolumeTransition: CustomTransition {
             fadeInView(toViewController.pageControl)
             
             // Hide the phone and dongle views while transition is happening
-            toViewController.phoneImageView.hidden = true
-            toViewController.dongleCableView.hidden = true
-            toViewController.informationView.hidden = true
-            toViewController.dongleCoilImageView.hidden = true
-            toViewController.dismissButton.hidden = true
-            toViewController.whiteViewDescriptionLabel.hidden = true
-            toViewController.whiteViewTitleLabel.hidden = true
+            toViewController.phoneImageView.isHidden = true
+            toViewController.dongleCableView.isHidden = true
+            toViewController.informationView.isHidden = true
+            toViewController.dongleCoilImageView.isHidden = true
+            toViewController.dismissButton.isHidden = true
+            toViewController.whiteViewDescriptionLabel.isHidden = true
+            toViewController.whiteViewTitleLabel.isHidden = true
             
-            toViewController.view.frame = transitionContext.finalFrameForViewController(toViewController)
+            toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
             
             containerView.addSubview(toViewController.view)
             containerView.addSubview(pathView)
@@ -159,16 +159,16 @@ class ConnectToVolumeTransition: CustomTransition {
                     }
             })
             */
-            UIView.animateWithDuration(self.duration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                phoneSnapshot.frame = self.containerView.convertRect(fromViewController.phoneImageView.frame, fromView: fromViewController.phoneImageView.superview)
-                dongleViewSnapshot.frame = self.containerView.convertRect(fromViewController.dongleView.frame, fromView: fromViewController.dongleView.superview)
-                dongleCoilViewSnapshot.frame = self.containerView.convertRect(fromViewController.dongleCoilImageView.frame, fromView: fromViewController.dongleCoilImageView.superview)
-                plugSnapshot.frame = self.containerView.convertRect(plugedInViewFrame, fromView: fromViewController.plugedInView.superview)
-                informationViewSnapshot.frame = self.containerView.convertRect(fromViewController.informationView.frame, fromView: fromViewController.informationView.superview)
-                separatorLineSnapshot.frame = self.containerView.convertRect(fromViewController.separatorLine.frame, fromView: fromViewController.separatorLine.superview)
+            UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+                phoneSnapshot.frame = self.containerView.convert(fromViewController.phoneImageView.frame, from: fromViewController.phoneImageView.superview)
+                dongleViewSnapshot.frame = self.containerView.convert(fromViewController.dongleView.frame, from: fromViewController.dongleView.superview)
+                dongleCoilViewSnapshot.frame = self.containerView.convert(fromViewController.dongleCoilImageView.frame, from: fromViewController.dongleCoilImageView.superview)
+                plugSnapshot.frame = self.containerView.convert(plugedInViewFrame, from: fromViewController.plugedInView.superview)
+                informationViewSnapshot.frame = self.containerView.convert(fromViewController.informationView.frame, from: fromViewController.informationView.superview)
+                separatorLineSnapshot.frame = self.containerView.convert(fromViewController.separatorLine.frame, from: fromViewController.separatorLine.superview)
                 
                 // Update path frame to follow from View controller dongle cable view
-                pathView.frame = self.containerView.convertRect(fromViewController.dongleCableView.frame, fromView: fromViewController.dongleCableView.superview)
+                pathView.frame = self.containerView.convert(fromViewController.dongleCableView.frame, from: fromViewController.dongleCableView.superview)
                 
                 pathView.point1 = CGPoint(x: fromViewController.plugedInView.center.x, y: 52)
                 pathView.point2 = CGPoint(x: dongleCenter.x, y: dongleCenter.y - fromViewController.dongleBodyTopImageView.frame.size.height / 2 - 2)
@@ -177,23 +177,23 @@ class ConnectToVolumeTransition: CustomTransition {
             }, completion: { (finished) -> Void in
                 
                 // Initial animation has been canceled
-                if (self.transitionContext!.transitionWasCancelled()) {
+                if (self.transitionContext!.transitionWasCancelled) {
                     
-                    fromViewController.dongleCoilImageView.hidden = false
-                    fromViewController.phoneImageView.hidden = false
-                    fromViewController.dongleCableView.hidden = false
-                    fromViewController.informationView.hidden = false
-                    fromViewController.separatorLine.hidden = false
-                    fromViewController.dongleView.hidden = false
-                    fromViewController.plugView.hidden = false
+                    fromViewController.dongleCoilImageView.isHidden = false
+                    fromViewController.phoneImageView.isHidden = false
+                    fromViewController.dongleCableView.isHidden = false
+                    fromViewController.informationView.isHidden = false
+                    fromViewController.separatorLine.isHidden = false
+                    fromViewController.dongleView.isHidden = false
+                    fromViewController.plugView.isHidden = false
                     
-                    toViewController.dongleCoilImageView.hidden = false
-                    toViewController.phoneImageView.hidden = false
-                    toViewController.dongleCableView.hidden = false
-                    toViewController.informationView.hidden = false
-                    toViewController.dismissButton.hidden = false
-                    toViewController.whiteViewDescriptionLabel.hidden = false
-                    toViewController.whiteViewTitleLabel.hidden = false
+                    toViewController.dongleCoilImageView.isHidden = false
+                    toViewController.phoneImageView.isHidden = false
+                    toViewController.dongleCableView.isHidden = false
+                    toViewController.informationView.isHidden = false
+                    toViewController.dismissButton.isHidden = false
+                    toViewController.whiteViewDescriptionLabel.isHidden = false
+                    toViewController.whiteViewTitleLabel.isHidden = false
                     
                     dongleCoilViewSnapshot.removeFromSuperview()
                     dongleViewSnapshot.removeFromSuperview()
@@ -209,18 +209,18 @@ class ConnectToVolumeTransition: CustomTransition {
                     
                     self.transitionContext!.completeTransition(false)
                 } else {
-                    UIView.animateWithDuration(self.duration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                    UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
                         
-                        plugSnapshot.frame = self.containerView.convertRect(toViewController.plugView.frame, fromView: toViewController.plugView.superview)
-                        dongleViewSnapshot.frame = self.containerView.convertRect(CGRect(x: toViewController.dongleView.frame.origin.x, y: toViewController.dongleView.frame.origin.y, width: dongleViewSnapshot.frame.size.width, height: dongleViewSnapshot.frame.size.height), fromView: toViewController.dongleView.superview)
-                        phoneSnapshot.frame = self.containerView.convertRect(toViewController.phoneImageView.frame, fromView: toViewController.phoneImageView.superview)
-                        informationViewSnapshot.frame = self.containerView.convertRect(toViewController.informationView.frame, fromView: toViewController.informationView.superview)
-                        separatorLineSnapshot.frame = self.containerView.convertRect(toViewController.separatorLine.frame, fromView: toViewController.separatorLine.superview)
+                        plugSnapshot.frame = self.containerView.convert(toViewController.plugView.frame, from: toViewController.plugView.superview)
+                        dongleViewSnapshot.frame = self.containerView.convert(CGRect(x: toViewController.dongleView.frame.origin.x, y: toViewController.dongleView.frame.origin.y, width: dongleViewSnapshot.frame.size.width, height: dongleViewSnapshot.frame.size.height), from: toViewController.dongleView.superview)
+                        phoneSnapshot.frame = self.containerView.convert(toViewController.phoneImageView.frame, from: toViewController.phoneImageView.superview)
+                        informationViewSnapshot.frame = self.containerView.convert(toViewController.informationView.frame, from: toViewController.informationView.superview)
+                        separatorLineSnapshot.frame = self.containerView.convert(toViewController.separatorLine.frame, from: toViewController.separatorLine.superview)
                         
-                        dongleCoilViewSnapshot.frame = self.containerView.convertRect(toViewController.dongleCoilImageView.frame, fromView: toViewController.dongleCoilImageView.superview)
+                        dongleCoilViewSnapshot.frame = self.containerView.convert(toViewController.dongleCoilImageView.frame, from: toViewController.dongleCoilImageView.superview)
                         
                         // Get new frame for the path
-                        pathView.frame = self.containerView.convertRect(toViewController.dongleCableView.frame, fromView: toViewController.dongleCableView.superview)
+                        pathView.frame = self.containerView.convert(toViewController.dongleCableView.frame, from: toViewController.dongleCableView.superview)
                         
                         // Update points to the new position
                         pathView.point1 = CGPoint(x: toViewController.plugView.center.x, y: 52)
@@ -234,21 +234,21 @@ class ConnectToVolumeTransition: CustomTransition {
                         
                         }, completion: { (ended) -> Void in
                             
-                            fromViewController.dongleCoilImageView.hidden = false
-                            fromViewController.phoneImageView.hidden = false
-                            fromViewController.dongleCableView.hidden = false
-                            fromViewController.informationView.hidden = false
-                            fromViewController.separatorLine.hidden = false
-                            fromViewController.dongleView.hidden = false
-                            fromViewController.plugView.hidden = false
+                            fromViewController.dongleCoilImageView.isHidden = false
+                            fromViewController.phoneImageView.isHidden = false
+                            fromViewController.dongleCableView.isHidden = false
+                            fromViewController.informationView.isHidden = false
+                            fromViewController.separatorLine.isHidden = false
+                            fromViewController.dongleView.isHidden = false
+                            fromViewController.plugView.isHidden = false
                             
-                            toViewController.dismissButton.hidden = false
-                            toViewController.dongleCoilImageView.hidden = false
-                            toViewController.phoneImageView.hidden = false
-                            toViewController.dongleCableView.hidden = false
-                            toViewController.informationView.hidden = false
-                            toViewController.whiteViewDescriptionLabel.hidden = false
-                            toViewController.whiteViewTitleLabel.hidden = false
+                            toViewController.dismissButton.isHidden = false
+                            toViewController.dongleCoilImageView.isHidden = false
+                            toViewController.phoneImageView.isHidden = false
+                            toViewController.dongleCableView.isHidden = false
+                            toViewController.informationView.isHidden = false
+                            toViewController.whiteViewDescriptionLabel.isHidden = false
+                            toViewController.whiteViewTitleLabel.isHidden = false
                             
                             dongleCoilViewSnapshot.removeFromSuperview()
                             dongleViewSnapshot.removeFromSuperview()
@@ -262,7 +262,7 @@ class ConnectToVolumeTransition: CustomTransition {
                             self.showViews()
                             self.removeSnapshotViews()
                             
-                            if (self.transitionContext!.transitionWasCancelled()) {
+                            if (self.transitionContext!.transitionWasCancelled) {
                                 self.transitionContext!.completeTransition(false)
                             } else {
                                 self.transitionContext!.completeTransition(true)
@@ -273,8 +273,8 @@ class ConnectToVolumeTransition: CustomTransition {
 
             break
             
-        case .Pop:
-            let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! VolumeViewController
+        case .pop:
+            let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! VolumeViewController
             
             // Snapshots
             let informationViewSnapshot = createSnapshotView(fromViewController.informationView)
@@ -285,25 +285,25 @@ class ConnectToVolumeTransition: CustomTransition {
             let separatorLineSnapshot = createSnapshotView(fromViewController.separatorLine)
             
             let pathView: DongleCableView = DongleCableView(frame: fromViewController.dongleCableView.frame)
-            pathView.bezierType = DongleCableView.BezierPathType.Dongle
+            pathView.bezierType = DongleCableView.BezierPathType.dongle
             
-            let plugCenter = fromViewController.dongleCableView.convertPoint(fromViewController.donglePlugImageView.center, fromView: fromViewController.plugView)
-            let dongleCenter = fromViewController.dongleCableView.convertPoint(fromViewController.dongleBodyTopImageView.center, fromView: fromViewController.dongleView)
+            let plugCenter = fromViewController.dongleCableView.convert(fromViewController.donglePlugImageView.center, from: fromViewController.plugView)
+            let dongleCenter = fromViewController.dongleCableView.convert(fromViewController.dongleBodyTopImageView.center, from: fromViewController.dongleView)
             
             pathView.point1 = CGPoint(x: plugCenter.x, y: plugCenter.y + fromViewController.donglePlugImageView.frame.size.height / 2 + 2)
             pathView.point2 = CGPoint(x: dongleCenter.x, y: dongleCenter.y - fromViewController.dongleBodyTopImageView.frame.size.height / 2 - 2)
             pathView.addShapeLayer()
             
-            let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! ConnectKitViewController
-            toViewController.view.frame = transitionContext.finalFrameForViewController(toViewController)
+            let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! ConnectKitViewController
+            toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
             
-            toViewController.dismissButton.hidden = true
-            toViewController.phoneImageView.hidden = true
-            toViewController.dongleView.hidden = true
-            toViewController.plugView.hidden = true
-            toViewController.informationView.hidden = true
-            toViewController.dongleCableView.hidden = true
-            toViewController.dongleCoilImageView.hidden = true
+            toViewController.dismissButton.isHidden = true
+            toViewController.phoneImageView.isHidden = true
+            toViewController.dongleView.isHidden = true
+            toViewController.plugView.isHidden = true
+            toViewController.informationView.isHidden = true
+            toViewController.dongleCableView.isHidden = true
+            toViewController.dongleCoilImageView.isHidden = true
             
             containerView.addSubview(toViewController.view)
             containerView.addSubview(pathView)
@@ -320,45 +320,45 @@ class ConnectToVolumeTransition: CustomTransition {
             
             toViewController.view.layoutIfNeeded()
             
-            UIView.animateWithDuration(self.duration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+            UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
                 
                 // Move plug and phone to the top of the screen
                 
-                phoneImageSnapshot.frame = self.containerView.convertRect(toViewController.phoneImageView.frame, fromView: toViewController.phoneImageView.superview)
-                dongleViewSnapshot.frame = self.containerView.convertRect(toViewController.dongleView.frame, fromView: toViewController.dongleView.superview)
-                dongleCoilViewSnapshot.frame = self.containerView.convertRect(toViewController.dongleCoilImageView.frame, fromView: toViewController.dongleCoilImageView.superview)
-                plugViewSnapshot.frame = self.containerView.convertRect(toViewController.plugedInView.frame, fromView: toViewController.plugedInView.superview)
-                informationViewSnapshot.frame = self.containerView.convertRect(toViewController.informationView.frame, fromView: toViewController.informationView.superview)
-                separatorLineSnapshot.frame = self.containerView.convertRect(toViewController.separatorLine.frame, fromView: toViewController.separatorLine.superview)
+                phoneImageSnapshot.frame = self.containerView.convert(toViewController.phoneImageView.frame, from: toViewController.phoneImageView.superview)
+                dongleViewSnapshot.frame = self.containerView.convert(toViewController.dongleView.frame, from: toViewController.dongleView.superview)
+                dongleCoilViewSnapshot.frame = self.containerView.convert(toViewController.dongleCoilImageView.frame, from: toViewController.dongleCoilImageView.superview)
+                plugViewSnapshot.frame = self.containerView.convert(toViewController.plugedInView.frame, from: toViewController.plugedInView.superview)
+                informationViewSnapshot.frame = self.containerView.convert(toViewController.informationView.frame, from: toViewController.informationView.superview)
+                separatorLineSnapshot.frame = self.containerView.convert(toViewController.separatorLine.frame, from: toViewController.separatorLine.superview)
                 
                 // Update path frame to follow from View controller dongle cable view
                 
-                pathView.frame = self.containerView.convertRect(toViewController.dongleCableView.frame, fromView: toViewController.dongleCableView.superview)
+                pathView.frame = self.containerView.convert(toViewController.dongleCableView.frame, from: toViewController.dongleCableView.superview)
                 
                 pathView.point1 = CGPoint(x: toViewController.plugedInView.center.x, y: 52)
-                pathView.point2 = CGPoint(x: toViewController.dongleCableView.convertPoint(toViewController.dongleBodyTopImageView.center, fromView: toViewController.dongleView).x, y: toViewController.dongleCableView.convertPoint(toViewController.dongleBodyTopImageView.center, fromView: toViewController.dongleView).y - toViewController.dongleBodyTopImageView.frame.size.height / 2 - 2)
+                pathView.point2 = CGPoint(x: toViewController.dongleCableView.convert(toViewController.dongleBodyTopImageView.center, from: toViewController.dongleView).x, y: toViewController.dongleCableView.convert(toViewController.dongleBodyTopImageView.center, from: toViewController.dongleView).y - toViewController.dongleBodyTopImageView.frame.size.height / 2 - 2)
                 
                 pathView.animateShapeLayereWithDuration(self.duration)
                 
                 }, completion: { (finished) -> Void in
                     // Initial animation has been canceled
-                    if (self.transitionContext!.transitionWasCancelled()) {
+                    if (self.transitionContext!.transitionWasCancelled) {
                         
-                        fromViewController.dongleCoilImageView.hidden = false
-                        fromViewController.phoneImageView.hidden = false
-                        fromViewController.dongleCableView.hidden = false
-                        fromViewController.informationView.hidden = false
-                        fromViewController.separatorLine.hidden = false
-                        fromViewController.dongleView.hidden = false
-                        fromViewController.plugView.hidden = false
+                        fromViewController.dongleCoilImageView.isHidden = false
+                        fromViewController.phoneImageView.isHidden = false
+                        fromViewController.dongleCableView.isHidden = false
+                        fromViewController.informationView.isHidden = false
+                        fromViewController.separatorLine.isHidden = false
+                        fromViewController.dongleView.isHidden = false
+                        fromViewController.plugView.isHidden = false
                         
-                        toViewController.dismissButton.hidden = false
-                        toViewController.dongleCoilImageView.hidden = false
-                        toViewController.phoneImageView.hidden = false
-                        toViewController.dongleView.hidden = false
-                        toViewController.plugView.hidden = false
-                        toViewController.informationView.hidden = false
-                        toViewController.dongleCableView.hidden = false
+                        toViewController.dismissButton.isHidden = false
+                        toViewController.dongleCoilImageView.isHidden = false
+                        toViewController.phoneImageView.isHidden = false
+                        toViewController.dongleView.isHidden = false
+                        toViewController.plugView.isHidden = false
+                        toViewController.informationView.isHidden = false
+                        toViewController.dongleCableView.isHidden = false
                         
                         dongleCoilViewSnapshot.removeFromSuperview()
                         informationViewSnapshot.removeFromSuperview()
@@ -375,15 +375,15 @@ class ConnectToVolumeTransition: CustomTransition {
                         self.transitionContext!.completeTransition(false)
                     } else {
                         
-                        UIView.animateWithDuration(self.duration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                        UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
                             
                             // Unplug dongle from phone
-                            plugViewSnapshot.frame = self.containerView.convertRect(toViewController.plugView.frame, fromView: toViewController.plugView.superview)
+                            plugViewSnapshot.frame = self.containerView.convert(toViewController.plugView.frame, from: toViewController.plugView.superview)
                             
-                            pathView.frame = self.containerView.convertRect(toViewController.dongleCableView.frame, fromView: fromViewController.dongleCableView.superview)
+                            pathView.frame = self.containerView.convert(toViewController.dongleCableView.frame, from: fromViewController.dongleCableView.superview)
                             
                             pathView.point1 = CGPoint(x: toViewController.plugView.center.x, y: toViewController.plugView.frame.origin.y + toViewController.plugView.frame.size.height + 2)
-                            pathView.point2 = CGPoint(x: toViewController.dongleCableView.convertPoint(toViewController.dongleBodyTopImageView.center, fromView: toViewController.dongleView).x, y: toViewController.dongleCableView.convertPoint(toViewController.dongleBodyTopImageView.center, fromView: toViewController.dongleView).y - toViewController.dongleBodyTopImageView.frame.size.height / 2 - 2)
+                            pathView.point2 = CGPoint(x: toViewController.dongleCableView.convert(toViewController.dongleBodyTopImageView.center, from: toViewController.dongleView).x, y: toViewController.dongleCableView.convert(toViewController.dongleBodyTopImageView.center, from: toViewController.dongleView).y - toViewController.dongleBodyTopImageView.frame.size.height / 2 - 2)
                             
                             pathView.animateShapeLayereWithDuration(self.duration)
                             
@@ -392,21 +392,21 @@ class ConnectToVolumeTransition: CustomTransition {
                             
                             }, completion: { (ended) -> Void in
                                 
-                                fromViewController.dongleCoilImageView.hidden = false
-                                fromViewController.phoneImageView.hidden = false
-                                fromViewController.dongleCableView.hidden = false
-                                fromViewController.informationView.hidden = false
-                                fromViewController.separatorLine.hidden = false
-                                fromViewController.dongleView.hidden = false
-                                fromViewController.plugView.hidden = false
+                                fromViewController.dongleCoilImageView.isHidden = false
+                                fromViewController.phoneImageView.isHidden = false
+                                fromViewController.dongleCableView.isHidden = false
+                                fromViewController.informationView.isHidden = false
+                                fromViewController.separatorLine.isHidden = false
+                                fromViewController.dongleView.isHidden = false
+                                fromViewController.plugView.isHidden = false
                                 
-                                toViewController.dismissButton.hidden = false
-                                toViewController.dongleCoilImageView.hidden = false
-                                toViewController.phoneImageView.hidden = false
-                                toViewController.dongleView.hidden = false
-                                toViewController.plugView.hidden = false
-                                toViewController.informationView.hidden = false
-                                toViewController.dongleCableView.hidden = false
+                                toViewController.dismissButton.isHidden = false
+                                toViewController.dongleCoilImageView.isHidden = false
+                                toViewController.phoneImageView.isHidden = false
+                                toViewController.dongleView.isHidden = false
+                                toViewController.plugView.isHidden = false
+                                toViewController.informationView.isHidden = false
+                                toViewController.dongleCableView.isHidden = false
                                 
                                 dongleCoilViewSnapshot.removeFromSuperview()
                                 informationViewSnapshot.removeFromSuperview()
@@ -421,7 +421,7 @@ class ConnectToVolumeTransition: CustomTransition {
                                 self.showViews()
                                 self.removeSnapshotViews()
                                 
-                                if (self.transitionContext!.transitionWasCancelled()) {
+                                if (self.transitionContext!.transitionWasCancelled) {
                                     self.transitionContext!.completeTransition(false)
                                 } else {
                                     self.transitionContext!.completeTransition(true)

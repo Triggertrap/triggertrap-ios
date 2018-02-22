@@ -47,39 +47,38 @@ class ManualFocusViewController: OnboardingViewController {
     } 
     
     func updateDongleCableView() {
-        let plugCenter = dongleCableView.convertPoint(plugImageView.center, fromView: plugView)
-        let dongleCenter = dongleCableView.convertPoint(dongleBodyTopImageView.center, fromView: dongleView)
+        let plugCenter = dongleCableView.convert(plugImageView.center, from: plugView)
+        let dongleCenter = dongleCableView.convert(dongleBodyTopImageView.center, from: dongleView)
         
         dongleCableView.point1 = CGPoint(x: plugCenter.x, y: plugCenter.y + plugImageView.frame.size.height / 2 + 2)
         dongleCableView.point2 = CGPoint(x: dongleCenter.x, y: dongleCenter.y - dongleBodyTopImageView.frame.size.height / 2 - 2)
-        dongleCableView.bezierType = DongleCableView.BezierPathType.Dongle
+        dongleCableView.bezierType = DongleCableView.BezierPathType.dongle
         dongleCableView.addShapeLayer()
     }
     
     func updateCameraCableView() {
         
-        let plugCenter = cameraCableView.convertPoint(cameraConnectorBodyImageView.center, fromView: cameraConnectorView)
+        let plugCenter = cameraCableView.convert(cameraConnectorBodyImageView.center, from: cameraConnectorView)
         
         cameraCableView.point1 = CGPoint(x: plugCenter.x + 5, y: plugCenter.y + cameraConnectorBodyImageView.frame.size.height / 2 + 2)
         cameraCableView.point2 = CGPoint(x: dongleCoilImageView.frame.origin.x + 6, y: dongleCoilImageView.frame.origin.y + dongleCoilImageView.frame.size.height - 6)
-        cameraCableView.bezierType = DongleCableView.BezierPathType.Camera
+        cameraCableView.bezierType = DongleCableView.BezierPathType.camera
         cameraCableView.addShapeLayer()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // Half a seconds before the switch is turned on
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW,
-            Int64(0.5 * Double(NSEC_PER_SEC)))
+        let delayTime = DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             self.turnSwitchOn()
         }
     }
     
-    private func turnSwitchOn() {
+    fileprivate func turnSwitchOn() {
         manualSwitch.setOn(true, animated: true)
     }
 }

@@ -13,7 +13,7 @@ protocol WearableManagerDelegate {
 }
 
 class WearablesManager: NSObject {
-    private var isRunning: Bool = false
+    fileprivate var isRunning: Bool = false
     static let sharedInstance = WearablesManager()
     var delegate: WearableManagerDelegate?
     
@@ -22,7 +22,7 @@ class WearablesManager: NSObject {
         
         AppleWatchManager.sharedInstance.startSession()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WearablesManager.watchDidTrigger), name: constWatchDidTrigger, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WearablesManager.watchDidTrigger), name: NSNotification.Name(rawValue: constWatchDidTrigger), object: nil)
     }
     
     func endSession() {
@@ -30,7 +30,7 @@ class WearablesManager: NSObject {
         
         AppleWatchManager.sharedInstance.stopSession()
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: constWatchDidTrigger, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: constWatchDidTrigger), object: nil)
     }
     
     func isWearablesModeRunning() -> Bool {

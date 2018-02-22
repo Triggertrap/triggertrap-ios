@@ -11,6 +11,13 @@ Unwrappable module, combination of specific pattern of modules:
 Pulse -> Delay
 */
 public struct MirrorLockup: Unwrappable {
+    public /** Unwraps the module
+     - parameter completionHandler: informs whether the module has been unwrapped successfully
+     */
+    func unwrap(_ completionHandler: (Bool) -> Void) {
+        
+    }
+
     
     public let name = "Mirror Lockup"
     public let type: UnwrappableType = .MirrorLockup
@@ -19,8 +26,8 @@ public struct MirrorLockup: Unwrappable {
     public var currentModule: Int
     public var completionHandler: CompletionHandler = { (success) -> Void in }
     
-    private let pulse: Pulse
-    private let delay: Delay
+    fileprivate let pulse: Pulse
+    fileprivate let delay: Delay
     
     /**
     - parameter pulse: module during which the audio buffer stays active

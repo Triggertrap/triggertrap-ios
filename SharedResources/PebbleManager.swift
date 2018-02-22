@@ -10,21 +10,21 @@ import UIKit
 
 class PebbleManager: NSObject {
 
-    private var pebbleWatch: PBWatch?
-    private let pebbleCentral = PBPebbleCentral.defaultCentral()
-    private var pebbleConnected = false
+    fileprivate var pebbleWatch: PBWatch?
+    fileprivate let pebbleCentral = PBPebbleCentral.default()
+    fileprivate var pebbleConnected = false
     
     static let sharedInstance = PebbleManager()
 
     func setupPebbleWatch() {
 
-        let pebbleAppId = NSBundle.mainBundle().objectForInfoDictionaryKey(constPebbleAppId) as! String
-        let myAppUUID = NSUUID()
+        let pebbleAppId = Bundle.main.object(forInfoDictionaryKey: constPebbleAppId) as! String
+        let myAppUUID = UUID()
         
         pebbleCentral.appUUID = myAppUUID
         pebbleCentral.run()
         pebbleCentral.delegate = self
-        pebbleCentral.dataLoggingServiceForAppUUID(myAppUUID)?.delegate = self
+        pebbleCentral.dataLoggingService(forAppUUID: myAppUUID)?.delegate = self
         
         pebbleWatch = pebbleCentral.lastConnectedWatch()
         
@@ -33,7 +33,7 @@ class PebbleManager: NSObject {
         
         pebbleWatch?.appMessagesAddReceiveUpdateHandler({ (watch, update) -> Bool in
             print("Trigger")
-            NSNotificationCenter.defaultCenter().postNotificationName(constWatchDidTrigger, object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: constWatchDidTrigger), object: nil)
             return true
         })
     }
@@ -52,21 +52,21 @@ class PebbleManager: NSObject {
 }
 
 extension PebbleManager: PBPebbleCentralDelegate {
-    func pebbleCentral(central: PBPebbleCentral, watchDidConnect watch: PBWatch, isNew: Bool) {
+    func pebbleCentral(_ central: PBPebbleCentral, watchDidConnect watch: PBWatch, isNew: Bool) {
         pebbleWatch = watch
         
         // In case we need to change the UI
-         NSNotificationCenter.defaultCenter().postNotificationName(constPebbleWatchStatusChanged, object: nil, userInfo: ["connected": true])
+         NotificationCenter.default.post(name: Notification.Name(rawValue: constPebbleWatchStatusChanged), object: nil, userInfo: ["connected": true])
         pebbleConnected = true
         
         pebbleWatch?.appMessagesAddReceiveUpdateHandler({ (watch, update) -> Bool in
             print("Trigger")
-            NSNotificationCenter.defaultCenter().postNotificationName(constWatchDidTrigger, object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: constWatchDidTrigger), object: nil)
             return true
         })
     }
     
-    func pebbleCentral(central: PBPebbleCentral, watchDidDisconnect watch: PBWatch) {
+    func pebbleCentral(_ central: PBPebbleCentral, watchDidDisconnect watch: PBWatch) {
         
         if pebbleWatch == watch || watch.isEqual(pebbleWatch) {
             pebbleWatch = nil
@@ -74,13 +74,13 @@ extension PebbleManager: PBPebbleCentralDelegate {
         
         // In case we need to change the UI
         pebbleConnected = false
-         NSNotificationCenter.defaultCenter().postNotificationName(constPebbleWatchStatusChanged, object: nil, userInfo: ["connected": false])
+         NotificationCenter.default.post(name: Notification.Name(rawValue: constPebbleWatchStatusChanged), object: nil, userInfo: ["connected": false])
     }
 }
 
 extension PebbleManager: PBDataLoggingServiceDelegate {
     
-    func dataLoggingService(service: PBDataLoggingService, hasByteArrays bytes: UnsafePointer<UInt8>, numberOfItems: UInt16, forDataLoggingSession session: PBDataLoggingSessionMetadata) -> Bool {
+    func dataLoggingService(_ service: PBDataLoggingService, hasByteArrays bytes: UnsafePointer<UInt8>, numberOfItems: UInt16, forDataLoggingSession session: PBDataLoggingSessionMetadata) -> Bool {
         return true
     }
 }

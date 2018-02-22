@@ -10,6 +10,13 @@
 Unwrappable module, combination of modules which can get repeated multiple times.
 */
 public struct Repeat: Unwrappable {
+    public /** Unwraps the module
+     - parameter completionHandler: informs whether the module has been unwrapped successfully
+     */
+    func unwrap(_ completionHandler: (Bool) -> Void) {
+        
+    }
+
     
     public let name = "Repeat"
     public let repeatCount: Int
@@ -54,7 +61,7 @@ public struct Repeat: Unwrappable {
             }
         } else {
             self.modules[currentModule].unwrap({ (success) -> Void in
-                success ? self.nextModule() : self.completionHandler(success: false)
+                success ? self.nextModule() : self.completionHandler(false)
             })
         }
     }

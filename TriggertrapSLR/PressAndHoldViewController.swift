@@ -10,8 +10,8 @@ import UIKit
 
 class PressAndHoldViewController: CableReleaseViewController {
     
-    private var notificationReceived = false
-    private var shutterButtonHasBeenReleased = false
+    fileprivate var notificationReceived = false
+    fileprivate var shutterButtonHasBeenReleased = false
     
     // MARK: - Lifecycle
     
@@ -28,7 +28,7 @@ class PressAndHoldViewController: CableReleaseViewController {
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchDown(sender : UIButton) {
+    @IBAction func shutterButtonTouchDown(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -43,9 +43,9 @@ class PressAndHoldViewController: CableReleaseViewController {
         }
     }
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is PressAndHoldViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is PressAndHoldViewController {
             if notificationReceived == true {
                  self.sequenceManager.cancel()
             } else {
@@ -54,9 +54,9 @@ class PressAndHoldViewController: CableReleaseViewController {
         }
     }
     
-    @IBAction func shutterButtonTouchUpOutside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpOutside(_ sender : UIButton) {
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is PressAndHoldViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is PressAndHoldViewController {
             if notificationReceived == true {
                 self.sequenceManager.cancel()
             } else {
@@ -65,14 +65,14 @@ class PressAndHoldViewController: CableReleaseViewController {
         }
     }
     
-    @IBAction func shutterButtonTouchDragOutside(sender : UIButton, event: UIEvent) {
-        let touches = event.allTouches()
+    @IBAction func shutterButtonTouchDragOutside(_ sender : UIButton, event: UIEvent) {
+        let touches = event.allTouches
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is PressAndHoldViewController {
-            if let touches = touches, firstTouch = touches.first {
-                let point = firstTouch.locationInView(sender)
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is PressAndHoldViewController {
+            if let touches = touches, let firstTouch = touches.first {
+                let point = firstTouch.location(in: sender)
                 
-                if sender.pointInside(point, withEvent: event) == false {
+                if sender.point(inside: point, with: event) == false {
                     // The touch has dragged outside of the active area of the button
                     self.sequenceManager.cancel()
                 }
@@ -85,7 +85,7 @@ class PressAndHoldViewController: CableReleaseViewController {
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is PressAndHoldViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is PressAndHoldViewController {
             
             if notificationReceived == false {
                 notificationReceived = true
@@ -101,7 +101,7 @@ class PressAndHoldViewController: CableReleaseViewController {
                     feedbackViewController.circleTimer?.indeterminate = 1
                     
                     feedbackViewController.startAnimations()
-                    self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: Double.infinity, unit: .Hours))]), repeatSequence: false)
+                    self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: Double.infinity, unit: .hours))]), repeatSequence: false)
                 }
             }
         }
@@ -110,7 +110,7 @@ class PressAndHoldViewController: CableReleaseViewController {
     override func activeViewControllerLostFocus() {
         super.activeViewControllerLostFocus()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is PressAndHoldViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is PressAndHoldViewController {
             self.sequenceManager.cancel()
         }
     }
