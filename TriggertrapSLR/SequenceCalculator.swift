@@ -39,12 +39,15 @@ class SequenceCalculator {
         var j = 0
         let step = (expCount - 1) / 2
         
-        for var index = -step; index <= step; index += 1 {
+        var index = -step
+        
+        while index <= step{
             let exposure = (pow(pow(2, evStep), Double(index)) * midExpDuration)
             modules[j] = Pulse(time: Time(duration: exposure, unit: .Milliseconds))
             modules[j + 1] = Delay(time: Time(duration: MinimumGapBetweenHDRExposures, unit: .Milliseconds))
             
             j += 2
+            index += 1
         }
         
         if interval > 0 {
@@ -86,12 +89,16 @@ class SequenceCalculator {
     func maximumNumberOfExposuresForMinumumExposure(minExposure: Double, midExposure: Double, evStep: Double) -> Int {
         var minimumExp = 0.0
         
-        for var index = 19; index > 1; index-=2 {
+        var index = 19
+        
+        while index > 1{
             minimumExp = minimumExposureForHDRExposures(index, midExposure: midExposure, evStep: evStep)
             
             if minimumExp >= minExposure {
                 return index
             }
+            
+            index -= 2
         }
         
         return 0

@@ -112,11 +112,14 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         var j = 0
         let step = (3 - 1) / 2
         
-        for var i = -step; i <= step; i += 1 {
+        var i = -step
+        
+        while i <= step {
             let exposure: Double = pow(Double(pow(2.0, ev)), Double(i)) * Double(middleExposureHorizontalPicker.value)
             calcSequence[j] = exposure
             calcSequence[j + 1] = 1000.0
             j += 2
+            i += 1
         }
         
         let seqLength = SequenceCalculator.sharedInstance.timeForSequence(calcSequence)

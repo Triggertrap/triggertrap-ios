@@ -47,16 +47,18 @@ class OptionsTableViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    private func applyTheme() {
-        
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
         switch AppTheme() {
         case .Normal:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-            break
+            return .LightContent
         case .Night:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
-            break
+            return .Default
         }
+    }
+    
+    private func applyTheme() {
+        
+        
         
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.triggertrap_iconColor()
@@ -136,7 +138,6 @@ extension OptionsTableViewController: UITableViewDelegate {
                 self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
                 self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0), NSForegroundColorAttributeName: UIColor.whiteColor()]
                 
-                UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
                 
                 self.navigationController?.pushViewController(feedbackViewController, animated: true)
                 break

@@ -65,12 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Show the status bar
         UIApplication.sharedApplication().statusBarHidden = false
         
-        switch AppTheme() {
-        case .Normal:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
-        case .Night:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: false)
-        }
         
         DongleObserver.sharedInstance.dongleConnectedToPhone()
         PebbleManager.sharedInstance.setupPebbleWatch()
@@ -78,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    @available(iOS 8.0, *)
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
             
         // Check that user activity title is not the same as the current view controller as otherwise iOS will try to allocate a view controller which is being deallocated and crash the app

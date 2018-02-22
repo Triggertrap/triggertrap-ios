@@ -105,10 +105,10 @@ class TimelapseProViewController: CenterViewController {
             
             // TODO: - l18n - iss#2
             let actionSheet: UIActionSheet = UIActionSheet(title: nil,
-                delegate: self,
-                cancelButtonTitle: NSLocalizedString("Cancel", comment: "Cancel"),
-                destructiveButtonTitle: nil,
-                otherButtonTitles: openLinkTitle)
+                                                           delegate: self,
+                                                           cancelButtonTitle: NSLocalizedString("Cancel", comment: "Cancel"),
+                                                           destructiveButtonTitle: nil,
+                                                           otherButtonTitles: openLinkTitle)
             
             actionSheet.actionSheetStyle = UIActionSheetStyle.BlackOpaque
             

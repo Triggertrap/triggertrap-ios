@@ -60,7 +60,7 @@ class SettingsTableViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         // Hide previous screen title from the back button in case we use SettingsTableViewController as initial screen as opposed to OptionsTableViewController
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -104,6 +104,15 @@ class SettingsTableViewController : UITableViewController {
     
     // MARK: - Private
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        switch AppTheme() {
+        case .Normal:
+            return .LightContent
+        case .Night:
+            return .Default
+        }
+    }
+    
     private func performThemeUpdate() {
         
         self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()
@@ -114,12 +123,10 @@ class SettingsTableViewController : UITableViewController {
         
         switch AppTheme() {
         case .Normal:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
             nightTimeSwitch.on = false
             break
             
         case .Night:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
             nightTimeSwitch.on = true
             break
         }
@@ -208,7 +215,7 @@ class SettingsTableViewController : UITableViewController {
         let settingsValues = dict?.objectForKey("Values") as! [Int]
         
         var settingsValue = ""
-            
+        
         switch type {
             
         case SubSettingsViewController.SettingsType.SensorDelay:
@@ -339,7 +346,7 @@ class SettingsTableViewController : UITableViewController {
                 break
             }
         }
-
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

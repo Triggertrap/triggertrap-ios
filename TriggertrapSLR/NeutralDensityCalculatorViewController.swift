@@ -48,7 +48,7 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
             let leftBarButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .Plain, target: self, action: #selector(NeutralDensityCalculatorViewController.cancelButtonTapped(_:)))
             leftBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], forState: .Normal)
             self.navigationItem.leftBarButtonItem = leftBarButton
-        
+            
             // Set the right bar button item.
             let rightBarButton = UIBarButtonItem(title: NSLocalizedString("OK", comment: "OK"), style: .Plain, target: self, action: #selector(NeutralDensityCalculatorViewController.calculateButtonTapped(_:)))
             rightBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], forState: .Normal)
@@ -128,7 +128,9 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         } else {
             isHoursMinutesSecondsFormat = false
             
-            for var i: Int = speed; result >= baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double ; i += 1 {
+            var i = speed
+            
+            while result >= baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double {
                 
                 if result > baseShutterSpeedArray.objectAtIndex(i).objectForKey("value")! as! Double {
                     
@@ -140,6 +142,8 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
                     
                     ndTimeString = (minimum == lowerDif) ? baseShutterSpeedArray[i].objectForKey("string")! as! String : baseShutterSpeedArray[i + 1].objectForKey("string")! as! String
                 }
+                
+                i += 1
             }
         }
         
