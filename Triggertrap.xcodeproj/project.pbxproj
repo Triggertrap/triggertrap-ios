@@ -1748,6 +1748,7 @@
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = S4JEZRL8YY;
 						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -1762,22 +1763,26 @@
 					};
 					BD0965FA1BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
 						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 					};
 					BD0966091BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
+						ProvisioningStyle = Automatic;
 					};
 					BDD4C3B71BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
 						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 					};
 					BDD4C3C31BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
 						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -2695,7 +2700,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2713,7 +2720,8 @@
 				OTHER_SWIFT_FLAGS = "-DSLR -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e7fb147-afd5-4c2b-9c2e-9373fa40efeb";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2732,8 +2740,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2751,7 +2761,8 @@
 				OTHER_SWIFT_FLAGS = "-DSLR";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "27633700-396f-43f8-b44b-71467b976ea2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2764,13 +2775,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "b6b5a02a-f893-4d16-86b1-2654b9914eb0";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -2782,13 +2796,16 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "16fc7ed1-e384-402e-80ff-9d555a9c67bd";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -2801,13 +2818,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f366fc16-63d0-4e7c-ae74-fc14e9dc08e9";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -2820,13 +2840,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f54b0fdd-0ffc-4c3a-a89e-e33058e7d7b8";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -2839,12 +2862,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "e168e031-3803-4da2-9e06-10ae5c42e70a";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2859,12 +2885,15 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "d4c5e7b5-e11e-40ee-8ac2-2f6b5074cf18";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -2881,12 +2910,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f366fc16-63d0-4e7c-ae74-fc14e9dc08e9";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -2902,11 +2935,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f54b0fdd-0ffc-4c3a-a89e-e33058e7d7b8";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;

@@ -123,9 +123,9 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
             self.feedbackViewController.performThemeUpdate()
         }
         
-        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_fillColor()) , for: UIControlState())
+        self.leftButton?.setBackgroundImage(#imageLiteral(resourceName: "MenuIcon"), for: .normal)
         
-        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_fillColor()) , for: UIControlState())
+        self.rightButton?.setBackgroundImage(#imageLiteral(resourceName: "OptionsIcon"), for: .normal)
         
         self.bulbButton?.setImage(ImageWithColor(UIImage(named: "BulbIcon")!, color: UIColor.triggertrap_primaryColor()), for: UIControlState())
         self.bulbButton?.imageView?.contentMode = .scaleAspectFit

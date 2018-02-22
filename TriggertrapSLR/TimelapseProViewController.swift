@@ -68,7 +68,7 @@ class TimelapseProViewController: CenterViewController {
             scrollButton.isHidden = false
             shimmeringView.isShimmering = true
             previewHeightConstraint.constant = self.view.bounds.height
-            textViewHeightConstraint.constant = SizeForText(textView.text as! NSString, withFont: textView.font!, constrainedToSize: CGSize(width: textView.frame.width, height: 1000)).height + 2 * padding
+            textViewHeightConstraint.constant = SizeForText(textView.text! as NSString, withFont: textView.font!, constrainedToSize: CGSize(width: textView.frame.width, height: 1000)).height + 2 * padding
         } 
         
         self.view.layoutSubviews()
@@ -127,9 +127,9 @@ class TimelapseProViewController: CenterViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
-        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControlState())
+        self.leftButton?.setBackgroundImage(#imageLiteral(resourceName: "MenuIcon"), for: .normal)
         
-        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControlState())
+        self.rightButton?.setBackgroundImage(#imageLiteral(resourceName: "OptionsIcon"), for: .normal)
         
         scrollView.backgroundColor = UIColor.triggertrap_fillColor()
         textView.backgroundColor = UIColor.triggertrap_fillColor()

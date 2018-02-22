@@ -262,7 +262,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         var sequenceLength: Double = 0
         
         for i in 0..<interpolator!.adjustedPauses().count {
-            sequenceLength = sequenceLength + Double(interpolator?.adjustedPauses()[i] as! NSNumber) + triggerLength!
+            sequenceLength = sequenceLength + Double(truncating: interpolator?.adjustedPauses()[i] as! NSNumber) + triggerLength!
         }
         
         durationFeedbackLabel.startValue = CUnsignedLongLong(sequenceLength)
@@ -275,7 +275,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
             
             if (i < kMaxNumberOverlaps / 3 || (i > ((overlapIndicies?.count)! / 2 - kMaxNumberOverlaps / 6) && i < ((overlapIndicies?.count)! / 2 + kMaxNumberOverlaps / 6)) ||
                 i > (overlapIndicies?.count)! - kMaxNumberOverlaps / 3) {
-                overlaps.add(overlapIndicies?[i])
+                overlaps.add(overlapIndicies![i])
             }
         }
         
