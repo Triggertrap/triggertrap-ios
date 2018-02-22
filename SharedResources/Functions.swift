@@ -130,7 +130,6 @@ func ImageWithColor(image: UIImage, color: UIColor) -> UIImage {
 
 // MARK: - Theme Updates
 
-#if SLR
     func applyThemeUpdateToNumberInput(numberInput: TTNumberInput?) {
         
         numberInput?.displayView.textColor = UIColor.triggertrap_accentColor()
@@ -158,7 +157,6 @@ func ImageWithColor(image: UIImage, color: UIColor) -> UIImage {
         picker?.gradientView.setNeedsDisplay()
         picker?.layoutSubviews()
     }
-#endif
 
 func applyThemeUpdateToDescriptionLabel(label: UILabel) {
     label.textColor = UIColor.triggertrap_foregroundColor()

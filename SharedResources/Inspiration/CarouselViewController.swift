@@ -71,7 +71,7 @@ class CarouselViewController: UIViewController {
     @IBAction func nextButtonTapped(button: UIButton) {
         
         if currentIndex < (imageData.count - 1) {
-            currentIndex++
+            currentIndex += 1
         }
         
         moveContentOfScrollView(scrollView, toIndex: currentIndex, withAnimation: true)
@@ -79,7 +79,7 @@ class CarouselViewController: UIViewController {
     
     @IBAction func previousButtonTapped(button: UIButton) {
         if currentIndex > 0 {
-            currentIndex--
+            currentIndex -= 1
         }
         
         moveContentOfScrollView(scrollView, toIndex: currentIndex, withAnimation: true)
