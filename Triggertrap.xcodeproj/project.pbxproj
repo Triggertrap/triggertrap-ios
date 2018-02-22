@@ -2714,7 +2714,7 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = TriggertrapSLR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_SWIFT_FLAGS = "-DSLR -DDEBUG";
@@ -2755,7 +2755,7 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = TriggertrapSLR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_SWIFT_FLAGS = "-DSLR";
