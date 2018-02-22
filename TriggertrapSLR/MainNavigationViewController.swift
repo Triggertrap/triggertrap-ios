@@ -85,7 +85,7 @@ class MainNavigationViewController: RotationNavigationViewController {
         })
     }
     
-    func optionsButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func optionsButtonTapped(_ sender: UIBarButtonItem) {
         
         // Inform the active view controller that it will loose focus - Quick Release and Press and Hold modes 
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ActiveViewControllerLostFocus"), object: nil)

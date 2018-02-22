@@ -77,7 +77,7 @@ public extension UIColor {
             return UIColor(hex: 0xFFFFFF, alpha: alpha)
             
         case .night:
-            return UIColor(hex: 0x151515, alpha: alpha)
+            return UIColor(hex: 0x000000, alpha: alpha)
         }
     }
     
@@ -87,7 +87,7 @@ public extension UIColor {
             return UIColor(hex: 0xEFEFEF, alpha: alpha)
             
         case .night:
-            return UIColor(hex: 0x2A2A2A, alpha: alpha)
+            return UIColor(hex: 0x000000, alpha: alpha)
         }
     }
     
