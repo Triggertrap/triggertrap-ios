@@ -48,11 +48,11 @@ open class WifiDispatcher: NSObject, Dispatcher {
         }
     }
     
-    open func reachabilityChanged() {
+    @objc open func reachabilityChanged() {
         self.refreshWifiState()
     }
     
-    open func remoteOutputServerStatusChanged() {
+    @objc open func remoteOutputServerStatusChanged() {
         
     }
     

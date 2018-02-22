@@ -38,12 +38,12 @@ open class HeadphoneDispatcher: NSObject, Dispatcher {
         }
     }
     
-    func didDispatchAudio() {
+    @objc func didDispatchAudio() {
         OutputDispatcher.sharedInstance.audioPlayer?.stop()
         self.didDispatch()
     }
     
-    func didDispatch() {
+    @objc func didDispatch() {
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
             self.dispatchable.didUnwrap() 
         } 

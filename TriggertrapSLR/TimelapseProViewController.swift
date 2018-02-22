@@ -123,9 +123,9 @@ class TimelapseProViewController: CenterViewController {
     
     // MARK: - Notifications
     
-    func performThemeUpdate() {
+    @objc func performThemeUpdate() {
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0), NSForegroundColorAttributeName: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
         self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControlState())
         

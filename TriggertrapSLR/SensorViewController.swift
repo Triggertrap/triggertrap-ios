@@ -18,7 +18,7 @@ class SensorViewController: TTViewController {
     }
     
     func cameraPermissionAuthorized() -> Bool {
-        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+        switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
         case .authorized:
             return true
             
@@ -27,7 +27,7 @@ class SensorViewController: TTViewController {
             return false
             
         case .notDetermined:
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) -> Void in
+            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted) -> Void in
                 if granted {
                     onMain {
                         self.startCameraSensorMode()

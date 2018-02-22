@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        generateStringsFromPlists()
         
         // Set the navigation bar appearance
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(21.0), NSForegroundColorAttributeName: UIColor.triggertrap_fillColor(1.0)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(21.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_fillColor(1.0)]
         
         UINavigationBar.appearance().barTintColor = UIColor.triggertrap_primaryColor()
         

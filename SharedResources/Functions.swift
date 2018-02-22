@@ -89,7 +89,7 @@ func delay(_ delay:Double, closure:@escaping ()->()) {
 }
 
 func SizeForText(_ text: NSString, withFont font: UIFont, constrainedToSize size: CGSize) -> CGSize {
-    return text.boundingRect(with: size, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], attributes: [NSFontAttributeName: font], context: nil).size;
+    return text.boundingRect(with: size, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], attributes: [NSAttributedStringKey.font: font], context: nil).size;
 } 
 
 func pathForResource(_ resource: String!) -> String {

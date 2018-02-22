@@ -216,7 +216,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
     
     // MARK: - Public 
     
-    func setupUnits() {
+    @objc func setupUnits() {
         
         switch settingsManager!.speedUnit.intValue {
         case 0:

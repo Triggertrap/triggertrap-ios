@@ -170,12 +170,12 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     
     // MARK: - Notifications
     
-    func updateTodayTomorrow() {
+    @objc func updateTodayTomorrow() {
         titleLabelTop.text =  NSLocalizedString("Sunrise Today", comment: "Sunrise Today")
         titleLabelBottom.text = NSLocalizedString("Sunset Tonight", comment: "Sunset Tonight")
     }
     
-    func startLocationManager() {
+    @objc func startLocationManager() {
         
         if locationManager != nil {
             initialSunAnimationDone = false
@@ -183,7 +183,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         }
     }
     
-    func stopLocationManager() {
+    @objc func stopLocationManager() {
         locationManager.stopUpdatingLocation()
     }
     
@@ -615,7 +615,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             : NSString(fromTimeInterval: timeRemainingUntilSunrise, format: NSLocalizedString("In %@", comment: "In %@"), compact: false, decimal: false) as String
     }
     
-    func timerFired(_ timer: Timer) {
+    @objc func timerFired(_ timer: Timer) {
         let elapsedTime: CFAbsoluteTime = CFAbsoluteTimeGetCurrent() - startTime
         updateDisplay(elapsedTime)
     }

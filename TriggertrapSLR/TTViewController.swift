@@ -134,12 +134,12 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     // MARK: - Notifications
     
     // Enable shutter button when another mode finishes
-    func enableShutterButton() {
+    @objc func enableShutterButton() {
         shutterButtonEnabled(true)
     }
     
     // When Menu or Options is shown the active view controller gets notified that it has lost focus. Quick Release and Press and Hold use this method to stop the mode in case user is holding the button and trying to open the menu/options.
-    func activeViewControllerLostFocus() {}
+    @objc func activeViewControllerLostFocus() {}
     
     fileprivate func showVolumeAlert() {
         DispatchQueue.main.async(execute: {

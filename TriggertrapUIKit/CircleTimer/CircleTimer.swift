@@ -32,7 +32,7 @@ class CircleTimer: UIView {
         RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
-    func clockDidTick(_ timer: Timer) {
+    @objc func clockDidTick(_ timer: Timer) {
       
         if !indeterminate {
             

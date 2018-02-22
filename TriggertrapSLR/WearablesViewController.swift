@@ -53,9 +53,9 @@ class WearablesViewController: TTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        segmentedControl.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_light(20.0)]
+        segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.triggertrap_metric_light(20.0)]
             , for: UIControlState())
-        segmentedControl.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_light(20.0)]
+        segmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.triggertrap_metric_light(20.0)]
             , for: .selected)
     }
     
@@ -139,7 +139,7 @@ class WearablesViewController: TTViewController {
     
     // MARK: - Notifications
     
-    func pebbleWatchStatusChanged(_ notification: Notification) {
+    @objc func pebbleWatchStatusChanged(_ notification: Notification) {
         
         if selectedDevice == .pebble {
             let userInfo: Dictionary<String, Bool> = notification.userInfo as! Dictionary<String, Bool>

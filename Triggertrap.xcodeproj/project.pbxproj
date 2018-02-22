@@ -1747,7 +1747,7 @@
 					9EE1F1A61B1C9FE800FE6EB7 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = S4JEZRL8YY;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -1763,7 +1763,7 @@
 					BD0965FA1BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 935G2KW2FF;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 					};
 					BD0966091BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -1777,7 +1777,7 @@
 					BDD4C3C31BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 935G2KW2FF;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -2704,7 +2704,8 @@
 				PROVISIONING_PROFILE = "8e7fb147-afd5-4c2b-9c2e-9373fa40efeb";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -2741,7 +2742,8 @@
 				PROVISIONING_PROFILE = "27633700-396f-43f8-b44b-71467b976ea2";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -2758,7 +2760,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "b6b5a02a-f893-4d16-86b1-2654b9914eb0";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -2775,7 +2778,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "16fc7ed1-e384-402e-80ff-9d555a9c67bd";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -2831,7 +2835,8 @@
 				PROVISIONING_PROFILE = "e168e031-3803-4da2-9e06-10ae5c42e70a";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2850,7 +2855,8 @@
 				PROVISIONING_PROFILE = "d4c5e7b5-e11e-40ee-8ac2-2f6b5074cf18";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};

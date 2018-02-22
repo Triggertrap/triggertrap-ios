@@ -27,7 +27,7 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         if WCSession.isSupported() {
-            session = WCSession.default()
+            session = WCSession.default
             session?.delegate = self
             session?.activate()
         }
@@ -118,7 +118,7 @@ class InterfaceController: WKInterfaceController {
         RunLoop.main.add(delayTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
-    func delayTimer(_ timer: Timer) {
+    @objc func delayTimer(_ timer: Timer) {
         
         let userInfo: Dictionary<String, Bool?> = timer.userInfo as! Dictionary<String, Bool?>
         

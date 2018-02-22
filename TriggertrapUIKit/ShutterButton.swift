@@ -163,7 +163,7 @@ class ShutterButton: UIButton {
         ring2.setNeedsDisplay()
     }
     
-    func timerFired() {
+    @objc func timerFired() {
         if continuous {
             animateRing1()
         } else {

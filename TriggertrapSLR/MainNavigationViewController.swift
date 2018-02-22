@@ -101,7 +101,7 @@ class MainNavigationViewController: RotationNavigationViewController {
     
     // MARK: - Observers
     
-    func dismissLeftPanel(_ sender: AnyObject) {
+    @objc func dismissLeftPanel(_ sender: AnyObject) {
         DispatchQueue.main.async(execute: {
             self.leftPanelViewController.dismiss()
         })

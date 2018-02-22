@@ -48,7 +48,7 @@ class VolumeViewController: OnboardingViewController {
     fileprivate var currentPercent: Float = 50.0
     fileprivate var myVolumeView: MPVolumeView!
     
-    dynamic var audioSession = AVAudioSession.sharedInstance()
+    @objc dynamic var audioSession = AVAudioSession.sharedInstance()
     fileprivate var outputVolume = 0
     
     // MARK: - Lifecycle

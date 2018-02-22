@@ -62,7 +62,7 @@ class OptionsTableViewController: UIViewController {
         
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.triggertrap_iconColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0), NSForegroundColorAttributeName: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
         self.view.backgroundColor = UIColor.triggertrap_naturalColor()
         self.tableView.backgroundColor = UIColor.triggertrap_naturalColor()
@@ -136,7 +136,7 @@ extension OptionsTableViewController: UITableViewDelegate {
                 
                 self.navigationController?.navigationBar.barTintColor = UIColor(hex: 0xE2231A, alpha: 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-                self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0), NSForegroundColorAttributeName: UIColor.white]
+                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.white]
                 
                 
                 self.navigationController?.pushViewController(feedbackViewController!, animated: true)

@@ -102,7 +102,7 @@ class SidebarTableViewController: UITableViewController, UINavigationControllerD
         vcPointer = viewController
     }
     
-    func sidebarDidSelectCellWithIdentifier(_ sender: Notification) {
+    @objc func sidebarDidSelectCellWithIdentifier(_ sender: Notification) {
         
         let identifier = sender.object as! String
         

@@ -66,7 +66,7 @@ class LeftPanelViewController: UIViewController {
     
     // MARK: - Notifications
     
-    func removeActiveCell(_ sender: Notification) {
+    @objc func removeActiveCell(_ sender: Notification) {
         self.tableView.reloadData()
     } 
 }

@@ -112,7 +112,7 @@ class InterfaceController: WKInterfaceController {
         RunLoop.main.add(delayTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
-    func delayTimer(_ timer: Timer) {
+    @objc func delayTimer(_ timer: Timer) {
         
         let userInfo: Dictionary<String, Bool?> = timer.userInfo as! Dictionary<String, Bool?>
         

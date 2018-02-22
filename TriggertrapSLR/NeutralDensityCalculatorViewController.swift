@@ -46,12 +46,12 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         if isEmbedded {
             
             let leftBarButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .plain, target: self, action: #selector(NeutralDensityCalculatorViewController.cancelButtonTapped(_:)))
-            leftBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], for: UIControlState())
+            leftBarButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0)], for: UIControlState())
             self.navigationItem.leftBarButtonItem = leftBarButton
             
             // Set the right bar button item.
             let rightBarButton = UIBarButtonItem(title: NSLocalizedString("OK", comment: "OK"), style: .plain, target: self, action: #selector(NeutralDensityCalculatorViewController.calculateButtonTapped(_:)))
-            rightBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0)], for: UIControlState())
+            rightBarButton.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0)], for: UIControlState())
             self.navigationItem.rightBarButtonItem = rightBarButton
             
             self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()
@@ -205,11 +205,11 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
     
     // MARK: - Action
     
-    func cancelButtonTapped(_ sender: AnyObject) {
+    @objc func cancelButtonTapped(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func calculateButtonTapped(_ sender: AnyObject) {
+    @objc func calculateButtonTapped(_ sender: AnyObject) {
         
         if duration < UInt64(ConstMinDuration) {
             ShowAlertInViewController(self, title: NSLocalizedString("Slow down, buddy!", comment: "Slow down, buddy!"),  message: NSLocalizedString("This shutter speed is a bit too fast for bulb mode. Try using Shutter Priority on your camera, and Triggertrap as a cable release.", comment: "This shutter speed is a bit too fast for bulb mode. Try using Shutter Priority on your camera, and Triggertrap as a cable release."), cancelButton: NSLocalizedString("OK", comment: "OK"))

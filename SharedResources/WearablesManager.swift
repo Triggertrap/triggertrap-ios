@@ -37,7 +37,7 @@ class WearablesManager: NSObject {
         return self.isRunning
     }
     
-    func watchDidTrigger() {
+    @objc func watchDidTrigger() {
         onMain {
             self.delegate?.watchDidTrigger()
         }
