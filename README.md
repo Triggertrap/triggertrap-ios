@@ -14,7 +14,7 @@ Triggertrap is a commercial project that was conceived in 2010, launched in 2011
 
 - Download the git repo
 - Run `pod install`
-- Open the .xcworkspace folder
+- Open the .xcworkspace file
 
 # Credits
 
