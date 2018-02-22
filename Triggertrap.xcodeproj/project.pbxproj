@@ -107,7 +107,6 @@
 		BD1FA2191BBE9361002C7AEB /* LeftPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FA2181BBE9361002C7AEB /* LeftPanelViewController.swift */; };
 		BD1FB4DE1BCE757F00B7A95C /* BFPaperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1FB4DD1BCE757F00B7A95C /* BFPaperTableViewCell.m */; };
 		BD6464801BF21F7B00B2324B /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64647F1BF21F7B00B2324B /* SeparatorView.swift */; };
-		BD7144BB1BB9488400E7A34B /* MixpanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BA1BB9488400E7A34B /* MixpanelManager.swift */; };
 		BD7144C01BB94F4600E7A34B /* AppleWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BD1BB94F4600E7A34B /* AppleWatchManager.swift */; };
 		BD7144C21BB94F4600E7A34B /* WearablesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BE1BB94F4600E7A34B /* WearablesManager.swift */; };
 		BD7144C41BB94F4600E7A34B /* PebbleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BF1BB94F4600E7A34B /* PebbleManager.swift */; };
@@ -480,7 +479,6 @@
 		BD56C1841B58067F00928054 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BD56C1851B58067F00928054 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		BD64647F1BF21F7B00B2324B /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
-		BD7144BA1BB9488400E7A34B /* MixpanelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixpanelManager.swift; sourceTree = "<group>"; };
 		BD7144BD1BB94F4600E7A34B /* AppleWatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleWatchManager.swift; sourceTree = "<group>"; };
 		BD7144BE1BB94F4600E7A34B /* WearablesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WearablesManager.swift; sourceTree = "<group>"; };
 		BD7144BF1BB94F4600E7A34B /* PebbleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleManager.swift; sourceTree = "<group>"; };
@@ -1196,7 +1194,6 @@
 				BD098BE61BC7C52400A87FC8 /* TimeWarp */,
 				BD7144D01BBA885200E7A34B /* AudioListener */,
 				BD7144C61BB94F4C00E7A34B /* Wearables */,
-				BD7144BA1BB9488400E7A34B /* MixpanelManager.swift */,
 				BD11343A1BB3F416006ED87A /* DongleObserver.swift */,
 			);
 			name = Model;
@@ -2175,7 +2172,6 @@
 				BDD44B191BA98B0300B98FF6 /* Dispatcher.swift in Sources */,
 				BDD44B131BA98B0300B98FF6 /* UnwrappableType.swift in Sources */,
 				BD098BCB1BC6CA3900A87FC8 /* TimedReleaseViewController.swift in Sources */,
-				BD7144BB1BB9488400E7A34B /* MixpanelManager.swift in Sources */,
 				BDAB4ADD1B677B59009EB328 /* SunriseSunsetCalculator.m in Sources */,
 				BD098C401BC7FF9200A87FC8 /* TimerStyleKit.swift in Sources */,
 				BDD44B1E1BA98B0300B98FF6 /* Symbol.swift in Sources */,

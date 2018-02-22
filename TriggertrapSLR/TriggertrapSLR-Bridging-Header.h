@@ -11,14 +11,12 @@
 // Cable Selector
 #import "CableSelector.h" 
 
-// Mixpanel
-#import "Mixpanel.h"
 
 // Pebble
 #import <PebbleKit/PebbleKit.h>
 
 // Facebook Shimmer (Inspiration)
-#import "FBShimmeringView.h"
+@import Shimmer;
 
 // TriggertrapKit
 #import "Reachability.h"
@@ -33,7 +31,7 @@
 #import "RemoteOutputServer.h"
 
 // Pods
-#import "Pop.h"
+@import pop;
 
 // Menu
 #import "MCPanelViewController.h"
@@ -44,7 +42,7 @@
 #import "TTCircleTimer.h"
 #import "TTTimeInput.h"
 #import "TTCircularSlider.h"
-#import "TTCounterLabel.h"
+@import TTCounterLabel;
 
 // TimeWarp
 
@@ -61,7 +59,7 @@
 #import "AudioListener.h"
 #import "FaceDetectionViewController.h"
 #import "MotionDetectionViewController.h"
-#import "GPUImage.h"
+@import GPUImage;
 #import "AccelerometerFilter.h"
 
 // Calculators
@@ -69,4 +67,4 @@
 #import "NSString+TimeFormatting.h"
 
 // Options
-#import "CTFeedbackViewController.h"
+@import CTFeedback;

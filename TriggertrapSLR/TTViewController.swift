@@ -265,8 +265,6 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
         // If dongle is connected and user has not been activated, send an event to Mixpanel that the user has been activated
         if NSUserDefaults.standardUserDefaults().boolForKey(constUserActivated) == false && DongleObserver.sharedInstance.dongleConnected {
             
-            MixpanelManager.sharedInstance.trackEvent(constUserActivated)
-            
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: constUserActivated)
             NSUserDefaults.standardUserDefaults().synchronize()
         }
@@ -376,9 +374,6 @@ class TTViewController: SplitLayoutViewController, UIAlertViewDelegate, Dispatch
     
     func didDispatch(dispatchable: Dispatchable) {
         
-        if !MixpanelManager.sharedInstance.photoTaken && dispatchable is Pulse && DongleObserver.sharedInstance.dongleConnected {
-            MixpanelManager.sharedInstance.photoTaken = true
-        }
     } 
     
     // MARK: - Sequence Lifecycle
