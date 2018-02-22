@@ -1,15 +1,17 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E6FD83F103CE5C58AECD61AE5076E2570728E57D",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E580E76485C1D655874EB8D149F870261A16D85A",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "A30FF0E21215B0F82D468B3AAC5F8596C69C31F2" : 0,
+    "E580E76485C1D655874EB8D149F870261A16D85A" : 0,
     "E6FD83F103CE5C58AECD61AE5076E2570728E57D" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3CBF0563-ACA1-4782-A964-E10BC07FF6B4",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "A30FF0E21215B0F82D468B3AAC5F8596C69C31F2" : "ios-slr\/",
+    "E580E76485C1D655874EB8D149F870261A16D85A" : "triggertrap-ios\/",
     "E6FD83F103CE5C58AECD61AE5076E2570728E57D" : "triggertrap\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Triggertrap",
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:TriggerTrap\/ios-slr.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A30FF0E21215B0F82D468B3AAC5F8596C69C31F2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/alex-taffe\/triggertrap-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E580E76485C1D655874EB8D149F870261A16D85A"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Triggertrap\/triggertrap.git",
