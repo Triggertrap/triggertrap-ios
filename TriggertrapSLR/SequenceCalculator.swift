@@ -14,9 +14,9 @@ class SequenceCalculator {
     
     // MARK: - Startrail Calculations
     
-    func starTrailSequenceForExposures(expCount: Int, pulse: Pulse, delay: Delay) -> Sequence {
+    func starTrailSequenceForExposures(_ expCount: Int, pulse: Pulse, delay: Delay) -> Sequence {
         
-        var modules = [Modular](count: expCount * 2 - 1, repeatedValue: Pulse(time: Time(duration: 0, unit: .Milliseconds)))
+        var modules = [Modular](repeating: Pulse(time: Time(duration: 0, unit: .milliseconds)), count: expCount * 2 - 1)
         
         for index in 0..<expCount {
             modules[index * 2] = pulse
@@ -32,9 +32,9 @@ class SequenceCalculator {
     
     // MARK: - HDR Calculations
     
-    func hdrSequenceForExposures(expCount: Int, midExpDuration: Double, evStep: Double, interval: Double) -> Sequence {
+    func hdrSequenceForExposures(_ expCount: Int, midExpDuration: Double, evStep: Double, interval: Double) -> Sequence {
         
-        var modules = [Modular](count: expCount * 2, repeatedValue: Pulse(time: Time(duration: 0, unit: .Milliseconds)))
+        var modules = [Modular](repeating: Pulse(time: Time(duration: 0, unit: .milliseconds)), count: expCount * 2)
         
         var j = 0
         let step = (expCount - 1) / 2
@@ -43,8 +43,8 @@ class SequenceCalculator {
         
         while index <= step{
             let exposure = (pow(pow(2, evStep), Double(index)) * midExpDuration)
-            modules[j] = Pulse(time: Time(duration: exposure, unit: .Milliseconds))
-            modules[j + 1] = Delay(time: Time(duration: MinimumGapBetweenHDRExposures, unit: .Milliseconds))
+            modules[j] = Pulse(time: Time(duration: exposure, unit: .milliseconds))
+            modules[j + 1] = Delay(time: Time(duration: MinimumGapBetweenHDRExposures, unit: .milliseconds))
             
             j += 2
             index += 1
@@ -54,16 +54,16 @@ class SequenceCalculator {
             let time = durationForModulesInMilliseconds(modules)
             
             if time >= interval {
-                modules[modules.count - 1] = Delay(time: Time(duration: time - interval + MinimumGapBetweenHDRExposures, unit: .Milliseconds))
+                modules[modules.count - 1] = Delay(time: Time(duration: time - interval + MinimumGapBetweenHDRExposures, unit: .milliseconds))
             } else {
-                modules[modules.count - 1] = Delay(time: Time(duration: interval - time + MinimumGapBetweenHDRExposures, unit: .Milliseconds))
+                modules[modules.count - 1] = Delay(time: Time(duration: interval - time + MinimumGapBetweenHDRExposures, unit: .milliseconds))
             }
         }
         
         return Sequence(modules: modules)
     }
     
-    func timeForSequence(sequence: [Double]) -> Double{
+    func timeForSequence(_ sequence: [Double]) -> Double{
         let expCount = sequence.count / 2
         
         var time = 0.0
@@ -76,7 +76,7 @@ class SequenceCalculator {
         return time
     } 
     
-    func durationForModulesInMilliseconds(modules: [Modular]) -> Double {
+    func durationForModulesInMilliseconds(_ modules: [Modular]) -> Double {
         var duration = 0.0
         
         for module in modules {
@@ -86,7 +86,7 @@ class SequenceCalculator {
         return duration
     }
     
-    func maximumNumberOfExposuresForMinumumExposure(minExposure: Double, midExposure: Double, evStep: Double) -> Int {
+    func maximumNumberOfExposuresForMinumumExposure(_ minExposure: Double, midExposure: Double, evStep: Double) -> Int {
         var minimumExp = 0.0
         
         var index = 19
@@ -104,22 +104,22 @@ class SequenceCalculator {
         return 0
     }
     
-    func minimumExposureForHDRExposures(expCount: Int, midExposure: Double, evStep: Double) -> Double {
+    func minimumExposureForHDRExposures(_ expCount: Int, midExposure: Double, evStep: Double) -> Double {
         let num: Double = Double(-(expCount - 1) / 2)
         return pow(pow(2, evStep), num) * midExposure
     }
     
     // MARK: - Bramping Calculations
     
-    func brampingSequenceForExposures(expCount: Int, firstExposure: Double, lastExposure: Double, interval: Double) -> Sequence {
-        var modules = [Modular](count: expCount * 2, repeatedValue: Pulse(time: Time(duration: 0, unit: .Milliseconds)))
+    func brampingSequenceForExposures(_ expCount: Int, firstExposure: Double, lastExposure: Double, interval: Double) -> Sequence {
+        var modules = [Modular](repeating: Pulse(time: Time(duration: 0, unit: .milliseconds)), count: expCount * 2)
         
         for index in 0..<expCount {
             let fraction = Double(index) / Double(expCount - 1)
             let exposure = fraction * (lastExposure - firstExposure) + firstExposure
             
-            modules[index * 2] = Pulse(time: Time(duration: exposure, unit: .Milliseconds))
-            modules[index * 2 + 1] = Delay(time: Time(duration: interval - exposure, unit: .Milliseconds))
+            modules[index * 2] = Pulse(time: Time(duration: exposure, unit: .milliseconds))
+            modules[index * 2 + 1] = Delay(time: Time(duration: interval - exposure, unit: .milliseconds))
         }
         
         return Sequence(modules: modules)
@@ -127,19 +127,19 @@ class SequenceCalculator {
     
     // MARK: - TimeWarp Calculations
     
-    func timeWarpSequenceForExposures(expCount: Int,  duration: Double, pulseLength: Double, minimumGap: Double, interpolator: CubicBezierInterpolator) -> Sequence {
-        let pauses: [Double] = interpolator.pausesForExposures(Int32(expCount), sequenceDuration: Int(duration), pulseLength: Int(pulseLength), minimumGapBetweenPulses: Int(minimumGap)) as! [Double]
+    func timeWarpSequenceForExposures(_ expCount: Int,  duration: Double, pulseLength: Double, minimumGap: Double, interpolator: CubicBezierInterpolator) -> Sequence {
+        let pauses: [Double] = interpolator.pauses(forExposures: Int32(expCount), sequenceDuration: Int(duration), pulseLength: Int(pulseLength), minimumGapBetweenPulses: Int(minimumGap)) as! [Double]
         
-        var modules = [Modular](count: expCount * 2, repeatedValue: Pulse(time: Time(duration: 0, unit: .Milliseconds)))
+        var modules = [Modular](repeating: Pulse(time: Time(duration: 0, unit: .milliseconds)), count: expCount * 2)
         
         for index in 0..<expCount {
-            modules[index * 2] = Pulse(time: Time(duration: pulseLength, unit: .Milliseconds))
+            modules[index * 2] = Pulse(time: Time(duration: pulseLength, unit: .milliseconds))
             
             if index < pauses.count {
                 if pauses[index] >= minimumGap {
-                    modules[index * 2 + 1] = Delay(time: Time(duration: pauses[index], unit: .Milliseconds))
+                    modules[index * 2 + 1] = Delay(time: Time(duration: pauses[index], unit: .milliseconds))
                 } else {
-                    modules[index * 2 + 1] = Delay(time: Time(duration: minimumGap, unit: .Milliseconds))
+                    modules[index * 2 + 1] = Delay(time: Time(duration: minimumGap, unit: .milliseconds))
                 }
             }
         }

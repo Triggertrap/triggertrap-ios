@@ -13,23 +13,23 @@ import QuartzCore
 class DongleCableView: UIView {
     
     enum BezierPathType {
-        case Dongle,
-        Camera
+        case dongle,
+        camera
     }
     
-    var bezierType = BezierPathType.Dongle
+    var bezierType = BezierPathType.dongle
     
     var shapeLayer: CAShapeLayer!
     var displayLink: CADisplayLink!
     
-    var point1: CGPoint = CGPointZero     
-    var point2: CGPoint = CGPointZero
+    var point1: CGPoint = CGPoint.zero     
+    var point2: CGPoint = CGPoint.zero
     
-    var centerPoint: CGPoint = CGPointZero 
-    var controlPoint1: CGPoint = CGPointZero
-    var controlPoint2: CGPoint = CGPointZero
-    var controlPoint3: CGPoint = CGPointZero
-    var controlPoint4: CGPoint = CGPointZero
+    var centerPoint: CGPoint = CGPoint.zero 
+    var controlPoint1: CGPoint = CGPoint.zero
+    var controlPoint2: CGPoint = CGPoint.zero
+    var controlPoint3: CGPoint = CGPoint.zero
+    var controlPoint4: CGPoint = CGPoint.zero
 
     var oldPath: CGPath!
     
@@ -41,18 +41,18 @@ class DongleCableView: UIView {
         updateControlPoints()
         
         shapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = UIColor.clearColor().CGColor
+        shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineJoin = kCALineJoinBevel
         shapeLayer.lineWidth = 7
-        shapeLayer.strokeColor = UIColor(hex: 0xE2231A, alpha: 1.0).CGColor
+        shapeLayer.strokeColor = UIColor(hex: 0xE2231A, alpha: 1.0).cgColor
         
         switch bezierType {
-        case .Dongle:
-            shapeLayer.path = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: centerPoint, cp1: controlPoint1, cp2: controlPoint2, cp3: controlPoint3, cp4: controlPoint4).CGPath
+        case .dongle:
+            shapeLayer.path = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: centerPoint, cp1: controlPoint1, cp2: controlPoint2, cp3: controlPoint3, cp4: controlPoint4).cgPath
             break
             
-        case .Camera:
-            shapeLayer.path = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: nil, cp1: controlPoint1, cp2: controlPoint2, cp3: nil, cp4: nil).CGPath
+        case .camera:
+            shapeLayer.path = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: nil, cp1: controlPoint1, cp2: controlPoint2, cp3: nil, cp4: nil).cgPath
             break 
         }
         
@@ -62,7 +62,7 @@ class DongleCableView: UIView {
 //        self.layer.backgroundColor = UIColor(red: 0.1, green: 0.2, blue: 0.3, alpha: 0.6).CGColor
     }
     
-    func animateShapeLayereWithDuration(duration: Double) {
+    func animateShapeLayereWithDuration(_ duration: Double) {
         
         updateControlPoints()
         
@@ -72,12 +72,12 @@ class DongleCableView: UIView {
         var newPath: CGPath!
         
         switch bezierType {
-        case .Dongle:
-            newPath = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: centerPoint, cp1: controlPoint1, cp2: controlPoint2, cp3: controlPoint3, cp4: controlPoint4).CGPath
+        case .dongle:
+            newPath = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: centerPoint, cp1: controlPoint1, cp2: controlPoint2, cp3: controlPoint3, cp4: controlPoint4).cgPath
             break
             
-        case .Camera:
-            newPath = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: nil, cp1: controlPoint1, cp2: controlPoint2, cp3: nil, cp4: nil).CGPath
+        case .camera:
+            newPath = UIBezierPath.smoothPathWithPoints(point1, point2: point2, centerPoint: nil, cp1: controlPoint1, cp2: controlPoint2, cp3: nil, cp4: nil).cgPath
             break
         }
         
@@ -86,16 +86,16 @@ class DongleCableView: UIView {
         curveAnimation.toValue = newPath
         curveAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         curveAnimation.fillMode = kCAFillModeForwards
-        curveAnimation.removedOnCompletion = false
+        curveAnimation.isRemovedOnCompletion = false
         
-        self.shapeLayer.addAnimation(curveAnimation, forKey: "path")
+        self.shapeLayer.add(curveAnimation, forKey: "path")
         oldPath = newPath
     }
     
-    private func updateControlPoints() {
+    fileprivate func updateControlPoints() {
         
         switch bezierType {
-        case .Dongle:
+        case .dongle:
             centerPoint = CGPoint(x: (point1.x + point2.x) / 2, y: (point1.y + point2.y) / 2)
             controlPoint1 = CGPoint(x: point1.x, y: point1.y + 50)
             controlPoint2 = CGPoint(x: (point1.x + centerPoint.x) / 2, y: point1.y + 50)
@@ -103,7 +103,7 @@ class DongleCableView: UIView {
             controlPoint4 = CGPoint(x: point2.x, y: point2.y - 50)
             break
             
-        case .Camera:
+        case .camera:
             controlPoint1 = CGPoint(x: point1.x, y: point2.y)
             controlPoint2 = CGPoint(x: point1.x, y: point2.y)
             break 

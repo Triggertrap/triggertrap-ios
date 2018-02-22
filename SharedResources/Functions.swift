@@ -8,22 +8,22 @@
 
 import UIKit
 
-func ShowAlertInViewController(viewController: UIViewController, title: String, message: String, cancelButton: String) {
+func ShowAlertInViewController(_ viewController: UIViewController, title: String, message: String, cancelButton: String) {
     let alert = UIAlertController(title: title,
                                   message: message,
-                                  preferredStyle: UIAlertControllerStyle.Alert)
+                                  preferredStyle: UIAlertControllerStyle.alert)
     
     // The order in which we add the buttons matters.
     // Add the Cancel button first to match the iOS 7 default style,
     // where the cancel button is at index 0.
     alert.addAction(UIAlertAction(title: cancelButton,
-        style: .Default,
+        style: .default,
         handler: nil))
     
-    viewController.presentViewController(alert, animated: true, completion: nil)
+    viewController.present(alert, animated: true, completion: nil)
 }
 
-func StoryboardNameForViewControllerIdentifier(identifier: String) -> String? {
+func StoryboardNameForViewControllerIdentifier(_ identifier: String) -> String? {
     
     if ConstCableReleaseModes.contains(identifier) {
         return ConstStoryboardIdentifierCableReleaseModes
@@ -53,27 +53,27 @@ func StoryboardNameForViewControllerIdentifier(identifier: String) -> String? {
 }
 
 enum Theme: Int {
-    case Normal = 0,
-    Night
+    case normal = 0,
+    night
 }
 
 func AppTheme() -> Theme {
-    if let appTheme = NSUserDefaults.standardUserDefaults().objectForKey(ConstAppTheme) as? Int, theme = Theme(rawValue: appTheme) {
+    if let appTheme = UserDefaults.standard.object(forKey: ConstAppTheme) as? Int, let theme = Theme(rawValue: appTheme) {
         return theme
     } else {
-        return Theme.Normal
+        return Theme.normal
     }
 }
 
-func IdentifiersForModesInSection(index: Int) -> [String] {
+func IdentifiersForModesInSection(_ index: Int) -> [String] {
     
-    if let sections = NSArray(contentsOfFile: pathForResource("Modes")), section = sections[index] as? NSArray, modes = section[1] as? NSArray {
+    if let sections = NSArray(contentsOfFile: pathForResource("Modes")), let section = sections[index] as? NSArray, let modes = section[1] as? NSArray {
         
         var identifiers: [String] = []
         
         for mode in modes {
             
-            if let mode = mode as? NSDictionary, identifier = mode["identifier"] as? String {
+            if let mode = mode as? NSDictionary, let identifier = mode["identifier"] as? String {
                 identifiers.append(identifier)
             }
         }
@@ -83,24 +83,20 @@ func IdentifiersForModesInSection(index: Int) -> [String] {
     }
 }
 
-func delay(delay:Double, closure:()->()) {
-    dispatch_after(
-        dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(delay * Double(NSEC_PER_SEC))
-        ),
-        dispatch_get_main_queue(), closure)
+func delay(_ delay:Double, closure:@escaping ()->()) {
+    DispatchQueue.main.asyncAfter(
+        deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 }
 
-func SizeForText(text: NSString, withFont font: UIFont, constrainedToSize size: CGSize) -> CGSize {
-    return text.boundingRectWithSize(size, options: [NSStringDrawingOptions.UsesLineFragmentOrigin, NSStringDrawingOptions.UsesFontLeading], attributes: [NSFontAttributeName: font], context: nil).size;
+func SizeForText(_ text: NSString, withFont font: UIFont, constrainedToSize size: CGSize) -> CGSize {
+    return text.boundingRect(with: size, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], attributes: [NSFontAttributeName: font], context: nil).size;
 } 
 
-func pathForResource(resource: String!) -> String {
-    return NSBundle.mainBundle().pathForResource(resource, ofType: "plist")!
+func pathForResource(_ resource: String!) -> String {
+    return Bundle.main.path(forResource: resource, ofType: "plist")!
 }
 
-func componentInBounds(component: CGFloat) -> CGFloat {
+func componentInBounds(_ component: CGFloat) -> CGFloat {
     if component < 0 {
         return 0.0
     } else if component > 1 {
@@ -111,26 +107,26 @@ func componentInBounds(component: CGFloat) -> CGFloat {
 }
 
 // Use to change the color of a UIImage
-func ImageWithColor(image: UIImage, color: UIColor) -> UIImage {
+func ImageWithColor(_ image: UIImage, color: UIColor) -> UIImage {
     
-    let rect = CGRect(x: 0, y: 0, width: image.size.width * UIScreen.mainScreen().scale, height: image.size.height * UIScreen.mainScreen().scale)
+    let rect = CGRect(x: 0, y: 0, width: image.size.width * UIScreen.main.scale, height: image.size.height * UIScreen.main.scale)
     UIGraphicsBeginImageContext(rect.size)
     
     let context = UIGraphicsGetCurrentContext()
-    CGContextClipToMask(context, rect, image.CGImage)
-    CGContextSetFillColorWithColor(context, color.CGColor)
-    CGContextFillRect(context, rect)
+    context?.clip(to: rect, mask: image.cgImage!)
+    context?.setFillColor(color.cgColor)
+    context?.fill(rect)
     
     let img = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    let flippedImage = UIImage(CGImage: img.CGImage!, scale: 1.0, orientation: UIImageOrientation.DownMirrored)
+    let flippedImage = UIImage(cgImage: (img?.cgImage!)!, scale: 1.0, orientation: UIImageOrientation.downMirrored)
     return flippedImage
 }
 
 // MARK: - Theme Updates
 
-    func applyThemeUpdateToNumberInput(numberInput: TTNumberInput?) {
+    func applyThemeUpdateToNumberInput(_ numberInput: TTNumberInput?) {
         
         numberInput?.displayView.textColor = UIColor.triggertrap_accentColor()
         numberInput?.borderColor = UIColor.triggertrap_accentColor()
@@ -138,14 +134,14 @@ func ImageWithColor(image: UIImage, color: UIColor) -> UIImage {
         numberInput?.setNeedsDisplay()
     }
     
-    func applyThemeUpdateToTimeInput(timeInput: TTTimeInput?) {
+    func applyThemeUpdateToTimeInput(_ timeInput: TTTimeInput?) {
         timeInput?.setFontColor(UIColor.triggertrap_accentColor())
         timeInput?.borderColor = UIColor.triggertrap_accentColor()
         timeInput?.borderHighlightColor = UIColor.triggertrap_primaryColor()
         timeInput?.setNeedsDisplay()
     }
     
-    func applyThemeUpdateToPicker(picker: HorizontalPicker?) {
+    func applyThemeUpdateToPicker(_ picker: HorizontalPicker?) {
         
         picker?.fontColor = UIColor.triggertrap_accentColor()
         picker?.gradientView.leftGradientStartColor = UIColor.triggertrap_fillColor()
@@ -158,7 +154,7 @@ func ImageWithColor(image: UIImage, color: UIColor) -> UIImage {
         picker?.layoutSubviews()
     }
 
-func applyThemeUpdateToDescriptionLabel(label: UILabel) {
+func applyThemeUpdateToDescriptionLabel(_ label: UILabel) {
     label.textColor = UIColor.triggertrap_foregroundColor()
 }
 
@@ -171,13 +167,13 @@ var content = ""
 // Content type of the plist
 
 enum PlistType {
-    case Array,
-    Dictionary
+    case array,
+    dictionary
 }
 
-func GenerateStringsFileFromPlist(plist: String, plistType: PlistType) {
+func GenerateStringsFileFromPlist(_ plist: String, plistType: PlistType) {
     
-    let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.ApplicationDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+    let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
     
     let fileDirectory = paths[0]
     
@@ -185,12 +181,12 @@ func GenerateStringsFileFromPlist(plist: String, plistType: PlistType) {
     content = ""
     
     switch plistType {
-    case .Array:
+    case .array:
         if let content = NSArray(contentsOfFile: pathForResource(plist)) {
             ReadArray(content)
         }
         break
-    case .Dictionary:
+    case .dictionary:
         if let content = NSDictionary(contentsOfFile: pathForResource(plist)) {
             ReadDictionary(content)
         }
@@ -198,7 +194,7 @@ func GenerateStringsFileFromPlist(plist: String, plistType: PlistType) {
     }
     
     do {
-        try content.writeToFile(fileName!, atomically: true, encoding: NSUTF8StringEncoding)
+        try content.write(toFile: fileName!, atomically: true, encoding: String.Encoding.utf8)
         print("Spotlight search: \(fileDirectory)")
         print("Generated \(plist).strings successfully")
     } catch {
@@ -206,21 +202,21 @@ func GenerateStringsFileFromPlist(plist: String, plistType: PlistType) {
     }
 }
 
-private func ReadArray(array: NSArray) {
+private func ReadArray(_ array: NSArray) {
     
     for value in array {
-        ReadValueAndKey(value, key: nil)
+        ReadValueAndKey(value as AnyObject, key: nil)
     }
 }
 
-private func ReadDictionary(dictionary: NSDictionary) {
+private func ReadDictionary(_ dictionary: NSDictionary) {
     
     for (key, value) in dictionary {
-        ReadValueAndKey(value, key: key)
+        ReadValueAndKey(value as AnyObject, key: key as AnyObject)
     }
 }
 
-private func ReadValueAndKey(value: AnyObject, key: AnyObject?) {
+private func ReadValueAndKey(_ value: AnyObject, key: AnyObject?) {
     if value is String && (key as? String) != "icon" {
         AppendContentWithString(value as! String)
     } else if value is NSArray {
@@ -230,7 +226,7 @@ private func ReadValueAndKey(value: AnyObject, key: AnyObject?) {
     }
 }
 
-private func AppendContentWithString(string: String) {
+private func AppendContentWithString(_ string: String) {
     
     // Comment format: /* Title */
     let comment = "\n/* \(string) */"
@@ -238,6 +234,6 @@ private func AppendContentWithString(string: String) {
     // String format: "string"="string";
     let string = "\n\"\(string)\"=\"\(string)\";\n"
     
-    content.appendContentsOf(comment)
-    content.appendContentsOf(string)
+    content.append(comment)
+    content.append(string)
 }

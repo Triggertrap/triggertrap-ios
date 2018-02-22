@@ -22,7 +22,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     let sequenceManager = SequenceManager.sharedInstance
     
     /** Reference of the `AppDelegate`. */
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     /** Instance of the `SettingsManager`. */
     let settingsManager = SettingsManager.sharedInstance()
@@ -30,16 +30,16 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     /** Instance of the `FeedbackViewController`. */
     var feedbackViewController: FeedbackViewController!
     
-    private var notification = MPGNotification(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
+    fileprivate var notification = MPGNotification(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
                                                subtitle: nil,
                                                backgroundColor: UIColor.triggertrap_primaryColor(1.0),
                                                iconImage: nil)
     
-    private var shownVolumeAlert = false
+    fileprivate var shownVolumeAlert = false
     
     // MARK: Properties
     
-    private var feedbackView: UIView!
+    fileprivate var feedbackView: UIView!
     
     var feedbackViewVisible: Bool {
         get {
@@ -47,15 +47,15 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         }
     }
     
-    private var feedbackViewIsVisible = false
+    fileprivate var feedbackViewIsVisible = false
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) 
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTViewController.enableShutterButton), name: FeedbackViewHideAnimationCompleted, object: nil)
+        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(TTViewController.enableShutterButton), name: NSNotification.Name(rawValue: FeedbackViewHideAnimationCompleted), object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TTViewController.activeViewControllerLostFocus), name: "ActiveViewControllerLostFocus", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TTViewController.activeViewControllerLostFocus), name: NSNotification.Name(rawValue: "ActiveViewControllerLostFocus"), object: nil)
         
         guard let activeViewController = sequenceManager.activeViewController else {
             // There is no active view controller, check that wifi and wearables are also not present and dismiss the red view if visible
@@ -75,27 +75,26 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if sequenceManager.activeViewController == nil && shutterButton != nil  {
             pop(shutterButton, fromScale: 0.5, toScale: 1.0)
         }
         
-        if NSUserDefaults.standardUserDefaults().objectForKey(ConstFirstAppLaunch) == nil {
+        if UserDefaults.standard.object(forKey: ConstFirstAppLaunch) == nil {
             
             // Show the tutorial after half a second
             
-            let delayTime = dispatch_time(DISPATCH_TIME_NOW,
-                                          Int64(0.5 * Double(NSEC_PER_SEC)))
+            let delayTime = DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
             
-            dispatch_after(delayTime, dispatch_get_main_queue()) {
+            DispatchQueue.main.asyncAfter(deadline: delayTime) {
                 
                 self.appDelegate.presentTutorial(self)
             }
             
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: ConstFirstAppLaunch)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(true, forKey: ConstFirstAppLaunch)
+            UserDefaults.standard.synchronize()
         }
     }
     
@@ -104,15 +103,15 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         self.shutterButton?.refreshView()
         
         if let _ = self.notification {
-            self.notification.frame = CGRect(origin: self.notification.frame.origin, size: CGSize(width: self.view.frame.width, height: self.notification.frame.height))
+            self.notification?.frame = CGRect(origin: (self.notification?.frame.origin)!, size: CGSize(width: self.view.frame.width, height: (self.notification?.frame.height)!))
             
-            self.notification.contentSize = CGSizeMake(CGRectGetWidth(self.notification.frame), 2 * CGRectGetHeight(self.notification.frame)); 
+            self.notification?.contentSize = CGSize(width: (self.notification?.frame.width)!, height: 2 * (self.notification?.frame.height)!); 
         }
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func performThemeUpdate() {
@@ -124,12 +123,12 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
             self.feedbackViewController.performThemeUpdate()
         }
         
-        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_fillColor()) , forState: .Normal)
+        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_fillColor()) , for: UIControlState())
         
-        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_fillColor()) , forState: .Normal)
+        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_fillColor()) , for: UIControlState())
         
-        self.bulbButton?.setImage(ImageWithColor(UIImage(named: "BulbIcon")!, color: UIColor.triggertrap_primaryColor()), forState: .Normal)
-        self.bulbButton?.imageView?.contentMode = .ScaleAspectFit
+        self.bulbButton?.setImage(ImageWithColor(UIImage(named: "BulbIcon")!, color: UIColor.triggertrap_primaryColor()), for: UIControlState())
+        self.bulbButton?.imageView?.contentMode = .scaleAspectFit
     }
     
     // MARK: - Notifications
@@ -142,36 +141,36 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     // When Menu or Options is shown the active view controller gets notified that it has lost focus. Quick Release and Press and Hold use this method to stop the mode in case user is holding the button and trying to open the menu/options.
     func activeViewControllerLostFocus() {}
     
-    private func showVolumeAlert() {
-        dispatch_async(dispatch_get_main_queue(), {
+    fileprivate func showVolumeAlert() {
+        DispatchQueue.main.async(execute: {
             let alert = UIAlertController(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
                 message: NSLocalizedString("Please set the volume to maximum to use Triggertrap mobile", comment: "Please set the volume to maximum to use Triggertrap mobile"),
-                preferredStyle: UIAlertControllerStyle.Alert)
+                preferredStyle: UIAlertControllerStyle.alert)
             
             // The order in which we add the buttons matters.
             // Add the Cancel button first to match the iOS 7 default style,
             // where the cancel button is at index 0.
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
-                style: UIAlertActionStyle.Default,
+                style: UIAlertActionStyle.default,
                 handler: { (action: UIAlertAction!) in
                     self.handelCancel()
             }))
             
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         })
     }
     
-    private func showVolumeNotification() {
+    fileprivate func showVolumeNotification() {
         let delay = 0.3
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
             
             // Only show the notification again if it is not currently presented
-            if !self.notification.isAnimating {
-                self.notification.backgroundColor = UIColor.triggertrap_primaryColor()
-                self.notification.titleColor = UIColor.triggertrap_fillColor()
-                self.notification.show()
-                self.notification.duration = 2.0
+            if !(self.notification?.isAnimating)! {
+                self.notification?.backgroundColor = UIColor.triggertrap_primaryColor()
+                self.notification?.titleColor = UIColor.triggertrap_fillColor()
+                self.notification?.show()
+                self.notification?.duration = 2.0
             }
         })
     }
@@ -184,21 +183,21 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
      - Parameters:
      - sender: The `UIButton` that recieves the action.
      */
-    @IBAction func bulbButtonTapped(sender: UIButton) {
+    @IBAction func bulbButtonTapped(_ sender: UIButton) {
         
         ShowAlertInViewController(self, title: NSLocalizedString("Bulb Required!", comment: "Bulb Required!"), message: NSLocalizedString("Please make sure your camera is set to Bulb to use this mode correctly.", comment: "Please make sure your camera is set to Bulb to use this mode correctly."), cancelButton: NSLocalizedString("OK", comment: "OK"))
     }
     
     // MARK: - Public 
     
-    func shutterButtonEnabled(enabled: Bool) {
+    func shutterButtonEnabled(_ enabled: Bool) {
         shutterButton?.alpha = enabled ? 1.0 : 0.3 
-        shutterButton?.enabled = enabled ? true : false
+        shutterButton?.isEnabled = enabled ? true : false
     }
     
-    func bulbButtonEnabled(enabled: Bool) {
+    func bulbButtonEnabled(_ enabled: Bool) {
         bulbButton?.alpha = enabled ? 1.0 : 0.3
-        bulbButton?.enabled = enabled ? true : false
+        bulbButton?.isEnabled = enabled ? true : false
     }
     
     func startShutterButtonAnimation() {
@@ -215,15 +214,15 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         }
     }
     
-    func pop(viewToAnimate: UIView, fromScale: CGFloat, toScale: CGFloat) {
+    func pop(_ viewToAnimate: UIView, fromScale: CGFloat, toScale: CGFloat) {
         onMain {
             let springAnimation = POPSpringAnimation()
-            springAnimation.property = POPAnimatableProperty.propertyWithName(kPOPViewScaleXY) as! POPAnimatableProperty
+            springAnimation.property = POPAnimatableProperty.property(withName: kPOPViewScaleXY) as! POPAnimatableProperty
             springAnimation.springBounciness = 8.0
             springAnimation.springSpeed = 10.0
-            springAnimation.fromValue = NSValue(CGSize: CGSizeMake(fromScale, fromScale))
-            springAnimation.toValue = NSValue(CGSize: CGSizeMake(toScale, toScale))
-            viewToAnimate.pop_addAnimation(springAnimation, forKey: "size")
+            springAnimation.fromValue = NSValue(cgSize: CGSize(width: fromScale, height: fromScale))
+            springAnimation.toValue = NSValue(cgSize: CGSize(width: toScale, height: toScale))
+            viewToAnimate.pop_add(springAnimation, forKey: "size")
         }
     }
     
@@ -258,10 +257,10 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         OutputDispatcher.sharedInstance.activeDispatchers = [HeadphoneDispatcher.sharedInstance, WifiDispatcher.sharedInstance]
         
         // If dongle is connected and user has not been activated, send an event to Mixpanel that the user has been activated
-        if NSUserDefaults.standardUserDefaults().boolForKey(constUserActivated) == false && DongleObserver.sharedInstance.dongleConnected {
+        if UserDefaults.standard.bool(forKey: constUserActivated) == false && DongleObserver.sharedInstance.dongleConnected {
             
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: constUserActivated)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(true, forKey: constUserActivated)
+            UserDefaults.standard.synchronize()
         }
     }
     
@@ -271,7 +270,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         shownVolumeAlert = true
     }
     
-    func showFeedbackView(storyboardIdentifier: String) {
+    func showFeedbackView(_ storyboardIdentifier: String) {
         
         // Executed regardless of the guard
         defer {
@@ -280,13 +279,13 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
                 // Disable the bulb icon when feedback view is visible
                 bulbButtonEnabled(false)
                 
-                shutterButton.enabled = false
+                shutterButton.isEnabled = false
                 startShutterButtonAnimation()
                 
                 self.feedbackView.alpha = 0.0
-                self.feedbackView.hidden = false
+                self.feedbackView.isHidden = false
                 
-                UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: { () -> Void in
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
                     self.feedbackView.alpha = 1.0
                     }, completion: { (finished) -> Void in
                         self.feedbackViewShowAnimationCompleted()
@@ -297,16 +296,16 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         guard let _ = self.feedbackViewController else {
             let storyboard = UIStoryboard(name: ConstStoryboardIdentifierFeedback, bundle: nil);
             
-            self.feedbackViewController = storyboard.instantiateViewControllerWithIdentifier(storyboardIdentifier) as! FeedbackViewController
+            self.feedbackViewController = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! FeedbackViewController
             
             self.addChildViewController(self.feedbackViewController!)
             
-            self.feedbackViewController.didMoveToParentViewController(self)
+            self.feedbackViewController.didMove(toParentViewController: self)
             self.feedbackViewController.view.frame = topLeftView.frame
             self.feedbackView = self.feedbackViewController.view
             
             self.feedbackView.autoresizesSubviews = true
-            self.feedbackView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+            self.feedbackView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
             
             topLeftView.addSubview(self.feedbackView)
             return
@@ -316,7 +315,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     func hideFeedbackView() {
         // If feedback view is visible - hide it
         if feedbackViewIsVisible {
-            shutterButton.enabled = false
+            shutterButton.isEnabled = false
             
             if let feedbackViewController = self.feedbackViewController {
                 feedbackViewController.stopAnimations()
@@ -325,7 +324,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
             if let _ = self.feedbackView {
                 self.feedbackView.alpha = 1.0
                 
-                UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: { () -> Void in
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: { () -> Void in
                     self.feedbackView.alpha = 0.0
                     }, completion: { (finished) -> Void in
                         self.feedbackViewHideAnimationCompleted()
@@ -336,7 +335,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     
     func feedbackViewShowAnimationCompleted() {
         feedbackViewIsVisible = true
-        shutterButton.enabled = true
+        shutterButton.isEnabled = true
     }
     
     func feedbackViewHideAnimationCompleted() { 
@@ -349,19 +348,19 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         self.feedbackViewIsVisible = false
         
         if let _ = self.feedbackView {
-            self.feedbackView.hidden = true
+            self.feedbackView.isHidden = true
         }
         
-        shutterButton.enabled = true
+        shutterButton.isEnabled = true
         
-        NSNotificationCenter.defaultCenter().postNotificationName(FeedbackViewHideAnimationCompleted, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: FeedbackViewHideAnimationCompleted), object: nil)
     }
     
     // MARK: - Dispatchable Lifecycle
     
-    func willDispatch(dispatchable: Dispatchable) {}
+    func willDispatch(_ dispatchable: Dispatchable) {}
     
-    func didDispatch(dispatchable: Dispatchable) {
+    func didDispatch(_ dispatchable: Dispatchable) {
         
     } 
     
@@ -384,7 +383,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     func didRemoveActiveViewController() {
         
         // Update LeftPanelTableViewController spinners
-        NSNotificationCenter.defaultCenter().postNotificationName("DidRemoveActiveViewController", object:self)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "DidRemoveActiveViewController"), object:self)
         
         stopShutterButtonAnimation()
         

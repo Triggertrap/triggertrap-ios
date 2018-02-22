@@ -45,8 +45,8 @@ class ConnectKitViewController: OnboardingViewController {
     }
     
     func updateDongleCableView() {
-        let plugCenter = dongleCableView.convertPoint(donglePlugImageView.center, fromView: plugView)
-        let dongleCenter = dongleCableView.convertPoint(dongleBodyTopImageView.center, fromView: dongleView)
+        let plugCenter = dongleCableView.convert(donglePlugImageView.center, from: plugView)
+        let dongleCenter = dongleCableView.convert(dongleBodyTopImageView.center, from: dongleView)
         
         dongleCableView.point1 = CGPoint(x: plugCenter.x, y: plugCenter.y + donglePlugImageView.frame.size.height / 2 + 2)
         dongleCableView.point2 = CGPoint(x: dongleCenter.x, y: dongleCenter.y - dongleBodyTopImageView.frame.size.height / 2 - 2)

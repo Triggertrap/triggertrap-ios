@@ -10,12 +10,19 @@ Unwrappable module, combination of specific pattern of modules:
 MirrorLockup(optional) -> Pulse -> Delay
 */
 
-enum IntervalometerErrorType: ErrorType {
-    case LessThanMinDelay,
-    NoMinDelay
+enum IntervalometerErrorType: Error {
+    case lessThanMinDelay,
+    noMinDelay
 }
 
 public struct Intervalometer: Unwrappable {
+    public /** Unwraps the module
+     - parameter completionHandler: informs whether the module has been unwrapped successfully
+     */
+    func unwrap(_ completionHandler: (Bool) -> Void) {
+        
+    }
+
     
     public let name = "Intervalometer"
     public let time: Time
@@ -25,9 +32,9 @@ public struct Intervalometer: Unwrappable {
     public var modules: [Modular]
     public var currentModule: Int
     
-    private let mirrorLockup: MirrorLockup?
-    private let pulse: Pulse
-    private let delay: Delay
+    fileprivate let mirrorLockup: MirrorLockup?
+    fileprivate let pulse: Pulse
+    fileprivate let delay: Delay
     
     /**
     - parameter time: total duration of the intervalometer module
@@ -46,13 +53,13 @@ public struct Intervalometer: Unwrappable {
         
         // Check whether the delay that is left at the end of the Intervalometer satisfies the minimum delay of the sequence manager
         if delayInMilliseconds > SequenceManager.sharedInstance.minDelay.time.durationInMilliseconds {
-            self.delay = Delay(time: Time(duration: delayInMilliseconds, unit: .Milliseconds))
+            self.delay = Delay(time: Time(duration: delayInMilliseconds, unit: .milliseconds))
             self.modules = [self.mirrorLockup!, self.pulse, self.delay]
         } else {
             // Stop the Sequence and inform the user that their settings are unacceptable
-            SequenceManager.sharedInstance.unwrappableDelegate?.failedToUnwrap(IntervalometerErrorType.LessThanMinDelay)
+            SequenceManager.sharedInstance.unwrappableDelegate?.failedToUnwrap(IntervalometerErrorType.lessThanMinDelay)
             self.modules = [Modular]()
-            self.delay = Delay(time: Time(duration: 0, unit: .Milliseconds))
+            self.delay = Delay(time: Time(duration: 0, unit: .milliseconds))
 //            fatalError("Warning - pulse & mirrorlockup combined duration is greater than the intervalometer duration!")
         }
     }

@@ -11,14 +11,14 @@ import WatchConnectivity
 @available(iOS 9.0, *)
 class AppleWatchManager: NSObject {
     static let sharedInstance = AppleWatchManager()
-    private var session: WCSession?
+    fileprivate var session: WCSession?
     
     func startSession() {
         
         if WCSession.isSupported() {
-            session = WCSession.defaultSession()
+            session = WCSession.default()
             session?.delegate = self
-            session?.activateSession()
+            session?.activate()
         }
     }
     
@@ -27,9 +27,9 @@ class AppleWatchManager: NSObject {
         self.session = nil
     }
     
-    func updateWatchKitApplicationWithContext(title: String, running: Bool, completeExposures: Int, totalExposures: Int, timeRemaining: String) {
+    func updateWatchKitApplicationWithContext(_ title: String, running: Bool, completeExposures: Int, totalExposures: Int, timeRemaining: String) {
         
-        if let session = session where session.watchAppInstalled {
+        if let session = session, session.isWatchAppInstalled {
             do {
                 try session.updateApplicationContext(["Title" : title, "Running" : running, "CompleteExposures" : completeExposures, "TotalExposures" : totalExposures, "TimeRemaining" : timeRemaining])
             } catch let error as NSError {
@@ -38,60 +38,75 @@ class AppleWatchManager: NSObject {
         }
     }
     
-    private func errorHandler (error: NSError) -> Void {
+    fileprivate func errorHandler (_ error: NSError) -> Void {
         
         if let errorMessage = returnWatchError(error.code) {
             print("Error: \(errorMessage)")
         }
     }
     
-    private func returnWatchError (errorCode: Int) -> String? {
+    fileprivate func returnWatchError (_ errorCode: Int) -> String? {
         
         var errorString: String?
         
-        if let errorDescription = WCErrorCode(rawValue: errorCode) {
+        
+        /*if let errorDescription = WCError(_nsError: NSError(domain: "test", code: errorCode, userInfo: nil)) {
             
             switch errorDescription {
-            case .GenericError:
+            case .genericError:
                 errorString = "GenericError"
-            case .SessionNotSupported:
+            case .sessionNotSupported:
                 errorString = "SessionNotSupported"
-            case .SessionMissingDelegate:
+            case .sessionMissingDelegate:
                 errorString = "SessionMissingDelegate"
-            case .SessionNotActivated:
+            case .sessionNotActivated:
                 errorString = "SessionNotActivated"
-            case .DeviceNotPaired:
+            case .deviceNotPaired:
                 errorString = "DeviceNotPaired"
-            case .WatchAppNotInstalled:
+            case .watchAppNotInstalled:
                 errorString = "WatchAppNotInstalled"
-            case .NotReachable:
+            case .notReachable:
                 errorString = "NotReachable"
-            case .InvalidParameter:
+            case .invalidParameter:
                 errorString = "InvalidParameter"
-            case .PayloadTooLarge:
+            case .payloadTooLarge:
                 errorString = "PayloadTooLarge"
-            case .PayloadUnsupportedTypes:
+            case .payloadUnsupportedTypes:
                 errorString = "PayloadUnsupportedTypes"
-            case .MessageReplyFailed:
+            case .messageReplyFailed:
                 errorString = "MessageReplyFailed"
-            case .MessageReplyTimedOut:
+            case .messageReplyTimedOut:
                 errorString = "MessageReplyTimedOut"
-            case .FileAccessDenied:
+            case .fileAccessDenied:
                 errorString = "FileAccessDenied"
             default:
                 break
             }
-        }
-        
+        }*/
         return errorString
     }
 }
 
 @available(iOS 9.0, *)
 extension AppleWatchManager: WCSessionDelegate {
-    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+    @available(iOS 9.3, *)
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+
+    @available(iOS 9.3, *)
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+
+    @available(iOS 9.3, *)
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         if (message["trigger"] as? Bool) == true {
-            NSNotificationCenter.defaultCenter().postNotificationName(constWatchDidTrigger, object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: constWatchDidTrigger), object: nil)
         }
     }
 }

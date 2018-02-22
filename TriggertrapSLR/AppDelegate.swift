@@ -17,25 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    private func generateStringsFromPlists() { 
+    fileprivate func generateStringsFromPlists() { 
         
-        GenerateStringsFileFromPlist("Modes", plistType: .Array)
-        GenerateStringsFileFromPlist("distanceUnits", plistType: .Dictionary)
-        GenerateStringsFileFromPlist("speedUnits", plistType: .Dictionary)
-        GenerateStringsFileFromPlist("pulseLengths", plistType: .Dictionary)
-        GenerateStringsFileFromPlist("Options", plistType: .Array)
+        GenerateStringsFileFromPlist("Modes", plistType: .array)
+        GenerateStringsFileFromPlist("distanceUnits", plistType: .dictionary)
+        GenerateStringsFileFromPlist("speedUnits", plistType: .dictionary)
+        GenerateStringsFileFromPlist("pulseLengths", plistType: .dictionary)
+        GenerateStringsFileFromPlist("Options", plistType: .array)
     }
     
-    private func indexActivities() {
+    fileprivate func indexActivities() {
 
-        CSSearchableIndex.defaultSearchableIndex().deleteAllSearchableItemsWithCompletionHandler(nil)
+        CSSearchableIndex.default().deleteAllSearchableItems(completionHandler: nil)
         
         let items = UserActivityManager.sharedInstance.activities.map { a in
             return
                 CSSearchableItem(uniqueIdentifier: a.title, domainIdentifier: "Activities", attributeSet: a.searchableAttributeSet())
         }
         
-        CSSearchableIndex.defaultSearchableIndex().indexSearchableItems(items, completionHandler: { (error) -> Void in
+        CSSearchableIndex.default().indexSearchableItems(items, completionHandler: { (error) -> Void in
             
             if error == nil {
                 print("Indexed activity items: \(items.count)")
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
 //        Fabric.with([Crashlytics.self])
 
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.triggertrap_fillColor(1.0)
         
         // Show the status bar
-        UIApplication.sharedApplication().statusBarHidden = false
+        UIApplication.shared.isStatusBarHidden = false
         
         
         DongleObserver.sharedInstance.dongleConnectedToPhone()
@@ -72,21 +72,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
             
         // Check that user activity title is not the same as the current view controller as otherwise iOS will try to allocate a view controller which is being deallocated and crash the app
-        if let identifier = userActivity.title where identifier != NSUserDefaults.standardUserDefaults().objectForKey(ConstDefaultLastSelectedMode) as? String {
+        if let identifier = userActivity.title, identifier != UserDefaults.standard.object(forKey: ConstDefaultLastSelectedMode) as? String {
             
             // Get the destination view controller from the identifier
             if let rootViewController = self.window?.rootViewController as? MainNavigationViewController, let sidebarViewController = rootViewController.viewControllers.first as? SidebarTableViewController, let storyboardName = StoryboardNameForViewControllerIdentifier(identifier) {
                     
                 // Save the identifer to the user defaults for the last selected mode
-                NSUserDefaults.standardUserDefaults().setObject(identifier, forKey: ConstDefaultLastSelectedMode)
-                NSUserDefaults.standardUserDefaults().synchronize()
+                UserDefaults.standard.set(identifier, forKey: ConstDefaultLastSelectedMode)
+                UserDefaults.standard.synchronize()
                 
-                let storyboard = UIStoryboard(name: storyboardName, bundle: NSBundle.mainBundle())
+                let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.main)
                 
-                let viewController = storyboard.instantiateViewControllerWithIdentifier(identifier)
+                let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
                 
                 // Push the mode to be visible
                 CachedPushNoAnimationStoryboardSegue(identifier: identifier, source: sidebarViewController, destination: viewController).perform()
@@ -96,87 +96,87 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         DongleObserver.sharedInstance.endSession()
     }
     
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
-        NSNotificationCenter.defaultCenter().postNotificationName(constWatchDidTrigger, object: nil)
+    func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable: Any]?, reply: @escaping ([AnyHashable: Any]?) -> Void) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: constWatchDidTrigger), object: nil)
     }
     
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        if NSUserDefaults.standardUserDefaults().boolForKey(constUserAcquired) == false {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: constUserAcquired)
-            NSUserDefaults.standardUserDefaults().synchronize()
+        if UserDefaults.standard.bool(forKey: constUserAcquired) == false {
+            UserDefaults.standard.set(true, forKey: constUserAcquired)
+            UserDefaults.standard.synchronize()
         }
         
         DongleObserver.sharedInstance.startSession()
     }
     
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         CachedPushNoAnimationStoryboardSegue.drainCache()
     }
     
     // MARK: - Onboarding
     
-    func presentTutorial(vc: UIViewController) {
-        let onboardingStoryboard = UIStoryboard(name: constStoryboardIdentifierOnboarding, bundle: NSBundle.mainBundle())
+    func presentTutorial(_ vc: UIViewController) {
+        let onboardingStoryboard = UIStoryboard(name: constStoryboardIdentifierOnboarding, bundle: Bundle.main)
         
         var viewControllerIdentifier: String?
         
-        if (NSUserDefaults.standardUserDefaults().objectForKey(constSplashScreenIdentifier) != nil) {
+        if (UserDefaults.standard.object(forKey: constSplashScreenIdentifier) != nil) {
             viewControllerIdentifier = constMobileKitIdentifier
         } else {
             viewControllerIdentifier = constSplashScreenIdentifier
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: constSplashScreenIdentifier)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(true, forKey: constSplashScreenIdentifier)
+            UserDefaults.standard.synchronize()
         }
         
         // Make sure that the identifier is not nil (in case it gets changed by mistake)
         if let viewControllerIdentifier = viewControllerIdentifier {
             
-            let viewController = onboardingStoryboard.instantiateViewControllerWithIdentifier(viewControllerIdentifier)
+            let viewController = onboardingStoryboard.instantiateViewController(withIdentifier: viewControllerIdentifier)
             let navController = onboardingStoryboard.instantiateInitialViewController() as! UINavigationController
             
             navController.viewControllers = [viewController]
             
-            navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-            vc.presentViewController(navController, animated: true, completion: nil)
+            navController.modalPresentationStyle = UIModalPresentationStyle.formSheet
+            vc.present(navController, animated: true, completion: nil)
         } else {
             print("Warning: View Controller Identifier is nil. Cannot show onboarding")
         }
     }
     
-    func presentCableSelector(vc: UIViewController) {
+    func presentCableSelector(_ vc: UIViewController) {
         
-        let storyboard = UIStoryboard(name: constStoryboardIdentifierCableSelector, bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: constStoryboardIdentifierCableSelector, bundle: Bundle.main)
         
         let viewController = storyboard.instantiateInitialViewController()!
         
-        viewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-        vc.presentViewController(viewController, animated: true, completion: nil)
+        viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        vc.present(viewController, animated: true, completion: nil)
     }
     
-    func presentInspiration(vc: UIViewController) {
-        let storyboard = UIStoryboard(name: constStoryboardIdentifierInspiration, bundle: NSBundle.mainBundle())
+    func presentInspiration(_ vc: UIViewController) {
+        let storyboard = UIStoryboard(name: constStoryboardIdentifierInspiration, bundle: Bundle.main)
         
         let viewController = storyboard.instantiateInitialViewController()!
         
-        viewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-        vc.presentViewController(viewController, animated: true, completion: nil)
+        viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        vc.present(viewController, animated: true, completion: nil)
     }
 }
 

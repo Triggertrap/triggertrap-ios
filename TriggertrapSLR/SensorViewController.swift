@@ -18,16 +18,16 @@ class SensorViewController: TTViewController {
     }
     
     func cameraPermissionAuthorized() -> Bool {
-        switch AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) {
-        case .Authorized:
+        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+        case .authorized:
             return true
             
-        case .Denied:
+        case .denied:
             showCameraPermissionDeniedNotification()
             return false
             
-        case .NotDetermined:
-            AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { (granted) -> Void in
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) -> Void in
                 if granted {
                     onMain {
                         self.startCameraSensorMode()
@@ -40,7 +40,7 @@ class SensorViewController: TTViewController {
             })
             return false
             
-        case .Restricted:
+        case .restricted:
             showCameraPermissionDeniedNotification()
             return false
         }
@@ -57,25 +57,25 @@ class SensorViewController: TTViewController {
     
     // MARK: - Private 
     
-    private func triggerWithSensorDelay() {
+    fileprivate func triggerWithSensorDelay() {
         if !waitingForSensorResetDelay {
             waitingForSensorResetDelay = true
             
             PreciseTimer.scheduleBlock({ () -> Void in
                 self.triggerWithSensorResetDelay()
-                }, inTimeInterval: settingsManager.sensorDelay.doubleValue / MillisecondsPerSecond)
+                }, inTimeInterval: (settingsManager?.sensorDelay.doubleValue)! / MillisecondsPerSecond)
         }
     }
     
-    private func triggerWithSensorResetDelay() {
+    fileprivate func triggerWithSensorResetDelay() {
         
         onMain {
-            self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: self.settingsManager.pulseLength.doubleValue, unit: .Milliseconds))]), repeatSequence: false)
+            self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: (self.settingsManager?.pulseLength.doubleValue)!, unit: .milliseconds))]), repeatSequence: false)
         }
         
         PreciseTimer.scheduleBlock({ () -> Void in
             self.waitingForSensorResetDelay = false
-            }, inTimeInterval: settingsManager.sensorResetDelay.doubleValue / MillisecondsPerSecond)
+            }, inTimeInterval: (settingsManager?.sensorResetDelay.doubleValue)! / MillisecondsPerSecond)
     } 
     
     override func didFinishSequence() {

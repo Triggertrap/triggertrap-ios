@@ -9,8 +9,8 @@
 import UIKit
 
 class QuickReleaseViewController: CableReleaseViewController {
-    private var shutterButtonHasBeenReleased = false
-    private var isTriggering = false
+    fileprivate var shutterButtonHasBeenReleased = false
+    fileprivate var isTriggering = false
     
     // MARK: - Lifecycle
     
@@ -25,7 +25,7 @@ class QuickReleaseViewController: CableReleaseViewController {
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchDown(sender : UIButton) {
+    @IBAction func shutterButtonTouchDown(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -40,9 +40,9 @@ class QuickReleaseViewController: CableReleaseViewController {
         }
     }
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is QuickReleaseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is QuickReleaseViewController {
             if feedbackViewVisible {
                 trigger()
             } else {
@@ -51,9 +51,9 @@ class QuickReleaseViewController: CableReleaseViewController {
         }
     }
     
-    @IBAction func shutterButtonTouchUpOutside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpOutside(_ sender : UIButton) {
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is QuickReleaseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is QuickReleaseViewController {
             if feedbackViewVisible {
                 trigger()
             } else {
@@ -62,14 +62,14 @@ class QuickReleaseViewController: CableReleaseViewController {
         }
     }
     
-    @IBAction func shutterButtonTouchDragOutside(sender : UIButton, event: UIEvent) {
-        let touches = event.allTouches()
+    @IBAction func shutterButtonTouchDragOutside(_ sender : UIButton, event: UIEvent) {
+        let touches = event.allTouches
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is QuickReleaseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is QuickReleaseViewController {
             if let touches = touches {
-                let point = touches.first!.locationInView(sender)
+                let point = touches.first!.location(in: sender)
                 
-                if sender.pointInside(point, withEvent: event) == false {
+                if sender.point(inside: point, with: event) == false {
                     // The touch has dragged outside of the active area of the button
                     
                     if feedbackViewVisible {
@@ -87,7 +87,7 @@ class QuickReleaseViewController: CableReleaseViewController {
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is QuickReleaseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is QuickReleaseViewController {
              
             if shutterButtonHasBeenReleased {
                 trigger()
@@ -105,15 +105,15 @@ class QuickReleaseViewController: CableReleaseViewController {
     override func activeViewControllerLostFocus() {
         super.activeViewControllerLostFocus()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is QuickReleaseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is QuickReleaseViewController {
             self.trigger()
         }
     }
     
     // MARK: - Private
     
-    private func trigger() {
-        self.shutterButton.enabled = false
+    fileprivate func trigger() {
+        self.shutterButton.isEnabled = false
         
         if isTriggering {
             return
@@ -122,6 +122,6 @@ class QuickReleaseViewController: CableReleaseViewController {
         isTriggering = true
         
         prepareForSequence()
-        self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: settingsManager.pulseLength.doubleValue, unit: .Milliseconds))]), repeatSequence: false)
+        self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: (settingsManager?.pulseLength.doubleValue)!, unit: .milliseconds))]), repeatSequence: false)
     }
 }

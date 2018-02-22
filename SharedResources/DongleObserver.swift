@@ -13,7 +13,7 @@ class DongleObserver {
     
     var dongleConnected = false
     
-    private var audioJackObserver: AnyObject!
+    fileprivate var audioJackObserver: AnyObject!
     
     static let sharedInstance = DongleObserver()
     
@@ -28,9 +28,9 @@ class DongleObserver {
     }
     
     func startSession() {
-        audioJackObserver = NSNotificationCenter.defaultCenter().addObserverForName(
-            AVAudioSessionRouteChangeNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
-                (note:NSNotification!) in
+        audioJackObserver = NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.AVAudioSessionRouteChange, object: nil, queue: OperationQueue.main, using: {
+                (note:Notification!) in
                 
                 // Determine whether dongle is connected to the phone
                 self.dongleConnectedToPhone() 
@@ -38,6 +38,6 @@ class DongleObserver {
     }
     
     func endSession() {
-        NSNotificationCenter.defaultCenter().removeObserver(self.audioJackObserver)
+        NotificationCenter.default.removeObserver(self.audioJackObserver)
     }
 }

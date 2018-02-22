@@ -1741,12 +1741,13 @@
 			attributes = {
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Triggertrap Limited";
 				TargetAttributes = {
 					9EE1F1A61B1C9FE800FE6EB7 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = S4JEZRL8YY;
+						LastSwiftMigration = 0830;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -1762,6 +1763,7 @@
 					BD0965FA1BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 935G2KW2FF;
+						LastSwiftMigration = 0830;
 					};
 					BD0966091BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -1770,10 +1772,12 @@
 					BDD4C3B71BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 935G2KW2FF;
+						LastSwiftMigration = 0830;
 					};
 					BDD4C3C31BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 935G2KW2FF;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -2576,6 +2580,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2585,8 +2590,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2625,6 +2632,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2634,8 +2642,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -2666,6 +2676,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -2673,7 +2684,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2694,6 +2704,7 @@
 				PROVISIONING_PROFILE = "8e7fb147-afd5-4c2b-9c2e-9373fa40efeb";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2701,6 +2712,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A67406A758D2F2F0B332A3B /* Pods-TriggertrapSLR.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -2709,7 +2721,6 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Triggertrap Ltd";
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2730,6 +2741,7 @@
 				PROVISIONING_PROFILE = "27633700-396f-43f8-b44b-71467b976ea2";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2746,6 +2758,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "b6b5a02a-f893-4d16-86b1-2654b9914eb0";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2762,6 +2775,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "16fc7ed1-e384-402e-80ff-9d555a9c67bd";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2817,6 +2831,7 @@
 				PROVISIONING_PROFILE = "e168e031-3803-4da2-9e06-10ae5c42e70a";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2835,6 +2850,7 @@
 				PROVISIONING_PROFILE = "d4c5e7b5-e11e-40ee-8ac2-2f6b5074cf18";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2843,11 +2859,11 @@
 		BDD4C3DE1BF0E751008CA311 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
@@ -2855,6 +2871,7 @@
 				PROVISIONING_PROFILE = "f366fc16-63d0-4e7c-ae74-fc14e9dc08e9";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2863,10 +2880,10 @@
 		BDD4C3DF1BF0E751008CA311 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
@@ -2874,6 +2891,7 @@
 				PROVISIONING_PROFILE = "f54b0fdd-0ffc-4c3a-a89e-e33058e7d7b8";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};

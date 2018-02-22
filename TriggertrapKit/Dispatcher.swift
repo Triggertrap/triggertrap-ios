@@ -7,5 +7,5 @@
 //
 
 public protocol Dispatcher { 
-    func dispatch(dispatchable: Dispatchable)
+    func dispatch(_ dispatchable: Dispatchable)
 }

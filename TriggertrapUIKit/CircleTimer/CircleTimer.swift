@@ -9,9 +9,9 @@
 import UIKit
 
 class CircleTimer: UIView {
-    private var angle: CGFloat = 90
-    private var startTime: Double!
-    private var timer: NSTimer?
+    fileprivate var angle: CGFloat = 90
+    fileprivate var startTime: Double!
+    fileprivate var timer: Timer?
     
     var clockwise = false
     var progress: CGFloat = 0
@@ -28,11 +28,11 @@ class CircleTimer: UIView {
     func start() {
         
         self.startTime = CFAbsoluteTimeGetCurrent();
-        timer = NSTimer(timeInterval: 0.02, target: self, selector: #selector(CircleTimer.clockDidTick(_:)), userInfo: nil, repeats: true)
-        NSRunLoop.mainRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+        timer = Timer(timeInterval: 0.02, target: self, selector: #selector(CircleTimer.clockDidTick(_:)), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.commonModes)
     }
     
-    func clockDidTick(timer: NSTimer) {
+    func clockDidTick(_ timer: Timer) {
       
         if !indeterminate {
             
@@ -63,7 +63,7 @@ class CircleTimer: UIView {
         startTime = CFAbsoluteTimeGetCurrent()
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         TimerStyleKit.drawCircleTimer(fraction: progress, clockwise: clockwise, angle: angle, size: rect.size, lineThickness: lineThickness, nightTime: nightTime)
     }
 }

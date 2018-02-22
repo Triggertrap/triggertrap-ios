@@ -12,7 +12,7 @@ class TimelapseViewController: TTViewController, TTNumberInputDelegate {
     @IBOutlet weak var numberInputView: TTTimeInput!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    private var numberOfShotsTaken = 0
+    fileprivate var numberOfShotsTaken = 0
     
     // MARK: - Lifecycle
     
@@ -21,46 +21,46 @@ class TimelapseViewController: TTViewController, TTNumberInputDelegate {
         setupNumberPicker()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Check whether settings manager pulse length has been changed and it is less than the numberInputView value
-        if self.numberInputView.savedValueForKey("timelapse-interval") < (settingsManager.pulseLength.unsignedLongLongValue + CUnsignedLongLong(kMinimumGap))  {
-            self.numberInputView.saveValue(settingsManager.pulseLength.unsignedLongLongValue + CUnsignedLongLong(kMinimumGap) , forKey: "timelapse-interval")
+        if self.numberInputView.savedValue(forKey: "timelapse-interval") < ((settingsManager?.pulseLength.uint64Value)! + CUnsignedLongLong(kMinimumGap))  {
+            self.numberInputView.saveValue((settingsManager?.pulseLength.uint64Value)! + CUnsignedLongLong(kMinimumGap) , forKey: "timelapse-interval")
         }
         
         // Load the previous value
-        self.numberInputView.value = self.numberInputView.savedValueForKey("timelapse-interval")
+        self.numberInputView.value = self.numberInputView.savedValue(forKey: "timelapse-interval")
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
-    private func setupNumberPicker() {
+    fileprivate func setupNumberPicker() {
         self.numberInputView.delegate = self
         self.numberInputView.maxValue = 359999990
         
-        if (settingsManager.pulseLength.unsignedLongLongValue + CUnsignedLongLong(kMinimumGap) < 1000) {
+        if ((settingsManager?.pulseLength.uint64Value)! + CUnsignedLongLong(kMinimumGap) < 1000) {
             //Default to use 1 second
             self.numberInputView.value = 1000
         } else {
-            self.numberInputView.value = settingsManager.pulseLength.unsignedLongLongValue + CUnsignedLongLong(kMinimumGap)
+            self.numberInputView.value = (settingsManager?.pulseLength.uint64Value)! + CUnsignedLongLong(kMinimumGap)
         }
         
         adjustMinVal()
-        self.numberInputView.displayView.textAlignment = NSTextAlignment.Center
+        self.numberInputView.displayView.textAlignment = NSTextAlignment.center
     }
     
-    private func adjustMinVal() {
-        self.numberInputView.minValue = SettingsManager.sharedInstance().pulseLength.unsignedLongLongValue
+    fileprivate func adjustMinVal() {
+        self.numberInputView.minValue = SettingsManager.sharedInstance().pulseLength.uint64Value
     }
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -72,21 +72,21 @@ class TimelapseViewController: TTViewController, TTNumberInputDelegate {
                 showFeedbackView(ConstStoryboardIdentifierElapsedFeedbackView)
                 
                 //Setup counter label and circle timer so that they are populated when red view animates
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue;
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue;
                 feedbackViewController.counterLabel?.startValue = self.numberInputView.value
                 
                 feedbackViewController.circleTimer?.cycleDuration = Double(self.numberInputView.value) / 1000.0
                 feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.progressDirectionAntiClockwise.rawValue
             }
         } else {
             sequenceManager.cancel()
         }
     }
     
-    @IBAction func openKeyboard(sender : TTTimeInput) {
+    @IBAction func openKeyboard(_ sender : TTTimeInput) {
         adjustMinVal()
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Public
@@ -94,12 +94,12 @@ class TimelapseViewController: TTViewController, TTNumberInputDelegate {
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is TimelapseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is TimelapseViewController {
             
-            let pauseDuration = NSNumber(unsignedLongLong: self.numberInputView.value - settingsManager.pulseLength.unsignedLongLongValue)
+            let pauseDuration = NSNumber(value: self.numberInputView.value - (settingsManager?.pulseLength.uint64Value)! as UInt64)
             
-            let pulse = Pulse(time: Time(duration: settingsManager.pulseLength.doubleValue, unit: .Milliseconds))
-            let delay = Delay(time: Time(duration: pauseDuration.doubleValue, unit: .Milliseconds)) 
+            let pulse = Pulse(time: Time(duration: settingsManager!.pulseLength.doubleValue, unit: .milliseconds))
+            let delay = Delay(time: Time(duration: pauseDuration.doubleValue, unit: .milliseconds)) 
             
             prepareForSequence()
             self.sequenceManager.play(Sequence(modules: [pulse, delay]), repeatSequence: true)
@@ -116,19 +116,19 @@ class TimelapseViewController: TTViewController, TTNumberInputDelegate {
     
     // MARK: - TTNumberInputKeyboardDelegate
     
-    func TTNumberInputKeyboardDidDismiss() {
+    func ttNumberInputKeyboardDidDismiss() {
         
-        if (self.numberInputView.value < settingsManager.pulseLength.unsignedLongLongValue + CUnsignedLongLong(kMinimumGap)) {
-            self.numberInputView.value = settingsManager.pulseLength.unsignedLongLongValue + CUnsignedLongLong(kMinimumGap)
+        if (self.numberInputView.value < (settingsManager?.pulseLength.uint64Value)! + CUnsignedLongLong(kMinimumGap)) {
+            self.numberInputView.value = (settingsManager?.pulseLength.uint64Value)! + CUnsignedLongLong(kMinimumGap)
         }
         
         self.numberInputView.saveValue(self.numberInputView.value, forKey: "timelapse-interval")
     }
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable)
          
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is TimelapseViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is TimelapseViewController && dispatchable is Pulse {
             
             feedbackViewController.counterLabel?.reset()
             feedbackViewController.counterLabel?.start()

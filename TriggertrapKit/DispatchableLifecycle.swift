@@ -10,10 +10,10 @@ public protocol DispatchableLifecycle {
     /**
     Notify that the dispatchable will be dispatched.
     */
-    func willDispatch(dispatchable: Dispatchable)
+    func willDispatch(_ dispatchable: Dispatchable)
     
     /**
     Notify that the dispatchable has been dispatched.
     */
-    func didDispatch(dispatchable: Dispatchable)
+    func didDispatch(_ dispatchable: Dispatchable)
 }

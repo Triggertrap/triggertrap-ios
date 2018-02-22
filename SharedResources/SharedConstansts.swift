@@ -8,9 +8,9 @@
 
 import UIKit
 
-let iPhone = UIDevice.currentDevice().userInterfaceIdiom == .Phone
-let iPad = UIDevice.currentDevice().userInterfaceIdiom == .Pad
-let Unspecified = UIDevice.currentDevice().userInterfaceIdiom == .Unspecified
+let iPhone = UIDevice.current.userInterfaceIdiom == .phone
+let iPad = UIDevice.current.userInterfaceIdiom == .pad
+let Unspecified = UIDevice.current.userInterfaceIdiom == .unspecified
 
 // MARK: - Storyboard Identifiers
 

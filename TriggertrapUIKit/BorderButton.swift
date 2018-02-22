@@ -28,7 +28,7 @@ import QuartzCore
         }
     }
     
-    @IBInspectable var fillColor: UIColor = UIColor.clearColor() {
+    @IBInspectable var fillColor: UIColor = UIColor.clear {
         didSet {
             refreshView()
         }
@@ -42,8 +42,8 @@ import QuartzCore
     func refreshView() {
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth
-        self.layer.borderColor = borderColor.CGColor
-        self.layer.backgroundColor = fillColor.CGColor
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.backgroundColor = fillColor.cgColor
         self.layoutIfNeeded()
         self.setNeedsDisplay()
     }

@@ -12,7 +12,7 @@ extension Array {
     func sum() -> Int {
         var sum: Int = 0
         
-        for (_, obj) in self.enumerate() {
+        for (_, obj) in self.enumerated() {
             sum += obj as! Int
         }
         

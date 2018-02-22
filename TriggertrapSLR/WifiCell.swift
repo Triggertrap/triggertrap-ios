@@ -24,9 +24,9 @@ class WifiCell: UICollectionViewCell {
     var deviceConnected: Bool = false {
         didSet {
             if deviceConnected {
-                connectedImage.hidden = false
+                connectedImage.isHidden = false
             } else {
-                connectedImage.hidden = true
+                connectedImage.isHidden = true
             }
             
             self.backgroundColor = UIColor.triggertrap_fillColor()

@@ -10,13 +10,13 @@ import UIKit
 
 class KitToCameraSelectorTransition: CustomTransition {
     
-    override func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         self.transitionContext = transitionContext
-        self.containerView = transitionContext.containerView()
+        self.containerView = transitionContext.containerView
         
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! KitSelectorViewController
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! CameraSelectorViewController
-        toViewController.dismissButton.hidden = true
+        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! KitSelectorViewController
+        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! CameraSelectorViewController
+        toViewController.dismissButton.isHidden = true
         
         let kitSnapshot = createSnapshotView(fromViewController.kitImageView)
         
@@ -27,8 +27,8 @@ class KitToCameraSelectorTransition: CustomTransition {
         
         let informationViewSnapshot = createSnapshotView(fromViewController.informationView)
         
-        toViewController.view.frame = transitionContext.finalFrameForViewController(toViewController)
-        toViewController.kitImageView.hidden = true
+        toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
+        toViewController.kitImageView.isHidden = true
         
         fadeInView(toViewController.whiteView)
         fadeInView(toViewController.greyViewInformationLabel)
@@ -46,10 +46,10 @@ class KitToCameraSelectorTransition: CustomTransition {
         
         toViewController.view.layoutIfNeeded()
         
-        UIView.animateWithDuration(duration, animations: { () -> Void in
-            kitSnapshot.frame = self.containerView.convertRect(toViewController.kitImageView.frame, fromView: toViewController.kitImageView.superview)
+        UIView.animate(withDuration: duration, animations: { () -> Void in
+            kitSnapshot.frame = self.containerView.convert(toViewController.kitImageView.frame, from: toViewController.kitImageView.superview)
             
-            informationViewSnapshot.frame = self.containerView.convertRect(fromViewController.informationView.frame, fromView: fromViewController.informationView.superview)
+            informationViewSnapshot.frame = self.containerView.convert(fromViewController.informationView.frame, from: fromViewController.informationView.superview)
             self.fadeInSnapshots()
             self.fadeOutViews()
             
@@ -61,12 +61,12 @@ class KitToCameraSelectorTransition: CustomTransition {
                 kitSnapshot.removeFromSuperview()
                 informationViewSnapshot.removeFromSuperview()
                 
-                toViewController.dismissButton.hidden = false
-                fromViewController.informationView.hidden = false
-                toViewController.informationView.hidden = false
-                toViewController.kitImageView.hidden = false
+                toViewController.dismissButton.isHidden = false
+                fromViewController.informationView.isHidden = false
+                toViewController.informationView.isHidden = false
+                toViewController.kitImageView.isHidden = false
                 
-                if (transitionContext.transitionWasCancelled()) {
+                if (transitionContext.transitionWasCancelled) {
                     transitionContext.completeTransition(false)
                 } else {
                     transitionContext.completeTransition(true)

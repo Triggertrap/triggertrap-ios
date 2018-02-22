@@ -12,9 +12,9 @@ import CoreLocation
 
 class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocationManagerDelegate {
     
-    private enum DayTimeStatus : Int {
-        case DayTime = 0,
-        NightTime = 1
+    fileprivate enum DayTimeStatus : Int {
+        case dayTime = 0,
+        nightTime = 1
     }
     
     @IBOutlet var whiteView: UIView!
@@ -54,41 +54,41 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     @IBOutlet var sunImageView: UIImageView!
     @IBOutlet var sunRotationCenterView: UIView!
     
-    private var nextAstronomicalDateForFirstLight: NSDate!
-    private var nextAstronomicalDateForLastLight: NSDate!
-    private var nextAstronomicalDateForSunrise: NSDate!
-    private var nextAstronomicalDateForSunset: NSDate!
+    fileprivate var nextAstronomicalDateForFirstLight: Date!
+    fileprivate var nextAstronomicalDateForLastLight: Date!
+    fileprivate var nextAstronomicalDateForSunrise: Date!
+    fileprivate var nextAstronomicalDateForSunset: Date!
     
-    private var hasAstronomicalDatePassedForSunrise = false
-    private var hasAstronomicalDatePassedForSunset = false
+    fileprivate var hasAstronomicalDatePassedForSunrise = false
+    fileprivate var hasAstronomicalDatePassedForSunset = false
     
     //Location Manager
     
-    private var locationManager: CLLocationManager!
-    private var calculator: SunriseSunsetCalculator!
+    fileprivate var locationManager: CLLocationManager!
+    fileprivate var calculator: SunriseSunsetCalculator!
     
     //Timer
     
-    private var displayTimer: NSTimer!
-    private var startTime: CFAbsoluteTime!
-    private var absoluteTimeSunrise: CFAbsoluteTime!
-    private var absoluteTimeSunset: CFAbsoluteTime!
-    private var timeRemainingUntilSunrise: CFAbsoluteTime!
-    private var timeRemainingUntilSunset: CFAbsoluteTime!
+    fileprivate var displayTimer: Timer!
+    fileprivate var startTime: CFAbsoluteTime!
+    fileprivate var absoluteTimeSunrise: CFAbsoluteTime!
+    fileprivate var absoluteTimeSunset: CFAbsoluteTime!
+    fileprivate var timeRemainingUntilSunrise: CFAbsoluteTime!
+    fileprivate var timeRemainingUntilSunset: CFAbsoluteTime!
     
-    private var _displayedAlert: Bool!
+    fileprivate var _displayedAlert: Bool!
     
     //Sun Animation
     
-    private var initialSunAnimationDone: Bool!
-    private var isSunAnimating: Bool!
-    private var isDayTimeStatusChanging: Bool!
+    fileprivate var initialSunAnimationDone: Bool!
+    fileprivate var isSunAnimating: Bool!
+    fileprivate var isDayTimeStatusChanging: Bool!
     
-    private var oneDegreeAbsoluteTime: CFAbsoluteTime!
-    private var absoluteTimeBetweenSunriseAndSunset: CFAbsoluteTime!
+    fileprivate var oneDegreeAbsoluteTime: CFAbsoluteTime!
+    fileprivate var absoluteTimeBetweenSunriseAndSunset: CFAbsoluteTime!
     
-    private var degrees: Int = 0
-    private var dayTimeStatus: DayTimeStatus!
+    fileprivate var degrees: Int = 0
+    fileprivate var dayTimeStatus: DayTimeStatus!
     
     // MARK: - Lifecycle
     
@@ -100,11 +100,11 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         
         registerForNotifications()
         
-        layoutRatio = ["top": (1.0 / 2.0), "bottom": (1.0 / 2.0)]
+        layoutRatio = ["top": (CGFloat(1.0 / 2.0)), "bottom": (CGFloat(1.0 / 2.0))]
         updateSunConstraint()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         _displayedAlert = false
@@ -113,7 +113,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         createEmptyUI()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         refreshLocationServices()
@@ -124,12 +124,12 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         
         if self.dayTimeStatus != nil {
             switch self.dayTimeStatus.rawValue {
-            case DayTimeStatus.DayTime.rawValue:
+            case DayTimeStatus.dayTime.rawValue:
                 //Arc line y will be equal to the white view center
                 lineVerticalConstraint.constant = 0;
                 break
                 
-            case DayTimeStatus.NightTime.rawValue:
+            case DayTimeStatus.nightTime.rawValue:
                 //Arc sunrise/sunset line "y" will be move to the center of the space between the City Label and the top of the white view
                 lineVerticalConstraint.constant = arcImageView.frame.size.height / 2
                 
@@ -149,23 +149,23 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         updateSunConstraint()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeLocationManager()
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         stopTimer()
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         stopTimer()
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         
         removeLocationManager()
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Notifications
@@ -187,7 +187,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         locationManager.stopUpdatingLocation()
     }
     
-    private func removeLocationManager() {
+    fileprivate func removeLocationManager() {
         
         if locationManager != nil {
             locationManager.stopUpdatingLocation()
@@ -201,13 +201,13 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     
     // MARK: - Private
     
-    private func registerForNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.startLocationManager), name: UIApplicationDidBecomeActiveNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.stopLocationManager), name: UIApplicationWillResignActiveNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.updateTodayTomorrow), name: UIApplicationSignificantTimeChangeNotification, object: nil)
+    fileprivate func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.startLocationManager), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.stopLocationManager), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.updateTodayTomorrow), name: NSNotification.Name.UIApplicationSignificantTimeChange, object: nil)
     }
     
-    private func createEmptyUI() {
+    fileprivate func createEmptyUI() {
         
         //Grey View
         titleLabelTop.text = NSLocalizedString("Sunrise", comment: "Sunrise")
@@ -227,26 +227,26 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         lastLightDiagramLabel.text = "--:--"
     }
     
-    private func astronomicalTime() {
+    fileprivate func astronomicalTime() {
         
-        nextAstronomicalDateForFirstLight = calculator.nextAstronomicalDateFor(AstronomicalType.FirstLight.rawValue)
-        nextAstronomicalDateForLastLight = calculator.nextAstronomicalDateFor(AstronomicalType.LastLight.rawValue)
-        nextAstronomicalDateForSunrise = calculator.nextAstronomicalDateFor(AstronomicalType.Sunrise.rawValue)
-        nextAstronomicalDateForSunset = calculator.nextAstronomicalDateFor(AstronomicalType.Sunset.rawValue)
+        nextAstronomicalDateForFirstLight = calculator.nextAstronomicalDate(for: AstronomicalType.firstLight.rawValue)
+        nextAstronomicalDateForLastLight = calculator.nextAstronomicalDate(for: AstronomicalType.lastLight.rawValue)
+        nextAstronomicalDateForSunrise = calculator.nextAstronomicalDate(for: AstronomicalType.sunrise.rawValue)
+        nextAstronomicalDateForSunset = calculator.nextAstronomicalDate(for: AstronomicalType.sunset.rawValue)
         
-        hasAstronomicalDatePassedForSunrise = calculator.hasAstronomicalDatePassedWithType(AstronomicalType.Sunrise.rawValue)
-        hasAstronomicalDatePassedForSunset = calculator.hasAstronomicalDatePassedWithType(AstronomicalType.Sunset.rawValue)
+        hasAstronomicalDatePassedForSunrise = calculator.hasAstronomicalDatePassed(withType: AstronomicalType.sunrise.rawValue)
+        hasAstronomicalDatePassedForSunset = calculator.hasAstronomicalDatePassed(withType: AstronomicalType.sunset.rawValue)
     }
     
-    private func createGreyViewContent() {
+    fileprivate func createGreyViewContent() {
         
         if hasAstronomicalDatePassedForSunrise && !hasAstronomicalDatePassedForSunset {
-            self.dayTimeStatus = DayTimeStatus.DayTime
+            self.dayTimeStatus = DayTimeStatus.dayTime
         } else {
-            self.dayTimeStatus = DayTimeStatus.NightTime
+            self.dayTimeStatus = DayTimeStatus.nightTime
         }
         
-        if self.dayTimeStatus == DayTimeStatus.NightTime {
+        if self.dayTimeStatus == DayTimeStatus.nightTime {
             
             //Check if sunrise and sunset have passed, if yes - Sunrise and Sunset will be tomorrow
             if hasAstronomicalDatePassedForSunrise && hasAstronomicalDatePassedForSunset {
@@ -258,18 +258,18 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             }
     
             //Get next sunrise time
-            timeLabelTop.text = getDateAsString(nextAstronomicalDateForSunrise, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle) as String
+            timeLabelTop.text = getDateAsString(nextAstronomicalDateForSunrise, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short) as String
             
             //Get next first light time
-            let firstLight = getDateAsString(nextAstronomicalDateForFirstLight, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+            let firstLight = getDateAsString(nextAstronomicalDateForFirstLight, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short)
 
             lightTimeLabelTop.text = String(format: NSLocalizedString("First light at %@", comment: "First light at %@"), firstLight)
                 
             //Get next sunset time
-            timeLabelBottom.text = getDateAsString(nextAstronomicalDateForSunset, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle) as String
+            timeLabelBottom.text = getDateAsString(nextAstronomicalDateForSunset, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short) as String
             
             //Get next last light time
-            let lastLight = getDateAsString(nextAstronomicalDateForLastLight, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+            let lastLight = getDateAsString(nextAstronomicalDateForLastLight, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short)
             
             lightTimeLabelBottom.text = String(format: NSLocalizedString("Last light at %@", comment: "Last light at %@"), lastLight)
         } else {
@@ -277,10 +277,10 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             titleLabelTop.text = NSLocalizedString("Sunset Tonight", comment: "Sunset Tonight")
             
             //Get next sunset time
-            timeLabelTop.text = getDateAsString(nextAstronomicalDateForSunset, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle) as String
+            timeLabelTop.text = getDateAsString(nextAstronomicalDateForSunset, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short) as String
             
             //Get next last light time
-            let lastLight = getDateAsString(nextAstronomicalDateForLastLight, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+            let lastLight = getDateAsString(nextAstronomicalDateForLastLight, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short)
             
             lightTimeLabelTop.text = String(format: NSLocalizedString("Last light at %@", comment: "Last light at %@"), lastLight)
             
@@ -288,23 +288,23 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             titleLabelBottom.text = NSLocalizedString("Sunrise Tomorrow", comment: "Sunrise Tomorrow")
             
             //Get next sunrise time
-            timeLabelBottom.text = getDateAsString(nextAstronomicalDateForSunrise, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle) as String
+            timeLabelBottom.text = getDateAsString(nextAstronomicalDateForSunrise, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short) as String
             
             //Get next first light time
-            let firstLight = getDateAsString(nextAstronomicalDateForFirstLight, dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+            let firstLight = getDateAsString(nextAstronomicalDateForFirstLight, dateStyle: DateFormatter.Style.none, timeStyle: DateFormatter.Style.short)
             
             lightTimeLabelBottom.text = String(format: NSLocalizedString("First light at %@", comment: "First light at %@"), firstLight)
         }
     }
     
-    private func createWhiteViewContent() {
+    fileprivate func createWhiteViewContent() {
         
         switch self.dayTimeStatus.rawValue {
-        case DayTimeStatus.DayTime.rawValue:
+        case DayTimeStatus.dayTime.rawValue:
             print("Day time")
             break
             
-        case DayTimeStatus.NightTime.rawValue:
+        case DayTimeStatus.nightTime.rawValue:
             print("Night time")
             break
         default:
@@ -319,36 +319,36 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         //DIAGRAM
         var hoursAndMinutesForFirstLight: NSArray!
         var hoursAndMinutesForSunrise: NSArray!
-        var hoursAndMinutesForSunset: NSArray = hoursAndMinutesForDate(calculator.astronomicalDateFor(NSDate(), withType: AstronomicalType.Sunset.rawValue))
-        var hoursAndMinutesForLastLight: NSArray = hoursAndMinutesForDate(calculator.astronomicalDateFor(NSDate(), withType: AstronomicalType.LastLight.rawValue))
+        var hoursAndMinutesForSunset: NSArray = hoursAndMinutesForDate(calculator.astronomicalDate(for: Date(), withType: AstronomicalType.sunset.rawValue))
+        var hoursAndMinutesForLastLight: NSArray = hoursAndMinutesForDate(calculator.astronomicalDate(for: Date(), withType: AstronomicalType.lastLight.rawValue))
         
         
-        sunImageView.image = (self.dayTimeStatus == DayTimeStatus.NightTime) ? ImageWithColor(UIImage(named: "solarCalculatorGreySun")!, color: UIColor.triggertrap_foregroundColor()) : ImageWithColor(UIImage(named: "solarCalculatorRedSun")!, color: UIColor.triggertrap_primaryColor())
+        sunImageView.image = (self.dayTimeStatus == DayTimeStatus.nightTime) ? ImageWithColor(UIImage(named: "solarCalculatorGreySun")!, color: UIColor.triggertrap_foregroundColor()) : ImageWithColor(UIImage(named: "solarCalculatorRedSun")!, color: UIColor.triggertrap_primaryColor())
         
-        arcImageView.image = (self.dayTimeStatus == DayTimeStatus.NightTime) ? ImageWithColor(UIImage(named: "solarCalculatorArcFlipped")!, color: UIColor.triggertrap_foregroundColor()) : ImageWithColor(UIImage(named: "solarCalculatorArc")!, color: UIColor.triggertrap_foregroundColor())
+        arcImageView.image = (self.dayTimeStatus == DayTimeStatus.nightTime) ? ImageWithColor(UIImage(named: "solarCalculatorArcFlipped")!, color: UIColor.triggertrap_foregroundColor()) : ImageWithColor(UIImage(named: "solarCalculatorArc")!, color: UIColor.triggertrap_foregroundColor())
         
-        lineVerticalConstraint.constant = (self.dayTimeStatus == DayTimeStatus.NightTime) ? arcImageView.frame.size.height / 2 : 0
+        lineVerticalConstraint.constant = (self.dayTimeStatus == DayTimeStatus.nightTime) ? arcImageView.frame.size.height / 2 : 0
         
         // Move the arc below the line if it has been flipped
-        arcToLineConstraint.constant = (self.dayTimeStatus == DayTimeStatus.NightTime) ? -arcImageView.frame.size.height : 0
+        arcToLineConstraint.constant = (self.dayTimeStatus == DayTimeStatus.nightTime) ? -arcImageView.frame.size.height : 0
         
         print("\(arcToLineConstraint.constant)")
         
         switch self.dayTimeStatus.rawValue {
-        case DayTimeStatus.DayTime.rawValue:
-            hoursAndMinutesForSunrise = hoursAndMinutesForDate(calculator.astronomicalDateFor(NSDate(), withType: AstronomicalType.Sunrise.rawValue))
-            hoursAndMinutesForFirstLight = hoursAndMinutesForDate(calculator.astronomicalDateFor(NSDate(), withType: AstronomicalType.FirstLight.rawValue))
+        case DayTimeStatus.dayTime.rawValue:
+            hoursAndMinutesForSunrise = hoursAndMinutesForDate(calculator.astronomicalDate(for: Date(), withType: AstronomicalType.sunrise.rawValue))
+            hoursAndMinutesForFirstLight = hoursAndMinutesForDate(calculator.astronomicalDate(for: Date(), withType: AstronomicalType.firstLight.rawValue))
             
             if !isSunAnimating && !isDayTimeStatusChanging {
-                sunView.transform = CGAffineTransformMakeRotation(degreesToRadians(0))
+                sunView.transform = CGAffineTransform(rotationAngle: degreesToRadians(0))
             }
             
             // Today sunrise and sunset as sun is in the middle of them
-            absoluteTimeSunriseForAnimation = (calculator.astronomicalDateFor(NSDate(), withType: AstronomicalType.Sunrise.rawValue)).timeIntervalSinceReferenceDate
-            absoluteTimeSunsetForAnimation = (calculator.astronomicalDateFor(NSDate(), withType: AstronomicalType.Sunset.rawValue)).timeIntervalSinceReferenceDate
+            absoluteTimeSunriseForAnimation = (calculator.astronomicalDate(for: Date(), withType: AstronomicalType.sunrise.rawValue)).timeIntervalSinceReferenceDate
+            absoluteTimeSunsetForAnimation = (calculator.astronomicalDate(for: Date(), withType: AstronomicalType.sunset.rawValue)).timeIntervalSinceReferenceDate
             
             // Sun current time minus the sunrise time as animation will commit from Sunrice
-            sunTime = NSDate().timeIntervalSinceReferenceDate - absoluteTimeSunriseForAnimation
+            sunTime = Date().timeIntervalSinceReferenceDate - absoluteTimeSunriseForAnimation
             
             //Get the absolute time by taking the sunrise time from the sunset time as the sunrise is in the past and sunset is in the future
             absoluteTimeBetweenSunriseAndSunset = absoluteTimeSunsetForAnimation - absoluteTimeSunriseForAnimation;
@@ -358,7 +358,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             
             break
             
-        case DayTimeStatus.NightTime.rawValue:
+        case DayTimeStatus.nightTime.rawValue:
             
             //Get times for the labels on the graph
             hoursAndMinutesForSunrise = hoursAndMinutesForDate(nextAstronomicalDateForSunrise)
@@ -366,10 +366,10 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             
             //Start sunView rotation from 180 degrees
             if (!isSunAnimating && !isDayTimeStatusChanging) {
-                sunView.transform = CGAffineTransformMakeRotation(degreesToRadians(180))
+                sunView.transform = CGAffineTransform(rotationAngle: degreesToRadians(180))
             }
             
-            absoluteTimeSunsetForAnimation = calculator.astronomicalDateFor(NSDate(), withType: AstronomicalType.Sunset.rawValue).timeIntervalSinceReferenceDate
+            absoluteTimeSunsetForAnimation = calculator.astronomicalDate(for: Date(), withType: AstronomicalType.sunset.rawValue).timeIntervalSinceReferenceDate
             
             //Next sunrise and sunset as both last day sunrise and sunset have passed
             absoluteTimeSunriseForAnimation = nextAstronomicalDateForSunrise.timeIntervalSinceReferenceDate
@@ -377,22 +377,22 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             //Date has updated (passed 24 hours, sunset will have greater value than sunrise), therefore get the absolute sunset value for last night
             if (absoluteTimeSunsetForAnimation > absoluteTimeSunriseForAnimation) {
                 
-                let calendar: NSCalendar = NSCalendar.currentCalendar()
+                let calendar: Calendar = Calendar.current
                 
-                let components: NSDateComponents = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year], fromDate: NSDate())
+                var components: DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.day, NSCalendar.Unit.month, NSCalendar.Unit.year], from: Date())
                 
                 //Increment todays day with 1
-                components.day = components.day - 1
+                components.day = components.day! - 1
                 
-                hoursAndMinutesForSunset = hoursAndMinutesForDate(calculator.astronomicalDateFor(calendar.dateFromComponents(components), withType: AstronomicalType.Sunset.rawValue))
+                hoursAndMinutesForSunset = hoursAndMinutesForDate(calculator.astronomicalDate(for: calendar.date(from: components), withType: AstronomicalType.sunset.rawValue))
                 
-                hoursAndMinutesForLastLight = hoursAndMinutesForDate(calculator.astronomicalDateFor(calendar.dateFromComponents(components), withType: AstronomicalType.LastLight.rawValue))
+                hoursAndMinutesForLastLight = hoursAndMinutesForDate(calculator.astronomicalDate(for: calendar.date(from: components), withType: AstronomicalType.lastLight.rawValue))
                 
-                absoluteTimeSunsetForAnimation = calculator.astronomicalDateFor(calendar.dateFromComponents(components), withType: AstronomicalType.Sunset.rawValue).timeIntervalSinceReferenceDate
+                absoluteTimeSunsetForAnimation = calculator.astronomicalDate(for: calendar.date(from: components), withType: AstronomicalType.sunset.rawValue).timeIntervalSinceReferenceDate
             }
             
             //Sun current time minus the sunset time as animation will commit from Sunset
-            sunTime = NSDate().timeIntervalSinceReferenceDate - absoluteTimeSunsetForAnimation
+            sunTime = Date().timeIntervalSinceReferenceDate - absoluteTimeSunsetForAnimation
             
             //Get the absolute time by taking the sunset time from the sunrise time as the sunset is in the past and sunrise is in the future
             absoluteTimeBetweenSunriseAndSunset = absoluteTimeSunriseForAnimation - absoluteTimeSunsetForAnimation
@@ -413,15 +413,15 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             animateSunWithDuration(2, delay: 0, objectDegrees: degrees)
         }
         
-        sunriseDiagramLabel.text = String(format: "%02d:%02d", hoursAndMinutesForSunrise[0].integerValue, hoursAndMinutesForSunrise[1].integerValue)
-        sunsetDiagramLabel.text = String(format: "%02d:%02d", hoursAndMinutesForSunset[0].integerValue, hoursAndMinutesForSunset[1].integerValue)
-        firstLightDiagramLabel.text = String(format: "%02d:%02d", hoursAndMinutesForFirstLight[0].integerValue, hoursAndMinutesForFirstLight[1].integerValue)
-        lastLightDiagramLabel.text = String(format: "%02d:%02d", hoursAndMinutesForLastLight[0].integerValue, hoursAndMinutesForLastLight[1].integerValue)
+        sunriseDiagramLabel.text = String(format: "%02d:%02d", (hoursAndMinutesForSunrise[0] as! NSNumber).intValue, (hoursAndMinutesForSunrise[1] as! NSNumber).intValue)
+        sunsetDiagramLabel.text = String(format: "%02d:%02d", (hoursAndMinutesForSunset[0] as! NSNumber).intValue, (hoursAndMinutesForSunset[1] as! NSNumber).intValue)
+        firstLightDiagramLabel.text = String(format: "%02d:%02d", (hoursAndMinutesForFirstLight[0] as! NSNumber).intValue, (hoursAndMinutesForFirstLight[1] as! NSNumber).intValue)
+        lastLightDiagramLabel.text = String(format: "%02d:%02d", (hoursAndMinutesForLastLight[0] as! NSNumber).intValue, (hoursAndMinutesForLastLight[1] as! NSNumber).intValue)
         
         isDayTimeStatusChanging = false
     }
     
-    private func refreshLocationServices() {
+    fileprivate func refreshLocationServices() {
         
         if locationManager == nil {
             locationManager = CLLocationManager()
@@ -429,7 +429,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
             locationManager.distanceFilter = 500.0
             
-            if locationManager.respondsToSelector(#selector(CLLocationManager.requestWhenInUseAuthorization)) {
+            if locationManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization)) {
                 locationManager.requestWhenInUseAuthorization()
             } 
 
@@ -437,16 +437,16 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         }
     }
     
-    private func retrieveCity() {
+    fileprivate func retrieveCity() {
         
-        if let locationManager = locationManager, location = locationManager.location {
+        if let locationManager = locationManager, let location = locationManager.location {
             CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
                 
                 if let placemarks = placemarks {
                     for i in 0..<placemarks.count {
                         let placemark = placemarks[i]
                         
-                        if let locality = placemark.locality, country = placemark.country {
+                        if let locality = placemark.locality, let country = placemark.country {
                             self.cityLabel.text = "\(locality), \(country)"
                         } else if let country = placemark.country {
                             self.cityLabel.text = "\(country)"
@@ -459,12 +459,12 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         }
     }
     
-    private func getDateAsString(date: NSDate, dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle) -> NSString {
+    fileprivate func getDateAsString(_ date: Date, dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> NSString {
         
-        return NSDateFormatter.localizedStringFromDate(date, dateStyle: dateStyle, timeStyle: timeStyle);
+        return DateFormatter.localizedString(from: date, dateStyle: dateStyle, timeStyle: timeStyle) as NSString;
     }
     
-    private func updateCalculator() {
+    fileprivate func updateCalculator() {
         
         // Check if location has been picked up befor updating the UI
         if let location = locationManager.location {
@@ -486,24 +486,24 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         }
     }
     
-    private func degreesToRadians(degreesToConvert: Int) -> CGFloat {
+    fileprivate func degreesToRadians(_ degreesToConvert: Int) -> CGFloat {
         return CGFloat(Double(degreesToConvert) / 180.0 * M_PI)
     }
     
-    private func hoursAndMinutesForDate(date: NSDate) -> NSArray {
+    fileprivate func hoursAndMinutesForDate(_ date: Date) -> NSArray {
         var array: NSArray
         
-        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let calendar: Calendar = Calendar.current
         
-        let components: NSDateComponents = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: date)
+        let components: DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.hour, NSCalendar.Unit.minute], from: date)
         
-        var hour: NSNumber = NSNumber(integer: components.hour)
-        let minute: NSNumber = NSNumber(integer: components.minute)
+        var hour: NSNumber = NSNumber(value: components.hour as! Int)
+        let minute: NSNumber = NSNumber(value: components.minute as! Int)
         
         if !is24hSettingsOn() {
-            if hour.intValue > 12 {
-                let hourInt = hour.intValue - 12
-                hour = NSNumber(int: hourInt)
+            if hour.int32Value > 12 {
+                let hourInt = hour.int32Value - 12
+                hour = NSNumber(value: hourInt as Int32)
             }
         }
         
@@ -511,16 +511,16 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         return array
     }
     
-    private func is24hSettingsOn() -> Bool {
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale.currentLocale()
-        formatter.dateStyle = NSDateFormatterStyle.NoStyle
-        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+    fileprivate func is24hSettingsOn() -> Bool {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.dateStyle = DateFormatter.Style.none
+        formatter.timeStyle = DateFormatter.Style.short
         
-        let dateString: NSString = formatter.stringFromDate(NSDate())
+        let dateString: NSString = formatter.string(from: Date()) as NSString
         
-        let amRange: NSRange = dateString.rangeOfString(formatter.AMSymbol)
-        let pmRange: NSRange = dateString.rangeOfString(formatter.PMSymbol)
+        let amRange: NSRange = dateString.range(of: formatter.amSymbol)
+        let pmRange: NSRange = dateString.range(of: formatter.pmSymbol)
         
         let is24h: Bool = amRange.location == NSNotFound && pmRange.location == NSNotFound
         
@@ -529,13 +529,13 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     
     // MARK: - Animations
     
-    private func animateSunWithDuration(duration: Int, delay: Int, objectDegrees: Int) {
+    fileprivate func animateSunWithDuration(_ duration: Int, delay: Int, objectDegrees: Int) {
         
         if !isSunAnimating {
             
-            UIView.animateWithDuration(NSTimeInterval(duration), animations: { () -> Void in
+            UIView.animate(withDuration: TimeInterval(duration), animations: { () -> Void in
                 self.isSunAnimating = true
-                self.sunView.transform = CGAffineTransformMakeRotation(self.degreesToRadians(objectDegrees))
+                self.sunView.transform = CGAffineTransform(rotationAngle: self.degreesToRadians(objectDegrees))
                 self.updateSunConstraint()
                 }, completion: { (finished: Bool) -> Void in
                     if (finished) {
@@ -546,25 +546,25 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         }
     }
     
-    private func updateSunConstraint() {
+    fileprivate func updateSunConstraint() {
         self.sunToCenterConstraint.constant = self.whiteView.frame.size.width / 2 - self.sunriseDiagramLabel.frame.origin.x - self.sunriseDiagramLabel.frame.size.width - self.sunImageView.frame.size.width / 2.0 - self.sunRotationCenterView.frame.size.width / 2.0
     }
     
     // MARK: - Timer
     
-    private func startTimer() {
+    fileprivate func startTimer() {
         
         stopTimer()
         
         startTime = CFAbsoluteTimeGetCurrent()
         
-        displayTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(SunriseSunsetCalculatorViewController.timerFired(_:)), userInfo: nil, repeats: true)
+        displayTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(SunriseSunsetCalculatorViewController.timerFired(_:)), userInfo: nil, repeats: true)
         
         absoluteTimeSunrise = nextAstronomicalDateForSunrise.timeIntervalSinceReferenceDate
         absoluteTimeSunset = nextAstronomicalDateForSunset.timeIntervalSinceReferenceDate
     }
     
-    private func stopTimer() {
+    fileprivate func stopTimer() {
         
         if displayTimer != nil {
             displayTimer.invalidate()
@@ -572,7 +572,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         }
     }
     
-    private func updateDisplay(elapsedTime: CFAbsoluteTime) {
+    fileprivate func updateDisplay(_ elapsedTime: CFAbsoluteTime) {
         
         if initialSunAnimationDone == true {
             
@@ -606,26 +606,26 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             timeRemainingUntilSunrise = absoluteTimeSunrise - (startTime + elapsedTime)
         }
         
-        timeRemainingLabelTop.text = self.dayTimeStatus == DayTimeStatus.NightTime ?
+        timeRemainingLabelTop.text = self.dayTimeStatus == DayTimeStatus.nightTime ?
             NSString(fromTimeInterval: timeRemainingUntilSunrise, format: NSLocalizedString("In %@", comment: "In %@"), compact: false, decimal: false) as String
             : NSString(fromTimeInterval: timeRemainingUntilSunset, format: NSLocalizedString("In %@", comment: "In %@"), compact: false, decimal: false) as String
         
-        timeRemainingLabelBottom.text = self.dayTimeStatus == DayTimeStatus.NightTime ?
+        timeRemainingLabelBottom.text = self.dayTimeStatus == DayTimeStatus.nightTime ?
             NSString(fromTimeInterval: timeRemainingUntilSunset, format: NSLocalizedString("In %@", comment: "In %@"), compact: false, decimal: false) as String
             : NSString(fromTimeInterval: timeRemainingUntilSunrise, format: NSLocalizedString("In %@", comment: "In %@"), compact: false, decimal: false) as String
     }
     
-    func timerFired(timer: NSTimer) {
+    func timerFired(_ timer: Timer) {
         let elapsedTime: CFAbsoluteTime = CFAbsoluteTimeGetCurrent() - startTime
         updateDisplay(elapsedTime)
     }
     
     // MARK: - Location Manager Delegate
     
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         switch status {
-        case CLAuthorizationStatus.NotDetermined:
+        case CLAuthorizationStatus.notDetermined:
             
             if CLLocationManager.locationServicesEnabled() {
                 manager.startUpdatingLocation()
@@ -635,20 +635,20 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
 
             break
             
-        case CLAuthorizationStatus.Restricted:
+        case CLAuthorizationStatus.restricted:
             updateInterfaceForUnknownLocation()
             break
         
-        case CLAuthorizationStatus.Denied:
+        case CLAuthorizationStatus.denied:
             updateInterfaceForUnknownLocation()
             break
         
-        case CLAuthorizationStatus.AuthorizedWhenInUse:
+        case CLAuthorizationStatus.authorizedWhenInUse:
             
             if let location = manager.location {
                 
                 // This application is authorized to use location services
-                if (location.GPSSignalStrength() == 0) {
+                if (location.gpsSignalStrength() == 0) {
                     updateInterfaceForUnknownLocation()
                 } else {
                     manager.startUpdatingLocation()
@@ -659,12 +659,12 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
 
             break
             
-        case CLAuthorizationStatus.AuthorizedAlways:
+        case CLAuthorizationStatus.authorizedAlways:
             
             if let location = manager.location {
                 
                 // This application is authorized to use location services
-                if location.GPSSignalStrength() == 0 {
+                if location.gpsSignalStrength() == 0 {
                     updateInterfaceForUnknownLocation()
                 } else {
                     manager.startUpdatingLocation()
@@ -677,11 +677,11 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         updateCalculator()
     }
     
-    private func updateInterfaceForUnknownLocation() {
+    fileprivate func updateInterfaceForUnknownLocation() {
         
         ShowAlertInViewController(self, title: NSLocalizedString("Where am I?", comment: "Where am I?"), message: NSLocalizedString("I don't know where I am... Are location services disabled, perhaps?", comment: "I don't know where I am... Are location services disabled, perhaps?"), cancelButton: NSLocalizedString("OK", comment: "OK")) 
         

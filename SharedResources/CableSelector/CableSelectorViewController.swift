@@ -10,19 +10,19 @@ import UIKit
 
 class CableSelectorViewController: SplitLayoutViewController {
     
-    private let LastCameraManufacturerSelected = "LastCameraManufacturerSelected"
-    private let LastCameraModelSelected = "LastCameraModelSelected"
-    private let LastCableModelSelected = "LastCableModelSelected"
+    fileprivate let LastCameraManufacturerSelected = "LastCameraManufacturerSelected"
+    fileprivate let LastCameraModelSelected = "LastCameraModelSelected"
+    fileprivate let LastCableModelSelected = "LastCableModelSelected"
     
     // MARK: - Local Variables
     
-    private let cableSelector = CableSelector()
-    private var cameraManufacturers: [String] = Array()
-    private var cameraModelsForSelectedManufacturer: [String] = Array()
-    private var lastCameraManufacturerSelected: Int = 0
-    private var lastCameraModelSelected: Int = 0
-    private var urlForCable: String?
-    private let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate let cableSelector = CableSelector()
+    fileprivate var cameraManufacturers: [String] = Array()
+    fileprivate var cameraModelsForSelectedManufacturer: [String] = Array()
+    fileprivate var lastCameraManufacturerSelected: Int = 0
+    fileprivate var lastCameraModelSelected: Int = 0
+    fileprivate var urlForCable: String?
+    fileprivate let defaults = UserDefaults.standard
     
     // MARK: - Outlets
     
@@ -44,12 +44,12 @@ class CableSelectorViewController: SplitLayoutViewController {
         commonInit()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Hide the status bar with animation
         
-        self.prefersStatusBarHidden()
+        self.prefersStatusBarHidden
         
         cameraManufacturerPicker.selectRow(lastCameraManufacturerSelected, inComponent: 0, animated: false)
         cameraModelPicker.selectRow(lastCameraModelSelected, inComponent: 0, animated: false)
@@ -59,12 +59,12 @@ class CableSelectorViewController: SplitLayoutViewController {
         super.viewWillLayoutSubviews()
         
         // Override defay
-        topLeftView.backgroundColor = UIColor.whiteColor()
+        topLeftView.backgroundColor = UIColor.white
         bottomRightView.backgroundColor = UIColor(hex: 0xEFEFEF, alpha: 1.0)
         separatorView?.backgroundColor = UIColor(hex: 0x313131, alpha: 1.0)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         // Show the status bar with animation
@@ -77,7 +77,7 @@ class CableSelectorViewController: SplitLayoutViewController {
     
     // MARK: - Private 
     
-    private func commonInit() {
+    fileprivate func commonInit() {
         
         cameraManufacturerPicker.tag = 0
         cameraManufacturerPicker.dataSource = self
@@ -90,12 +90,12 @@ class CableSelectorViewController: SplitLayoutViewController {
         lastCameraManufacturerSelected = 0;
         lastCameraModelSelected = 0;
         
-        if (defaults.objectForKey(LastCameraManufacturerSelected) != nil) {
-            lastCameraManufacturerSelected = defaults.objectForKey(LastCameraManufacturerSelected) as! Int
+        if (defaults.object(forKey: LastCameraManufacturerSelected) != nil) {
+            lastCameraManufacturerSelected = defaults.object(forKey: LastCameraManufacturerSelected) as! Int
         }
         
-        if (defaults.objectForKey(LastCameraModelSelected) != nil) {
-            lastCameraModelSelected = defaults.objectForKey(LastCameraModelSelected) as! Int
+        if (defaults.object(forKey: LastCameraModelSelected) != nil) {
+            lastCameraModelSelected = defaults.object(forKey: LastCameraModelSelected) as! Int
         }
         
         // Get all camera manufacturers
@@ -105,21 +105,21 @@ class CableSelectorViewController: SplitLayoutViewController {
         let cameraManufacturerSelected: String = cameraManufacturers[lastCameraManufacturerSelected]
         
         // Get all camera models for selected camera manufacturer
-        cameraModelsForSelectedManufacturer = cableSelector.cameraModelsForManufacturer(cameraManufacturerSelected) as! [String]
+        cameraModelsForSelectedManufacturer = cableSelector.cameraModels(forManufacturer: cameraManufacturerSelected) as! [String]
         
         // Get camera model selected from array of camera models
         let cameraModelSelected: String = cameraModelsForSelectedManufacturer[lastCameraModelSelected] as String
         
         // Get cable from selected camera manufacturer and model
-        let cable: String = cableSelector.cableForCameraManufacturer(cameraManufacturerSelected, withModel: cameraModelSelected) as String
+        let cable: String = cableSelector.cable(forCameraManufacturer: cameraManufacturerSelected, withModel: cameraModelSelected) as String
         
         cableImageView.image = UIImage(named: cable)
         
         let title = String(format: NSLocalizedString("Buy %@ Cable", comment: "Buy %@ Cable"), cable)
         
-        buyButton.setTitle(title, forState: UIControlState.Normal)
+        buyButton.setTitle(title, for: UIControlState())
         
-        urlForCable = cableSelector.urlForCable(cable)
+        urlForCable = cableSelector.url(forCable: cable)
     }
     
     // MARK: - IBActions
@@ -127,19 +127,19 @@ class CableSelectorViewController: SplitLayoutViewController {
     @IBAction func buyButtonTapped(_: AnyObject) {
         
         if (urlForCable != nil) {
-            UIApplication.sharedApplication().openURL(NSURL(string: urlForCable!)!)
+            UIApplication.shared.openURL(URL(string: urlForCable!)!)
         }
     }
     
     // Call this function to dismiss the view controller from a storyboard view controller button
-    @IBAction func dismissViewController(button: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismissViewController(_ button: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension CableSelectorViewController: UIPickerViewDelegate {
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 0 {
             
@@ -149,11 +149,11 @@ extension CableSelectorViewController: UIPickerViewDelegate {
             //Get last row selected while interacting with the cameraManufacturerPicker and find the manufacturer selected
             let cameraManufacturerSelected: String = cameraManufacturers[lastCameraManufacturerSelected] as String
             
-            cameraModelsForSelectedManufacturer = cableSelector.cameraModelsForManufacturer(cameraManufacturerSelected) as! [String]
+            cameraModelsForSelectedManufacturer = cableSelector.cameraModels(forManufacturer: cameraManufacturerSelected) as! [String]
             
-            defaults.setObject(lastCameraManufacturerSelected as NSNumber, forKey: LastCameraManufacturerSelected)
+            defaults.set(lastCameraManufacturerSelected as NSNumber, forKey: LastCameraManufacturerSelected)
             
-            defaults.setObject(lastCameraModelSelected as NSNumber, forKey: LastCameraModelSelected)
+            defaults.set(lastCameraModelSelected as NSNumber, forKey: LastCameraModelSelected)
             defaults.synchronize()
             
             cameraModelPicker.reloadAllComponents()
@@ -162,24 +162,24 @@ extension CableSelectorViewController: UIPickerViewDelegate {
         } else {
             
             lastCameraModelSelected = row;
-            defaults.setObject(lastCameraModelSelected as NSNumber, forKey: LastCameraModelSelected)
+            defaults.set(lastCameraModelSelected as NSNumber, forKey: LastCameraModelSelected)
             defaults.synchronize()
         }
         
         let cameraManufacturerSelected: String = cameraManufacturers[lastCameraManufacturerSelected] as String
         let cameraModelSelected: String = cameraModelsForSelectedManufacturer[lastCameraModelSelected] as String
         
-        let cable: String = cableSelector.cableForCameraManufacturer(cameraManufacturerSelected, withModel: cameraModelSelected) as String
+        let cable: String = cableSelector.cable(forCameraManufacturer: cameraManufacturerSelected, withModel: cameraModelSelected) as String
         
-        urlForCable = cableSelector.urlForCable(cable)
+        urlForCable = cableSelector.url(forCable: cable)
         cableImageView.image = UIImage(named: cable)
         
         let title = String(format: NSLocalizedString("Buy %@ Cable", comment: "Buy %@ Cable"), cable)
         
-        buyButton.setTitle(title, forState: UIControlState.Normal)
+        buyButton.setTitle(title, for: UIControlState())
     }
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         let pickerLabel = UILabel()
         
@@ -193,7 +193,7 @@ extension CableSelectorViewController: UIPickerViewDelegate {
         
         pickerLabel.minimumScaleFactor = 0.5
         pickerLabel.adjustsFontSizeToFitWidth = true
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        pickerLabel.textAlignment = NSTextAlignment.center
         
         return pickerLabel
     }
@@ -201,7 +201,7 @@ extension CableSelectorViewController: UIPickerViewDelegate {
 
 extension CableSelectorViewController: UIPickerViewDataSource {
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 0 {
             return cameraManufacturers.count
@@ -210,7 +210,7 @@ extension CableSelectorViewController: UIPickerViewDataSource {
         }
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 }

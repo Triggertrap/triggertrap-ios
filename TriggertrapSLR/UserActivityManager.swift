@@ -15,7 +15,7 @@ class UserActivityManager {
     var userActivity: NSUserActivity?
     var activities = [Activity]()
     
-    private init() {
+    fileprivate init() {
         
         // Add modes to the activities
         
@@ -25,9 +25,9 @@ class UserActivityManager {
                     for mode in modesInSection {
                         if let mode = mode as? NSDictionary {
                             
-                            let title = NSLocalizedString(mode["title"] as! String, tableName: "ModesPlist", bundle: NSBundle.mainBundle(), value: "", comment: "Ignore when translating")
+                            let title = NSLocalizedString(mode["title"] as! String, tableName: "ModesPlist", bundle: Bundle.main, value: "", comment: "Ignore when translating")
                             
-                            let description = NSLocalizedString(mode["description"] as! String, tableName: "ModesPlist", bundle: NSBundle.mainBundle(), value: "", comment: "Ignore when translating")
+                            let description = NSLocalizedString(mode["description"] as! String, tableName: "ModesPlist", bundle: Bundle.main, value: "", comment: "Ignore when translating")
                             
                             // Spotlight icon has the same name as the icon with "Spotlight" at the end
                             var spotlightIconName = ""
