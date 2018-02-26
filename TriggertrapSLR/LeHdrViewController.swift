@@ -34,7 +34,7 @@
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: Selector("didTrigger:"), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("didTrigger:")), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
         middleExposureHorizontalPicker.currentIndex = IndexPath(row: middleExposureHorizontalPicker.savedIndex(forKey: "lehdr-middleExposure"), section: 0)
         numberOfExposuresHorizontalPicker.currentIndex = IndexPath(row: numberOfExposuresHorizontalPicker.savedIndex(forKey: "lehdr-exposures"), section: 0)
@@ -243,22 +243,21 @@
     
     // MARK - Horizontal Picker Delegate
     
-    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAt index: Int) {
-        
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectObjectFromDataSourceAt index: Int) {
         let picker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {
-            // Middle Exposure Horizontal Picker
+        // Middle Exposure Horizontal Picker
         case 0:
             middleExposureHorizontalPicker.save(index, forKey: "lehdr-middleExposure")
             break
             
-            // EV Horizontal Picker
+        // EV Horizontal Picker
         case 1:
             evHorizontalPicker.save(index, forKey: "lehdr-ev")
             break
             
-            // Number of exposures Horizontal Picker
+        // Number of exposures Horizontal Picker
         case 2:
             numberOfExposuresHorizontalPicker.save(index, forKey: "lehdr-exposures")
             break
@@ -269,7 +268,8 @@
         }
     }
     
-    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectValue value: NSNumber!) {
+    
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectValue value: NSNumber!) {
         let picker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {
