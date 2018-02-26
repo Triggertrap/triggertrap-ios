@@ -77,7 +77,7 @@ class InspirationViewController: UIViewController {
             scrollButton.isHidden = false
             shimmeringView.isShimmering = true
             carouselHeightConstraint.constant = self.view.bounds.height
-            textViewHeightConstraint.constant = SizeForText(textView.text as! NSString, withFont: textView.font!, constrainedToSize: CGSize(width: textView.frame.width, height: 1000)).height + 2 * padding
+            textViewHeightConstraint.constant = SizeForText(textView.text! as NSString, withFont: textView.font!, constrainedToSize: CGSize(width: textView.frame.width, height: 1000)).height + 2 * padding
         } 
         
         self.view.layoutSubviews()

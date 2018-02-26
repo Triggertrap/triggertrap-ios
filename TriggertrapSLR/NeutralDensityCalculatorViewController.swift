@@ -152,7 +152,7 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
     
     // MARK: - Horizontal Picker Delegate
     
-    func horizontalPicker(_ horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAt index: Int) {
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectObjectFromDataSourceAt index: Int) {
         let picker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {

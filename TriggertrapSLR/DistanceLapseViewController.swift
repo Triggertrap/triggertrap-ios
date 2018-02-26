@@ -142,7 +142,7 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         feedbackViewController.circularSlider?.lineWidth = 12.0
         feedbackViewController.circularSlider?.thumbImage = nil
         feedbackViewController.circularSlider?.isUserInteractionEnabled = false
-        feedbackViewController.circularSlider?.transform = CGAffineTransform(rotationAngle: CGFloat(((2.0 * M_PI) - (1.6 * M_PI)) / 2.0))
+        feedbackViewController.circularSlider?.transform = CGAffineTransform(rotationAngle: CGFloat(((2.0 * Double.pi) - (1.6 * Double.pi)) / 2.0))
     }
 
     fileprivate func setupNumberPicker() {

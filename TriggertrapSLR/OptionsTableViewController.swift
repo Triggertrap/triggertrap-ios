@@ -77,7 +77,7 @@ extension OptionsTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ((options?[section] as AnyObject).object(at: 1) as! NSArray).count ?? 0
+        return ((options?[section] as AnyObject).object(at: 1) as! NSArray).count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -487,7 +487,7 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     }
     
     fileprivate func degreesToRadians(_ degreesToConvert: Int) -> CGFloat {
-        return CGFloat(Double(degreesToConvert) / 180.0 * M_PI)
+        return CGFloat(Double(degreesToConvert) / 180.0 * Double.pi)
     }
     
     fileprivate func hoursAndMinutesForDate(_ date: Date) -> NSArray {

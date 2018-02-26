@@ -56,7 +56,7 @@ import UIKit
             }
         }
         
-        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors as! CFArray, locations: locations)
+        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors! as CFArray, locations: locations)
         
         var startPoint: CGPoint?
         var endPoint: CGPoint?

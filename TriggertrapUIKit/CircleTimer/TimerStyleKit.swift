@@ -49,11 +49,11 @@ open class TimerStyleKit : NSObject {
         //// CircleBackground 2 Drawing
         context?.saveGState()
         context?.translateBy(x: circleCenter, y: circleCenter)
-        context?.rotate(by: -angle * CGFloat(M_PI) / 180)
+        context?.rotate(by: -angle * CGFloat(Double.pi) / 180)
 
         let circleBackground2Rect = CGRect(x: expression2, y: expression2, width: circleSize, height: circleSize)
         let circleBackground2Path = UIBezierPath()
-        circleBackground2Path.addArc(withCenter: CGPoint(x: circleBackground2Rect.midX, y: circleBackground2Rect.midY), radius: circleBackground2Rect.width / 2, startAngle: 0 * CGFloat(M_PI)/180, endAngle: -expression * CGFloat(M_PI)/180, clockwise: true)
+        circleBackground2Path.addArc(withCenter: CGPoint(x: circleBackground2Rect.midX, y: circleBackground2Rect.midY), radius: circleBackground2Rect.width / 2, startAngle: 0 * CGFloat(Double.pi)/180, endAngle: -expression * CGFloat(Double.pi)/180, clockwise: true)
 
         fillColor.setStroke()
         circleBackground2Path.lineWidth = lineThickness

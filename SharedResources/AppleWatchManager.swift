@@ -47,7 +47,7 @@ class AppleWatchManager: NSObject {
     
     fileprivate func returnWatchError (_ errorCode: Int) -> String? {
         
-        var errorString: String?
+        let errorString: String? = nil
         
         
         /*if let errorDescription = WCError(_nsError: NSError(domain: "test", code: errorCode, userInfo: nil)) {
