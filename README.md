@@ -18,7 +18,7 @@ Triggertrap is a commercial project that was conceived in 2010, launched in 2011
 
 # Credits
 
-The original software for iOS was built by Matt Kane, and it was further developed by Ross Gibson and Valentin Kalchev.
+The original software for iOS was built by Matt Kane, and it was further developed by Ross Gibson, Valentin Kalchev, and Alex Taffe.
 
 # Licence - Open source under the MIT licence. 
 
