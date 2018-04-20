@@ -157,8 +157,6 @@
 		BDD44B021BA98B0300B98FF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C17F1B58061C00928054 /* Reachability.m */; };
 		BDD44B031BA98B0300B98FF6 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C16D1B58059F00928054 /* AsyncSocket.m */; };
 		BDD44B041BA98B0300B98FF6 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C16F1B58059F00928054 /* AsyncUdpSocket.m */; };
-		BDD44B051BA98B0300B98FF6 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90B7431B6B725100CC2932 /* GCDAsyncSocket.m */; };
-		BDD44B061BA98B0300B98FF6 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90B7451B6B725100CC2932 /* GCDAsyncUdpSocket.m */; };
 		BDD44B071BA98B0300B98FF6 /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD85A7281B6A1F2200317254 /* RemoteClient.swift */; };
 		BDD44B081BA98B0300B98FF6 /* RemoteOutputServer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C1761B58060800928054 /* RemoteOutputServer.m */; };
 		BDD44B091BA98B0300B98FF6 /* SequenceLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD46CA141B56A30900B60B1E /* SequenceLifecycle.swift */; };
@@ -506,10 +504,6 @@
 		BD7D54301BCBBB550030219D /* UIDevice+Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Camera.m"; sourceTree = "<group>"; };
 		BD7D54341BCBC4240030219D /* SensorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
 		BD85A7281B6A1F2200317254 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
-		BD90B7421B6B725100CC2932 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		BD90B7431B6B725100CC2932 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		BD90B7441B6B725100CC2932 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		BD90B7451B6B725100CC2932 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		BD934FDC1BD4F2FC00527872 /* ModeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModeTableViewCell.xib; sourceTree = "<group>"; };
 		BD934FDE1BD4F3E500527872 /* ModeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeTableViewCell.swift; sourceTree = "<group>"; };
 		BD934FE21BD52A9100527872 /* CableReleaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CableReleaseViewController.swift; sourceTree = "<group>"; };
@@ -1251,17 +1245,6 @@
 			name = AudioPlayer;
 			sourceTree = "<group>";
 		};
-		BD56C16B1B58057C00928054 /* GCD */ = {
-			isa = PBXGroup;
-			children = (
-				BD90B7421B6B725100CC2932 /* GCDAsyncSocket.h */,
-				BD90B7431B6B725100CC2932 /* GCDAsyncSocket.m */,
-				BD90B7441B6B725100CC2932 /* GCDAsyncUdpSocket.h */,
-				BD90B7451B6B725100CC2932 /* GCDAsyncUdpSocket.m */,
-			);
-			name = GCD;
-			sourceTree = "<group>";
-		};
 		BD56C1741B5805A600928054 /* AsyncSocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -1299,7 +1282,6 @@
 				BD2987BB1B4D2574007F8B71 /* AudioPlayer */,
 				BD56C1821B58062200928054 /* Reachability */,
 				BD56C1741B5805A600928054 /* AsyncSocket */,
-				BD56C16B1B58057C00928054 /* GCD */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -1651,7 +1633,6 @@
 				BD09661E1BF9EE49000C581B /* Embed App Extensions */,
 				9EA592AB1C17381200412B64 /* Fabric Run Script */,
 				52768FF90EE30299F8ED9398 /* [CP] Embed Pods Frameworks */,
-				9876872F8CEDA300B6FFA074 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1911,6 +1892,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${PODS_ROOT}/PebbleKit/PebbleKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
@@ -1921,6 +1903,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTFeedback.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PebbleKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
@@ -1949,68 +1932,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9876872F8CEDA300B6FFA074 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/CTFeedback/CTFeedback.bundle",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
-				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPArrowLeft.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPArrowLeft@2x.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPArrowRight.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPArrowRight@2x.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPCheckmark.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPCheckmark@2x.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPCloseButton.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPCloseButton@2x.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPCloseButton@3x.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPDismissKeyboard.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPDismissKeyboard@2x.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPLogo.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/MPLogo@2x.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/Images/placeholder-image.png",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/MPTakeoverNotificationViewController~ipad.xib",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/MPTakeoverNotificationViewController~iphonelandscape.xib",
-				"${PODS_ROOT}/Mixpanel/Mixpanel/MPTakeoverNotificationViewController~iphoneportrait.xib",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CTFeedback.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPArrowLeft.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPArrowLeft@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPArrowRight.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPArrowRight@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCheckmark.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCheckmark@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseButton.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseButton@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPCloseButton@3x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPDismissKeyboard.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPDismissKeyboard@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPLogo.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPLogo@2x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/placeholder-image.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPTakeoverNotificationViewController~ipad.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPTakeoverNotificationViewController~iphonelandscape.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MPTakeoverNotificationViewController~iphoneportrait.nib",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9EA592AB1C17381200412B64 /* Fabric Run Script */ = {
@@ -2091,7 +2012,6 @@
 				BD098BBC1BC6C7EE00A87FC8 /* UIColor+branding.m in Sources */,
 				BD098BC91BC6CA3900A87FC8 /* PressAndHoldViewController.swift in Sources */,
 				BD098BF91BC7C93D00A87FC8 /* CLLocation+DMSFormatting.m in Sources */,
-				BDD44B061BA98B0300B98FF6 /* GCDAsyncUdpSocket.m in Sources */,
 				BDD44B0B1BA98B0300B98FF6 /* Sequence.swift in Sources */,
 				BD098BE41BC7C30800A87FC8 /* BezierGraph.m in Sources */,
 				BDAB818C1BCBFFC700F84AB6 /* OptionsTableViewController.swift in Sources */,
@@ -2155,7 +2075,6 @@
 				BDAB81831BCBFBF300F84AB6 /* NSString+TimeFormatting.m in Sources */,
 				BD098C421BC7FF9C00A87FC8 /* CircleTimer.swift in Sources */,
 				BDAB4AEE1B677F67009EB328 /* SunriseAndSunset.m in Sources */,
-				BDD44B051BA98B0300B98FF6 /* GCDAsyncSocket.m in Sources */,
 				BD11340A1BB3F01A006ED87A /* KitSelectorViewController.swift in Sources */,
 				BDD44B071BA98B0300B98FF6 /* RemoteClient.swift in Sources */,
 				BD7144C21BB94F4600E7A34B /* WearablesManager.swift in Sources */,

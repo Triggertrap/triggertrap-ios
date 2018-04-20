@@ -22,8 +22,7 @@
 #import "Reachability.h"
 #import "PreciseTimer.h"
 #import "AudioPlayer.h"
-#import "GCDAsyncSocket.h"
-#import "GCDAsyncUdpSocket.h"
+@import CocoaAsyncSocket;
 #import "AsyncSocket.h"
 #import "A440SineWaveGenerator.h"
 #import "AsyncUdpSocket.h"

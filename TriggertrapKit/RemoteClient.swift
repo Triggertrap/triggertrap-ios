@@ -52,7 +52,7 @@ open class RemoteClient: NSObject {
             
             disconnecting = false
             
-            self.asyncSocket?.write("BYE\r\n".data(using: String.Encoding.utf8), withTimeout: 0, tag: 0)
+            self.asyncSocket?.write("BYE\r\n".data(using: String.Encoding.utf8)!, withTimeout: 0, tag: 0)
             
             self.asyncSocket?.disconnectAfterWriting()
         }
@@ -105,7 +105,7 @@ open class RemoteClient: NSObject {
         var done = false
         
         if asyncSocket == nil {
-            asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
+            asyncSocket = GCDAsyncSocket(delegate: self as? GCDAsyncSocketDelegate, delegateQueue: DispatchQueue.main)
             asyncSocket?.isIPv4PreferredOverIPv6 = false
         }
         
@@ -149,11 +149,11 @@ open class RemoteClient: NSObject {
         
         let data = "\(UIDevice.current.name)\r\n".data(using: String.Encoding.utf8)
         
-        sock.write(data, withTimeout: 0, tag: 0)
+        sock.write(data!, withTimeout: 0, tag: 0)
         
         self.connected = true
         
-        self.asyncSocket?.readData(to: CRLF, withTimeout: -1, tag: 0)
+        self.asyncSocket?.readData(to: CRLF!, withTimeout: -1, tag: 0)
         
         DispatchQueue.main.async { () -> Void in
             self.delegate?.remoteClientDidConnectToHost?()
@@ -162,7 +162,7 @@ open class RemoteClient: NSObject {
     
     func socket(_ sock: GCDAsyncSocket, didReadData data: Data, withTag tag: Double) {
         print("Read data with tag: \(tag)")
-        sock.write("ACK\r\n".data(using: String.Encoding.utf8), withTimeout: 0, tag: 0)
+        sock.write("ACK\r\n".data(using: String.Encoding.utf8)!, withTimeout: 0, tag: 0)
         
         if parseData(data) == "BEEP" {
             SequenceManager.sharedInstance.play(Sequence(modules: [Pulse(time: Time(duration: SettingsManager.sharedInstance().pulseLength.doubleValue, unit: .milliseconds))]),repeatSequence: false)
@@ -175,7 +175,7 @@ open class RemoteClient: NSObject {
         
         let CRLF = "\r\n".data(using: String.Encoding.utf8)
         
-        self.asyncSocket?.readData(to: CRLF, withTimeout: -1, tag: 0)
+        self.asyncSocket?.readData(to: CRLF!, withTimeout: -1, tag: 0)
     }
     
     func parseData(_ data: Data) -> String {

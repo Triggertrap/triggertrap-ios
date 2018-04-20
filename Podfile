@@ -10,6 +10,7 @@ def common_pods
     pod 'PebbleKit'
     pod 'pop'
     pod 'TTCounterLabel'
+    pod 'CocoaAsyncSocket'
 end
 
 target 'TriggertrapSLR' do
