@@ -6,7 +6,7 @@
 //
 //
 
-#import "DACircularProgressView.h"
+@import DACircularProgress;
 
 #pragma mark - Delegate
 
