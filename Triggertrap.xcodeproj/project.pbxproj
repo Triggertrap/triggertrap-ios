@@ -155,8 +155,6 @@
 		BDD44B001BA98B0300B98FF6 /* A440SineWaveGenerator.c in Sources */ = {isa = PBXBuildFile; fileRef = BD2987B31B4D256F007F8B71 /* A440SineWaveGenerator.c */; };
 		BDD44B011BA98B0300B98FF6 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2987B61B4D256F007F8B71 /* AudioPlayer.m */; };
 		BDD44B021BA98B0300B98FF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C17F1B58061C00928054 /* Reachability.m */; };
-		BDD44B031BA98B0300B98FF6 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C16D1B58059F00928054 /* AsyncSocket.m */; };
-		BDD44B041BA98B0300B98FF6 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C16F1B58059F00928054 /* AsyncUdpSocket.m */; };
 		BDD44B071BA98B0300B98FF6 /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD85A7281B6A1F2200317254 /* RemoteClient.swift */; };
 		BDD44B081BA98B0300B98FF6 /* RemoteOutputServer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C1761B58060800928054 /* RemoteOutputServer.m */; };
 		BDD44B091BA98B0300B98FF6 /* SequenceLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD46CA141B56A30900B60B1E /* SequenceLifecycle.swift */; };
@@ -466,10 +464,6 @@
 		BD2987B51B4D256F007F8B71 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		BD2987B61B4D256F007F8B71 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		BD46CA141B56A30900B60B1E /* SequenceLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceLifecycle.swift; sourceTree = "<group>"; };
-		BD56C16C1B58059F00928054 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		BD56C16D1B58059F00928054 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		BD56C16E1B58059F00928054 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
-		BD56C16F1B58059F00928054 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 		BD56C1751B58060800928054 /* RemoteOutputServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteOutputServer.h; sourceTree = "<group>"; };
 		BD56C1761B58060800928054 /* RemoteOutputServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteOutputServer.m; sourceTree = "<group>"; };
 		BD56C17E1B58061C00928054 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -1245,17 +1239,6 @@
 			name = AudioPlayer;
 			sourceTree = "<group>";
 		};
-		BD56C1741B5805A600928054 /* AsyncSocket */ = {
-			isa = PBXGroup;
-			children = (
-				BD56C16C1B58059F00928054 /* AsyncSocket.h */,
-				BD56C16D1B58059F00928054 /* AsyncSocket.m */,
-				BD56C16E1B58059F00928054 /* AsyncUdpSocket.h */,
-				BD56C16F1B58059F00928054 /* AsyncUdpSocket.m */,
-			);
-			name = AsyncSocket;
-			sourceTree = "<group>";
-		};
 		BD56C17D1B58060B00928054 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
@@ -1281,7 +1264,6 @@
 				BD56C1891B580BA200928054 /* PreciseTimer */,
 				BD2987BB1B4D2574007F8B71 /* AudioPlayer */,
 				BD56C1821B58062200928054 /* Reachability */,
-				BD56C1741B5805A600928054 /* AsyncSocket */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -1987,7 +1969,6 @@
 				BD7D542B1BCBB26F0030219D /* FaceDetectionViewController.m in Sources */,
 				BD17D55B1C0CAC5200843404 /* UserActivityManager.swift in Sources */,
 				BD1133CC1BB3EED1006ED87A /* SCTransition.m in Sources */,
-				BDD44B041BA98B0300B98FF6 /* AsyncUdpSocket.m in Sources */,
 				BDAB816F1BCBDBCD00F84AB6 /* LeHdrViewController.swift in Sources */,
 				BD1133CA1BB3EED1006ED87A /* SCPercentDrivenInteractiveTransition.m in Sources */,
 				BD098BB51BC6C6E400A87FC8 /* TTCircleTimer.m in Sources */,
@@ -2016,7 +1997,6 @@
 				BD098BE41BC7C30800A87FC8 /* BezierGraph.m in Sources */,
 				BDAB818C1BCBFFC700F84AB6 /* OptionsTableViewController.swift in Sources */,
 				BD7144DB1BBA899000E7A34B /* GradientOverlayView.swift in Sources */,
-				BDD44B031BA98B0300B98FF6 /* AsyncSocket.m in Sources */,
 				BDD44B1B1BA98B0300B98FF6 /* WifiDispatcher.swift in Sources */,
 				BD098BB21BC6C6E400A87FC8 /* TTNumberPadView.m in Sources */,
 				BDD44B001BA98B0300B98FF6 /* A440SineWaveGenerator.c in Sources */,
