@@ -547,7 +547,9 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     }
     
     fileprivate func updateSunConstraint() {
-        self.sunToCenterConstraint.constant = self.whiteView.frame.size.width / 2 - self.sunriseDiagramLabel.frame.origin.x - self.sunriseDiagramLabel.frame.size.width - self.sunImageView.frame.size.width / 2.0 - self.sunRotationCenterView.frame.size.width / 2.0
+        let diagramCalculations = self.whiteView.frame.size.width / 2 - self.sunriseDiagramLabel.frame.origin.x - self.sunriseDiagramLabel.frame.size.width
+        let sunviewCalculations = self.sunImageView.frame.size.width / 2.0 - self.sunRotationCenterView.frame.size.width / 2.0
+        self.sunToCenterConstraint.constant =  diagramCalculations - sunviewCalculations
     }
     
     // MARK: - Timer
