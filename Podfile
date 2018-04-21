@@ -11,7 +11,7 @@ def common_pods
     pod 'pop'
     pod 'TTCounterLabel'
     pod 'CocoaAsyncSocket'
-    pod 'DACircularProgress'
+    pod 'RPCircularProgress'
 end
 
 target 'TriggertrapSLR' do

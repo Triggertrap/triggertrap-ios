@@ -80,8 +80,8 @@
                 feedbackViewController.counterLabel?.startValue = CUnsignedLongLong(interval * 1000)
                 
                 feedbackViewController.circleTimer?.cycleDuration = interval
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.progressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
                 
                 feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
                 feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue

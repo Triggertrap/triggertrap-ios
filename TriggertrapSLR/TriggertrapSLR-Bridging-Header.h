@@ -36,7 +36,7 @@
 
 // TriggertrapUIKit
 
-#import "TTCircleTimer.h"
+//#import "TTCircleTimer.h"
 #import "TTTimeInput.h"
 #import "TTCircularSlider.h"
 @import TTCounterLabel;

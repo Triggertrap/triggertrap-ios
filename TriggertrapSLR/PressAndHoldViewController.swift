@@ -95,7 +95,7 @@ class PressAndHoldViewController: CableReleaseViewController {
                 if shutterButtonHasBeenReleased == true {
                     self.sequenceManager.cancel()
                 } else {
-                    feedbackViewController.circleTimer?.progress = 0.4
+                    feedbackViewController.circleTimer?.updateProgress(0.4)
                     
                     // 1 = true, 0 = false
                     feedbackViewController.circleTimer?.indeterminate = 1

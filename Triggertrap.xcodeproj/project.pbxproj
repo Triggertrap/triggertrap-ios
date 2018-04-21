@@ -32,7 +32,6 @@
 		BD098BB21BC6C6E400A87FC8 /* TTNumberPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAA1BC6C6E400A87FC8 /* TTNumberPadView.m */; };
 		BD098BB31BC6C6E400A87FC8 /* TTTimeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAC1BC6C6E400A87FC8 /* TTTimeInput.m */; };
 		BD098BB41BC6C6E400A87FC8 /* TTCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAE1BC6C6E400A87FC8 /* TTCircularSlider.m */; };
-		BD098BB51BC6C6E400A87FC8 /* TTCircleTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BB01BC6C6E400A87FC8 /* TTCircleTimer.m */; };
 		BD098BBC1BC6C7EE00A87FC8 /* UIColor+branding.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BBB1BC6C7EE00A87FC8 /* UIColor+branding.m */; };
 		BD098BC71BC6CA3900A87FC8 /* SimpleCableReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098BC11BC6CA3900A87FC8 /* SimpleCableReleaseViewController.swift */; };
 		BD098BC81BC6CA3900A87FC8 /* QuickReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098BC21BC6CA3900A87FC8 /* QuickReleaseViewController.swift */; };
@@ -219,6 +218,7 @@
 		BDD75CD71BEA56280014DA3D /* pulseLengths.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CD91BEA56280014DA3D /* pulseLengths.plist */; };
 		BDD75CDD1BEA56310014DA3D /* speedUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CDF1BEA56310014DA3D /* speedUnits.plist */; };
 		BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CE51BEA56380014DA3D /* distanceUnits.plist */; };
+		FA23B3EA208B79D500263445 /* TTCircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23B3E9208B79D500263445 /* TTCircleTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,8 +343,6 @@
 		BD098BAC1BC6C6E400A87FC8 /* TTTimeInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTimeInput.m; sourceTree = "<group>"; };
 		BD098BAD1BC6C6E400A87FC8 /* TTCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircularSlider.h; sourceTree = "<group>"; };
 		BD098BAE1BC6C6E400A87FC8 /* TTCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircularSlider.m; sourceTree = "<group>"; };
-		BD098BAF1BC6C6E400A87FC8 /* TTCircleTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircleTimer.h; sourceTree = "<group>"; };
-		BD098BB01BC6C6E400A87FC8 /* TTCircleTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircleTimer.m; sourceTree = "<group>"; };
 		BD098BB91BC6C7BE00A87FC8 /* TTBranding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBranding.h; sourceTree = "<group>"; };
 		BD098BBA1BC6C7EE00A87FC8 /* UIColor+branding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+branding.h"; sourceTree = "<group>"; };
 		BD098BBB1BC6C7EE00A87FC8 /* UIColor+branding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+branding.m"; sourceTree = "<group>"; };
@@ -673,6 +671,7 @@
 		BDD75CE81BEA563B0014DA3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/distanceUnits.plist; sourceTree = "<group>"; };
 		CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapTLP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.debug.xcconfig"; sourceTree = "<group>"; };
+		FA23B3E9208B79D500263445 /* TTCircleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCircleTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -819,8 +818,7 @@
 				BD098BAC1BC6C6E400A87FC8 /* TTTimeInput.m */,
 				BD098BAD1BC6C6E400A87FC8 /* TTCircularSlider.h */,
 				BD098BAE1BC6C6E400A87FC8 /* TTCircularSlider.m */,
-				BD098BAF1BC6C6E400A87FC8 /* TTCircleTimer.h */,
-				BD098BB01BC6C6E400A87FC8 /* TTCircleTimer.m */,
+				FA23B3E9208B79D500263445 /* TTCircleTimer.swift */,
 				BD7144DA1BBA899000E7A34B /* GradientOverlayView.swift */,
 				BD7144C71BBA877B00E7A34B /* BorderButton.swift */,
 				BD7144C81BBA877B00E7A34B /* ShutterButton.swift */,
@@ -1870,9 +1868,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
-				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${PODS_ROOT}/PebbleKit/PebbleKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RPCircularProgress/RPCircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
 				"${BUILT_PRODUCTS_DIR}/TTCounterLabel/TTCounterLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
@@ -1882,9 +1880,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTFeedback.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PebbleKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RPCircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTCounterLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
@@ -1956,6 +1954,7 @@
 				BD098BC81BC6CA3900A87FC8 /* QuickReleaseViewController.swift in Sources */,
 				BDD44B121BA98B0300B98FF6 /* Delay.swift in Sources */,
 				BDAB818D1BCBFFC700F84AB6 /* SettingsTableViewController.swift in Sources */,
+				FA23B3EA208B79D500263445 /* TTCircleTimer.swift in Sources */,
 				BDAB817F1BCBFB0A00F84AB6 /* NeutralDensityCalculatorViewController.swift in Sources */,
 				BDD44B1A1BA98B0300B98FF6 /* HeadphoneDispatcher.swift in Sources */,
 				BDAB817A1BCBE70400F84AB6 /* WifiCell.swift in Sources */,
@@ -1968,7 +1967,6 @@
 				BD1133CC1BB3EED1006ED87A /* SCTransition.m in Sources */,
 				BDAB816F1BCBDBCD00F84AB6 /* LeHdrViewController.swift in Sources */,
 				BD1133CA1BB3EED1006ED87A /* SCPercentDrivenInteractiveTransition.m in Sources */,
-				BD098BB51BC6C6E400A87FC8 /* TTCircleTimer.m in Sources */,
 				BD1133DE1BB3EED1006ED87A /* NavigationControllerDelegate.swift in Sources */,
 				BD0098561BCD1CE40062C7C8 /* MCPanelViewController.m in Sources */,
 				BDAB81781BCBE70400F84AB6 /* WearablesViewController.swift in Sources */,

@@ -229,8 +229,8 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
                 feedbackViewController.counterLabel?.startValue = CUnsignedLongLong(interval)
                 
                 feedbackViewController.circleTimer?.cycleDuration = interval / 1000.0
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.progressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
                 
                 feedbackViewController.elapsedLabel?.text = NSLocalizedString("Next:", comment: "Next:")
                 feedbackViewController.elapsedCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue

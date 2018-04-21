@@ -34,7 +34,7 @@ class QuickReleaseViewController: CableReleaseViewController {
                 shutterButtonHasBeenReleased = false
                  
                 showFeedbackView(ConstStoryboardIdentifierCableReleaseFeedbackView)
-                feedbackViewController.circleTimer?.progress = 0.4 
+                feedbackViewController.circleTimer?.updateProgress(0.4)
                 feedbackViewController.circleTimer?.indeterminate = 1
             }
         }

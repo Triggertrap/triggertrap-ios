@@ -1,32 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Metric-Light.otf">
+        <array key="Metric-Light.otf">
             <string>Metric-Light</string>
-        </mutableArray>
-        <mutableArray key="Metric-Regular.otf">
+        </array>
+        <array key="Metric-Regular.otf">
             <string>Metric-Regular</string>
-            <string>Metric-Regular</string>
-            <string>Metric-Regular</string>
-            <string>Metric-Regular</string>
-            <string>Metric-Regular</string>
-            <string>Metric-Regular</string>
-        </mutableArray>
-        <mutableArray key="OpenSans-Regular.ttf">
+        </array>
+        <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-            <string>OpenSans</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Feedback View Controller-->
@@ -38,79 +30,79 @@
                         <viewControllerLayoutGuide type="bottom" id="Kho-Px-Gr0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="whh-Hw-1JO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TA0-l5-xBc" userLabel="circleTimer" customClass="TTCircleTimer">
-                                <rect key="frame" x="40" y="40" width="520" height="520"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TA0-l5-xBc" userLabel="circleTimer" customClass="TTCircleTimer" customModule="TriggertrapSLR" customModuleProvider="target">
+                                <rect key="frame" x="20" y="166" width="335" height="335"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TA0-l5-xBc" secondAttribute="height" multiplier="1:1" id="8W2-UX-3NS"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00H 00m 00s 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T9i-pY-zrB" userLabel="counterLabel" customClass="TTCounterLabel">
-                                <rect key="frame" x="50" y="169" width="500" height="263"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="30" y="251" width="315" height="166"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="T9i-pY-zrB" secondAttribute="height" multiplier="19:10" id="qSZ-hw-EHk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <view alpha="0.80000000000000004" tag="99" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBz-CU-n4v" userLabel="feedbackPanel">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exposure:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaL-P8-pus" userLabel="exposureLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Exposure:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaL-P8-pus" userLabel="exposureLabel">
                                         <rect key="frame" x="8" y="8" width="64" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="OFh-m7-T1a"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBv-FV-1qX" userLabel="pauseCounterLabel" customClass="TTCounterLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBv-FV-1qX" userLabel="pauseCounterLabel" customClass="TTCounterLabel">
                                         <rect key="frame" x="80" y="32" width="52" height="22"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="dYt-l1-8Li"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4w-a7-Jbt" userLabel="exposureCounterLabel" customClass="TTCounterLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4w-a7-Jbt" userLabel="exposureCounterLabel" customClass="TTCounterLabel">
                                         <rect key="frame" x="80" y="10" width="52" height="22"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="BIH-JY-kIx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FZ-Q0-hAN" userLabel="shotsTakenLabel">
-                                        <rect key="frame" x="592" y="19" width="0.0" height="22"/>
+                                        <rect key="frame" x="367" y="19" width="0.0" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="JGQ-IQ-p4n"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Y0D-ic-jfI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Il-kXw" userLabel="pauseLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pause:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7t-Il-kXw" userLabel="pauseLabel">
                                         <rect key="frame" x="8" y="30" width="64" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="XHF-PA-nBo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.69252232140000003" green="0.077199767229999994" blue="0.054649954229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.69252232140000003" green="0.077199767229999994" blue="0.054649954229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="6FZ-Q0-hAN" secondAttribute="trailing" constant="8" id="01w-Oj-KuS"/>
                                     <constraint firstAttribute="bottom" secondItem="O7t-Il-kXw" secondAttribute="bottom" constant="8" id="1Zv-py-1Yv"/>
@@ -128,7 +120,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TA0-l5-xBc" firstAttribute="top" secondItem="9yS-Oz-5Jp" secondAttribute="bottom" priority="999" constant="20" id="1ag-o1-QfA">
                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
@@ -181,60 +173,60 @@
                         <viewControllerLayoutGuide type="bottom" id="Kaq-33-RcD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zEF-RI-ojI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wk-3k-vi4" userLabel="circleTimer" customClass="TTCircleTimer">
-                                <rect key="frame" x="40" y="40" width="520" height="520"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wk-3k-vi4" userLabel="circleTimer" customClass="TTCircleTimer" customModule="TriggertrapSLR" customModuleProvider="target">
+                                <rect key="frame" x="20" y="166" width="335" height="335"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0Wk-3k-vi4" secondAttribute="height" multiplier="1:1" id="8MO-bm-y5u"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00H 00m 00s 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZIP-nk-Hu1" userLabel="counterLabel" customClass="TTCounterLabel">
-                                <rect key="frame" x="50" y="169" width="500" height="263"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="30" y="251" width="315" height="166"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZIP-nk-Hu1" secondAttribute="height" multiplier="19:10" id="QZV-tU-7OE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <view alpha="0.80000000000000004" tag="99" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noV-C9-Epe" userLabel="feedbackPanel">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elapsed:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNF-Kd-Fgl" userLabel="elapsedLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Elapsed:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNF-Kd-Fgl" userLabel="elapsedLabel">
                                         <rect key="frame" x="8" y="19" width="55" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="Rx4-Do-6Sa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-qk-pzM" userLabel="shotsTakenLabel">
-                                        <rect key="frame" x="592" y="19" width="0.0" height="22"/>
+                                        <rect key="frame" x="367" y="19" width="0.0" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="1Kd-Hc-tMp"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="fsD-pC-sBd"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbY-gN-dyP" userLabel="elapsedCounterLabel" customClass="TTCounterLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbY-gN-dyP" userLabel="elapsedCounterLabel" customClass="TTCounterLabel">
                                         <rect key="frame" x="70" y="21" width="52" height="22"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="nn4-ub-9um"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.69252232140000003" green="0.077199767229999994" blue="0.054649954229999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.69252232140000003" green="0.077199767229999994" blue="0.054649954229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="xNF-Kd-Fgl" firstAttribute="leading" secondItem="noV-C9-Epe" secondAttribute="leading" constant="8" id="32X-Fq-Adi"/>
                                     <constraint firstAttribute="centerY" secondItem="ajM-qk-pzM" secondAttribute="centerY" id="BJy-Db-vfC"/>
@@ -246,7 +238,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0Wk-3k-vi4" firstAttribute="centerY" secondItem="zEF-RI-ojI" secondAttribute="centerY" id="5BM-QG-IP6"/>
                             <constraint firstItem="ZIP-nk-Hu1" firstAttribute="width" secondItem="0Wk-3k-vi4" secondAttribute="width" constant="-20" id="G04-49-VCc"/>
@@ -297,17 +289,17 @@
                         <viewControllerLayoutGuide type="bottom" id="9oz-dV-ag1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R8b-u9-ztf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the button to start listening. Move the slider to select the triggering threshold." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8k-ma-0IG" userLabel="infoLabel">
-                                <rect key="frame" x="20" y="40" width="560" height="540"/>
+                                <rect key="frame" x="20" y="40" width="335" height="607"/>
                                 <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Y8k-ma-0IG" firstAttribute="top" secondItem="X93-Zl-xTH" secondAttribute="bottom" constant="20" id="E0K-cW-XGM"/>
                             <constraint firstItem="Y8k-ma-0IG" firstAttribute="leading" secondItem="R8b-u9-ztf" secondAttribute="leading" constant="20" id="nHc-N5-FZF"/>
@@ -341,11 +333,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Mkg-Si-CWO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h6z-j4-hRY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyl-nG-dgz">
-                                <rect key="frame" x="140" y="170" width="320" height="260"/>
+                                <rect key="frame" x="27.5" y="203.5" width="320" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkj-oc-2a8" userLabel="untilLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
@@ -354,7 +346,7 @@
                                             <constraint firstAttribute="height" constant="40" id="W0o-5X-WK5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jO3-4v-gUi" userLabel="sinceLabel">
@@ -364,12 +356,12 @@
                                             <constraint firstAttribute="width" constant="160" id="ni7-1c-RWp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjx-j1-MMb" customClass="TTCircularSlider">
                                         <rect key="frame" x="30" y="0.0" width="260" height="260"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Sjx-j1-MMb" secondAttribute="height" multiplier="1:1" id="bc7-fd-AqF"/>
                                         </constraints>
@@ -381,11 +373,11 @@
                                             <constraint firstAttribute="height" constant="59" id="uor-77-qh1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Sjx-j1-MMb" firstAttribute="centerX" secondItem="PE0-EW-4tP" secondAttribute="centerX" id="5h5-Zn-k6w"/>
                                     <constraint firstAttribute="centerX" secondItem="Sjx-j1-MMb" secondAttribute="centerX" id="Aeq-4t-Tc4"/>
@@ -401,7 +393,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tyl-nG-dgz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bKM-cU-37A" secondAttribute="bottom" constant="8" id="9Up-K7-gT6"/>
                             <constraint firstAttribute="centerX" secondItem="tyl-nG-dgz" secondAttribute="centerX" id="EH8-53-fWI"/>
@@ -439,28 +431,28 @@
                         <viewControllerLayoutGuide type="bottom" id="DBw-bW-bLQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kqh-K2-Twj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-9h-9LI" userLabel="circleTimer" customClass="TTCircleTimer">
-                                <rect key="frame" x="40" y="40" width="520" height="520"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-9h-9LI" userLabel="circleTimer" customClass="TTCircleTimer" customModule="TriggertrapSLR" customModuleProvider="target">
+                                <rect key="frame" x="20" y="166" width="335" height="335"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vg5-9h-9LI" secondAttribute="height" multiplier="1:1" id="Fl1-rQ-Dsd"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00H 00m 00s 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xDw-7X-gEN" userLabel="counterLabel" customClass="TTCounterLabel">
-                                <rect key="frame" x="50" y="168" width="500" height="263"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="30" y="250" width="315" height="166"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xDw-7X-gEN" secondAttribute="height" multiplier="19:10" id="yin-AD-iVX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="xDw-7X-gEN" secondAttribute="centerX" id="54I-oF-OEb"/>
                             <constraint firstItem="vg5-9h-9LI" firstAttribute="width" secondItem="xDw-7X-gEN" secondAttribute="width" constant="20" id="7MT-1I-zUT"/>

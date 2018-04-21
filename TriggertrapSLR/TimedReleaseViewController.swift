@@ -73,8 +73,8 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
                 
                 feedbackViewController.circleTimer?.cycleDuration = Double(self.numberInputView.value) / 1000.0
                 feedbackViewController.circleTimer?.continuous = false
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.progressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
             }
             
         } else {

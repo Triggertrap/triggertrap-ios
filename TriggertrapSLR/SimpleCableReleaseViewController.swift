@@ -59,8 +59,8 @@ class SimpleCableReleaseViewController: CableReleaseViewController {
                     self.feedbackViewController.counterLabel?.startValue = (self.settingsManager?.pulseLength.uint64Value)!
                     
                     self.feedbackViewController.circleTimer?.cycleDuration = Double((self.settingsManager?.pulseLength.uint64Value)!) / 1000.0
-                    self.feedbackViewController.circleTimer?.progress = 1.0
-                    self.feedbackViewController.circleTimer?.progressDirection = kProgressDirection.progressDirectionAntiClockwise.rawValue
+                    self.feedbackViewController.circleTimer?.updateProgress(1.0)
+                    self.feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
                 } else {
                     
                     // Animate the sutter button, even for short pulse lengths
