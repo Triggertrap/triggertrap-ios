@@ -199,12 +199,12 @@
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             [numberPadView setFrame:rect];
+                             [self->numberPadView setFrame:rect];
                          } completion:^(BOOL finished) {
-                             [overlayView removeFromSuperview];
-                             overlayView = nil;
-                             [numberPadView removeFromSuperview];
-                             numberPadView = nil;
+                             [self->overlayView removeFromSuperview];
+                             self->overlayView = nil;
+                             [self->numberPadView removeFromSuperview];
+                             self->numberPadView = nil;
                              [self setNeedsDisplay];
                          }];
     } else {
@@ -302,7 +302,7 @@
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             [numberPadView setFrame:coveredView.frame];
+                             [self->numberPadView setFrame:coveredView.frame];
                              
                          } completion:^(BOOL finished) {
                              [self setNeedsDisplay];
