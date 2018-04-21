@@ -10,7 +10,7 @@
 Unwrappable module, combination of specific pattern of modules:
 Pulse -> Delay
 */
-public struct MirrorLockup: Unwrappable {
+public class MirrorLockup: Unwrappable {
     public /** Unwraps the module
      - parameter completionHandler: informs whether the module has been unwrapped successfully
      */

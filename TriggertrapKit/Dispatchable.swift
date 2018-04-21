@@ -15,7 +15,7 @@ extension Dispatchable {
     
     // MARK: - Public
     
-    public mutating func unwrap(_ completionHandler: @escaping CompletionHandler) -> Void {
+    public func unwrap(_ completionHandler:@escaping (_ success: Bool) -> Void) {
         self.completionHandler = completionHandler
         
         if SequenceManager.sharedInstance.isCurrentlyTriggering {

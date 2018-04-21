@@ -6,14 +6,8 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 //
 
-public struct Pulse: Dispatchable {
-    public /** Unwraps the module
-     - parameter completionHandler: informs whether the module has been unwrapped successfully
-     */
-    func unwrap(_ completionHandler: (Bool) -> Void) {
-        
-    }
-
+public class Pulse: Dispatchable {
+    
     
     public let name = "Pulse"
     public let type: DispatchableType

@@ -15,7 +15,7 @@ enum IntervalometerErrorType: Error {
     noMinDelay
 }
 
-public struct Intervalometer: Unwrappable {
+public class Intervalometer: Unwrappable {
     public /** Unwraps the module
      - parameter completionHandler: informs whether the module has been unwrapped successfully
      */

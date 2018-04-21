@@ -12,15 +12,15 @@ public protocol Unwrappable: Modular {
     var currentModule: Int { get set }
     var type: UnwrappableType { get }
     
-    mutating func nextModule()
-    mutating func unwrapModule()
+    func nextModule()
+    func unwrapModule()
 }
 
 extension Unwrappable {
     
     // MARK: - Public
     
-    public mutating func unwrap(_ completionHandler: @escaping CompletionHandler) -> Void {
+    public func unwrap(_ completionHandler: @escaping CompletionHandler) -> Void {
         self.completionHandler = completionHandler
         
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
@@ -35,7 +35,7 @@ extension Unwrappable {
         }
     }
     
-    public mutating func unwrapModule() {
+    public func unwrapModule() {
         
         if currentModule > self.modules.count - 1 {
             self.didUnwrap()
@@ -46,7 +46,7 @@ extension Unwrappable {
         }
     }
     
-    public mutating func nextModule() {
+    public func nextModule() {
         
         self.currentModule += 1
         

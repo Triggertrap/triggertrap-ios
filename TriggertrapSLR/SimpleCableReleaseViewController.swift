@@ -67,7 +67,8 @@ class SimpleCableReleaseViewController: CableReleaseViewController {
                     self.startShutterButtonAnimation()
                     
                     prepareForSequence()
-                    self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: (settingsManager?.pulseLength.doubleValue)!, unit: .milliseconds))]),repeatSequence: false)
+                    let modules = [Pulse(time: Time(duration: (settingsManager?.pulseLength.doubleValue)!, unit: .milliseconds))]
+                    self.sequenceManager.play(Sequence(modules: modules),repeatSequence: false)
                 }
             } 
         }

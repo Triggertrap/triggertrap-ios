@@ -9,7 +9,7 @@
 /**
 Unwrappable module, combination of modules which can get repeated multiple times.
 */
-public struct Repeat: Unwrappable {
+public class Repeat: Unwrappable {
     public /** Unwraps the module
      - parameter completionHandler: informs whether the module has been unwrapped successfully
      */
@@ -40,7 +40,7 @@ public struct Repeat: Unwrappable {
         self.type = .Repeat
     }
     
-    public mutating func unwrapModule() {
+    public func unwrapModule() {
         
         // Check if the current module index is greated than the modules count
         if currentModule > self.modules.count - 1 {
