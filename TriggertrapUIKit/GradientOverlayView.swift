@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable class GradientOverlayView: UIView {
-    @IBInspectable var color: UIColor = UIColor.whiteColor() {
+    @IBInspectable var color: UIColor = UIColor.white {
         didSet {
             setNeedsDisplay()
         }
@@ -26,15 +26,15 @@ import UIKit
     }
     
     enum GradientDirection: Int {
-        case Up = 1,
-        Down = 2,
-        Left = 3,
-        Right = 4
+        case up = 1,
+        down = 2,
+        left = 3,
+        right = 4
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        UIColor.clearColor().setFill()
+        UIColor.clear.setFill()
         
         let rect = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
@@ -43,51 +43,51 @@ import UIKit
         var colors: [CGColor]!
         
         if let grayScale = grayScale {
-            colors = [color.CGColor, UIColor(white: grayScale, alpha: 0.0).CGColor]
+            colors = [color.cgColor, UIColor(white: grayScale, alpha: 0.0).cgColor]
         } else {
             switch AppTheme() {
-            case .Normal:
-                colors = [color.CGColor, UIColor(white: 1.0, alpha: 0.0).CGColor]
+            case .normal:
+                colors = [color.cgColor, UIColor(white: 1.0, alpha: 0.0).cgColor]
                 break
                 
-            case .Night:
-                colors = [color.CGColor, UIColor(white: 0.0, alpha: 0.0).CGColor]
+            case .night:
+                colors = [color.cgColor, UIColor(white: 0.0, alpha: 0.0).cgColor]
                 break
             }
         }
         
-        let gradient = CGGradientCreateWithColors(colorSpace, colors, locations)
+        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors! as CFArray, locations: locations)
         
         var startPoint: CGPoint?
         var endPoint: CGPoint?
         
         switch GradientDirection(rawValue: direction)! {
-        case .Up:
-            startPoint = CGPoint(x: CGRectGetMidX(rect), y: CGRectGetMaxY(rect))
-            endPoint = CGPoint(x: CGRectGetMidX(rect), y: CGRectGetMinY(rect))
+        case .up:
+            startPoint = CGPoint(x: rect.midX, y: rect.maxY)
+            endPoint = CGPoint(x: rect.midX, y: rect.minY)
             break
             
-        case .Down:
-            startPoint = CGPoint(x: CGRectGetMidX(rect), y: CGRectGetMinY(rect))
-            endPoint = CGPoint(x: CGRectGetMidX(rect), y: CGRectGetMaxY(rect))
+        case .down:
+            startPoint = CGPoint(x: rect.midX, y: rect.minY)
+            endPoint = CGPoint(x: rect.midX, y: rect.maxY)
             break
             
-        case .Left:
-            startPoint = CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMidY(rect))
-            endPoint = CGPoint(x: CGRectGetMinX(rect), y: CGRectGetMidY(rect))
+        case .left:
+            startPoint = CGPoint(x: rect.maxX, y: rect.midY)
+            endPoint = CGPoint(x: rect.minX, y: rect.midY)
             break
             
-        case .Right:
-            startPoint = CGPoint(x: CGRectGetMinX(rect), y: CGRectGetMidY(rect))
-            endPoint = CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMidY(rect))
+        case .right:
+            startPoint = CGPoint(x: rect.minX, y: rect.midY)
+            endPoint = CGPoint(x: rect.maxX, y: rect.midY)
             break
         }
         
-        CGContextSaveGState(context)
-        CGContextAddRect(context, rect)
-        CGContextClip(context)
+        context?.saveGState()
+        context?.addRect(rect)
+        context?.clip()
         
-        CGContextDrawLinearGradient(context, gradient, startPoint!, endPoint!, CGGradientDrawingOptions(rawValue: 0))
-        CGContextRestoreGState(context)
+        context?.drawLinearGradient(gradient!, start: startPoint!, end: endPoint!, options: CGGradientDrawingOptions(rawValue: 0))
+        context?.restoreGState()
     }
 }

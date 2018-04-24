@@ -12,59 +12,59 @@ public protocol Unwrappable: Modular {
     var currentModule: Int { get set }
     var type: UnwrappableType { get }
     
-    mutating func nextModule()
-    mutating func unwrapModule()
+    func nextModule()
+    func unwrapModule()
 }
 
 extension Unwrappable {
     
     // MARK: - Public
     
-    public mutating func unwrap(completionHandler: CompletionHandler) -> Void {
+    public func unwrap(_ completionHandler: @escaping CompletionHandler) -> Void {
         self.completionHandler = completionHandler
         
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
             // Inform the modules lifecycle protocol subscriber that the current module will be unwrapped
             onMain {
-                SequenceManager.sharedInstance.unwrappableDelegate?.willUnwrap(self)
+                //SequenceManager.sharedInstance.unwrappableDelegate?.willUnwrap(self)
             }
             
             unwrapModule()
         } else {
-            self.completionHandler(success: false)
+            self.completionHandler(false)
         }
     }
     
-    public mutating func unwrapModule() {
+    public func unwrapModule() {
         
         if currentModule > self.modules.count - 1 {
             self.didUnwrap()
         } else {
             self.modules[currentModule].unwrap({ (success) -> Void in 
-                success ? self.nextModule() : self.completionHandler(success: false)
+                success ? self.nextModule() : self.completionHandler(false)
             })
         }
     }
     
-    public mutating func nextModule() {
+    public func nextModule() {
         
-        self.currentModule++
+        self.currentModule += 1
         
         if SequenceManager.sharedInstance.isCurrentlyTriggering {
             unwrapModule()
         } else {
-            self.completionHandler(success: false)
+            self.completionHandler(false)
         }
     }
     
-    public func didUnwrap() { 
+    public func didUnwrap() {
         
         // Inform the modules lifecycle protocol subscriber that the current module was unwrapped
         onMain {
             SequenceManager.sharedInstance.unwrappableDelegate?.didUnwrap(self)
         }
         
-        self.completionHandler(success: true)
+        self.completionHandler(true)
     }
     
     public func durationInMilliseconds() -> Double {

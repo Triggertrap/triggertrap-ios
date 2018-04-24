@@ -6,27 +6,27 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 // 
 
-public class WifiDispatcher: NSObject, Dispatcher {
+open class WifiDispatcher: NSObject, Dispatcher {
     
-    private var dispatchable: Dispatchable!
-    private var reachability: Reachability!
-    private var name: String!
+    fileprivate var dispatchable: Dispatchable!
+    fileprivate var reachability: Reachability!
+    fileprivate var name: String!
     
     var remoteOutputServer: RemoteOutputServer!
     var wifiIsAvailable = false
     
-    public static let sharedInstance = WifiDispatcher()
+    open static let sharedInstance = WifiDispatcher()
     
-    private override init() {
+    fileprivate override init() {
         super.init()
         
         self.name = "Wifi"
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged", name: kReachabilityChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WifiDispatcher.reachabilityChanged), name: NSNotification.Name.reachabilityChanged, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "remoteOutputServerStatusChanged", name: kRemoteOutputServerStatusChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WifiDispatcher.remoteOutputServerStatusChanged), name: NSNotification.Name.remoteOutputServerStatusChanged, object: nil)
         
-        self.reachability = Reachability.reachabilityForLocalWiFi()
+        self.reachability = Reachability.forLocalWiFi()
         self.remoteOutputServer = RemoteOutputServer.sharedInstance()
         
         self.reachability.startNotifier()
@@ -34,13 +34,13 @@ public class WifiDispatcher: NSObject, Dispatcher {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: kReachabilityChangedNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:kRemoteOutputServerStatusChangedNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.reachabilityChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name:NSNotification.Name.remoteOutputServerStatusChanged, object: nil)
     }
     
     // MARK: - Public
     
-    public func dispatch(dispatchable: Dispatchable) {
+    open func dispatch(_ dispatchable: Dispatchable) {
         self.dispatchable = dispatchable
         
         if dispatchable is Pulse {
@@ -48,17 +48,17 @@ public class WifiDispatcher: NSObject, Dispatcher {
         }
     }
     
-    public func reachabilityChanged() {
+    @objc open func reachabilityChanged() {
         self.refreshWifiState()
     }
     
-    public func remoteOutputServerStatusChanged() {
+    @objc open func remoteOutputServerStatusChanged() {
         
     }
     
     // MARK: - Private
     
-    private func refreshWifiState() {
+    fileprivate func refreshWifiState() {
         if self.reachability.isReachableViaWiFi() {
             print("Wifi is reachable")
             self.wifiConnected(true)
@@ -68,13 +68,13 @@ public class WifiDispatcher: NSObject, Dispatcher {
         }
     }
     
-    private func wifiConnected(connected: Bool) {
+    fileprivate func wifiConnected(_ connected: Bool) {
         wifiIsAvailable = connected
         
         if self.remoteOutputServer.running && !connected {
             print("Lost wifi connection")
             self.remoteOutputServer.stopService()
-            NSNotificationCenter.defaultCenter().postNotificationName("WifiDisconnected", object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "WifiDisconnected"), object: nil)
         }
         
         if connected {

@@ -25,21 +25,21 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
         setupNumberPicker()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Check whether settings manager pulse length has been changed and it is less than the numberInputView value
-        if self.numberInputView.savedValueForKey("timeCableRelease-duration") < settingsManager.pulseLength.unsignedLongLongValue  {
-            self.numberInputView.saveValue(settingsManager.pulseLength.unsignedLongLongValue , forKey: "timeCableRelease-duration")
+        if self.numberInputView.savedValue(forKey: "timeCableRelease-duration") < (settingsManager?.pulseLength.uint64Value)!  {
+            self.numberInputView.saveValue((settingsManager?.pulseLength.uint64Value)! , forKey: "timeCableRelease-duration")
         }
         
         // Load the previous value
-        self.numberInputView.value = self.numberInputView.savedValueForKey("timeCableRelease-duration")
+        self.numberInputView.value = self.numberInputView.savedValue(forKey: "timeCableRelease-duration")
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -57,7 +57,7 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -68,13 +68,13 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
                 showFeedbackView(ConstStoryboardIdentifierCableReleaseFeedbackView)
                 
                 //Setup counter label and circle timer so that they are populated when red view animates
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue;
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue;
                 feedbackViewController.counterLabel?.startValue = self.numberInputView.value
                 
                 feedbackViewController.circleTimer?.cycleDuration = Double(self.numberInputView.value) / 1000.0
                 feedbackViewController.circleTimer?.continuous = false
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
             }
             
         } else {
@@ -82,33 +82,33 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
         }
     }
     
-    @IBAction func ndCalculatorTapped(button: UIButton) {
+    @IBAction func ndCalculatorTapped(_ button: UIButton) {
         print("ND Calculator button tapped")
         
-        let storyboard = UIStoryboard(name: ConstStoryboardIdentifierCalculators, bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: ConstStoryboardIdentifierCalculators, bundle: Bundle.main)
         
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("ND Calculator") as! NeutralDensityCalculatorViewController
-        viewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ND Calculator") as! NeutralDensityCalculatorViewController
+        viewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         viewController.isEmbedded = true
         
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.navigationBar.translucent = false
+        navigationController.navigationBar.isTranslucent = false
 
         navigationController.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         
-        navigationController.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0), NSForegroundColorAttributeName: UIColor.triggertrap_iconColor(1.0)]
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
  
         
         viewController.ndCalculatorCompletionBlock = ({ duration in
             self.numberInputView.saveValue(duration, forKey: "timeCableRelease-duration")
         })
         
-        self.presentViewController(navigationController, animated: true, completion: nil)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
-    @IBAction func openKeyboard(sender : TTTimeInput) {
+    @IBAction func openKeyboard(_ sender : TTTimeInput) {
         adjustMinVal()
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Overrides
@@ -116,14 +116,14 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is TimedReleaseViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is TimedReleaseViewController {
             
-            let duration = NSNumber(unsignedLongLong: self.numberInputView.value)
+            let duration = NSNumber(value: self.numberInputView.value as UInt64)
             
             prepareForSequence()
             
             //Start sequence
-            self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: duration.doubleValue, unit: .Milliseconds))]), repeatSequence: false)
+            self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: duration.doubleValue, unit: .milliseconds))]), repeatSequence: false)
             
             feedbackViewController.startAnimations()
         }
@@ -137,16 +137,16 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
         self.numberInputView.maxValue = 359999990
         self.numberInputView.value = 30000
         adjustMinVal()
-        self.numberInputView.displayView.textAlignment = NSTextAlignment.Center
+        self.numberInputView.displayView.textAlignment = NSTextAlignment.center
     }
     
     func adjustMinVal() {
-        self.numberInputView.minValue = SettingsManager.sharedInstance().pulseLength.unsignedLongLongValue
+        self.numberInputView.minValue = SettingsManager.sharedInstance().pulseLength.uint64Value
     }
     
     // MARK: - TTNumberInputKeyboard Delegate
     
-    func TTNumberInputKeyboardDidDismiss() {
+    func ttNumberInputKeyboardDidDismiss() {
         self.numberInputView.saveValue(self.numberInputView.value, forKey: "timeCableRelease-duration")
     }
 }

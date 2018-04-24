@@ -10,15 +10,15 @@ public protocol UnwrappableLifecycle {
     /**
     Notify that the unwrappable will be unwrapped.
     */
-    func willUnwrap(unwrappable: Unwrappable)
+    func willUnwrap(_ unwrappable: Unwrappable)
     
     /**
     Failed to unwrap the unwrappable.
     */
-    func failedToUnwrap(error: ErrorType)
+    func failedToUnwrap(_ error: Error)
     
     /**
     Notify that the unwrappable did unwrap.
     */
-    func didUnwrap(unwrappable: Unwrappable)
+    func didUnwrap(_ unwrappable: Unwrappable)
 }

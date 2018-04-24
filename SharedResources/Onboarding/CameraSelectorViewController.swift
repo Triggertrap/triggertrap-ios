@@ -34,7 +34,7 @@ class CameraSelectorViewController: OnboardingViewController {
     var lastCameraManufacturerSelected: Int = 0
     var lastCameraModelSelected: Int = 0
     var urlForCable: String?
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     
     // MARK: - Outlets
     @IBOutlet var cameraManufacturerPicker: UIPickerView!
@@ -48,7 +48,7 @@ class CameraSelectorViewController: OnboardingViewController {
         commonInit()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         cameraManufacturerPicker.selectRow(lastCameraManufacturerSelected, inComponent: 0, animated: false)
@@ -75,17 +75,17 @@ class CameraSelectorViewController: OnboardingViewController {
         let cameraManufacturerSelected = cameraManufacturers[lastCameraManufacturerSelected]
         
         // Get all camera models for selected camera manufacturer
-        cameraModelsForSelectedManufacturer = cableSelector.cameraModelsForManufacturer(cameraManufacturerSelected) as! [String]
+        cameraModelsForSelectedManufacturer = cableSelector.cameraModels(forManufacturer: cameraManufacturerSelected) as! [String]
         
         // Get camera model selected from array of camera models
         let cameraModelSelected = cameraModelsForSelectedManufacturer[lastCameraModelSelected] as String
         
         // Get cable from selected camera manufacturer and model
-        let cable = cableSelector.cableForCameraManufacturer(cameraManufacturerSelected, withModel: cameraModelSelected) as String
+        let cable = cableSelector.cable(forCameraManufacturer: cameraManufacturerSelected, withModel: cameraModelSelected) as String
         
         kitImageView.image = UIImage(named: cable)
         
-        urlForCable = cableSelector.urlForCable(cable)
+        urlForCable = cableSelector.url(forCable: cable)
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,7 +94,7 @@ class CameraSelectorViewController: OnboardingViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func buyButtonTapped(button: UIButton) {
+    @IBAction func buyButtonTapped(_ button: UIButton) {
         
         if (urlForCable != nil) {
             
@@ -105,7 +105,7 @@ class CameraSelectorViewController: OnboardingViewController {
 
 extension CameraSelectorViewController: UIPickerViewDelegate {
     
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         let pickerLabel = UILabel()
         
@@ -119,12 +119,12 @@ extension CameraSelectorViewController: UIPickerViewDelegate {
         
         pickerLabel.minimumScaleFactor = 0.5
         pickerLabel.adjustsFontSizeToFitWidth = true
-        pickerLabel.textAlignment = NSTextAlignment.Center
+        pickerLabel.textAlignment = NSTextAlignment.center
         
         return pickerLabel
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 0 {
             
@@ -134,7 +134,7 @@ extension CameraSelectorViewController: UIPickerViewDelegate {
             //Get last row selected while interacting with the cameraManufacturerPicker and find the manufacturer selected
             let cameraManufacturerSelected: String = cameraManufacturers[lastCameraManufacturerSelected] as String
             
-            cameraModelsForSelectedManufacturer = cableSelector.cameraModelsForManufacturer(cameraManufacturerSelected) as! [String]
+            cameraModelsForSelectedManufacturer = cableSelector.cameraModels(forManufacturer: cameraManufacturerSelected) as! [String]
             
             cameraModelPicker.reloadAllComponents()
             cameraModelPicker.selectRow(0, inComponent: 0, animated: true)
@@ -146,16 +146,16 @@ extension CameraSelectorViewController: UIPickerViewDelegate {
         let cameraManufacturerSelected: String = cameraManufacturers[lastCameraManufacturerSelected] as String
         let cameraModelSelected: String = cameraModelsForSelectedManufacturer[lastCameraModelSelected] as String
         
-        let cable: String = cableSelector.cableForCameraManufacturer(cameraManufacturerSelected, withModel: cameraModelSelected) as String
+        let cable: String = cableSelector.cable(forCameraManufacturer: cameraManufacturerSelected, withModel: cameraModelSelected) as String
         
-        urlForCable = cableSelector.urlForCable(cable)
+        urlForCable = cableSelector.url(forCable: cable)
         kitImageView.image = UIImage(named: cable)
     }
 }
 
 extension CameraSelectorViewController: UIPickerViewDataSource {
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 0 {
             return cameraManufacturers.count
@@ -164,14 +164,14 @@ extension CameraSelectorViewController: UIPickerViewDataSource {
         }
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 }
 
 extension CameraSelectorViewController: UIActionSheetDelegate {
     
-    private func showActionSheet(rect: CGRect) {
+    fileprivate func showActionSheet(_ rect: CGRect) {
         
         let actionSheet: UIActionSheet = UIActionSheet(title: nil,
             delegate: self,
@@ -179,21 +179,21 @@ extension CameraSelectorViewController: UIActionSheetDelegate {
             destructiveButtonTitle: nil,
             otherButtonTitles: NSLocalizedString("Open in Safari", comment: "Open in Safari"))
         
-        actionSheet.actionSheetStyle = UIActionSheetStyle.BlackOpaque
+        actionSheet.actionSheetStyle = UIActionSheetStyle.blackOpaque
         
-        let deviceType = UIDevice.currentDevice().model
+        let deviceType = UIDevice.current.model
         
         if deviceType == "iPhone" {
-            actionSheet.showInView(self.view)
+            actionSheet.show(in: self.view)
         } else {
             // iPad
-            actionSheet.showFromRect(rect, inView: self.view, animated: true)
+            actionSheet.show(from: rect, in: self.view, animated: true)
         }
     }
     
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
         if buttonIndex == 1 {
-            UIApplication.sharedApplication().openURL(NSURL(string: urlForCable!)!)
+            UIApplication.shared.openURL(URL(string: urlForCable!)!)
         }
     }
 }

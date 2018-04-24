@@ -16,26 +16,26 @@ class WiFiViewController: TTViewController {
     
     // True - master, false - slave
     
-    private var masterIsSelected = true
-    private let remoteClient = RemoteClient.sharedInstance
-    private var server = ""
-    private var hotspotCanBeEnabled = false
+    fileprivate var masterIsSelected = true
+    fileprivate let remoteClient = RemoteClient.sharedInstance
+    fileprivate var server = ""
+    fileprivate var hotspotCanBeEnabled = false
     
     // Type of broadcasting service
     
-    private enum Type: Int {
-        case Master = 0,
-        Slave = 1
+    fileprivate enum `Type`: Int {
+        case master = 0,
+        slave = 1
     }
     
-    private var broadcastingType: Type = Type.Master
-    private var masterName: String = ""
+    fileprivate var broadcastingType: Type = Type.master
+    fileprivate var masterName: String = ""
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.registerNib(UINib(nibName: "WifiCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: "WifiCell")
+        collectionView.register(UINib(nibName: "WifiCell", bundle: Bundle.main), forCellWithReuseIdentifier: "WifiCell")
         
         remoteClient.delegate = self
         
@@ -43,20 +43,20 @@ class WiFiViewController: TTViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         // Add notification observer which calls wifiDidDisconnect when device goes into airplain mode/wifi is disabled
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "wifiDidDisconnect", name: ConstWifiMasterIsSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WiFiViewController.wifiDidDisconnect), name: NSNotification.Name(rawValue: ConstWifiMasterIsSelected), object: nil)
         
-        wifiSegmentedControl.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_light(20.0)]
-            , forState: .Normal)
-        wifiSegmentedControl.setTitleTextAttributes([NSFontAttributeName: UIFont.triggertrap_metric_light(20.0)]
-            , forState: .Selected)
+        wifiSegmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.triggertrap_metric_light(20.0)]
+            , for: UIControlState())
+        wifiSegmentedControl.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.triggertrap_metric_light(20.0)]
+            , for: .selected)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated) 
 
-        masterIsSelected = NSUserDefaults.standardUserDefaults().boolForKey(ConstWifiMasterIsSelected) == false ? NSUserDefaults.standardUserDefaults().boolForKey(ConstWifiMasterIsSelected) : true
+        masterIsSelected = UserDefaults.standard.bool(forKey: ConstWifiMasterIsSelected) == false ? UserDefaults.standard.bool(forKey: ConstWifiMasterIsSelected) : true
         
-        masterIsSelected ? broadcastAs(Type.Master) : broadcastAs(Type.Slave)
+        masterIsSelected ? broadcastAs(Type.master) : broadcastAs(Type.slave)
         
         if (masterIsSelected) {
             wifiSegmentedControl.selectedSegmentIndex = 0;
@@ -73,18 +73,18 @@ class WiFiViewController: TTViewController {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: ConstWifiDisconnected, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: ConstWifiDisconnected), object: nil)
     }
     
     // MARK: - IBActions
     
-    @IBAction func segmentedControllerPressed(segmentedController: UISegmentedControl) {
+    @IBAction func segmentedControllerPressed(_ segmentedController: UISegmentedControl) {
         
         // Check if Master or Slave is selected
-        segmentedController.selectedSegmentIndex == 0 ? broadcastAs(Type.Master) : broadcastAs(Type.Slave)
+        segmentedController.selectedSegmentIndex == 0 ? broadcastAs(Type.master) : broadcastAs(Type.slave)
     }
     
-    @IBAction func shutterButtonTouchUpInside(sender: UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender: UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -94,7 +94,7 @@ class WiFiViewController: TTViewController {
                 
                 switch broadcastingType {
                     
-                case Type.Master:
+                case Type.master:
                     
                     // Check if remote output server has delegate (running)
                     if WifiDispatcher.sharedInstance.remoteOutputServer?.delegate != nil {
@@ -122,7 +122,7 @@ class WiFiViewController: TTViewController {
                     
                     break
                     
-                case Type.Slave:
+                case Type.slave:
                     if sufficientVolumeToTrigger() {
                         print("Slave called with NO active view controller")
                         prepareForSequence()
@@ -148,12 +148,12 @@ class WiFiViewController: TTViewController {
         } else {
             
             switch broadcastingType {
-            case Type.Master:
+            case Type.master:
                 // Master never sets the active view controller therefore this should never be called
                 print("Master called with active view controller")
                 break
                 
-            case Type.Slave:
+            case Type.slave:
                 print("Slave called with active view controller")
                 if remoteClient.asyncSocket != nil {
                     remoteClient.asyncSocket!.disconnect()
@@ -166,24 +166,24 @@ class WiFiViewController: TTViewController {
     
     // MARK: - Private
     
-    private func broadcastAs(type: Type) {
+    fileprivate func broadcastAs(_ type: Type) {
         
         // Get last selected type
         broadcastingType = type
         
         switch type {
             
-        case .Master:
+        case .master:
             
             // Reset the possibility of the hotspot to be on
             hotspotCanBeEnabled = false
             
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: ConstWifiMasterIsSelected)
+            UserDefaults.standard.set(true, forKey: ConstWifiMasterIsSelected)
             
             wifiInfoText.text = NSLocalizedString("Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active.", comment: "Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active.")
             
             // Make Wifi info text visible if there were masters on the Wifi Slaves and the label got hidden
-            wifiInfoText.hidden = false
+            wifiInfoText.isHidden = false
             
             // Stop Slave
             collectionView.delegate = nil
@@ -194,8 +194,8 @@ class WiFiViewController: TTViewController {
             shutterButtonEnabled(true)
             break
             
-        case .Slave:
-            NSUserDefaults.standardUserDefaults().setBool(false, forKey: ConstWifiMasterIsSelected)
+        case .slave:
+            UserDefaults.standard.set(false, forKey: ConstWifiMasterIsSelected)
             
             wifiInfoText.text = NSLocalizedString("Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master.", comment: "Tap on an available Wi-Fi master to select it, then press the big red button to start listening! Whenever the Wi-Fi Master device triggers, your Slave device will trigger too. Tap the red button again to stop listening to the Wi-Fi Master.")
             
@@ -217,15 +217,15 @@ class WiFiViewController: TTViewController {
             break
         }
         
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.synchronize()
     }
     
     // Handle user disconnecting Wifi or turning airplain mode on
-    func wifiDidDisconnect() {
+    @objc func wifiDidDisconnect() {
         
         switch broadcastingType {
             
-        case Type.Master:
+        case Type.master:
             
             // Check if remote output server has delegate (running)
             if WifiDispatcher.sharedInstance.remoteOutputServer.delegate != nil {
@@ -240,7 +240,7 @@ class WiFiViewController: TTViewController {
             }
             break
             
-        case Type.Slave:
+        case Type.slave:
             print("Slave called with active view controller")
             if remoteClient.asyncSocket != nil {
                 remoteClient.asyncSocket!.disconnect()
@@ -249,7 +249,7 @@ class WiFiViewController: TTViewController {
         }
     }
     
-    private func updateLabel() {
+    fileprivate func updateLabel() {
         if WifiDispatcher.sharedInstance.remoteOutputServer.connectedSockets() == nil || WifiDispatcher.sharedInstance.remoteOutputServer.connectedSockets().count == 0 {
             feedbackViewController?.infoLabel?.text = String(format: NSLocalizedString("Broadcasting as:\n\n%@\n\nNo slave devices connected.", comment: "Broadcasting as:\n\n%@\n\nNo slave devices connected."), masterName)
         } else {
@@ -257,7 +257,7 @@ class WiFiViewController: TTViewController {
         }
     }
     
-    func netServiceDidPublish(name: String!) {
+    func netServiceDidPublish(_ name: String!) {
         // Set broadcasting as device label here
         masterName = name
         feedbackViewController.infoLabel?.text = String(format: NSLocalizedString("Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!", comment: "Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!"), name)
@@ -281,12 +281,12 @@ extension WiFiViewController: UICollectionViewDataSource {
     
     // MARK: - Collection View
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell: WifiCell = collectionView.dequeueReusableCellWithReuseIdentifier("WifiCell", forIndexPath: indexPath) as! WifiCell
+        let cell: WifiCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WifiCell", for: indexPath) as! WifiCell
         
         // Get and assign server name from index to collection view cell text
-        if let serverIndices = remoteClient.serverIndices, deviceName = serverIndices[indexPath.row] {
+        if let serverIndices = remoteClient.serverIndices, let deviceName = serverIndices[indexPath.row] {
             cell.deviceName.text = deviceName
         }
         
@@ -308,17 +308,17 @@ extension WiFiViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // Check if remote client has any servers
-        if let serverIndices = remoteClient.serverIndices where serverIndices.count != 0 {
+        if let serverIndices = remoteClient.serverIndices, serverIndices.count != 0 {
             
             // Hide information text if servers available
-            wifiInfoText.hidden = true
+            wifiInfoText.isHidden = true
             
             // Return number of servers available
             return remoteClient.serverIndices!.count
@@ -328,7 +328,7 @@ extension WiFiViewController: UICollectionViewDataSource {
             sequenceManager.cancel()
             
             // Show wifi info text
-            wifiInfoText.hidden = false
+            wifiInfoText.isHidden = false
             
             return 0
         }
@@ -339,13 +339,13 @@ extension WiFiViewController: UICollectionViewDelegate {
     
     // MARK: - Collection View Delegate
     
-    func collectionView(collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            return CGSizeMake(self.collectionView.frame.size.width, 44)
+        sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+            return CGSize(width: self.collectionView.frame.size.width, height: 44)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let serverSelected = remoteClient.serverIndices![indexPath.row]!
         
@@ -378,7 +378,7 @@ extension WiFiViewController: RemoteClientDelegate {
         collectionView.reloadData()
     }
     
-    func remoteClientDidDisconnect(error: NSError?) {
+    func remoteClientDidDisconnect(_ error: NSError?) {
         
         if let _ = error {
             ShowAlertInViewController(self, title: NSLocalizedString("Woops", comment: "Woops"), message: NSLocalizedString("Lost connection to Master", comment: "Lost connection to Master"), cancelButton: NSLocalizedString("OK", comment: "OK"))
@@ -397,7 +397,7 @@ extension WiFiViewController: RemoteClientDelegate {
         print("Remote Client Did Refresh Servers")
         
         // Check if hosts are 0
-        if let serverIndices = remoteClient.serverIndices where serverIndices.count == 0 {
+        if let serverIndices = remoteClient.serverIndices, serverIndices.count == 0 {
             
             // Disable and alpha shutter button
             shutterButtonEnabled(false)

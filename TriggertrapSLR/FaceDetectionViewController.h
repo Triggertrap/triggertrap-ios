@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GPUImage.h"
+@import GPUImage;
 #import "HorizontalPicker.h"
 
 @class FaceDetectionViewController;

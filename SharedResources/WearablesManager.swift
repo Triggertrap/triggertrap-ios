@@ -13,35 +13,31 @@ protocol WearableManagerDelegate {
 }
 
 class WearablesManager: NSObject {
-    private var isRunning: Bool = false
+    fileprivate var isRunning: Bool = false
     static let sharedInstance = WearablesManager()
     var delegate: WearableManagerDelegate?
     
     func startSession() {
         isRunning = true
         
-        if #available(iOS 9.0, *) {
-            AppleWatchManager.sharedInstance.startSession()
-        }
+        AppleWatchManager.sharedInstance.startSession()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "watchDidTrigger", name: constWatchDidTrigger, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WearablesManager.watchDidTrigger), name: NSNotification.Name(rawValue: constWatchDidTrigger), object: nil)
     }
     
     func endSession() {
         isRunning = false
         
-        if #available(iOS 9.0, *) {
-            AppleWatchManager.sharedInstance.stopSession()
-        }
+        AppleWatchManager.sharedInstance.stopSession()
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: constWatchDidTrigger, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: constWatchDidTrigger), object: nil)
     }
     
     func isWearablesModeRunning() -> Bool {
         return self.isRunning
     }
     
-    func watchDidTrigger() {
+    @objc func watchDidTrigger() {
         onMain {
             self.delegate?.watchDidTrigger()
         }

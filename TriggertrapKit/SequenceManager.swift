@@ -6,31 +6,31 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 //
 
-func onMain(block: dispatch_block_t) {
-    dispatch_async(dispatch_get_main_queue(), block)
+func onMain(_ block: @escaping ()->()) {
+    DispatchQueue.main.async(execute: block)
 }
 
-public class SequenceManager {
-    public static let sharedInstance = SequenceManager()
+open class SequenceManager {
+    open static let sharedInstance = SequenceManager()
     
     // Delagate for informing the subscribed classes/structures/enums about the progress of the unwrappables (mirrorlockup/intervalometer/repeat)
-    public var unwrappableDelegate: UnwrappableLifecycle?
+    open var unwrappableDelegate: UnwrappableLifecycle?
     
     // Delagate for informing the subscribed classes/structures/enums about the progress of the dispatchables (pulse/delay)
-    public var dispatchableDelegate: DispatchableLifecycle?
+    open var dispatchableDelegate: DispatchableLifecycle?
     
     // Delagate for informing the subscribed classes/structures/enums about the progress of the sequence
-    public var sequenceDelegate: SequenceLifecycle?
+    open var sequenceDelegate: SequenceLifecycle?
     
     // Minimum delay for intervalometer
-    public var minDelay: Delay!
+    open var minDelay: Delay!
     
     // Counts the progress of the sequence since it was started
     internal var timeElapsed: Time!
     
-    public var activeViewController: AnyObject? {
+    open var activeViewController: AnyObject? {
         didSet {
-            UIApplication.sharedApplication().idleTimerDisabled = activeViewController != nil ? true : false
+            UIApplication.shared.isIdleTimerDisabled = activeViewController != nil ? true : false
         }
     }
     
@@ -41,18 +41,18 @@ public class SequenceManager {
         }
     }
     
-    private var isTriggering: Bool!
-    private var sequence: Sequence!
-    private var repeatSequence = false
+    fileprivate var isTriggering: Bool!
+    fileprivate var sequence: Sequence!
+    fileprivate var repeatSequence = false
     
-    private init() {
+    fileprivate init() {
         isTriggering = false
         sequence = Sequence(modules: [])
-        minDelay = Delay(time: Time(duration: 150, unit: .Milliseconds))
-        timeElapsed = Time(duration: 0, unit: .Milliseconds)
+        minDelay = Delay(time: Time(duration: 150, unit: .milliseconds))
+        timeElapsed = Time(duration: 0, unit: .milliseconds)
     }
     
-    private var currentModule = 0
+    fileprivate var currentModule = 0
     
     // MARK: - Public
     
@@ -60,7 +60,7 @@ public class SequenceManager {
     - parameter sequence: group of modules to be unwrapped
     */
     
-    public func play(sequence: Sequence, repeatSequence: Bool) {
+    open func play(_ sequence: Sequence, repeatSequence: Bool) {
         
         // If it is currently triggering - return
         if isCurrentlyTriggering {
@@ -72,7 +72,7 @@ public class SequenceManager {
         self.currentModule = 0
         
         isTriggering = true
-        timeElapsed = Time(duration: 0, unit: .Milliseconds)
+        timeElapsed = Time(duration: 0, unit: .milliseconds)
         
         unwrapSequence(sequence)
         self.sequenceDelegate?.didPlaySequence?()
@@ -81,7 +81,7 @@ public class SequenceManager {
     /**
      Cancels the sequence of modules that is currently being played
      */
-    public func cancel() {
+    open func cancel() {
         
         // Inform the class that has subscribed to the SequenceLifecycle protocol that the sequence has been canceled
         self.sequenceDelegate?.didCancelSequence?()
@@ -93,7 +93,7 @@ public class SequenceManager {
     
     // MARK: - Private
     
-    private func unwrapSequence(sequence: Sequence) {
+    fileprivate func unwrapSequence(_ sequence: Sequence) {
         
         if self.isCurrentlyTriggering {
             
@@ -115,7 +115,7 @@ public class SequenceManager {
                         // Inform the active view controller that the dispatchable has ended its execution
                         onMain {
                             self.dispatchableDelegate?.didDispatch(dispatchable)
-                            self.currentModule++
+                            self.currentModule += 1
                             self.unwrapSequence(sequence)
                         }
                     } else {
@@ -138,12 +138,12 @@ public class SequenceManager {
         }
     }
     
-    private func stopSequence() { 
+    fileprivate func stopSequence() { 
         
         self.isTriggering = false
         // Stop TTAudio player.
         // Note: This will execute the audioPlayerlDidFinishPlayingAudio() from the AudioPlayerDelegate and all subscribed classes to it.
-        OutputDispatcher.sharedInstance.audioPlayer.stopAudio()
+        OutputDispatcher.sharedInstance.audioPlayer?.stopAudio()
         PreciseTimer.removeAllScheduledEvents()
     }
 }

@@ -89,7 +89,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
 {
     // If the App has a keyWindow, get it, else get the 'top'-most window in the App's hierarchy.
     UIWindow *window = [self _topAppWindow];
-
+    
     // Now get the 'top'-most object in that window and use its width for the Notification.
     UIView *topSubview = [[window subviews] lastObject];
     CGRect notificationFrame = CGRectMake(0, 0, CGRectGetWidth(topSubview.bounds), kNotificationHeight);
@@ -187,20 +187,20 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     // TITLE LABEL
     NSParameterAssert(self.title);
     
-//    static const CGFloat kTitleLabelPaddingX = 8;
+    //    static const CGFloat kTitleLabelPaddingX = 8;
     static const CGFloat kTitleLabelHeight = 20;
     
-//    CGFloat textPaddingX = (self.iconImageView) ? CGRectGetMaxX(self.iconImageView.frame) + kTitleLabelPaddingX : kPaddingX;
+    //    CGFloat textPaddingX = (self.iconImageView) ? CGRectGetMaxX(self.iconImageView.frame) + kTitleLabelPaddingX : kPaddingX;
     CGFloat textPaddingX = kPaddingX;
-//    CGFloat textTrailingX = (self.firstButton) ? CGRectGetWidth(self.bounds) - CGRectGetMinX(self.firstButton.frame) + 9 : 20;
+    //    CGFloat textTrailingX = (self.firstButton) ? CGRectGetWidth(self.bounds) - CGRectGetMinX(self.firstButton.frame) + 9 : 20;
     CGFloat textTrailingX = kPaddingX;
     CGFloat textWidth = notificationWidth - (textPaddingX + textTrailingX);
     
     // expected subtitle calculations
     // TODO: this method is deprecated; update this (use Evil Studios NSString category?)
     static const CGFloat kSubtitleHeight = 50;
-    CGSize expectedSubtitleSize = [self.subtitle sizeWithFont:self.subtitleLabel.font
-                                            constrainedToSize:CGSizeMake(textWidth, kSubtitleHeight)];
+    
+    CGSize expectedSubtitleSize = [self.subtitle sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
     
     BOOL subtitleEmpty = (self.subtitle == nil || self.subtitle.length == 0);
     BOOL subtitleOneLiner = (expectedSubtitleSize.height < 25 && subtitleEmpty == NO);
@@ -418,13 +418,13 @@ static const CGFloat kColorAdjustmentLight = 0.35;
                 [self.backgroundView addSubview:self.closeButton];
                 
                 self.closeButton.titleLabel.font = [UIFont systemFontOfSize:15.0]; // custom font!
-
+                
             }
             
             break;
         }
             
-        // deliberately grabbing one and two button states
+            // deliberately grabbing one and two button states
         case MPGNotificationButtonConfigrationOneButton:
         case MPGNotificationButtonConfigrationTwoButton: {
             
@@ -455,7 +455,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
             
             break;
         }
-
+            
     }
     
     [self setNeedsLayout];
@@ -463,7 +463,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
 }
 
 - (void)show {
-//    NSLog(@"Show volume warning");
+    //    NSLog(@"Show volume warning");
     _isAnimating = YES;
     [self _showNotification];
 }
@@ -518,7 +518,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
         case MPGNotificationAnimationTypeDrop: {
             
             self.backgroundView.center = CGPointMake(self.center.x,
-                                                       self.center.y - CGRectGetHeight(self.bounds));
+                                                     self.center.y - CGRectGetHeight(self.bounds));
             
             self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
             
@@ -547,7 +547,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
         case MPGNotificationAnimationTypeSnap: {
             
             self.backgroundView.center = CGPointMake(self.center.x,
-                                                       self.center.y - 2 * CGRectGetHeight(self.bounds));
+                                                     self.center.y - 2 * CGRectGetHeight(self.bounds));
             
             self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
             
@@ -557,7 +557,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
             UISnapBehavior *snapBehaviour = [[UISnapBehavior alloc] initWithItem:self.backgroundView snapToPoint:centerPoint];
             snapBehaviour.damping = 0.50f;
             [self.animator addBehavior:snapBehaviour];
-
+            
             [self _startDismissTimerIfSet];
             break;
         }
@@ -573,8 +573,8 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     if (animated) {
         
         switch (self.animationType) {
-            
-            // deliberately capturing 2 cases
+                
+                // deliberately capturing 2 cases
             case MPGNotificationAnimationTypeLinear:
             case MPGNotificationAnimationTypeDrop: {
                 
@@ -699,7 +699,7 @@ static const CGFloat kColorAdjustmentLight = 0.35;
     
     [self removeFromSuperview];
     
-//    NSLog(@"Hide volume warning");
+    //    NSLog(@"Hide volume warning");
     _isAnimating = NO;
 }
 

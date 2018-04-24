@@ -136,7 +136,7 @@ class FeedbackViewController: UIViewController, TTCounterLabelDelegate, TTCircle
     
     // MARK: - TTCounterLabelDelegate
     
-    func countdownDidEndForSource(source: TTCounterLabel!) {
+    func countdownDidEnd(forSource source: TTCounterLabel!) {
         //
     }
     

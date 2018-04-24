@@ -49,24 +49,24 @@ class CameraViewController: OnboardingViewController {
     }
     
     func updateDongleCableView() {
-        let plugCenter = dongleCableView.convertPoint(plugImageView.center, fromView: plugView)
-        let dongleCenter = dongleCableView.convertPoint(dongleBodyTopImageView.center, fromView: dongleView)
+        let plugCenter = dongleCableView.convert(plugImageView.center, from: plugView)
+        let dongleCenter = dongleCableView.convert(dongleBodyTopImageView.center, from: dongleView)
         
         dongleCableView.point1 = CGPoint(x: plugCenter.x, y: plugCenter.y + plugImageView.frame.size.height / 2 + 2)
         dongleCableView.point2 = CGPoint(x: dongleCenter.x, y: dongleCenter.y - dongleBodyTopImageView.frame.size.height / 2 - 2)
-        dongleCableView.bezierType = DongleCableView.BezierPathType.Dongle
+        dongleCableView.bezierType = DongleCableView.BezierPathType.dongle
         dongleCableView.addShapeLayer()
     }
     
     func updateCameraCableView() {
         
-        let plugCenter = cameraCableView.convertPoint(cameraConnectorBodyImageView.center, fromView: cameraConnectorView)
+        let plugCenter = cameraCableView.convert(cameraConnectorBodyImageView.center, from: cameraConnectorView)
         
-        let dongleCenter = dongleCoilImageView.convertPoint(dongleCoilImageView.frame.origin, fromView: dongleCoilImageView)
+        let dongleCenter = dongleCoilImageView.convert(dongleCoilImageView.frame.origin, from: dongleCoilImageView)
         
         cameraCableView.point1 = CGPoint(x: plugCenter.x + 5, y: plugCenter.y + cameraConnectorBodyImageView.frame.size.height / 2 + 2)
         cameraCableView.point2 = CGPoint(x: dongleCenter.x + 6, y: dongleCenter.y + dongleCoilImageView.frame.size.height - 6)
-        cameraCableView.bezierType = DongleCableView.BezierPathType.Camera
+        cameraCableView.bezierType = DongleCableView.BezierPathType.camera
         cameraCableView.addShapeLayer()
     }
 }

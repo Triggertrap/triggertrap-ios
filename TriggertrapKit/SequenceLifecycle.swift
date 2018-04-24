@@ -10,30 +10,30 @@
     /**
     Notify that the sequence has been started.
     */
-    optional func didPlaySequence()
+    @objc optional func didPlaySequence()
     
     /**
     Notify that the sequence has been paused.
     */
-    optional func didPauseSequence()
+    @objc optional func didPauseSequence()
     
     /**
     Notify that the sequence has been resumed.
     */
-    optional func didResumeSequence()
+    @objc optional func didResumeSequence()
     
     /**
     Notify that the sequence has been cancelled.
     */
-    optional func didCancelSequence()
+    @objc optional func didCancelSequence()
     
     /**
     Use to get the total time elapsed from the sequence after each dispatchable execution. Duration is returned in milliseconds.
     */
-    optional func didElapseTime(milliseconds: Double)
+    @objc optional func didElapseTime(_ milliseconds: Double)
     
     /**
     Notify that the sequence has successfully finished executing.
     */
-    optional func didFinishSequence()
+    @objc optional func didFinishSequence()
 }

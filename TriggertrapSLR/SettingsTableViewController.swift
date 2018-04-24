@@ -49,8 +49,8 @@ class SettingsTableViewController : UITableViewController {
     
     // MARK: - Properties
     
-    private let settingsManager = SettingsManager.sharedInstance()
-    private var type = SubSettingsViewController.SettingsType.SensorDelay
+    fileprivate let settingsManager = SettingsManager.sharedInstance()
+    fileprivate var type = SubSettingsViewController.SettingsType.sensorDelay
     
     // MARK: - Lifecycle
     
@@ -60,78 +60,85 @@ class SettingsTableViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         // Hide previous screen title from the back button in case we use SettingsTableViewController as initial screen as opposed to OptionsTableViewController
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         performThemeUpdate()
     }
     
-    @IBAction func nightTimeSwitchValueChanged(nightTimeSwitch: UISwitch) {
-        NSUserDefaults.standardUserDefaults().setInteger(nightTimeSwitch.on ? 1 : 0, forKey: ConstAppTheme)
-        NSUserDefaults.standardUserDefaults().synchronize()
+    @IBAction func nightTimeSwitchValueChanged(_ nightTimeSwitch: UISwitch) {
+        UserDefaults.standard.set(nightTimeSwitch.isOn ? 1 : 0, forKey: ConstAppTheme)
+        UserDefaults.standard.synchronize()
         
         // Set application window background fill color
-        (UIApplication.sharedApplication().delegate as! AppDelegate).window?.backgroundColor = UIColor.triggertrap_fillColor(1.0)
+        (UIApplication.shared.delegate as! AppDelegate).window?.backgroundColor = UIColor.triggertrap_fillColor(1.0)
         
         // Post a notification that the app theme has been updated
-        NSNotificationCenter.defaultCenter().postNotificationName(ConstThemeHasBeenUpdated, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: ConstThemeHasBeenUpdated), object: nil)
         
         performThemeUpdate()
     }
     
     // MARK: - Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         
         if (segue.identifier == "showSubSettings") {
-            let vc = segue.destinationViewController as! SubSettingsViewController
+            let vc = segue.destination as! SubSettingsViewController
             vc.settingsType = type
         } else if segue.identifier == "showDelay" {
-            let vc = segue.destinationViewController as! SensorDelayViewController
+            let vc = segue.destination as! SensorDelayViewController
             
             if type.rawValue == 0 {
-                vc.settingsType = SensorDelayViewController.SettingsType.SensorDelay
+                vc.settingsType = SensorDelayViewController.SettingsType.sensorDelay
             } else if type.rawValue == 1 {
-                vc.settingsType = SensorDelayViewController.SettingsType.SensorResetDelay
+                vc.settingsType = SensorDelayViewController.SettingsType.sensorResetDelay
             }
         }
     }
     
     // MARK: - Private
     
-    private func performThemeUpdate() {
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        switch AppTheme() {
+        case .normal:
+            return .lightContent
+        case .night:
+            return .default
+        }
+    }
+    
+    fileprivate func performThemeUpdate() {
         
         self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.triggertrap_metric_regular(23.0), NSForegroundColorAttributeName: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
         self.view.backgroundColor = UIColor.triggertrap_fillColor()
         
         switch AppTheme() {
-        case .Normal:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-            nightTimeSwitch.on = false
+        case .normal:
+            nightTimeSwitch.isOn = false
             break
             
-        case .Night:
-            UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
-            nightTimeSwitch.on = true
+        case .night:
+            nightTimeSwitch.isOn = true
             break
         }
         
-        sensorDelay.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.SensorDelay)
-        sensorResetDelay.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.SensorResetDelay)
-        pulseLength.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.PulseLength)
-        speedUnit.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.SpeedUnit)
-        distanceUnit.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.DistanceUnit)
+        sensorDelay.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.sensorDelay)
+        sensorResetDelay.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.sensorResetDelay)
+        pulseLength.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.pulseLength)
+        speedUnit.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.speedUnit)
+        distanceUnit.text = valueForSettingsWithType(SubSettingsViewController.SettingsType.distanceUnit)
         
-        let versionNumber = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-        let buildNumber = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
+        let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
         
         version.text = "\(versionNumber) (\(buildNumber))"
         
@@ -156,14 +163,14 @@ class SettingsTableViewController : UITableViewController {
         
         self.tableView.reloadData()
         
-        nightTimeSwitch.thumbTintColor = nightTimeSwitch.on ? UIColor.triggertrap_fillColor() : UIColor.triggertrap_foregroundColor()
+        nightTimeSwitch.thumbTintColor = nightTimeSwitch.isOn ? UIColor.triggertrap_fillColor() : UIColor.triggertrap_foregroundColor()
         nightTimeSwitch.onTintColor = UIColor.triggertrap_primaryColor()
     }
     
-    private func applyThemeToCell(cell: BFPaperTableViewCell, titleLabel: UILabel, descriptionLabel: UILabel) {
+    fileprivate func applyThemeToCell(_ cell: BFPaperTableViewCell, titleLabel: UILabel, descriptionLabel: UILabel) {
         
         // If this cell has an accessory view
-        if cell.accessoryType == .DisclosureIndicator {
+        if cell.accessoryType == .disclosureIndicator {
             cell.accessoryView = UIImageView(image: ImageWithColor(UIImage(named: "DisclosureIndicator")!, color: UIColor.triggertrap_foregroundColor()))
             cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 8, height: 13)
         }
@@ -176,74 +183,74 @@ class SettingsTableViewController : UITableViewController {
         descriptionLabel.textColor = UIColor.triggertrap_foregroundColor()
     }
     
-    private func valueForSettingsWithType(type: SubSettingsViewController.SettingsType) -> String {
+    fileprivate func valueForSettingsWithType(_ type: SubSettingsViewController.SettingsType) -> String {
         
         var path: String?
         
         switch type {
             
-        case SubSettingsViewController.SettingsType.SensorDelay:
+        case SubSettingsViewController.SettingsType.sensorDelay:
             path = pathForResource("sensorDelays")
             break
             
-        case SubSettingsViewController.SettingsType.SensorResetDelay:
+        case SubSettingsViewController.SettingsType.sensorResetDelay:
             path = pathForResource("sensorResetDelays")
             break
             
-        case SubSettingsViewController.SettingsType.PulseLength:
+        case SubSettingsViewController.SettingsType.pulseLength:
             path = pathForResource("pulseLengths")
             break
             
-        case SubSettingsViewController.SettingsType.SpeedUnit:
+        case SubSettingsViewController.SettingsType.speedUnit:
             path = pathForResource("speedUnits")
             break
             
-        case SubSettingsViewController.SettingsType.DistanceUnit:
+        case SubSettingsViewController.SettingsType.distanceUnit:
             path = pathForResource("distanceUnits")
             break
         }
         
         let dict = NSDictionary(contentsOfFile: path!)
-        let settingsStrings = dict?.objectForKey("Strings") as! [String]
-        let settingsValues = dict?.objectForKey("Values") as! [Int]
+        let settingsStrings = dict?.object(forKey: "Strings") as! [String]
+        let settingsValues = dict?.object(forKey: "Values") as! [Int]
         
         var settingsValue = ""
-            
+        
         switch type {
             
-        case SubSettingsViewController.SettingsType.SensorDelay:
-            settingsValue = timeFormatted(settingsManager.sensorDelay.unsignedLongLongValue)
+        case SubSettingsViewController.SettingsType.sensorDelay:
+            settingsValue = timeFormatted((settingsManager?.sensorDelay.uint64Value)!)
             
-        case SubSettingsViewController.SettingsType.SensorResetDelay:
+        case SubSettingsViewController.SettingsType.sensorResetDelay:
             
-            settingsValue = timeFormatted(settingsManager.sensorResetDelay.unsignedLongLongValue)
+            settingsValue = timeFormatted((settingsManager?.sensorResetDelay.uint64Value)!)
             
-        case SubSettingsViewController.SettingsType.PulseLength:
+        case SubSettingsViewController.SettingsType.pulseLength:
             
-            for var i = 0; i < settingsValues.count; i++ {
-                if settingsValues[i] as Int == settingsManager.pulseLength.integerValue {
-                    settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "pulseLengthsPlist", bundle: NSBundle.mainBundle(), value: "", comment: "")
+            for i in 0..<settingsValues.count {
+                if settingsValues[i] as Int == settingsManager?.pulseLength.intValue {
+                    settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "pulseLengthsPlist", bundle: Bundle.main, value: "", comment: "")
                     break
                 }
             }
             break
             
-        case SubSettingsViewController.SettingsType.SpeedUnit:
+        case SubSettingsViewController.SettingsType.speedUnit:
             
-            for var i = 0; i < settingsValues.count; i++ {
-                if settingsValues[i] as Int == settingsManager.speedUnit.integerValue { 
-                    settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "speedUnitsPlist", bundle: NSBundle.mainBundle(), value: "", comment: "")
+            for i in 0..<settingsValues.count {
+                if settingsValues[i] as Int == settingsManager?.speedUnit.intValue { 
+                    settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "speedUnitsPlist", bundle: Bundle.main, value: "", comment: "")
                     break
                 }
             }
             break
             
-        case SubSettingsViewController.SettingsType.DistanceUnit:
+        case SubSettingsViewController.SettingsType.distanceUnit:
             
-            for var i = 0; i < settingsValues.count; i++ {
+            for i in 0..<settingsValues.count {
                 
-                if settingsValues[i] as Int == settingsManager.distanceUnit.integerValue { 
-                    settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "distanceUnitsPlist", bundle: NSBundle.mainBundle(), value: "", comment: "")
+                if settingsValues[i] as Int == settingsManager?.distanceUnit.intValue { 
+                    settingsValue = NSLocalizedString(settingsStrings[i] as String, tableName: "distanceUnitsPlist", bundle: Bundle.main, value: "", comment: "")
                     break
                 }
             }
@@ -253,7 +260,7 @@ class SettingsTableViewController : UITableViewController {
         return settingsValue
     }
     
-    private func timeFormatted(totalSeconds: CUnsignedLongLong) -> String {
+    fileprivate func timeFormatted(_ totalSeconds: CUnsignedLongLong) -> String {
         
         let msperhour: CUnsignedLongLong = 3600000
         let mspermin: CUnsignedLongLong = 60000
@@ -282,11 +289,11 @@ class SettingsTableViewController : UITableViewController {
     
     // MARK: - TableView Data Source
     
-    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
             
             // There is a bug with Apple's API for version 8.0.x where changing the font of the header view causes a crash
-            if (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.1 || (UIDevice.currentDevice().systemVersion as NSString).doubleValue < 8.0 {
+            if (UIDevice.current.systemVersion as NSString).doubleValue >= 8.1 || (UIDevice.current.systemVersion as NSString).doubleValue < 8.0 {
                 // Set the font to Metric
                 headerView.textLabel?.font = UIFont.triggertrap_metric_regular(18.0)
                 headerView.textLabel?.textColor = UIColor.triggertrap_accentColor()
@@ -297,41 +304,41 @@ class SettingsTableViewController : UITableViewController {
     
     // MARK: - TableView Delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
         let identifier = cell?.reuseIdentifier
         
         if identifier != nil {
             // The identifiers are set in the storyboard for each cell
             switch (identifier!) {
             case "SensorDelayCell":
-                type = SubSettingsViewController.SettingsType.SensorDelay
-                performSegueWithIdentifier("showDelay", sender: self)
+                type = SubSettingsViewController.SettingsType.sensorDelay
+                performSegue(withIdentifier: "showDelay", sender: self)
                 break
                 
             case "SensorResetDelayCell":
-                type = SubSettingsViewController.SettingsType.SensorResetDelay
-                performSegueWithIdentifier("showDelay", sender: self)
+                type = SubSettingsViewController.SettingsType.sensorResetDelay
+                performSegue(withIdentifier: "showDelay", sender: self)
                 break
                 
             case "PulseLengthCell":
-                type = SubSettingsViewController.SettingsType.PulseLength
-                performSegueWithIdentifier("showSubSettings", sender: self)
+                type = SubSettingsViewController.SettingsType.pulseLength
+                performSegue(withIdentifier: "showSubSettings", sender: self)
                 break
                 
             case "SpeedUnitCell":
-                type = SubSettingsViewController.SettingsType.SpeedUnit
-                performSegueWithIdentifier("showSubSettings", sender: self)
+                type = SubSettingsViewController.SettingsType.speedUnit
+                performSegue(withIdentifier: "showSubSettings", sender: self)
                 break
                 
             case "DistanceUnitCell":
-                type = SubSettingsViewController.SettingsType.DistanceUnit
-                performSegueWithIdentifier("showSubSettings", sender: self)
+                type = SubSettingsViewController.SettingsType.distanceUnit
+                performSegue(withIdentifier: "showSubSettings", sender: self)
                 break;
                 
             case "ResetCell":
-                settingsManager.resetSettings()
-                nightTimeSwitch.on = false
+                settingsManager?.resetSettings()
+                nightTimeSwitch.isOn = false
                 nightTimeSwitchValueChanged(nightTimeSwitch)
                 break;
                 
@@ -339,8 +346,8 @@ class SettingsTableViewController : UITableViewController {
                 break
             }
         }
-
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

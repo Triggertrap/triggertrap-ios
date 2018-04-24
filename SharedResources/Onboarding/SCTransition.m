@@ -44,7 +44,7 @@
     }
 }
 
-- (void)animateLayer:(CALayer *)layer withCompletion:(void(^)())block {
+- (void)animateLayer:(CALayer *)layer withCompletion:(void(^)(void))block {
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
     animation.fromValue = @0.0;
@@ -58,7 +58,7 @@
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    void(^block)() = [anim valueForKeyPath:@"block"];
+    void(^block)(void) = [anim valueForKeyPath:@"block"];
     if (block){
         block();
     }

@@ -25,16 +25,16 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
     @IBOutlet weak var endExposurePicker: HorizontalPicker!
     @IBOutlet weak var endExposureLabel: UILabel!
     
-    private var maxValue = 0.0
-    private var shotsTakenCount = 0
-    private var currentPulseLength = 0
+    fileprivate var maxValue = 0.0
+    fileprivate var shotsTakenCount = 0
+    fileprivate var currentPulseLength = 0
     
-    private let kStartExposurePickerTag = 111
-    private let kEndExposurePickerTag = 222
+    fileprivate let kStartExposurePickerTag = 111
+    fileprivate let kEndExposurePickerTag = 222
     
-    private var sequence: Sequence!
+    fileprivate var sequence: Sequence!
     
-    private var currentPulse = 0
+    fileprivate var currentPulse = 0
     
     // MARK: - Lifecycle
     
@@ -52,30 +52,30 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         durationDisplayLabel.updateApperance()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        photosNumberInputView.value = photosNumberInputView.savedValueForKey("bramping-numberOfPhotos")
+        photosNumberInputView.value = photosNumberInputView.savedValue(forKey: "bramping-numberOfPhotos")
         
-        intervalNumberInputView.value = intervalNumberInputView.savedValueForKey("bramping-duration")
+        intervalNumberInputView.value = intervalNumberInputView.savedValue(forKey: "bramping-duration")
         
-        startExposurePicker.currentIndex = NSIndexPath(forRow:startExposurePicker.savedIndexForKey("bramping-startExposure"), inSection: 0)
+        startExposurePicker.currentIndex = IndexPath(row:startExposurePicker.savedIndex(forKey: "bramping-startExposure"), section: 0)
         
-        endExposurePicker.currentIndex = NSIndexPath(forRow:endExposurePicker.savedIndexForKey("bramping-endExposure") , inSection: 0)
+        endExposurePicker.currentIndex = IndexPath(row:endExposurePicker.savedIndex(forKey: "bramping-endExposure") , section: 0)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("didTrigger:")), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,7 +85,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
     
     // MARK: - IBActions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -121,15 +121,15 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
                 let interval = sequence.durationInMilliseconds()
                 
                 //Set counter label and circle timer duration and count direction
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
                 feedbackViewController.counterLabel?.startValue = CUnsignedLongLong(interval)
                 
                 feedbackViewController.circleTimer?.cycleDuration = interval / 1000.0
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
                 
-                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
-                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
+                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
                 feedbackViewController.shotsTakenLabel?.text = "0/\(Int(photosNumberInputView.value))"
             }
             
@@ -139,15 +139,15 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         }
     }
     
-    @IBAction func openKeyboard(sender : TTNumberInput) {
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+    @IBAction func openKeyboard(_ sender : TTNumberInput) {
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Public
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable)
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is BrampingViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is BrampingViewController && dispatchable is Pulse {
              
             feedbackViewController.pauseCounterLabel?.stop()
             feedbackViewController.pauseCounterLabel?.startValue = 0
@@ -156,7 +156,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
             feedbackViewController.exposureCounterLabel?.start() 
         }
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is BrampingViewController && dispatchable is Delay {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is BrampingViewController && dispatchable is Delay {
             
             feedbackViewController.pauseCounterLabel?.stop()
             feedbackViewController.pauseCounterLabel?.startValue = UInt64(dispatchable.durationInMilliseconds())
@@ -167,12 +167,12 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         }
     }
     
-    override func didDispatch(dispatchable: Dispatchable) {
+    override func didDispatch(_ dispatchable: Dispatchable) {
         super.didDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is BrampingViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is BrampingViewController && dispatchable is Pulse {
             
-            shotsTakenCount++
+            shotsTakenCount += 1
             feedbackViewController.shotsTakenLabel?.text = "\(shotsTakenCount)/\(Int(photosNumberInputView.value))"
         }
     }
@@ -180,7 +180,7 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is BrampingViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is BrampingViewController {
             
             prepareForSequence()
             
@@ -194,58 +194,58 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
     
     // MARK: - Private
     
-    private func setupHorizontalPickers() {
+    fileprivate func setupHorizontalPickers() {
         
-        let shutterSpeeedValues: String = NSBundle.mainBundle().pathForResource("middleExposures", ofType: "plist")!
+        let shutterSpeeedValues: String = Bundle.main.path(forResource: "middleExposures", ofType: "plist")!
         
         startExposurePicker.delegate = self
         startExposurePicker.dataSource = NSArray(contentsOfFile: shutterSpeeedValues) as! Array
-        startExposurePicker.minimumValue = NSNumber(integer: 63)
-        startExposurePicker.maximumValue = NSNumber(integer: 6800000)
+        startExposurePicker.minimumValue = NSNumber(value: 63 as Int)
+        startExposurePicker.maximumValue = NSNumber(value: 6800000 as Int)
         startExposurePicker.defaultIndex = 15
         startExposurePicker.tag = kStartExposurePickerTag
         
         endExposurePicker.delegate = self
         endExposurePicker.dataSource = NSArray(contentsOfFile: shutterSpeeedValues) as! Array
-        endExposurePicker.minimumValue = NSNumber(integer: 63)
-        endExposurePicker.maximumValue = NSNumber(integer: 6800000)
+        endExposurePicker.minimumValue = NSNumber(value: 63 as Int)
+        endExposurePicker.maximumValue = NSNumber(value: 6800000 as Int)
         endExposurePicker.defaultIndex = 21
         endExposurePicker.tag = kEndExposurePickerTag
     }
     
-    private func setupNumberPickers() {
+    fileprivate func setupNumberPickers() {
         
         photosNumberInputView.delegate = self
         photosNumberInputView.minValue = 1
         photosNumberInputView.maxNumberLength = 5
         photosNumberInputView.maxValue = 99999
         photosNumberInputView.value = 360
-        photosNumberInputView.displayView.textAlignment = NSTextAlignment.Center
+        photosNumberInputView.displayView.textAlignment = NSTextAlignment.center
         
         intervalNumberInputView.delegate = self
         intervalNumberInputView.minValue = 63
         intervalNumberInputView.maxValue = 359999990
         intervalNumberInputView.value = 10000
         intervalNumberInputView.showFractions = true
-        intervalNumberInputView.displayView.textAlignment = NSTextAlignment.Center
+        intervalNumberInputView.displayView.textAlignment = NSTextAlignment.center
     }
     
-    private func updateDisplayDuration() {
+    fileprivate func updateDisplayDuration() {
         durationDisplayLabel.startValue = photosNumberInputView.displayValue * intervalNumberInputView.displayValue 
     }
     
-    private func updateDuration() {
+    fileprivate func updateDuration() {
         durationDisplayLabel.startValue = photosNumberInputView.value * intervalNumberInputView.value
     }
     
-    private func updateExposureValues() {
+    fileprivate func updateExposureValues() {
         var startValue = Int(intervalNumberInputView.value)
         
-        for var i: Int = 0; i < startExposurePicker.dataSource.count; i++ {
+        for i in 0..<startExposurePicker.dataSource.count {
             let dict: NSDictionary = startExposurePicker.dataSource[i] as! NSDictionary
-            let num: NSNumber = dict.objectForKey("value") as! NSNumber
+            let num: NSNumber = dict.object(forKey: "value") as! NSNumber
             
-            if startValue > num.integerValue {
+            if startValue > num.intValue {
                 continue
             } else {
                 var j = 0
@@ -255,25 +255,25 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
                 }
                 
                 let newVal: NSDictionary = startExposurePicker.dataSource[j] as! NSDictionary
-                let newNum: NSNumber = newVal.objectForKey("value") as! NSNumber
+                let newNum: NSNumber = newVal.object(forKey: "value") as! NSNumber
                 
-                startValue = newNum.integerValue
+                startValue = newNum.intValue
                 
                 break
             }
         }
         
-        startExposurePicker.maximumValue = NSNumber(integer: startValue)
+        startExposurePicker.maximumValue = NSNumber(value: startValue as Int)
         
         var endValue = Int(intervalNumberInputView.value)
         
-        for var i: Int = endExposurePicker.dataSource.count; i > 0; i-- {
+        for i: Int in ((0 + 1)...endExposurePicker.dataSource.count).reversed() {
             
             let dict = endExposurePicker.dataSource[i - 1] as! NSDictionary
             
-            let num = dict.objectForKey("value") as! NSNumber
+            let num = dict.object(forKey: "value") as! NSNumber
             
-            if endValue < num.integerValue {
+            if endValue < num.intValue {
                 continue
             } else {
                 var j: Int = endExposurePicker.dataSource.count - 1
@@ -283,20 +283,20 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
                 }
                 
                 let newVal = endExposurePicker.dataSource[j] as! NSDictionary
-                let newNum = newVal.objectForKey("value") as! NSNumber
-                endValue = newNum.integerValue
+                let newNum = newVal.object(forKey: "value") as! NSNumber
+                endValue = newNum.intValue
                 
                 break
             }
         }
         
-        endExposurePicker.maximumValue = NSNumber(integer: endValue)
+        endExposurePicker.maximumValue = NSNumber(value: endValue as Int)
     }
     
-    private func setDurationMinimum() {
+    fileprivate func setDurationMinimum() {
         
         
-        var minimumDuration = Float(photosNumberInputView.value) * settingsManager.pulseLength.floatValue
+        var minimumDuration = Float(photosNumberInputView.value) * (settingsManager?.pulseLength.floatValue)!
         
         if minimumDuration < 60.0 {
             minimumDuration = 60.0
@@ -309,17 +309,17 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
     
     // MARK: - Horizontal Picker Delegate
     
-    func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int) {
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectObjectFromDataSourceAt index: Int) {
         let picker: HorizontalPicker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {
             
         case kStartExposurePickerTag:
-            startExposurePicker.saveIndex(index, forKey: "bramping-startExposure")
+            startExposurePicker.save(index, forKey: "bramping-startExposure")
             break
             
         case kEndExposurePickerTag:
-            endExposurePicker.saveIndex(index, forKey: "bramping-endExposure")
+            endExposurePicker.save(index, forKey: "bramping-endExposure")
             break
             
         case 5:
@@ -355,14 +355,14 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         }
     }
     
-    func horizontalPicker(horizontalPicker: AnyObject!, didSelectString string: String!) {
+    func horizontalPicker(_ horizontalPicker: Any!, didSelect string: String!) {
         maxValue = round(max(Double(startExposurePicker.value), Double(endExposurePicker.value)))
         intervalNumberInputView.minValue = CUnsignedLongLong(maxValue * Double(photosNumberInputView.value) / 1000.0)
     }
     
     // MARK: - TTNumberInput Delegate
     
-    func TTNumberInputKeyboardDidDismiss() {
+    func ttNumberInputKeyboardDidDismiss() {
         photosNumberInputView.saveValue(photosNumberInputView.value, forKey: "bramping-numberOfPhotos")
         intervalNumberInputView.saveValue(intervalNumberInputView.value, forKey: "bramping-duration")
         

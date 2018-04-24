@@ -71,6 +71,7 @@ static CGFloat const bfPaperCell_fadeConstant                    = 0.15f;
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
     [self setup];
 }

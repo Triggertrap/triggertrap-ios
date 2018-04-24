@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 //
 
-public struct Pulse: Dispatchable {
+public class Pulse: Dispatchable {
+    
     
     public let name = "Pulse"
     public let type: DispatchableType

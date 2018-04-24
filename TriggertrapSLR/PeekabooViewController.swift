@@ -12,7 +12,7 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
     
     // MARK: - Properties
     
-    private var faceDetectionViewController: FaceDetectionViewController!
+    fileprivate var faceDetectionViewController: FaceDetectionViewController!
     
     // MARK: - Lifecycle
     
@@ -23,17 +23,17 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
         faceDetectionViewController = self.childViewControllers.last as! FaceDetectionViewController
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         faceDetectionViewController.viewWillDisappear(animated)
     }
@@ -45,7 +45,7 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             if cameraPermissionAuthorized() {
@@ -69,7 +69,7 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
     
     // MARK: - Face Detector Delegate
     
-     func facesDetected(faces: UInt) {
+     func facesDetected(_ faces: UInt) {
         // Start the sequence with the stored pulse length from the settings manager
         self.triggerNow()
     }
@@ -83,7 +83,7 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
     override func performThemeUpdate() {
         super.performThemeUpdate()
         
-        faceDetectionViewController.rotationButton?.setImage(ImageWithColor(UIImage(named: "Camera-Rotate")!, color: UIColor.triggertrap_fillColor()), forState: .Normal)
+        faceDetectionViewController.rotationButton?.setImage(ImageWithColor(UIImage(named: "Camera-Rotate")!, color: UIColor.triggertrap_fillColor()), for: UIControlState())
         
         applyThemeUpdateToPicker(faceDetectionViewController.picker)
     }

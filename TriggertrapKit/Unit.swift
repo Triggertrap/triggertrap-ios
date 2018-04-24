@@ -7,20 +7,20 @@
 // 
 
 public enum Unit: Symbol {
-    case Milliseconds, Seconds, Minutes, Hours, Days
+    case milliseconds, seconds, minutes, hours, days
     
     public var symbol: String {
         get {
             switch self {
-            case .Milliseconds:
+            case .milliseconds:
                 return "ms"
-            case .Seconds:
+            case .seconds:
                 return "s"
-            case .Minutes:
+            case .minutes:
                 return "m"
-            case .Hours:
+            case .hours:
                 return "h"
-            case .Days:
+            case .days:
                 return "d"
             }
         }

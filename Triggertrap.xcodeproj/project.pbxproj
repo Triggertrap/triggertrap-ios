@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DF0B459EB8E6F5EC09B5C5C /* Pods_TriggertrapSLR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C94759E9ADAD35B7D584C7 /* Pods_TriggertrapSLR.framework */; };
 		9E23FEBA1BFF3AC50021E659 /* iTunesConnect.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E23FEBC1BFF3AC50021E659 /* iTunesConnect.strings */; };
 		9E67C6831D423BAD00C560CD /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E67C6821D423BAD00C560CD /* SettingsManager.m */; };
 		9E67C69D1D423F6800C560CD /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E67C69C1D423F6800C560CD /* FeedbackViewController.swift */; };
@@ -31,8 +32,6 @@
 		BD098BB21BC6C6E400A87FC8 /* TTNumberPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAA1BC6C6E400A87FC8 /* TTNumberPadView.m */; };
 		BD098BB31BC6C6E400A87FC8 /* TTTimeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAC1BC6C6E400A87FC8 /* TTTimeInput.m */; };
 		BD098BB41BC6C6E400A87FC8 /* TTCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAE1BC6C6E400A87FC8 /* TTCircularSlider.m */; };
-		BD098BB51BC6C6E400A87FC8 /* TTCircleTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BB01BC6C6E400A87FC8 /* TTCircleTimer.m */; };
-		BD098BB81BC6C72600A87FC8 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BB71BC6C72600A87FC8 /* DACircularProgressView.m */; };
 		BD098BBC1BC6C7EE00A87FC8 /* UIColor+branding.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BBB1BC6C7EE00A87FC8 /* UIColor+branding.m */; };
 		BD098BC71BC6CA3900A87FC8 /* SimpleCableReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098BC11BC6CA3900A87FC8 /* SimpleCableReleaseViewController.swift */; };
 		BD098BC81BC6CA3900A87FC8 /* QuickReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098BC21BC6CA3900A87FC8 /* QuickReleaseViewController.swift */; };
@@ -106,7 +105,6 @@
 		BD1FA2191BBE9361002C7AEB /* LeftPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1FA2181BBE9361002C7AEB /* LeftPanelViewController.swift */; };
 		BD1FB4DE1BCE757F00B7A95C /* BFPaperTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1FB4DD1BCE757F00B7A95C /* BFPaperTableViewCell.m */; };
 		BD6464801BF21F7B00B2324B /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64647F1BF21F7B00B2324B /* SeparatorView.swift */; };
-		BD7144BB1BB9488400E7A34B /* MixpanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BA1BB9488400E7A34B /* MixpanelManager.swift */; };
 		BD7144C01BB94F4600E7A34B /* AppleWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BD1BB94F4600E7A34B /* AppleWatchManager.swift */; };
 		BD7144C21BB94F4600E7A34B /* WearablesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BE1BB94F4600E7A34B /* WearablesManager.swift */; };
 		BD7144C41BB94F4600E7A34B /* PebbleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BF1BB94F4600E7A34B /* PebbleManager.swift */; };
@@ -155,10 +153,6 @@
 		BDD44B001BA98B0300B98FF6 /* A440SineWaveGenerator.c in Sources */ = {isa = PBXBuildFile; fileRef = BD2987B31B4D256F007F8B71 /* A440SineWaveGenerator.c */; };
 		BDD44B011BA98B0300B98FF6 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2987B61B4D256F007F8B71 /* AudioPlayer.m */; };
 		BDD44B021BA98B0300B98FF6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C17F1B58061C00928054 /* Reachability.m */; };
-		BDD44B031BA98B0300B98FF6 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C16D1B58059F00928054 /* AsyncSocket.m */; };
-		BDD44B041BA98B0300B98FF6 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C16F1B58059F00928054 /* AsyncUdpSocket.m */; };
-		BDD44B051BA98B0300B98FF6 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90B7431B6B725100CC2932 /* GCDAsyncSocket.m */; };
-		BDD44B061BA98B0300B98FF6 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BD90B7451B6B725100CC2932 /* GCDAsyncUdpSocket.m */; };
 		BDD44B071BA98B0300B98FF6 /* RemoteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD85A7281B6A1F2200317254 /* RemoteClient.swift */; };
 		BDD44B081BA98B0300B98FF6 /* RemoteOutputServer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD56C1761B58060800928054 /* RemoteOutputServer.m */; };
 		BDD44B091BA98B0300B98FF6 /* SequenceLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD46CA141B56A30900B60B1E /* SequenceLifecycle.swift */; };
@@ -224,7 +218,7 @@
 		BDD75CD71BEA56280014DA3D /* pulseLengths.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CD91BEA56280014DA3D /* pulseLengths.plist */; };
 		BDD75CDD1BEA56310014DA3D /* speedUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CDF1BEA56310014DA3D /* speedUnits.plist */; };
 		BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CE51BEA56380014DA3D /* distanceUnits.plist */; };
-		CD578E7B0986E970412B2FFB /* libPods-TriggertrapSLR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D11CA82E27655B2378E8C9E9 /* libPods-TriggertrapSLR.a */; };
+		FA23B3EA208B79D500263445 /* TTCircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23B3E9208B79D500263445 /* TTCircleTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +300,7 @@
 
 /* Begin PBXFileReference section */
 		2A67406A758D2F2F0B332A3B /* Pods-TriggertrapSLR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.release.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.release.xcconfig"; sourceTree = "<group>"; };
+		45C94759E9ADAD35B7D584C7 /* Pods_TriggertrapSLR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TriggertrapSLR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		844F872778F016FF771D8B21 /* Pods-TriggertrapTLP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapTLP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapTLP/Pods-TriggertrapTLP.release.xcconfig"; sourceTree = "<group>"; };
 		9E23FEBB1BFF3AC50021E659 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/iTunesConnect.strings; sourceTree = "<group>"; };
 		9E23FEBD1BFF3ACB0021E659 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/iTunesConnect.strings; sourceTree = "<group>"; };
@@ -348,10 +343,6 @@
 		BD098BAC1BC6C6E400A87FC8 /* TTTimeInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTimeInput.m; sourceTree = "<group>"; };
 		BD098BAD1BC6C6E400A87FC8 /* TTCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircularSlider.h; sourceTree = "<group>"; };
 		BD098BAE1BC6C6E400A87FC8 /* TTCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircularSlider.m; sourceTree = "<group>"; };
-		BD098BAF1BC6C6E400A87FC8 /* TTCircleTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCircleTimer.h; sourceTree = "<group>"; };
-		BD098BB01BC6C6E400A87FC8 /* TTCircleTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCircleTimer.m; sourceTree = "<group>"; };
-		BD098BB61BC6C72600A87FC8 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
-		BD098BB71BC6C72600A87FC8 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
 		BD098BB91BC6C7BE00A87FC8 /* TTBranding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBranding.h; sourceTree = "<group>"; };
 		BD098BBA1BC6C7EE00A87FC8 /* UIColor+branding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+branding.h"; sourceTree = "<group>"; };
 		BD098BBB1BC6C7EE00A87FC8 /* UIColor+branding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+branding.m"; sourceTree = "<group>"; };
@@ -468,10 +459,6 @@
 		BD2987B51B4D256F007F8B71 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		BD2987B61B4D256F007F8B71 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		BD46CA141B56A30900B60B1E /* SequenceLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceLifecycle.swift; sourceTree = "<group>"; };
-		BD56C16C1B58059F00928054 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		BD56C16D1B58059F00928054 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		BD56C16E1B58059F00928054 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
-		BD56C16F1B58059F00928054 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 		BD56C1751B58060800928054 /* RemoteOutputServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteOutputServer.h; sourceTree = "<group>"; };
 		BD56C1761B58060800928054 /* RemoteOutputServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteOutputServer.m; sourceTree = "<group>"; };
 		BD56C17E1B58061C00928054 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -479,7 +466,6 @@
 		BD56C1841B58067F00928054 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		BD56C1851B58067F00928054 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		BD64647F1BF21F7B00B2324B /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
-		BD7144BA1BB9488400E7A34B /* MixpanelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixpanelManager.swift; sourceTree = "<group>"; };
 		BD7144BD1BB94F4600E7A34B /* AppleWatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleWatchManager.swift; sourceTree = "<group>"; };
 		BD7144BE1BB94F4600E7A34B /* WearablesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WearablesManager.swift; sourceTree = "<group>"; };
 		BD7144BF1BB94F4600E7A34B /* PebbleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleManager.swift; sourceTree = "<group>"; };
@@ -507,10 +493,6 @@
 		BD7D54301BCBBB550030219D /* UIDevice+Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Camera.m"; sourceTree = "<group>"; };
 		BD7D54341BCBC4240030219D /* SensorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
 		BD85A7281B6A1F2200317254 /* RemoteClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteClient.swift; sourceTree = "<group>"; };
-		BD90B7421B6B725100CC2932 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		BD90B7431B6B725100CC2932 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		BD90B7441B6B725100CC2932 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		BD90B7451B6B725100CC2932 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		BD934FDC1BD4F2FC00527872 /* ModeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModeTableViewCell.xib; sourceTree = "<group>"; };
 		BD934FDE1BD4F3E500527872 /* ModeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeTableViewCell.swift; sourceTree = "<group>"; };
 		BD934FE21BD52A9100527872 /* CableReleaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CableReleaseViewController.swift; sourceTree = "<group>"; };
@@ -688,8 +670,8 @@
 		BDD75CE71BEA563A0014DA3D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/distanceUnits.plist; sourceTree = "<group>"; };
 		BDD75CE81BEA563B0014DA3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/distanceUnits.plist; sourceTree = "<group>"; };
 		CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapTLP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D11CA82E27655B2378E8C9E9 /* libPods-TriggertrapSLR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapSLR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.debug.xcconfig"; sourceTree = "<group>"; };
+		FA23B3E9208B79D500263445 /* TTCircleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCircleTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -711,7 +693,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD578E7B0986E970412B2FFB /* libPods-TriggertrapSLR.a in Frameworks */,
+				1DF0B459EB8E6F5EC09B5C5C /* Pods_TriggertrapSLR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,8 +717,8 @@
 		79374477B2F7DCA0830A2DD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D11CA82E27655B2378E8C9E9 /* libPods-TriggertrapSLR.a */,
 				CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */,
+				45C94759E9ADAD35B7D584C7 /* Pods_TriggertrapSLR.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -828,8 +810,6 @@
 				BD098BBA1BC6C7EE00A87FC8 /* UIColor+branding.h */,
 				BD098BBB1BC6C7EE00A87FC8 /* UIColor+branding.m */,
 				BD098BB91BC6C7BE00A87FC8 /* TTBranding.h */,
-				BD098BB61BC6C72600A87FC8 /* DACircularProgressView.h */,
-				BD098BB71BC6C72600A87FC8 /* DACircularProgressView.m */,
 				BD098BA71BC6C6E400A87FC8 /* TTNumberInput.h */,
 				BD098BA81BC6C6E400A87FC8 /* TTNumberInput.m */,
 				BD098BA91BC6C6E400A87FC8 /* TTNumberPadView.h */,
@@ -838,8 +818,7 @@
 				BD098BAC1BC6C6E400A87FC8 /* TTTimeInput.m */,
 				BD098BAD1BC6C6E400A87FC8 /* TTCircularSlider.h */,
 				BD098BAE1BC6C6E400A87FC8 /* TTCircularSlider.m */,
-				BD098BAF1BC6C6E400A87FC8 /* TTCircleTimer.h */,
-				BD098BB01BC6C6E400A87FC8 /* TTCircleTimer.m */,
+				FA23B3E9208B79D500263445 /* TTCircleTimer.swift */,
 				BD7144DA1BBA899000E7A34B /* GradientOverlayView.swift */,
 				BD7144C71BBA877B00E7A34B /* BorderButton.swift */,
 				BD7144C81BBA877B00E7A34B /* ShutterButton.swift */,
@@ -1196,7 +1175,6 @@
 				BD098BE61BC7C52400A87FC8 /* TimeWarp */,
 				BD7144D01BBA885200E7A34B /* AudioListener */,
 				BD7144C61BB94F4C00E7A34B /* Wearables */,
-				BD7144BA1BB9488400E7A34B /* MixpanelManager.swift */,
 				BD11343A1BB3F416006ED87A /* DongleObserver.swift */,
 			);
 			name = Model;
@@ -1254,28 +1232,6 @@
 			name = AudioPlayer;
 			sourceTree = "<group>";
 		};
-		BD56C16B1B58057C00928054 /* GCD */ = {
-			isa = PBXGroup;
-			children = (
-				BD90B7421B6B725100CC2932 /* GCDAsyncSocket.h */,
-				BD90B7431B6B725100CC2932 /* GCDAsyncSocket.m */,
-				BD90B7441B6B725100CC2932 /* GCDAsyncUdpSocket.h */,
-				BD90B7451B6B725100CC2932 /* GCDAsyncUdpSocket.m */,
-			);
-			name = GCD;
-			sourceTree = "<group>";
-		};
-		BD56C1741B5805A600928054 /* AsyncSocket */ = {
-			isa = PBXGroup;
-			children = (
-				BD56C16C1B58059F00928054 /* AsyncSocket.h */,
-				BD56C16D1B58059F00928054 /* AsyncSocket.m */,
-				BD56C16E1B58059F00928054 /* AsyncUdpSocket.h */,
-				BD56C16F1B58059F00928054 /* AsyncUdpSocket.m */,
-			);
-			name = AsyncSocket;
-			sourceTree = "<group>";
-		};
 		BD56C17D1B58060B00928054 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
@@ -1301,8 +1257,6 @@
 				BD56C1891B580BA200928054 /* PreciseTimer */,
 				BD2987BB1B4D2574007F8B71 /* AudioPlayer */,
 				BD56C1821B58062200928054 /* Reachability */,
-				BD56C1741B5805A600928054 /* AsyncSocket */,
-				BD56C16B1B58057C00928054 /* GCD */,
 			);
 			name = "Objective-C";
 			sourceTree = "<group>";
@@ -1654,7 +1608,6 @@
 				BD09661E1BF9EE49000C581B /* Embed App Extensions */,
 				9EA592AB1C17381200412B64 /* Fabric Run Script */,
 				52768FF90EE30299F8ED9398 /* [CP] Embed Pods Frameworks */,
-				9876872F8CEDA300B6FFA074 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1742,13 +1695,16 @@
 		9EE1F13B1B1C9DFD00FE6EB7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Triggertrap Limited";
 				TargetAttributes = {
 					9EE1F1A61B1C9FE800FE6EB7 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -1763,24 +1719,31 @@
 					};
 					BD0965FA1BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 					};
 					BD0966091BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
+						ProvisioningStyle = Automatic;
 					};
 					BDD4C3B71BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 					};
 					BDD4C3C31BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 935G2KW2FF;
+						DevelopmentTeam = S4JEZRL8YY;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 9EE1F13E1B1C9DFD00FE6EB7 /* Build configuration list for PBXProject "Triggertrap" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1902,9 +1865,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${PODS_ROOT}/PebbleKit/PebbleKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RPCircularProgress/RPCircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
+				"${BUILT_PRODUCTS_DIR}/TTCounterLabel/TTCounterLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTFeedback.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PebbleKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RPCircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTCounterLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1917,28 +1899,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TriggertrapSLR-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9876872F8CEDA300B6FFA074 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9EA592AB1C17381200412B64 /* Fabric Run Script */ = {
@@ -1984,6 +1954,7 @@
 				BD098BC81BC6CA3900A87FC8 /* QuickReleaseViewController.swift in Sources */,
 				BDD44B121BA98B0300B98FF6 /* Delay.swift in Sources */,
 				BDAB818D1BCBFFC700F84AB6 /* SettingsTableViewController.swift in Sources */,
+				FA23B3EA208B79D500263445 /* TTCircleTimer.swift in Sources */,
 				BDAB817F1BCBFB0A00F84AB6 /* NeutralDensityCalculatorViewController.swift in Sources */,
 				BDD44B1A1BA98B0300B98FF6 /* HeadphoneDispatcher.swift in Sources */,
 				BDAB817A1BCBE70400F84AB6 /* WifiCell.swift in Sources */,
@@ -1994,10 +1965,8 @@
 				BD7D542B1BCBB26F0030219D /* FaceDetectionViewController.m in Sources */,
 				BD17D55B1C0CAC5200843404 /* UserActivityManager.swift in Sources */,
 				BD1133CC1BB3EED1006ED87A /* SCTransition.m in Sources */,
-				BDD44B041BA98B0300B98FF6 /* AsyncUdpSocket.m in Sources */,
 				BDAB816F1BCBDBCD00F84AB6 /* LeHdrViewController.swift in Sources */,
 				BD1133CA1BB3EED1006ED87A /* SCPercentDrivenInteractiveTransition.m in Sources */,
-				BD098BB51BC6C6E400A87FC8 /* TTCircleTimer.m in Sources */,
 				BD1133DE1BB3EED1006ED87A /* NavigationControllerDelegate.swift in Sources */,
 				BD0098561BCD1CE40062C7C8 /* MCPanelViewController.m in Sources */,
 				BDAB81781BCBE70400F84AB6 /* WearablesViewController.swift in Sources */,
@@ -2019,12 +1988,10 @@
 				BD098BBC1BC6C7EE00A87FC8 /* UIColor+branding.m in Sources */,
 				BD098BC91BC6CA3900A87FC8 /* PressAndHoldViewController.swift in Sources */,
 				BD098BF91BC7C93D00A87FC8 /* CLLocation+DMSFormatting.m in Sources */,
-				BDD44B061BA98B0300B98FF6 /* GCDAsyncUdpSocket.m in Sources */,
 				BDD44B0B1BA98B0300B98FF6 /* Sequence.swift in Sources */,
 				BD098BE41BC7C30800A87FC8 /* BezierGraph.m in Sources */,
 				BDAB818C1BCBFFC700F84AB6 /* OptionsTableViewController.swift in Sources */,
 				BD7144DB1BBA899000E7A34B /* GradientOverlayView.swift in Sources */,
-				BDD44B031BA98B0300B98FF6 /* AsyncSocket.m in Sources */,
 				BDD44B1B1BA98B0300B98FF6 /* WifiDispatcher.swift in Sources */,
 				BD098BB21BC6C6E400A87FC8 /* TTNumberPadView.m in Sources */,
 				BDD44B001BA98B0300B98FF6 /* A440SineWaveGenerator.c in Sources */,
@@ -2039,7 +2006,6 @@
 				BD098BB11BC6C6E400A87FC8 /* TTNumberInput.m in Sources */,
 				BDD44B1D1BA98B0300B98FF6 /* Unit.swift in Sources */,
 				BD7D54241BCBB1DF0030219D /* MotionSensorViewController.swift in Sources */,
-				BD098BB81BC6C72600A87FC8 /* DACircularProgressView.m in Sources */,
 				BDAB4AEB1B677F66009EB328 /* AstronomicalCalculator.m in Sources */,
 				BDAB4ADF1B677C54009EB328 /* SequenceCalculator.swift in Sources */,
 				BD7144DF1BBA89A100E7A34B /* CarouselViewController.swift in Sources */,
@@ -2083,7 +2049,6 @@
 				BDAB81831BCBFBF300F84AB6 /* NSString+TimeFormatting.m in Sources */,
 				BD098C421BC7FF9C00A87FC8 /* CircleTimer.swift in Sources */,
 				BDAB4AEE1B677F67009EB328 /* SunriseAndSunset.m in Sources */,
-				BDD44B051BA98B0300B98FF6 /* GCDAsyncSocket.m in Sources */,
 				BD11340A1BB3F01A006ED87A /* KitSelectorViewController.swift in Sources */,
 				BDD44B071BA98B0300B98FF6 /* RemoteClient.swift in Sources */,
 				BD7144C21BB94F4600E7A34B /* WearablesManager.swift in Sources */,
@@ -2110,7 +2075,6 @@
 				BDD44B191BA98B0300B98FF6 /* Dispatcher.swift in Sources */,
 				BDD44B131BA98B0300B98FF6 /* UnwrappableType.swift in Sources */,
 				BD098BCB1BC6CA3900A87FC8 /* TimedReleaseViewController.swift in Sources */,
-				BD7144BB1BB9488400E7A34B /* MixpanelManager.swift in Sources */,
 				BDAB4ADD1B677B59009EB328 /* SunriseSunsetCalculator.m in Sources */,
 				BD098C401BC7FF9200A87FC8 /* TimerStyleKit.swift in Sources */,
 				BDD44B1E1BA98B0300B98FF6 /* Symbol.swift in Sources */,
@@ -2514,17 +2478,28 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2563,17 +2538,28 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -2604,14 +2590,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2623,15 +2611,18 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = TriggertrapSLR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_SWIFT_FLAGS = "-DSLR -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e7fb147-afd5-4c2b-9c2e-9373fa40efeb";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -2639,15 +2630,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2A67406A758D2F2F0B332A3B /* Pods-TriggertrapSLR.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Triggertrap Ltd (935G2KW2FF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2659,15 +2652,18 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = TriggertrapSLR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_SWIFT_FLAGS = "-DSLR";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "27633700-396f-43f8-b44b-71467b976ea2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -2676,14 +2672,19 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "b6b5a02a-f893-4d16-86b1-2654b9914eb0";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -2692,14 +2693,19 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "16fc7ed1-e384-402e-80ff-9d555a9c67bd";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -2709,13 +2715,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f366fc16-63d0-4e7c-ae74-fc14e9dc08e9";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -2728,13 +2737,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f54b0fdd-0ffc-4c3a-a89e-e33058e7d7b8";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -2747,14 +2759,19 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "e168e031-3803-4da2-9e06-10ae5c42e70a";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2765,14 +2782,19 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Triggertrap Ltd";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "d4c5e7b5-e11e-40ee-8ac2-2f6b5074cf18";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2781,18 +2803,23 @@
 		BDD4C3DE1BF0E751008CA311 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f366fc16-63d0-4e7c-ae74-fc14e9dc08e9";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2801,17 +2828,22 @@
 		BDD4C3DF1BF0E751008CA311 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f54b0fdd-0ffc-4c3a-a89e-e33058e7d7b8";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};

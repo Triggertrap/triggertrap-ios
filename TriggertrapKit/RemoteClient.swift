@@ -10,49 +10,49 @@ import Foundation
 import UIKit
 
 @objc public protocol RemoteClientDelegate {
-    optional func remoteClientDidConnectToHost()
-    optional func remoteClientDidDisconnect(error: NSError?)
-    optional func remoteClientDidRefreshServers()
+    @objc optional func remoteClientDidConnectToHost()
+    @objc optional func remoteClientDidDisconnect(_ error: NSError?)
+    @objc optional func remoteClientDidRefreshServers()
 }
 
-public class RemoteClient: NSObject {
-    public static let sharedInstance = RemoteClient()
+open class RemoteClient: NSObject {
+    open static let sharedInstance = RemoteClient()
     
-    public var delegate: RemoteClientDelegate?
+    open var delegate: RemoteClientDelegate?
     
-    public var netServiceBrowser: NSNetServiceBrowser?
-    public var servers: [String: NSNetService]?
-    public var asyncSocket: GCDAsyncSocket?
-    public var serverIndices: [String?]?
-    public var currentServerName: String!
-    public var connected: Bool!
+    open var netServiceBrowser: NetServiceBrowser?
+    open var servers: [String: NetService]?
+    open var asyncSocket: GCDAsyncSocket?
+    open var serverIndices: [String?]?
+    open var currentServerName: String!
+    open var connected: Bool!
     
-    private var disconnecting: Bool!
+    fileprivate var disconnecting: Bool!
     
-    private override init() {
+    fileprivate override init() {
         super.init()
         disconnecting = false
         connected = false
     }
     
-    public func startSearchingForServers() {
+    open func startSearchingForServers() {
         print("Searching ...")
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        self.currentServerName = defaults.stringForKey(kLastConnectMasterServer)
-        self.netServiceBrowser = NSNetServiceBrowser()
+        self.currentServerName = defaults.string(forKey: kLastConnectMasterServer)
+        self.netServiceBrowser = NetServiceBrowser()
         self.netServiceBrowser?.delegate = self
-        self.netServiceBrowser?.searchForServicesOfType("_triggertrap._tcp.", inDomain: "")
+        self.netServiceBrowser?.searchForServices(ofType: "_triggertrap._tcp.", inDomain: "")
     }
     
-    public func disconnectAndStop() {
+    open func disconnectAndStop() {
         if connected == true && !disconnecting {
             print("Disconnecting ...")
             
             disconnecting = false
             
-            self.asyncSocket?.writeData("BYE\r\n".dataUsingEncoding(NSUTF8StringEncoding), withTimeout: 0, tag: 0)
+            self.asyncSocket?.write("BYE\r\n".data(using: String.Encoding.utf8)!, withTimeout: 0, tag: 0)
             
             self.asyncSocket?.disconnectAfterWriting()
         }
@@ -71,9 +71,9 @@ public class RemoteClient: NSObject {
         self.servers?.removeAll()
     }
     
-    public func refreshServerList() {
-        if let servers = servers where serverIndices == nil {
-            serverIndices = [String?](count: servers.count, repeatedValue: nil)
+    open func refreshServerList() {
+        if let servers = servers, serverIndices == nil {
+            serverIndices = [String?](repeating: nil, count: servers.count)
         } else {
             serverIndices?.removeAll()
         }
@@ -84,7 +84,7 @@ public class RemoteClient: NSObject {
                 
                 if let server = server {
                     if (server.addresses?.count != nil) {
-                        if let serviceName = RemoteOutputServer.sharedInstance().serviceName where serviceName == key {
+                        if let serviceName = RemoteOutputServer.sharedInstance().serviceName, serviceName == key {
                             print("Not adding ourself")
                             continue
                         }
@@ -99,21 +99,21 @@ public class RemoteClient: NSObject {
         }
     }
     
-    private func connectToService(service: NSNetService) {
+    fileprivate func connectToService(_ service: NetService) {
         print("Connecting ...")
         
         var done = false
         
         if asyncSocket == nil {
-            asyncSocket = GCDAsyncSocket(delegate: self, delegateQueue: dispatch_get_main_queue())
-            asyncSocket?.IPv4PreferredOverIPv6 = false
+            asyncSocket = GCDAsyncSocket(delegate: self as? GCDAsyncSocketDelegate, delegateQueue: DispatchQueue.main)
+            asyncSocket?.isIPv4PreferredOverIPv6 = false
         }
         
         if let addresses = service.addresses {
             for addr in addresses {
                 
                 do {
-                    try asyncSocket?.connectToAddress(addr)
+                    try asyncSocket?.connect(toAddress: addr)
                     done = true
                     break
                 } catch {let nserror = error as NSError
@@ -126,15 +126,15 @@ public class RemoteClient: NSObject {
             connected = false
         } else {
             currentServerName = service.name
-            NSUserDefaults.standardUserDefaults().setObject(currentServerName, forKey: kLastConnectMasterServer)
+            UserDefaults.standard.set(currentServerName, forKey: kLastConnectMasterServer)
             connected = true
         }
     }
     
-    public func connectToCurrentServer() {
+    open func connectToCurrentServer() {
         if (currentServerName != nil) {
             
-            if let servers = servers, service = servers[currentServerName] {
+            if let servers = servers, let service = servers[currentServerName] {
                 connectToService(service)
             }
         }
@@ -142,30 +142,30 @@ public class RemoteClient: NSObject {
     
     // MARK: - Sockets
     
-    func socket(sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        let CRLF = "\r\n".dataUsingEncoding(NSUTF8StringEncoding)
+    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
+        let CRLF = "\r\n".data(using: String.Encoding.utf8)
         
         print("Socket did connect to host: \(host) port: \(port)")
         
-        let data = "\(UIDevice.currentDevice().name)\r\n".dataUsingEncoding(NSUTF8StringEncoding)
+        let data = "\(UIDevice.current.name)\r\n".data(using: String.Encoding.utf8)
         
-        sock.writeData(data, withTimeout: 0, tag: 0)
+        sock.write(data!, withTimeout: 0, tag: 0)
         
         self.connected = true
         
-        self.asyncSocket?.readDataToData(CRLF, withTimeout: -1, tag: 0)
+        self.asyncSocket?.readData(to: CRLF!, withTimeout: -1, tag: 0)
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.async { () -> Void in
             self.delegate?.remoteClientDidConnectToHost?()
         }
     }
     
-    func socket(sock: GCDAsyncSocket, didReadData data: NSData, withTag tag: Double) {
+    func socket(_ sock: GCDAsyncSocket, didReadData data: Data, withTag tag: Double) {
         print("Read data with tag: \(tag)")
-        sock.writeData("ACK\r\n".dataUsingEncoding(NSUTF8StringEncoding), withTimeout: 0, tag: 0)
+        sock.write("ACK\r\n".data(using: String.Encoding.utf8)!, withTimeout: 0, tag: 0)
         
         if parseData(data) == "BEEP" {
-            SequenceManager.sharedInstance.play(Sequence(modules: [Pulse(time: Time(duration: SettingsManager.sharedInstance().pulseLength.doubleValue, unit: .Milliseconds))]),repeatSequence: false)
+            SequenceManager.sharedInstance.play(Sequence(modules: [Pulse(time: Time(duration: SettingsManager.sharedInstance().pulseLength.doubleValue, unit: .milliseconds))]),repeatSequence: false)
         }
 //        let pulseDuration = (parseData(data) as NSString).doubleValue
 //        
@@ -173,22 +173,22 @@ public class RemoteClient: NSObject {
 //            SequenceManager.sharedInstance.play(Sequence(modules: [Pulse(time: Time(duration: pulseDuration, unit: .Milliseconds))]))
 //        }
         
-        let CRLF = "\r\n".dataUsingEncoding(NSUTF8StringEncoding)
+        let CRLF = "\r\n".data(using: String.Encoding.utf8)
         
-        self.asyncSocket?.readDataToData(CRLF, withTimeout: -1, tag: 0)
+        self.asyncSocket?.readData(to: CRLF!, withTimeout: -1, tag: 0)
     }
     
-    func parseData(data: NSData) -> String {
-        return NSString(data: data, encoding: NSUTF8StringEncoding)?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) ?? ""
+    func parseData(_ data: Data) -> String {
+        return NSString(data: data, encoding: String.Encoding.utf8.rawValue)?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) ?? ""
     }
     
-    func socketDidDisconnect(sock: GCDAsyncSocket, withError error: NSError?) {
+    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError error: NSError?) {
        print("Socket: \(sock)")
         
         connected = false
         disconnecting = false
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.async { () -> Void in
             self.delegate?.remoteClientDidDisconnect?(error)
         }
     } 
@@ -196,23 +196,23 @@ public class RemoteClient: NSObject {
 
 // MARK: - NSNetServiceBrowserDelegate
 
-extension RemoteClient: NSNetServiceDelegate, NSNetServiceBrowserDelegate {
+extension RemoteClient: NetServiceDelegate, NetServiceBrowserDelegate {
     
-    public func netServiceBrowserWillSearch(browser: NSNetServiceBrowser) {
+    public func netServiceBrowserWillSearch(_ browser: NetServiceBrowser) {
         print("Net service browser will search")
     }
     
-    public func netServiceBrowser(browser: NSNetServiceBrowser, didNotSearch errorDict: [String : NSNumber]) {
+    public func netServiceBrowser(_ browser: NetServiceBrowser, didNotSearch errorDict: [String : NSNumber]) {
         print("Did no search: \(errorDict)")
     }
     
-    public func netServiceBrowser(browser: NSNetServiceBrowser, didFindService service: NSNetService, moreComing: Bool) {
+    public func netServiceBrowser(_ browser: NetServiceBrowser, didFind service: NetService, moreComing: Bool) {
         
         service.delegate = self
-        service.resolveWithTimeout(5.0)
+        service.resolve(withTimeout: 5.0)
         
         if servers == nil {
-            servers = [String: NSNetService]()
+            servers = [String: NetService]()
         }
         
         servers?[service.name] = service
@@ -220,20 +220,20 @@ extension RemoteClient: NSNetServiceDelegate, NSNetServiceBrowserDelegate {
         refreshServerList()
     }
     
-    public func netServiceBrowser(browser: NSNetServiceBrowser, didRemoveService service: NSNetService, moreComing: Bool) {
+    public func netServiceBrowser(_ browser: NetServiceBrowser, didRemove service: NetService, moreComing: Bool) {
         print("Did remove service: \(service.name)")
         
-        self.servers?.removeValueForKey(service.name)
+        self.servers?.removeValue(forKey: service.name)
         service.delegate = nil
         
         self.refreshServerList()
     } 
     
-    public func netServiceBrowserDidStopSearch(browser: NSNetServiceBrowser) {
+    public func netServiceBrowserDidStopSearch(_ browser: NetServiceBrowser) {
         print("Did stop serch")
     }
     
-    public func netServiceDidResolveAddress(service: NSNetService) {
+    public func netServiceDidResolveAddress(_ service: NetService) {
         self.refreshServerList()
     } 
 }

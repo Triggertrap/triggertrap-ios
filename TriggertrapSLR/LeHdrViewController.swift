@@ -19,10 +19,10 @@
     @IBOutlet weak var evHorizontalPicker: HorizontalPicker!
     @IBOutlet weak var evLabel: UILabel!
     
-    private var numberOfShotsTaken = 0
-    private var ev: double_t = 0
-    private var num = 0
-    private var sequence: Sequence!
+    fileprivate var numberOfShotsTaken = 0
+    fileprivate var ev: double_t = 0
+    fileprivate var num = 0
+    fileprivate var sequence: Sequence!
     
     // MARK: - Lifecycle
     
@@ -31,26 +31,26 @@
         setHorizontalPickers()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("didTrigger:")), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
-        middleExposureHorizontalPicker.currentIndex = NSIndexPath(forRow: middleExposureHorizontalPicker.savedIndexForKey("lehdr-middleExposure"), inSection: 0)
-        numberOfExposuresHorizontalPicker.currentIndex = NSIndexPath(forRow: numberOfExposuresHorizontalPicker.savedIndexForKey("lehdr-exposures"), inSection: 0)
-        evHorizontalPicker.currentIndex = NSIndexPath(forRow: evHorizontalPicker.savedIndexForKey("lehdr-ev"), inSection: 0)
+        middleExposureHorizontalPicker.currentIndex = IndexPath(row: middleExposureHorizontalPicker.savedIndex(forKey: "lehdr-middleExposure"), section: 0)
+        numberOfExposuresHorizontalPicker.currentIndex = IndexPath(row: numberOfExposuresHorizontalPicker.savedIndex(forKey: "lehdr-exposures"), section: 0)
+        evHorizontalPicker.currentIndex = IndexPath(row: evHorizontalPicker.savedIndex(forKey: "lehdr-ev"), section: 0)
         
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +59,7 @@
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             if sufficientVolumeToTrigger() {
@@ -76,15 +76,15 @@
                 let interval = sequence.durationInMilliseconds() / 1000.0
                 
                 //Setup counter label and circle timer so that they are populated when red view animates
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
                 feedbackViewController.counterLabel?.startValue = CUnsignedLongLong(interval * 1000)
                 
                 feedbackViewController.circleTimer?.cycleDuration = interval
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
                 
-                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
-                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.pauseCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
+                feedbackViewController.exposureCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
             }
             
         } else {
@@ -108,57 +108,57 @@
     
     // MARK: - Private
     
-    private func setHorizontalPickers() {
+    fileprivate func setHorizontalPickers() {
         
         // Middle Horizontal Picker
-        let middleExposureValues = NSBundle.mainBundle().pathForResource("middleExposures", ofType: "plist")!
+        let middleExposureValues = Bundle.main.path(forResource: "middleExposures", ofType: "plist")!
         middleExposureHorizontalPicker.delegate = self
         middleExposureHorizontalPicker.dataSource = NSArray(contentsOfFile: middleExposureValues) as! Array
-        middleExposureHorizontalPicker.minimumValue = NSNumber(integer: 63)
-        middleExposureHorizontalPicker.maximumValue = NSNumber(integer: 6800000)
+        middleExposureHorizontalPicker.minimumValue = NSNumber(value: 63 as Int)
+        middleExposureHorizontalPicker.maximumValue = NSNumber(value: 6800000 as Int)
         middleExposureHorizontalPicker.defaultIndex = 15
         middleExposureHorizontalPicker.tag = 0
         
         // EV Horizontal Picker
-        let evValues = NSBundle.mainBundle().pathForResource("evValues", ofType: "plist")!
+        let evValues = Bundle.main.path(forResource: "evValues", ofType: "plist")!
         evHorizontalPicker.delegate = self
         evHorizontalPicker.dataSource = NSArray(contentsOfFile:evValues) as! Array
-        evHorizontalPicker.minimumValue = NSNumber(integer: 0)
-        evHorizontalPicker.maximumValue = NSNumber(integer: 3)
+        evHorizontalPicker.minimumValue = NSNumber(value: 0 as Int)
+        evHorizontalPicker.maximumValue = NSNumber(value: 3 as Int)
         evHorizontalPicker.defaultIndex = 1
         evHorizontalPicker.tag = 1
         
         // Exposures Horizontal Picker
-        let exposuresValues = NSBundle.mainBundle().pathForResource("numberOfExposures", ofType: "plist")!
+        let exposuresValues = Bundle.main.path(forResource: "numberOfExposures", ofType: "plist")!
         numberOfExposuresHorizontalPicker.delegate = self
         numberOfExposuresHorizontalPicker.dataSource = NSArray(contentsOfFile: exposuresValues) as! Array
-        numberOfExposuresHorizontalPicker.minimumValue = NSNumber(integer: 0)
-        numberOfExposuresHorizontalPicker.maximumValue = NSNumber(integer: 19)
+        numberOfExposuresHorizontalPicker.minimumValue = NSNumber(value: 0 as Int)
+        numberOfExposuresHorizontalPicker.maximumValue = NSNumber(value: 19 as Int)
         numberOfExposuresHorizontalPicker.defaultIndex = 0
         numberOfExposuresHorizontalPicker.tag = 2
     }
     
-    private func updateBracketLimits() {
+    fileprivate func updateBracketLimits() {
         setEV()
         
         var count = SequenceCalculator.sharedInstance.maximumNumberOfExposuresForMinumumExposure(30.0, midExposure: Double(middleExposureHorizontalPicker.value), evStep: ev)
         
         count = count < 3 ? 3 : count
         
-        numberOfExposuresHorizontalPicker.maximumValue = NSNumber(integer: count)
+        numberOfExposuresHorizontalPicker.maximumValue = NSNumber(value: count as Int)
         numberOfExposuresHorizontalPicker.refreshCurrentIndex()
         
         if count == 3 {
             num = 3
-            numberOfExposuresHorizontalPicker.hidden = true
+            numberOfExposuresHorizontalPicker.isHidden = true
             exposuresLabel.text = NSLocalizedString("Number of exposures: 3", comment: "Number of exposures: 3")
         } else {
-            numberOfExposuresHorizontalPicker.hidden = false
+            numberOfExposuresHorizontalPicker.isHidden = false
             exposuresLabel.text = NSLocalizedString("Number of exposures", comment: "Number of exposures")
         }
     }
     
-    private func setEV() {
+    fileprivate func setEV() {
         ev = 1.0
         
         switch Int(roundf(evHorizontalPicker.value)) {
@@ -185,18 +185,18 @@
         }
     }
     
-    private func updateNumberOfExposures() {
+    fileprivate func updateNumberOfExposures() {
         num = Int(roundf(numberOfExposuresHorizontalPicker.value))
         num -= (1 - num % 2)
     }
     
     // MARK: - Dispatchable Lifecycle Delegate
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrViewController && dispatchable is Pulse {
-            numberOfShotsTaken++
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is LeHdrViewController && dispatchable is Pulse {
+            numberOfShotsTaken += 1
             
             feedbackViewController.shotsTakenLabel?.text = "\(numberOfShotsTaken)/\(num)"
             feedbackViewController.exposureCounterLabel?.startValue = UInt64(dispatchable.durationInMilliseconds())
@@ -207,10 +207,10 @@
         }
     }
     
-    override func didDispatch(dispatchable: Dispatchable) {
+    override func didDispatch(_ dispatchable: Dispatchable) {
         super.didDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrViewController && dispatchable is Pulse {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is LeHdrViewController && dispatchable is Pulse {
             
             feedbackViewController.pauseCounterLabel?.stop()
             feedbackViewController.pauseCounterLabel?.startValue = 1000
@@ -225,7 +225,7 @@
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is LeHdrViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is LeHdrViewController {
             
             //Start counter label and circle timer
             feedbackViewController.startAnimations()
@@ -243,33 +243,33 @@
     
     // MARK - Horizontal Picker Delegate
     
-    func horizontalPicker(horizontalPicker: AnyObject!, didSelectObjectFromDataSourceAtIndex index: Int) {
-        
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectObjectFromDataSourceAt index: Int) {
         let picker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {
-            // Middle Exposure Horizontal Picker
+        // Middle Exposure Horizontal Picker
         case 0:
-            middleExposureHorizontalPicker.saveIndex(index, forKey: "lehdr-middleExposure")
+            middleExposureHorizontalPicker.save(index, forKey: "lehdr-middleExposure")
             break
             
-            // EV Horizontal Picker
+        // EV Horizontal Picker
         case 1:
-            evHorizontalPicker.saveIndex(index, forKey: "lehdr-ev")
+            evHorizontalPicker.save(index, forKey: "lehdr-ev")
             break
             
-            // Number of exposures Horizontal Picker
+        // Number of exposures Horizontal Picker
         case 2:
-            numberOfExposuresHorizontalPicker.saveIndex(index, forKey: "lehdr-exposures")
+            numberOfExposuresHorizontalPicker.save(index, forKey: "lehdr-exposures")
             break
             
         default:
-            print("Default")
+            print("Default", terminator: "")
             break
         }
     }
     
-    func horizontalPicker(horizontalPicker: AnyObject!, didSelectValue value: NSNumber!) {
+    
+    func horizontalPicker(_ horizontalPicker: Any!, didSelectValue value: NSNumber!) {
         let picker = horizontalPicker as! HorizontalPicker
         
         switch picker.tag {

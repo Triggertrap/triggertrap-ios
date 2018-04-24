@@ -13,7 +13,7 @@ class ShutterButton: UIButton {
     
     // MARK: - Inspectables
     
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var ringColor : UIColor = UIColor.triggertrap_naturalColor(1.0) {
         didSet {
@@ -80,7 +80,7 @@ class ShutterButton: UIButton {
     
     var animating = false
     var continuous = true
-    var timer = NSTimer()
+    var timer = Timer()
     var ring1 = CAShapeLayer()
     var ring2 = CAShapeLayer()
     var animationLayer = CALayer()
@@ -115,7 +115,7 @@ class ShutterButton: UIButton {
     func startAnimating() {
         addAnimationLayers()
         animateRing1()
-        timer = NSTimer.scheduledTimerWithTimeInterval(animationInterval, target: self, selector: Selector("timerFired"), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: animationInterval, target: self, selector: #selector(ShutterButton.timerFired), userInfo: nil, repeats: true)
         animating = true
 //        } else {
 //            ringColor = UIColor.triggertrap_primaryColor(1.0)
@@ -134,14 +134,14 @@ class ShutterButton: UIButton {
     
     // #pragma mark - Private
     
-    private func commonInit() {
+    fileprivate func commonInit() {
         // Initialization code
 
-        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: UIInterpolatingMotionEffectType.TiltAlongVerticalAxis)
+        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: UIInterpolatingMotionEffectType.tiltAlongVerticalAxis)
         verticalMotionEffect.minimumRelativeValue = -motionOffset
         verticalMotionEffect.maximumRelativeValue = motionOffset
         
-        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: UIInterpolatingMotionEffectType.TiltAlongHorizontalAxis)
+        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: UIInterpolatingMotionEffectType.tiltAlongHorizontalAxis)
         horizontalMotionEffect.minimumRelativeValue = -motionOffset
         horizontalMotionEffect.maximumRelativeValue = motionOffset
         
@@ -155,7 +155,7 @@ class ShutterButton: UIButton {
         self.layoutIfNeeded()
         self.setNeedsDisplay()
         
-        let shapePosition = self.superview?.convertPoint(self.center, fromView: self.superview)
+        let shapePosition = self.superview?.convert(self.center, from: self.superview)
         
         ring1.position = shapePosition!
         ring2.position = shapePosition!
@@ -163,7 +163,7 @@ class ShutterButton: UIButton {
         ring2.setNeedsDisplay()
     }
     
-    func timerFired() {
+    @objc func timerFired() {
         if continuous {
             animateRing1()
         } else {
@@ -174,8 +174,8 @@ class ShutterButton: UIButton {
     func animateRing1() {
         let scaleAnimation = CABasicAnimation()
         scaleAnimation.keyPath = "transform"
-        scaleAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-        scaleAnimation.toValue = NSValue(CATransform3D: CATransform3DMakeScale(ringScaleSize, ringScaleSize, 1.0))
+        scaleAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
+        scaleAnimation.toValue = NSValue(caTransform3D: CATransform3DMakeScale(ringScaleSize, ringScaleSize, 1.0))
         
         let alphaAnimation = CABasicAnimation()
         alphaAnimation.keyPath = "opacity"
@@ -187,10 +187,10 @@ class ShutterButton: UIButton {
         animation.duration = 0.7
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         
-        ring1.addAnimation(animation, forKey: "sonarAnimation")
+        ring1.add(animation, forKey: "sonarAnimation")
         
         let offset = 0.3
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(offset * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(offset * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
             self.animateRing2()
         })
     }
@@ -198,8 +198,8 @@ class ShutterButton: UIButton {
     func animateRing2() {
         let scaleAnimation = CABasicAnimation()
         scaleAnimation.keyPath = "transform"
-        scaleAnimation.fromValue = NSValue(CATransform3D: CATransform3DIdentity)
-        scaleAnimation.toValue = NSValue(CATransform3D: CATransform3DMakeScale(ringScaleSize, ringScaleSize, 1.0))
+        scaleAnimation.fromValue = NSValue(caTransform3D: CATransform3DIdentity)
+        scaleAnimation.toValue = NSValue(caTransform3D: CATransform3DMakeScale(ringScaleSize, ringScaleSize, 1.0))
         
         let alphaAnimation = CABasicAnimation()
         alphaAnimation.keyPath = "opacity"
@@ -211,30 +211,30 @@ class ShutterButton: UIButton {
         animation.duration = 0.4
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         
-        self.ring2.addAnimation(animation, forKey: "sonarAnimation2")
+        self.ring2.add(animation, forKey: "sonarAnimation2")
     }
     
     func addAnimationLayers() {
-        let pathFrame = CGRectMake(-CGRectGetMidX(bounds), -CGRectGetMidY(bounds), bounds.size.width, bounds.size.height)
+        let pathFrame = CGRect(x: -bounds.midX, y: -bounds.midY, width: bounds.size.width, height: bounds.size.height)
         // This is a bit of a hack and could be done better.
-        let reducedRect = CGRectMake(pathFrame.origin.x + 20, pathFrame.origin.y + 20, pathFrame.size.width - 40, pathFrame.size.height - 40)
+        let reducedRect = CGRect(x: pathFrame.origin.x + 20, y: pathFrame.origin.y + 20, width: pathFrame.size.width - 40, height: pathFrame.size.height - 40)
         let path = UIBezierPath(roundedRect: reducedRect, cornerRadius: layer.cornerRadius)
         
-        let shapePosition = self.superview?.convertPoint(self.center, fromView: self.superview)
-        ring1.path = path.CGPath
+        let shapePosition = self.superview?.convert(self.center, from: self.superview)
+        ring1.path = path.cgPath
         ring1.position = shapePosition!
-        ring1.fillColor = UIColor.clearColor().CGColor
+        ring1.fillColor = UIColor.clear.cgColor
         ring1.opacity = 0.0
-        ring1.strokeColor = centerColor.CGColor
+        ring1.strokeColor = centerColor.cgColor
         ring1.lineWidth = ringWidth
         
         animationLayer.addSublayer(ring1)
         
-        ring2.path = path.CGPath
+        ring2.path = path.cgPath
         ring2.position = shapePosition!
-        ring2.fillColor = UIColor.clearColor().CGColor
+        ring2.fillColor = UIColor.clear.cgColor
         ring2.opacity = 0.0
-        ring2.strokeColor = centerColor.CGColor
+        ring2.strokeColor = centerColor.cgColor
         ring2.lineWidth = ringWidth
         
         animationLayer.addSublayer(ring2)
@@ -247,27 +247,27 @@ class ShutterButton: UIButton {
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
         
         // Get the center point
-        let centerPoint = CGPointMake(rect.size.width / 2, rect.size.height / 2)
+        let centerPoint = CGPoint(x: rect.size.width / 2, y: rect.size.height / 2)
         
         // Draw the center circle
         let circleLayer = CAShapeLayer()
         
-        let innerRect = CGRectMake(bounds.origin.x + ((bounds.size.width / 2.0) - centerRadius) , bounds.origin.y + ((bounds.size.height / 2.0) - centerRadius), (2 * centerRadius), (2 * centerRadius))
+        let innerRect = CGRect(x: bounds.origin.x + ((bounds.size.width / 2.0) - centerRadius) , y: bounds.origin.y + ((bounds.size.height / 2.0) - centerRadius), width: (2 * centerRadius), height: (2 * centerRadius))
         
-        let circlePath = UIBezierPath(roundedRect: innerRect, cornerRadius: innerRect.size.width / 2.0).CGPath
+        let circlePath = UIBezierPath(roundedRect: innerRect, cornerRadius: innerRect.size.width / 2.0).cgPath
 
         circleLayer.bounds = rect
         circleLayer.path = circlePath
-        circleLayer.fillColor = centerColor.colorWithAlphaComponent(centerAlpha).CGColor
+        circleLayer.fillColor = centerColor.withAlphaComponent(centerAlpha).cgColor
         
         circleLayer.position = centerPoint
         
         // Add the stroke to the circle
-        circleLayer.strokeColor = strokeColor.colorWithAlphaComponent(strokeAlpha).CGColor
+        circleLayer.strokeColor = strokeColor.withAlphaComponent(strokeAlpha).cgColor
         circleLayer.lineWidth = strokeWidth
         
         layer.addSublayer(circleLayer)
@@ -275,7 +275,7 @@ class ShutterButton: UIButton {
         // Draw the outer ring
         let ringLayer = CAShapeLayer()
         
-        let ringPath = CGPathCreateWithEllipseInRect(rect, nil)
+        let ringPath = CGPath(ellipseIn: rect, transform: nil)
         ringLayer.bounds = rect
         ringLayer.path = ringPath
         
@@ -283,8 +283,8 @@ class ShutterButton: UIButton {
         
         layer.mask = ringLayer
         
-        layer.cornerRadius = CGRectGetHeight(rect) / 2
-        layer.borderColor = ringColor.colorWithAlphaComponent(ringAlpha).CGColor
+        layer.cornerRadius = rect.height / 2
+        layer.borderColor = ringColor.withAlphaComponent(ringAlpha).cgColor
         layer.borderWidth = ringWidth
     }
 }

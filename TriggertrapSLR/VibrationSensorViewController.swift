@@ -18,11 +18,11 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
     
     // MARK: - Properties
     
-    private var sensitivityValue: Float = 0.0
-    private let motionManager = CMMotionManager()
-    private let filter = HighpassFilter(sampleRate: 30.0, cutoffFrequency: 5.0)
-    private var isTriggering = false
-    private var shouldPopNameLabel = false
+    fileprivate var sensitivityValue: Float = 0.0
+    fileprivate let motionManager = CMMotionManager()
+    fileprivate let filter = HighpassFilter(sampleRate: 30.0, cutoffFrequency: 5.0)
+    fileprivate var isTriggering = false
+    fileprivate var shouldPopNameLabel = false
     
     // MARK: - Lifecycle
     
@@ -37,44 +37,44 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
         circularVibrationLevel.maximumValue = -3.91
         circularVibrationLevel.lineWidth = 12.0
         circularVibrationLevel.thumbImage = nil
-        circularVibrationLevel.userInteractionEnabled = false
+        circularVibrationLevel.isUserInteractionEnabled = false
         
         sensitivityValue = -2.5
         
         motionManager.accelerometerUpdateInterval = 1.0 / 10.0
-        filter.adaptive = true
+        filter?.isAdaptive = true
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didTrigger:", name: "kTTDongleDidTriggerNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector(("didTrigger:")), name: NSNotification.Name(rawValue: "kTTDongleDidTriggerNotification"), object: nil)
         
-        let previousVibrationThreshold  = NSUserDefaults.standardUserDefaults().floatForKey("lastUsedVibrationThreshold")
+        let previousVibrationThreshold  = UserDefaults.standard.float(forKey: "lastUsedVibrationThreshold")
         
         if previousVibrationThreshold != 0.0 {
-            sensitivityValue = NSUserDefaults.standardUserDefaults().floatForKey("lastUsedVibrationThreshold")
+            sensitivityValue = UserDefaults.standard.float(forKey: "lastUsedVibrationThreshold")
             circularSlider.value = sensitivityValue
         } else {
             sensitivityValue = -4.825
             circularSlider.value = sensitivityValue
         } 
 
-        if motionManager.accelerometerAvailable {
-            motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: {
                 accelerometerData, error in
                 let acceleration: CMAcceleration = accelerometerData!.acceleration
-                self.filter.addAcceleration(acceleration)
+                self.filter?.add(acceleration)
                 
-                let magnitude: Float = sqrt(Float(self.filter.x * self.filter.x + self.filter.y * self.filter.y + self.filter.z * self.filter.z) / 3.0)
+                let magnitude: Float = sqrt(Float(self.filter!.x * self.filter!.x + self.filter!.y * self.filter!.y + self.filter!.z * self.filter!.z) / 3.0)
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.circularVibrationLevel.value = logf(magnitude)
                 })
                 
                 if logf(magnitude) > self.sensitivityValue && (self.isTriggering == true) {
                     
-                    if let activeViewController = self.sequenceManager.activeViewController where activeViewController is VibrationSensorViewController {
+                    if let activeViewController = self.sequenceManager.activeViewController, activeViewController is VibrationSensorViewController {
                         self.prepareForSequence()
                         self.triggerNow()
                     }
@@ -85,8 +85,8 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -102,17 +102,17 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         motionManager.stopAccelerometerUpdates()
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             if sufficientVolumeToTrigger() {
@@ -132,17 +132,17 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
     
     // MARK: - Overrides
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable)
         popNameLabelText(true)
     }
     
-    override func didDispatch(dispatchable: Dispatchable) {
+    override func didDispatch(_ dispatchable: Dispatchable) {
         super.didDispatch(dispatchable)
         popNameLabelText(false)
     }
     
-    private func popNameLabelText(popLabel: Bool) {
+    fileprivate func popNameLabelText(_ popLabel: Bool) {
         if popLabel {
             shouldPopNameLabel = true
             pop(nameLabel, fromScale: 1.0, toScale: 2.6)
@@ -165,10 +165,10 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
         circularSlider.maximumTrackTintColor = UIColor.triggertrap_naturalColor()
         
         switch AppTheme() {
-        case .Normal:
+        case .normal:
             circularSlider.thumbImage = "slider-thumb"
             break
-        case .Night:
+        case .night:
             circularSlider.thumbImage = "slider-thumb_night"
             break
         }
@@ -181,11 +181,11 @@ class VibrationSensorViewController: SensorViewController, CicularSliderDelegate
     
     // MARK: - CicularSliderDelegate
     
-    func circularSliderValueChanged(newValue: NSNumber!) {
+    func circularSliderValueChanged(_ newValue: NSNumber!) {
         sensitivityValue = newValue.floatValue
         
-        NSUserDefaults.standardUserDefaults().setFloat(sensitivityValue, forKey: "lastUsedVibrationThreshold")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(sensitivityValue, forKey: "lastUsedVibrationThreshold")
+        UserDefaults.standard.synchronize()
     }
 }
 

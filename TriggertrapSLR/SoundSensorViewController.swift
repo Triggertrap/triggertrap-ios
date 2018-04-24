@@ -18,10 +18,10 @@ class SoundSensorViewController: SensorViewController {
     
     // MARK: - Properties
     
-    private var sensitivityValue: Float = 0.0
-    private var audioListener: AudioListener!
-    private var isTriggering = false
-    private var shouldPopNameLabel = false
+    fileprivate var sensitivityValue: Float = 0.0
+    fileprivate var audioListener: AudioListener!
+    fileprivate var isTriggering = false
+    fileprivate var shouldPopNameLabel = false
     
     // MARK: - Lifecycle 
     
@@ -39,15 +39,15 @@ class SoundSensorViewController: SensorViewController {
         circularSoundLevel.maximumValue = 1.0
         circularSoundLevel.lineWidth = 12.0
         circularSoundLevel.thumbImage = nil
-        circularSoundLevel.userInteractionEnabled = false
+        circularSoundLevel.isUserInteractionEnabled = false
         
-        OutputDispatcher.sharedInstance.audioPlayer.start()
+        OutputDispatcher.sharedInstance.audioPlayer?.start()
         audioListener = AudioListener()
         
-        let previousSoundThreshold: Float? = NSUserDefaults.standardUserDefaults().floatForKey("lastUsedSoundThreshold")
+        let previousSoundThreshold: Float? = UserDefaults.standard.float(forKey: "lastUsedSoundThreshold")
         
         if previousSoundThreshold != 0.0 {
-            sensitivityValue = NSUserDefaults.standardUserDefaults().floatForKey("lastUsedSoundThreshold")
+            sensitivityValue = UserDefaults.standard.float(forKey: "lastUsedSoundThreshold")
             circularSlider.value = sensitivityValue
             print("\(sensitivityValue)")
         } else {
@@ -56,7 +56,7 @@ class SoundSensorViewController: SensorViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         audioListener.delegate = self
@@ -66,16 +66,16 @@ class SoundSensorViewController: SensorViewController {
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Remove the audio listener if this mode is not active
-        guard let activeViewController = sequenceManager.activeViewController where activeViewController is SoundSensorViewController else {
+        guard let activeViewController = sequenceManager.activeViewController, activeViewController is SoundSensorViewController else {
             
             // Check the audio listener has not been deallocated
             if let _ = self.audioListener {
@@ -101,7 +101,7 @@ class SoundSensorViewController: SensorViewController {
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -131,17 +131,17 @@ class SoundSensorViewController: SensorViewController {
     
     // MARK: - Overrides
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable)
         popNameLabelText(true)
     }
     
-    override func didDispatch(dispatchable: Dispatchable) {
+    override func didDispatch(_ dispatchable: Dispatchable) {
         super.didDispatch(dispatchable)
         popNameLabelText(false)
     }
     
-    private func popNameLabelText(popLabel: Bool) {
+    fileprivate func popNameLabelText(_ popLabel: Bool) {
         if popLabel {
             shouldPopNameLabel = true
             pop(nameLabel, fromScale: 1.0, toScale: 2.6)
@@ -157,7 +157,7 @@ class SoundSensorViewController: SensorViewController {
     
     // MARK: - Private
     
-    private func showPermissionDeniedAlert() {
+    fileprivate func showPermissionDeniedAlert() {
         
         // Show alert that microphone permission is not set or disabled
         ShowAlertInViewController(self, title: NSLocalizedString("I can't hear you", comment: "I can't hear you"), message: NSLocalizedString("I can't hear you .. Is microphone permission disabled, perhaps?", comment: "I can't hear you .. Is microphone permission disabled, perhaps?"), cancelButton: NSLocalizedString("OK", comment: "OK")) 
@@ -172,10 +172,10 @@ class SoundSensorViewController: SensorViewController {
         circularSlider.maximumTrackTintColor = UIColor.triggertrap_naturalColor()
         
         switch AppTheme() {
-        case .Normal:
+        case .normal:
             circularSlider.thumbImage = "slider-thumb"
             break
-        case .Night:
+        case .night:
             circularSlider.thumbImage = "slider-thumb_night"
             break
         }
@@ -191,7 +191,7 @@ extension SoundSensorViewController: AudioListenerDelegate {
     
     // MARK: - Audio Listener Delegate
     
-    func audioLevelsUpdated(listner: AudioListener!, averageLevel: Float, peakLevel: Float) {
+    func audioLevelsUpdated(_ listner: AudioListener!, averageLevel: Float, peakLevel: Float) {
 
         self.circularSoundLevel.value = peakLevel
         
@@ -205,11 +205,11 @@ extension SoundSensorViewController: CicularSliderDelegate {
     
     // MARK: - Cicular Slider Delegate
     
-    func circularSliderValueChanged(newValue: NSNumber!) {
+    func circularSliderValueChanged(_ newValue: NSNumber!) {
         sensitivityValue = newValue.floatValue
         
-        NSUserDefaults.standardUserDefaults().setFloat(sensitivityValue, forKey: "lastUsedSoundThreshold")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(sensitivityValue, forKey: "lastUsedSoundThreshold")
+        UserDefaults.standard.synchronize()
     }
 }
 

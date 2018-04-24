@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 // 
 
-public class OutputDispatcher {
-    public static let sharedInstance = OutputDispatcher()
+open class OutputDispatcher {
+    open static let sharedInstance = OutputDispatcher()
     
-    public var activeDispatchers: [Dispatcher]?
+    open var activeDispatchers: [Dispatcher]?
     
-    public let audioPlayer = AudioPlayer.sharedInstance()
+    open let audioPlayer = AudioPlayer.sharedInstance()
 }

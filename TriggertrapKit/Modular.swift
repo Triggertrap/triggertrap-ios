@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 //
 
-public typealias CompletionHandler = (success: Bool) -> Void
+public typealias CompletionHandler = (_ success: Bool) -> Void
 
-public protocol Modular {
+public protocol Modular: class {
     var name: String { get }
     var completionHandler: CompletionHandler { get set }
     
     /** Unwraps the module
     - parameter completionHandler: informs whether the module has been unwrapped successfully
     */
-    mutating func unwrap(completionHandler:(success: Bool) -> Void)
+    func unwrap(_ completionHandler:@escaping (_ success: Bool) -> Void)
     
     /** 
     Informs that the module has been unwrapped

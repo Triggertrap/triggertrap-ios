@@ -10,9 +10,9 @@ import UIKit
 
 class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboardDelegate, TTControlPointDelegate {
     
-    private let kMaxNumberOverlaps: Int =  300
-    private let kShutterButtonAnimationDuration: Double = 0.25
-    private let kClockAnimationDuration : Double = 2.5
+    fileprivate let kMaxNumberOverlaps: Int =  300
+    fileprivate let kShutterButtonAnimationDuration: Double = 0.25
+    fileprivate let kClockAnimationDuration : Double = 2.5
     
     // White View
     @IBOutlet weak var photosNumberInputView: TTNumberInput!
@@ -21,9 +21,9 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     @IBOutlet weak var exposuresTextLabel: UILabel!
     @IBOutlet weak var takeTextLabel: UILabel!
     
-    private let interpolator = CubicBezierInterpolator()
-    private var shotsTakenCount: Int = 0
-    private var shotsToTakeCount: Int = 0
+    fileprivate let interpolator = CubicBezierInterpolator()
+    fileprivate var shotsTakenCount: Int = 0
+    fileprivate var shotsToTakeCount: Int = 0
     
     @IBOutlet weak var bezierGraphView: BezierGraph!
     @IBOutlet weak var timeWarpView: UIView!
@@ -42,7 +42,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     // Tick image
     @IBOutlet weak var tickImageView: UIImageView!
     
-    private var isViewHidden: Bool!
+    fileprivate var isViewHidden: Bool!
     
     // Grey view
     @IBOutlet weak var previewButton: UIButton!
@@ -53,11 +53,11 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     @IBOutlet weak var clockCenterImageView: UIImageView!
     @IBOutlet weak var clockHandleImageView: UIImageView!
     
-    private var clockIsAnimating: Bool = false
-    private var pauseIndex: Int = 0
+    fileprivate var clockIsAnimating: Bool = false
+    fileprivate var pauseIndex: Int = 0
     
-    private var sequence: Sequence!
-    private var shutterButtonAnimatingDuringPreview = false
+    fileprivate var sequence: Sequence!
+    fileprivate var shutterButtonAnimatingDuringPreview = false
     
     // MARK: - Lifecycle
     
@@ -73,22 +73,22 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         photosNumberInputView.maxNumberLength = 5
         photosNumberInputView.maxValue = 99999
         photosNumberInputView.value = 10
-        photosNumberInputView.displayView.textAlignment = NSTextAlignment.Center
+        photosNumberInputView.displayView.textAlignment = NSTextAlignment.center
         
         durationNumberInputView.ttKeyboardDelegate = self
         durationNumberInputView.delegate = self
         durationNumberInputView.maxValue = 359999990 // = 99 hours  99 mins ...
         durationNumberInputView.value = 90000 // default 1 min 30 secs
-        durationNumberInputView.displayView.textAlignment = NSTextAlignment.Center
+        durationNumberInputView.displayView.textAlignment = NSTextAlignment.center
         durationNumberInputView.showFractions = false
         durationNumberInputView.minValue = 0
         
         durationFeedbackLabel.boldFont = UIFont.triggertrap_openSans_bold(17)
         durationFeedbackLabel.regularFont = UIFont.triggertrap_openSans_regular(17)
         durationFeedbackLabel.font = UIFont.triggertrap_openSans_regular(13)
-        durationFeedbackLabel.displayMode = kDisplayMode.DisplayModeSeconds
-        durationFeedbackLabel.textColor = UIColor.whiteColor()
-        durationFeedbackLabel.textAlignment = NSTextAlignment.Left;
+        durationFeedbackLabel.displayMode = kDisplayMode.displayModeSeconds
+        durationFeedbackLabel.textColor = UIColor.white
+        durationFeedbackLabel.textAlignment = NSTextAlignment.left;
         durationFeedbackLabel.updateApperance()
         
         //TTShadeRedColour
@@ -101,13 +101,13 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         bezierGraphView.controlPointReleasedDelegate = self
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Load the previous value
-        photosNumberInputView.value = photosNumberInputView.savedValueForKey("timewarp-numberOfPhotos") != 100 ? photosNumberInputView.savedValueForKey("timewarp-numberOfPhotos") : 100
+        photosNumberInputView.value = photosNumberInputView.savedValue(forKey: "timewarp-numberOfPhotos") != 100 ? photosNumberInputView.savedValue(forKey: "timewarp-numberOfPhotos") : 100
         
-        durationNumberInputView.value = durationNumberInputView.savedValueForKey("timewarp-duration") != 100 ? durationNumberInputView.savedValueForKey("timewarp-duration") : 3600000
+        durationNumberInputView.value = durationNumberInputView.savedValue(forKey: "timewarp-duration") != 100 ? durationNumberInputView.savedValue(forKey: "timewarp-duration") : 3600000
         
         // Get the value from the durationNumberInput and photosNumberInputViewshow and update feedback view
         exposuresFeedbackLabel.text = "\(photosNumberInputView.value)"
@@ -116,8 +116,8 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -156,14 +156,14 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         applyThemeUpdateToTimeInput(durationNumberInputView)
         
         bezierGraphView.backgroundColor = UIColor.triggertrap_fillColor()
-        bezierGraphView.setCurveColor(UIColor.triggertrap_primaryColor())
+        bezierGraphView.setCurve(UIColor.triggertrap_primaryColor())
         bezierGraphView.setPointBorderColor(UIColor.triggertrap_foregroundColor())
-        bezierGraphView.setPointFillColor(UIColor.triggertrap_naturalColor())
+        bezierGraphView.setPointFill(UIColor.triggertrap_naturalColor())
         bezierGraphView.setOverlappingExposuresColor(UIColor.triggertrap_primaryColor())
         
         tickImageView.image = ImageWithColor(UIImage(named: "tickDown")!, color: UIColor.triggertrap_fillColor())
         
-        previewButton.setBackgroundImage(ImageWithColor(UIImage(named: "timeWarpPreviewButton")!, color: UIColor.triggertrap_primaryColor()), forState: .Normal)
+        previewButton.setBackgroundImage(ImageWithColor(UIImage(named: "timeWarpPreviewButton")!, color: UIColor.triggertrap_primaryColor()), for: UIControlState())
         
         clockImageView.image = ImageWithColor(UIImage(named: "timeWarpClockCircle")!, color: UIColor.triggertrap_primaryColor())
         
@@ -174,7 +174,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     
     // MARK: - IBActions
     
-    @IBAction func previewButtonPressed(sender: UIButton) {
+    @IBAction func previewButtonPressed(_ sender: UIButton) {
         
         if clockIsAnimating == false {
             
@@ -190,7 +190,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         }
     }
     
-    @IBAction func feedbackButtonPressed(sender: UIButton) {
+    @IBAction func feedbackButtonPressed(_ sender: UIButton) {
         
         if isViewHidden == false {
             controlPointReleased()
@@ -201,7 +201,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         (isViewHidden == true) ? dismissFeedbackView(true) : presentFeedbackView(true)
     }
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -219,35 +219,35 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
                 pauseIndex = 1
                 
                 //Create sequence from number of photos, interval, start and end exposures
-                sequence = SequenceCalculator.sharedInstance.timeWarpSequenceForExposures(Int(photosNumberInputView.value), duration: Double(durationNumberInputView.value), pulseLength: settingsManager.pulseLength.doubleValue, minimumGap: 150.0, interpolator: interpolator)
+                sequence = SequenceCalculator.sharedInstance.timeWarpSequenceForExposures(Int(photosNumberInputView.value), duration: Double(durationNumberInputView.value), pulseLength: (settingsManager?.pulseLength.doubleValue)!, minimumGap: 150.0, interpolator: interpolator!)
                 
                 //Calculate the length of the sequence
                 let interval = sequence.durationInMilliseconds()
                 
                 //Set counter label and circle timer duration and count direction
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
                 feedbackViewController.counterLabel?.startValue = CUnsignedLongLong(interval)
                 
                 feedbackViewController.circleTimer?.cycleDuration = interval / 1000.0
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
                 
                 feedbackViewController.elapsedLabel?.text = NSLocalizedString("Next:", comment: "Next:")
-                feedbackViewController.elapsedCounterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue
+                feedbackViewController.elapsedCounterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue
                 
                 feedbackViewController.elapsedCounterLabel?.startValue = UInt64(sequence.modules[0].durationInMilliseconds())
                 shotsToTakeCount = Int(photosNumberInputView.value)
                 
                 feedbackViewController.shotsTakenLabel?.text = "0/\(shotsToTakeCount)"
             }
-        
+            
         } else {
             sequenceManager.cancel()
         }
     }
     
-    @IBAction func openKeyboard(sender : TTNumberInput) {
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+    @IBAction func openKeyboard(_ sender : TTNumberInput) {
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Private
@@ -255,27 +255,27 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     func controlPointReleased() {
         configureInterpolator()
         
-        let triggerLength = settingsManager.pulseLength.integerValue != 100 ? settingsManager.pulseLength.doubleValue : 100.0
+        let triggerLength = settingsManager?.pulseLength.intValue != 100 ? settingsManager?.pulseLength.doubleValue : 100.0
         
-        interpolator.pausesForExposures(CInt(photosNumberInputView.value), sequenceDuration: Int(durationNumberInputView.value), pulseLength: CLong(triggerLength), minimumGapBetweenPulses: 150)
+        interpolator?.pauses(forExposures: CInt(photosNumberInputView.value), sequenceDuration: Int(durationNumberInputView.value), pulseLength: CLong(triggerLength!), minimumGapBetweenPulses: 150)
         
         var sequenceLength: Double = 0
         
-        for (var i = 0; i < interpolator.adjustedPauses().count; i++) {
-            sequenceLength = sequenceLength + Double(interpolator.adjustedPauses()[i] as! NSNumber) + triggerLength
+        for i in 0..<interpolator!.adjustedPauses().count {
+            sequenceLength = sequenceLength + Double(truncating: interpolator?.adjustedPauses()[i] as! NSNumber) + triggerLength!
         }
         
         durationFeedbackLabel.startValue = CUnsignedLongLong(sequenceLength)
         
-        let overlapIndicies = interpolator.overlapIndicies()
+        let overlapIndicies = interpolator?.overlapIndicies()
         
         let overlaps = NSMutableArray()
         
-        for var i = 0; i < overlapIndicies.count; i++ {
+        for i in 0..<overlapIndicies!.count {
             
-            if (i < kMaxNumberOverlaps / 3 || (i > (overlapIndicies.count / 2 - kMaxNumberOverlaps / 6) && i < (overlapIndicies.count / 2 + kMaxNumberOverlaps / 6)) ||
-                i > overlapIndicies.count - kMaxNumberOverlaps / 3) {
-                    overlaps.addObject(overlapIndicies[i])
+            if (i < kMaxNumberOverlaps / 3 || (i > ((overlapIndicies?.count)! / 2 - kMaxNumberOverlaps / 6) && i < ((overlapIndicies?.count)! / 2 + kMaxNumberOverlaps / 6)) ||
+                i > (overlapIndicies?.count)! - kMaxNumberOverlaps / 3) {
+                overlaps.add(overlapIndicies![i])
             }
         }
         
@@ -284,85 +284,85 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         var timeOverlap: Float = 0.0
         
-        for var i = 0; i < overlaps.count; i++ {
+        for i in 0..<overlaps.count {
             // Calculate the time overlap by dividing the overlap indicie int value by the amount of exposures
-            timeOverlap = Float(overlaps[i] as! NSNumber) / Float(photosNumberInputView.value)
+            timeOverlap = Float(truncating: overlaps[i] as! NSNumber) / Float(photosNumberInputView.value)
             
             // Add the Time Overlap to the timeOverlapIndicies Array
-            timeOverlapIndicies.addObject(NSNumber(float: timeOverlap))
+            timeOverlapIndicies.add(NSNumber(value: timeOverlap as Float))
             
             // Use the interpolation function from the CubicBezierCalculator to calculate progression from each time overlap
-            progressionOverlapIndicies.addObject(NSNumber(float: interpolator.interpolation(timeOverlap)))
+            progressionOverlapIndicies.add(NSNumber(value: interpolator!.interpolation(timeOverlap) ))
         }
         
         // Pass the overlapping points to the bezier graph view to display them
-        bezierGraphView.overlappingPointsWithTime(timeOverlapIndicies, withProgression: progressionOverlapIndicies)
+        bezierGraphView.overlappingPoints(withTime: timeOverlapIndicies, withProgression: progressionOverlapIndicies)
     }
     
-    private func animateShutterButton() {
+    fileprivate func animateShutterButton() {
         
         if clockIsAnimating == false {
             
-            UIView.transitionWithView(clockView, duration: kShutterButtonAnimationDuration, options: [UIViewAnimationOptions.TransitionFlipFromRight, UIViewAnimationOptions.ShowHideTransitionViews], animations: { () -> Void in
-                self.shutterButton.alpha = self.clockView.hidden ? 1 : 0
+            UIView.transition(with: clockView, duration: kShutterButtonAnimationDuration, options: [UIViewAnimationOptions.transitionFlipFromRight, UIViewAnimationOptions.showHideTransitionViews], animations: { () -> Void in
+                self.shutterButton.alpha = self.clockView.isHidden ? 1 : 0
                 }, completion: { (finished: Bool) -> Void in
-                    self.clockView.hidden = !self.clockView.hidden
+                    self.clockView.isHidden = !self.clockView.isHidden
             })
             
-            UIView.transitionWithView(shutterButton, duration: kShutterButtonAnimationDuration, options: [UIViewAnimationOptions.TransitionFlipFromRight, UIViewAnimationOptions.ShowHideTransitionViews], animations: { () -> Void in
-                self.shutterButton.alpha = self.clockView.hidden ? 0 : 1
-                self.clockView.alpha = self.clockView.hidden ? 1 : 0
+            UIView.transition(with: shutterButton, duration: kShutterButtonAnimationDuration, options: [UIViewAnimationOptions.transitionFlipFromRight, UIViewAnimationOptions.showHideTransitionViews], animations: { () -> Void in
+                self.shutterButton.alpha = self.clockView.isHidden ? 0 : 1
+                self.clockView.alpha = self.clockView.isHidden ? 1 : 0
                 }, completion: { (finished: Bool) -> Void in
-                    self.shutterButton.hidden = !self.shutterButton.hidden
+                    self.shutterButton.isHidden = !self.shutterButton.isHidden
             })
         }
     }
     
-    private func animateClock() {
+    fileprivate func animateClock() {
         
         configureInterpolator()
         
         CATransaction.begin()
-        CATransaction.setValue(NSNumber(double: kClockAnimationDuration), forKey: kCATransactionAnimationDuration)
+        CATransaction.setValue(NSNumber(value: kClockAnimationDuration as Double), forKey: kCATransactionAnimationDuration)
         
         CATransaction.setCompletionBlock { () -> Void in
             self.showPreviewButtonAnimation()
         }
         
-        let animation = AccelerationAnimation.animationWithKeyPath("transform.rotation", startValue: 0.0, endValue: degreesToRadians(360.0), evaluationObject: interpolator, interstitialSteps: UInt(photosNumberInputView.value)) as! AccelerationAnimation
+        let animation = AccelerationAnimation.animation(withKeyPath: "transform.rotation", startValue: 0.0, endValue: degreesToRadians(360.0), evaluationObject: interpolator, interstitialSteps: UInt(photosNumberInputView.value)) as! AccelerationAnimation
         
-        animation.delegate = self
+        animation.delegate = self as? CAAnimationDelegate
         
-        secondsView.layer.addAnimation(animation, forKey: "rotation")
+        secondsView.layer.add(animation, forKey: "rotation")
         
         CATransaction.commit()
     }
     
-    private func showPreviewButtonAnimation() {
+    fileprivate func showPreviewButtonAnimation() {
         animateShutterButton()
         
-        UIView.animateWithDuration(kShutterButtonAnimationDuration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-            self.previewButton.transform = CGAffineTransformMakeScale(1, 1)
-            }) { (finished: Bool) -> Void in
+        UIView.animate(withDuration: kShutterButtonAnimationDuration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+            self.previewButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }) { (finished: Bool) -> Void in
+            
+            if finished == true {
                 
-                if finished == true {
+                self.clockIsAnimating = false
+                
+                //When preview button is hidden check whether shutter button is still supposed to be animating
+                if self.shutterButtonAnimatingDuringPreview == true {
                     
-                    self.clockIsAnimating = false
-                    
-                    //When preview button is hidden check whether shutter button is still supposed to be animating
-                    if self.shutterButtonAnimatingDuringPreview == true {
-                        
-                        //Start animation of the shutter button
-                        self.shutterButton.startAnimating()
-                    }
+                    //Start animation of the shutter button
+                    self.shutterButton.startAnimating()
                 }
+            }
         }
     }
     
-    private func hidePreviewButtonAnimation() {
+    fileprivate func hidePreviewButtonAnimation() {
         
-        UIView.animateWithDuration(kShutterButtonAnimationDuration, animations: { () -> Void in
-            self.previewButton.transform = CGAffineTransformMakeScale(1, 0)
+        UIView.animate(withDuration: kShutterButtonAnimationDuration, animations: { () -> Void in
+            self.previewButton.transform = CGAffineTransform(scaleX: 1, y: 0)
             } , completion: {(finished: Bool) -> Void in
                 
                 if finished == true {
@@ -371,7 +371,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         })
     }
     
-    private func dismissFeedbackView(animated: Bool) {
+    fileprivate func dismissFeedbackView(_ animated: Bool) {
         var duration = 0.0
         var delay = 0.0
         
@@ -380,31 +380,31 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
             delay = 0.1
         }
         
-        let verticalFlip = CGAffineTransformMakeScale(1, 1)
+        let verticalFlip = CGAffineTransform(scaleX: 1, y: 1)
         
-        UIView.animateWithDuration(duration, animations: { () -> Void in
+        UIView.animate(withDuration: duration, animations: { () -> Void in
             
-            for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+            for i in 0..<self.timeWarpView.subviews.count {
                 
                 let subView = self.timeWarpView.subviews[i]
                 
-                if subView.isDescendantOfView(self.visibleView) == false {
+                if subView.isDescendant(of: self.visibleView) == false {
                     subView.alpha = 0.0
                 }
             }
             
             self.tickImageView.transform = verticalFlip
             
-            UIView.animateWithDuration(duration - delay, delay: delay, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            UIView.animate(withDuration: duration - delay, delay: delay, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { () -> Void in
                 self.feedbackToWhiteViewConstraint.constant = 0
                 self.view.layoutIfNeeded()
                 }, completion: { (finished: Bool) -> Void in
                     
-                    for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+                    for i in 0..<self.timeWarpView.subviews.count {
                         
                         let subView = self.timeWarpView.subviews[i] 
                         
-                        if subView.isDescendantOfView(self.visibleView) == false {
+                        if subView.isDescendant(of: self.visibleView) == false {
                             subView.alpha = 0.0
                         }
                     }
@@ -412,7 +412,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         })
     }
     
-    private func presentFeedbackView(animated: Bool) {
+    fileprivate func presentFeedbackView(_ animated: Bool) {
         
         var duration = 0.0
         var delay = 0.0
@@ -422,16 +422,16 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
             delay = 0.1
         }
         
-        let verticalFlip: CGAffineTransform = CGAffineTransformMakeScale(1, -1)
+        let verticalFlip: CGAffineTransform = CGAffineTransform(scaleX: 1, y: -1)
         
-        UIView.animateWithDuration(duration, animations: { () -> Void in
+        UIView.animate(withDuration: duration, animations: { () -> Void in
             
             self.tickImageView.transform = verticalFlip
             self.feedbackToWhiteViewConstraint.constant = self.topLeftView.frame.size.height - self.visibleView.frame.size.height
             
-            UIView.animateWithDuration(duration - delay, delay: delay, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            UIView.animate(withDuration: duration - delay, delay: delay, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { () -> Void in
                 
-                for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+                for i in 0..<self.timeWarpView.subviews.count {
                     let subView: UIView = self.timeWarpView.subviews[i] 
                     subView.alpha = 1.0
                 }
@@ -440,7 +440,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
                     self.timeWarpView.alpha = 1.0
                     self.feedbackToWhiteViewConstraint.constant = self.topLeftView.frame.size.height - self.visibleView.frame.size.height
                     
-                    for (var i: Int = 0; i < self.timeWarpView.subviews.count; i++) {
+                    for i in 0..<self.timeWarpView.subviews.count {
                         let subView: UIView = self.timeWarpView.subviews[i] 
                         subView.alpha = 1.0
                     }
@@ -450,34 +450,34 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         })
     }
     
-    private func configureInterpolator() {
+    fileprivate func configureInterpolator() {
         let controlPoint1: CGPoint = bezierGraphView.controlPoint1GraphLocation() as CGPoint
         let controlPoint2: CGPoint = bezierGraphView.controlPoint2GraphLocation() as CGPoint
         
-        interpolator.setControlPoints_x1(Float(controlPoint1.x), y1: Float(controlPoint1.y), x2: Float(controlPoint2.x), y2: Float(controlPoint2.y))
+        interpolator?.setControlPoints_x1(Float(controlPoint1.x), y1: Float(controlPoint1.y), x2: Float(controlPoint2.x), y2: Float(controlPoint2.y))
     }
     
-    private func degreesToRadians(degrees: Double) -> Double {
-        return degrees / 180.0 * M_PI
+    fileprivate func degreesToRadians(_ degrees: Double) -> Double {
+        return degrees / 180.0 * Double.pi
     }
     
-    private func radiansToDegrees(radians: Double) -> Double {
-        return radians  * (180.0 / M_PI)
+    fileprivate func radiansToDegrees(_ radians: Double) -> Double {
+        return radians  * (180.0 / Double.pi)
     }
     
-    override func didDispatch(dispatchable: Dispatchable) {
+    override func didDispatch(_ dispatchable: Dispatchable) {
         super.didDispatch(dispatchable)
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is TimeWarpViewController && dispatchable is Pulse {
-            shotsTakenCount++
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is TimeWarpViewController && dispatchable is Pulse {
+            shotsTakenCount += 1
             feedbackViewController.shotsTakenLabel?.text = "\(shotsTakenCount)/\(shotsToTakeCount)"
         }
     }
     
-    override func willDispatch(dispatchable: Dispatchable) {
+    override func willDispatch(_ dispatchable: Dispatchable) {
         super.willDispatch(dispatchable) 
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is TimeWarpViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is TimeWarpViewController {
             
             feedbackViewController.elapsedCounterLabel?.stop()
             feedbackViewController.elapsedCounterLabel?.startValue = UInt64(dispatchable.durationInMilliseconds())
@@ -490,7 +490,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is TimeWarpViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is TimeWarpViewController {
             
             prepareForSequence()
             
@@ -509,7 +509,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     
     // MARK: - TTNumberInput Delegate
     
-    func TTNumberInputKeyboardDidDismiss() {
+    func ttNumberInputKeyboardDidDismiss() {
         photosNumberInputView.saveValue(photosNumberInputView.value, forKey: "timewarp-numberOfPhotos")
         durationNumberInputView.saveValue(durationNumberInputView.value, forKey: "timewarp-duration")
     }

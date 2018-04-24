@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 //
 
-public struct Sequence {
+public class Sequence {
     public var modules: [Modular]
     
     internal var currentModule: Int

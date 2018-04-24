@@ -12,14 +12,14 @@ class MainNavigationViewController: RotationNavigationViewController {
     
     // MARK: - Computed properties
     
-    private var sidePanelSize: CGSize {
+    fileprivate var sidePanelSize: CGSize {
         get {
             // Calculate the width of the side bar depening on the device, 280px for iPhones, 480px for iPads
-            return CGSizeMake(UIDevice.currentDevice().userInterfaceIdiom == .Phone ? 280.0 : 420.0, 0.0)
+            return CGSize(width: UIDevice.current.userInterfaceIdiom == .phone ? 280.0 : 420.0, height: 0.0)
         }
     }
     
-    private var leftPanelViewController: MCPanelViewController!
+    fileprivate var leftPanelViewController: MCPanelViewController!
 
     // MARK: - Lifecycle
     
@@ -28,25 +28,25 @@ class MainNavigationViewController: RotationNavigationViewController {
         
         // Disable the iOS 7.0 interactive pop gesture recognizer on the navigation
         // controller, as this gets in the way of the sidebar interactions.
-        if self.respondsToSelector(Selector("interactivePopGestureRecognizer")) {
-            self.interactivePopGestureRecognizer!.enabled = false
+        if self.responds(to: #selector(getter: UINavigationController.interactivePopGestureRecognizer)) {
+            self.interactivePopGestureRecognizer!.isEnabled = false
         }
         
         let storyboard : UIStoryboard = UIStoryboard(name: ConstStoryboardIdentifierMain, bundle: nil);
         
         // Configure the left view controller
-        let leftNavigationViewController = storyboard.instantiateViewControllerWithIdentifier(ConstStoryboardIdentifierLeftPanel) as! UINavigationController
+        let leftNavigationViewController = storyboard.instantiateViewController(withIdentifier: ConstStoryboardIdentifierLeftPanel) as! UINavigationController
         leftNavigationViewController.preferredContentSize = sidePanelSize
         leftPanelViewController = leftNavigationViewController.viewControllerInPanelViewController()
-        leftPanelViewController.backgroundStyle = .None
+        leftPanelViewController.backgroundStyle = .none
     }
     
-    override func viewWillAppear(animated: Bool)  {
+    override func viewWillAppear(_ animated: Bool)  {
         super.viewWillAppear(animated)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissLeftPanel:", name: "DismissLeftPanel", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainNavigationViewController.dismissLeftPanel(_:)), name: NSNotification.Name(rawValue: "DismissLeftPanel"), object: nil)
         
-        self.addGestureRecognizerToViewForScreenEdgeGestureWithPanelViewController(leftPanelViewController, withDirection: MCPanelAnimationDirection.Left)
+        self.addGestureRecognizerToViewForScreenEdgeGesture(with: leftPanelViewController, with: MCPanelAnimationDirection.left)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,16 +54,16 @@ class MainNavigationViewController: RotationNavigationViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.removeGestureRecognizersFromViewForScreenEdgeGestureWithPanelViewController(leftPanelViewController)
+        self.removeGestureRecognizersFromViewForScreenEdgeGesture(with: leftPanelViewController)
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "DismissLeftPanel", object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "DismissLeftPanel"), object: nil)
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        coordinator.animateAlongsideTransition({ context in
+        coordinator.animate(alongsideTransition: { context in
             
             
             }, completion: { context in
@@ -79,30 +79,30 @@ class MainNavigationViewController: RotationNavigationViewController {
     }
     
     // MARK: - Actions
-    func menuButtonTapped(sender: UIBarButtonItem) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.presentPanelViewController(self.leftPanelViewController, withDirection: MCPanelAnimationDirection.Left)
+    @objc func menuButtonTapped(_ sender: UIBarButtonItem) {
+        DispatchQueue.main.async(execute: {
+            self.present(self.leftPanelViewController, with: MCPanelAnimationDirection.left)
         })
     }
     
-    func optionsButtonTapped(sender: UIBarButtonItem) {
+    @objc func optionsButtonTapped(_ sender: UIBarButtonItem) {
         
         // Inform the active view controller that it will loose focus - Quick Release and Press and Hold modes 
-        NSNotificationCenter.defaultCenter().postNotificationName("ActiveViewControllerLostFocus", object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "ActiveViewControllerLostFocus"), object: nil)
         
-        let storyboard = UIStoryboard(name: ConstStoryboardIdentifierOptions, bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: ConstStoryboardIdentifierOptions, bundle: Bundle.main)
         let viewController = storyboard.instantiateInitialViewController()!
         
         // Present the options view controller in full screen
-        viewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+        viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         
-        self.presentViewController(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil)
     } 
     
     // MARK: - Observers
     
-    func dismissLeftPanel(sender: AnyObject) {
-        dispatch_async(dispatch_get_main_queue(), {
+    @objc func dismissLeftPanel(_ sender: AnyObject) {
+        DispatchQueue.main.async(execute: {
             self.leftPanelViewController.dismiss()
         })
     }

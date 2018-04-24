@@ -45,11 +45,11 @@ class VolumeViewController: OnboardingViewController {
     
     @IBOutlet var dismissButton: UIButton!
     
-    private var currentPercent: Float = 50.0
-    private var myVolumeView: MPVolumeView!
+    fileprivate var currentPercent: Float = 50.0
+    fileprivate var myVolumeView: MPVolumeView!
     
-    dynamic var audioSession = AVAudioSession.sharedInstance()
-    private var outputVolume = 0
+    @objc dynamic var audioSession = AVAudioSession.sharedInstance()
+    fileprivate var outputVolume = 0
     
     // MARK: - Lifecycle
     
@@ -60,7 +60,7 @@ class VolumeViewController: OnboardingViewController {
         
         // Add MPVolumeView to the view and hide it (needed to read the volume level of the device)
         myVolumeView = MPVolumeView(frame: self.view.bounds)
-        myVolumeView.hidden = true
+        myVolumeView.isHidden = true
         self.view.addSubview(myVolumeView)
         
         do {
@@ -71,7 +71,7 @@ class VolumeViewController: OnboardingViewController {
          
         setVolumeLabel()
         
-        audioSession.addObserver(self, forKeyPath: "outputVolume", options: NSKeyValueObservingOptions.New, context: &outputVolume)
+        audioSession.addObserver(self, forKeyPath: "outputVolume", options: NSKeyValueObservingOptions.new, context: &outputVolume)
     }
     
     override func viewDidLayoutSubviews() {
@@ -86,9 +86,9 @@ class VolumeViewController: OnboardingViewController {
     
     // MARK: - Private
     
-    private func updateDongleCableView() {
-        let plugCenter = dongleCableView.convertPoint(donglePlugImageView.center, fromView: plugView)
-        let dongleCenter = dongleCableView.convertPoint(dongleBodyTopImageView.center, fromView: dongleView)
+    fileprivate func updateDongleCableView() {
+        let plugCenter = dongleCableView.convert(donglePlugImageView.center, from: plugView)
+        let dongleCenter = dongleCableView.convert(dongleBodyTopImageView.center, from: dongleView)
         
         dongleCableView.point1 = CGPoint(x: plugCenter.x, y: plugCenter.y + donglePlugImageView.frame.size.height / 2 + 2)
         dongleCableView.point2 = CGPoint(x: dongleCenter.x, y: dongleCenter.y - dongleBodyTopImageView.frame.size.height / 2 - 2)
@@ -96,19 +96,19 @@ class VolumeViewController: OnboardingViewController {
         dongleCableView.addShapeLayer()
     }
     
-    private func updateCameraCableView() {
+    fileprivate func updateCameraCableView() {
         
-        let plugCenter = cameraCableView.convertPoint(cameraConnectorBodyImageView.center, fromView: cameraConnectorView)
+        let plugCenter = cameraCableView.convert(cameraConnectorBodyImageView.center, from: cameraConnectorView)
         
-        let dongleCenter = cameraCoilImageView.convertPoint(cameraCoilImageView.frame.origin, fromView: cameraCoilImageView)
+        let dongleCenter = cameraCoilImageView.convert(cameraCoilImageView.frame.origin, from: cameraCoilImageView)
         
         cameraCableView.point1 = CGPoint(x: plugCenter.x + 5, y: plugCenter.y + cameraConnectorBodyImageView.frame.size.height / 2 + 2)
         cameraCableView.point2 = CGPoint(x: dongleCenter.x + 6, y: dongleCenter.y + cameraCoilImageView.frame.size.height - 6)
-        cameraCableView.bezierType = DongleCableView.BezierPathType.Camera
+        cameraCableView.bezierType = DongleCableView.BezierPathType.camera
         cameraCableView.addShapeLayer()
     }
     
-    private func setVolumeLabel() {
+    fileprivate func setVolumeLabel() {
         if audioSession.outputVolume >= 1.0 {
             currentPercent = 100.0
         } else {
@@ -121,7 +121,7 @@ class VolumeViewController: OnboardingViewController {
     
     
     // MARK: - KVO
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
          
         if context == &outputVolume {
             setVolumeLabel()

@@ -10,8 +10,7 @@
 #import "AstronomicalCalculator.h"
 #import "AstronomicalCalendar.h"
 
-@implementation SunriseSunsetCalculator
-{
+@implementation SunriseSunsetCalculator{
     float latitude;
     float longitude;
     
@@ -44,22 +43,22 @@
     
     switch (type) {
             
-        //First light
+            //First light
         case AstronomicalTypeFirstLight:
             return [astronomicalCalendar beginCivilTwilight];
             break;
             
-        //Sunrise
+            //Sunrise
         case AstronomicalTypeSunrise:
             return [astronomicalCalendar sunrise];
             break;
             
-        //Sunset
+            //Sunset
         case AstronomicalTypeSunset:
             return [astronomicalCalendar sunset];
             break;
             
-        //Last light
+            //Last light
         case AstronomicalTypeLastLight:
             return [astronomicalCalendar endCivilTwilight];
             break;
@@ -74,7 +73,7 @@
     NSDate *nextAstronomicalDate;
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:( NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *components = [calendar components:( NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear) fromDate:[NSDate date]];
     
     //Increment todays day with 1
     [components setDay:[components day] + 1];
@@ -89,7 +88,7 @@
 - (BOOL)hasAstronomicalDatePassedWithType:(int)type {
     //Get current date with hours/minutes/seconds
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:[NSDate date]];
+    NSDateComponents *components = [calendar components:( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
     
     NSInteger seconds = [components second];
     NSInteger hour = [components hour];
@@ -98,7 +97,7 @@
     //Get today's sunrise(0) or sunset(1) hours/minutes/seconds
     NSDate *todayAstronomicalDate = [self astronomicalDateFor:[NSDate date] withType:type];
     
-    NSDateComponents *astronomicalDateComponents = [calendar components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:todayAstronomicalDate];
+    NSDateComponents *astronomicalDateComponents = [calendar components:( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:todayAstronomicalDate];
     NSInteger astronomicalDateSecond = [astronomicalDateComponents second];
     NSInteger astronomicalDateMinute = [astronomicalDateComponents minute];
     NSInteger astronomicalDateHour = [astronomicalDateComponents hour];

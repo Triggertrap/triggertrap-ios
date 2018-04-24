@@ -20,27 +20,27 @@ class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
         setupNumberPicker()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Check whether settings manager pulse length has been changed and it is less than the numberInputView value
-        if self.numberInputView.savedValueForKey("selfTimerCableRelease-duration") < settingsManager.pulseLength.unsignedLongLongValue  {
-            self.numberInputView.saveValue(settingsManager.pulseLength.unsignedLongLongValue , forKey: "selfTimerCableRelease-duration")
+        if self.numberInputView.savedValue(forKey: "selfTimerCableRelease-duration") < (settingsManager?.pulseLength.uint64Value)!  {
+            self.numberInputView.saveValue((settingsManager?.pulseLength.uint64Value)! , forKey: "selfTimerCableRelease-duration")
         }
         
         // Load the previous value
-        self.numberInputView.value = self.numberInputView.savedValueForKey("selfTimerCableRelease-duration")
+        self.numberInputView.value = self.numberInputView.savedValue(forKey: "selfTimerCableRelease-duration")
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
 
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -51,13 +51,13 @@ class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
                 showFeedbackView(ConstStoryboardIdentifierCableReleaseFeedbackView)
                 
                 //Setup counter label and circle timer so that they are populated when red view animates
-                feedbackViewController.counterLabel?.countDirection = kCountDirection.CountDirectionDown.rawValue;
+                feedbackViewController.counterLabel?.countDirection = kCountDirection.countDirectionDown.rawValue;
                 feedbackViewController.counterLabel?.startValue = self.numberInputView.value
                 
                 feedbackViewController.circleTimer?.cycleDuration = Double(self.numberInputView.value) / 1000.0
                 feedbackViewController.circleTimer?.continuous = false
-                feedbackViewController.circleTimer?.progress = 1.0
-                feedbackViewController.circleTimer?.progressDirection = kProgressDirection.ProgressDirectionAntiClockwise.rawValue
+                feedbackViewController.circleTimer?.updateProgress(1.0)
+                feedbackViewController.circleTimer?.progressDirection = .AntiClockwise
             }
             
         } else {
@@ -65,9 +65,9 @@ class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
         }
     }
     
-    @IBAction func openKeyboard(sender : TTTimeInput) {
+    @IBAction func openKeyboard(_ sender : TTTimeInput) {
         adjustMinVal()
-        sender.openKeyboardInView(self.view, covering: self.bottomRightView)
+        sender.openKeyboard(in: self.view, covering: self.bottomRightView)
     }
     
     // MARK: - Overrides
@@ -75,13 +75,13 @@ class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is SelfTimerViewController {
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is SelfTimerViewController {
         
             prepareForSequence()
             
             //Start sequence
-            let pulse = Pulse(time: Time(duration: settingsManager.pulseLength.doubleValue, unit: .Milliseconds))
-            let delay = Delay(time: Time(duration: Double(self.numberInputView.value), unit: .Milliseconds))
+            let pulse = Pulse(time: Time(duration: settingsManager!.pulseLength.doubleValue, unit: .milliseconds))
+            let delay = Delay(time: Time(duration: Double(self.numberInputView.value), unit: .milliseconds))
             self.sequenceManager.play(Sequence(modules: [delay, pulse]), repeatSequence: false)
             
             feedbackViewController.startAnimations()
@@ -95,11 +95,11 @@ class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
         self.numberInputView.maxValue = 359999990;
         self.numberInputView.value = 30000;
         adjustMinVal()
-        self.numberInputView.displayView.textAlignment = NSTextAlignment.Center
+        self.numberInputView.displayView.textAlignment = NSTextAlignment.center
     }
     
     func adjustMinVal() {
-        self.numberInputView.minValue = SettingsManager.sharedInstance().pulseLength.unsignedLongLongValue
+        self.numberInputView.minValue = SettingsManager.sharedInstance().pulseLength.uint64Value
     }
     
     // MARK: - Theme change
@@ -112,7 +112,7 @@ class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
     
     // MARK: - TTNumberInputKeyboardDelegate
     
-    func TTNumberInputKeyboardDidDismiss() {
+    func ttNumberInputKeyboardDidDismiss() {
         self.numberInputView.saveValue(self.numberInputView.value, forKey: "selfTimerCableRelease-duration")
     }
 

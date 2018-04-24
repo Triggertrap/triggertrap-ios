@@ -10,14 +10,14 @@ import UIKit
 
 class KitToConnectTransition: CustomTransition { 
       
-    override func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         self.transitionContext = transitionContext
-        self.containerView = transitionContext.containerView()
+        self.containerView = transitionContext.containerView
         
         switch state {
-        case .Push:
-            let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! KitSelectorViewController
-            let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! ConnectKitViewController
+        case .push:
+            let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! KitSelectorViewController
+            let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! ConnectKitViewController
             
             // Create a snapshot of the view, hide it and add it to the snapshotViews array. This also causes the initial image to be added to viewsToShowArray
             snapshotView(fromViewController.kitImageView)
@@ -29,9 +29,9 @@ class KitToConnectTransition: CustomTransition {
             
             let informationViewSnapshot = createSnapshotView(fromViewController.informationView)
             
-            toViewController.view.frame = transitionContext.finalFrameForViewController(toViewController)
-            toViewController.informationView.hidden = true
-            toViewController.dismissButton.hidden = true
+            toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
+            toViewController.informationView.isHidden = true
+            toViewController.dismissButton.isHidden = true
             
             fadeInView(toViewController.greyViewInformationLabel)
             fadeInView(toViewController.greyViewPraiseLabel)
@@ -48,21 +48,21 @@ class KitToConnectTransition: CustomTransition {
             
             toViewController.view.layoutIfNeeded()
             
-            UIView.animateWithDuration(duration, animations: { () -> Void in
-                informationViewSnapshot.frame = self.containerView.convertRect(fromViewController.informationView.frame, fromView: fromViewController.informationView.superview)
+            UIView.animate(withDuration: duration, animations: { () -> Void in
+                informationViewSnapshot.frame = self.containerView.convert(fromViewController.informationView.frame, from: fromViewController.informationView.superview)
                 self.fadeInSnapshots()
                 self.fadeOutViews()
                 
                 }, completion: { (finished) -> Void in
                     informationViewSnapshot.removeFromSuperview()
-                    fromViewController.informationView.hidden = false
-                    toViewController.informationView.hidden = false
-                    toViewController.dismissButton.hidden = false
+                    fromViewController.informationView.isHidden = false
+                    toViewController.informationView.isHidden = false
+                    toViewController.dismissButton.isHidden = false
                     
                     self.showViews()
                     self.removeSnapshotViews()
                     
-                    if (transitionContext.transitionWasCancelled()) {
+                    if (transitionContext.transitionWasCancelled) {
                         transitionContext.completeTransition(false)
                     } else {
                         transitionContext.completeTransition(true)
@@ -70,10 +70,10 @@ class KitToConnectTransition: CustomTransition {
             })
             break
             
-        case .Pop:
-            let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! ConnectKitViewController
-            let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! KitSelectorViewController
-            toViewController.dismissButton.hidden = true
+        case .pop:
+            let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! ConnectKitViewController
+            let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! KitSelectorViewController
+            toViewController.dismissButton.isHidden = true
             
             snapshotView(fromViewController.phoneImageView)
             snapshotView(fromViewController.dongleCableView)
@@ -82,7 +82,7 @@ class KitToConnectTransition: CustomTransition {
             
             let informationViewSnapshot = createSnapshotView(fromViewController.informationView)
             
-            toViewController.view.frame = transitionContext.finalFrameForViewController(toViewController)
+            toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
             fadeInView(toViewController.kitImageView)
             fadeInView(toViewController.whiteViewDescriptionLabel)
             fadeInView(toViewController.whiteViewTitleLabel)
@@ -100,21 +100,21 @@ class KitToConnectTransition: CustomTransition {
             
             toViewController.view.layoutIfNeeded()
             
-            UIView.animateWithDuration(duration, animations: { () -> Void in
-                informationViewSnapshot.frame = self.containerView.convertRect(fromViewController.informationView.frame, fromView: fromViewController.informationView.superview)
+            UIView.animate(withDuration: duration, animations: { () -> Void in
+                informationViewSnapshot.frame = self.containerView.convert(fromViewController.informationView.frame, from: fromViewController.informationView.superview)
                 self.fadeInSnapshots()
                 self.fadeOutViews()
                 
                 }, completion: { (finished) -> Void in
                     informationViewSnapshot.removeFromSuperview()
-                    fromViewController.informationView.hidden = false
-                    toViewController.informationView.hidden = false
-                    toViewController.dismissButton.hidden = false
+                    fromViewController.informationView.isHidden = false
+                    toViewController.informationView.isHidden = false
+                    toViewController.dismissButton.isHidden = false
                     
                     self.showViews()
                     self.removeSnapshotViews()
                     
-                    if (transitionContext.transitionWasCancelled()) {
+                    if (transitionContext.transitionWasCancelled) {
                         transitionContext.completeTransition(false)
                     } else {
                         transitionContext.completeTransition(true)

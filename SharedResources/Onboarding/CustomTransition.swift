@@ -11,12 +11,12 @@ import UIKit
 class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     enum State {
-        case Push,
-        Pop
+        case push,
+        pop
     }
     
     var containerView: UIView!
-    var state: State = State.Push
+    var state: State = State.push
     
     var viewsToShow: [UIView] = []
     var snapshotViews: [UIView] = []
@@ -27,28 +27,28 @@ class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
     // Apply animation duration
     let duration = 0.5
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         self.transitionContext = transitionContext
-        containerView = transitionContext.containerView()
+        containerView = transitionContext.containerView
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
     
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        self.transitionContext?.completeTransition(!self.transitionContext!.transitionWasCancelled())
-        self.transitionContext?.viewControllerForKey(UITransitionContextFromViewControllerKey)?.view.layer.mask = nil
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        self.transitionContext?.completeTransition(!self.transitionContext!.transitionWasCancelled)
+        self.transitionContext?.viewController(forKey: UITransitionContextViewControllerKey.from)?.view.layer.mask = nil
     }
     
     // Creates a snapshot of the view and hides it
-    func createSnapshotView(view: UIView) -> UIView {
-        let snapshot = view.snapshotViewAfterScreenUpdates(false)
-        snapshot.frame = containerView.convertRect(view.frame, fromView: view.superview)
+    func createSnapshotView(_ view: UIView) -> UIView {
+        let snapshot = view.snapshotView(afterScreenUpdates: false)
+        snapshot?.frame = containerView.convert(view.frame, from: view.superview)
         
         // Hide the view before transition happens
-        view.hidden = true
-        return snapshot
+        view.isHidden = true
+        return snapshot!
     }
     
     // Remove all snapshot views from its superview
@@ -59,18 +59,18 @@ class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     // Create a snapshot of a view
-    func snapshotView(view: UIView) {
-        let snapshot = view.snapshotViewAfterScreenUpdates(false)
-        snapshot.frame = containerView.convertRect(view.frame, fromView: view.superview)
+    func snapshotView(_ view: UIView) {
+        let snapshot = view.snapshotView(afterScreenUpdates: false)
+        snapshot?.frame = containerView.convert(view.frame, from: view.superview)
         
         // Hide the view before transition happens
-        view.hidden = true
+        view.isHidden = true
         
         // Add the view to views that need to be shown
         viewsToShow.append(view)
         
         // Add the snapshot to snapshotViews
-        snapshotViews.append(snapshot)
+        snapshotViews.append(snapshot!)
     }
     
     // Alpha out all the snapshots
@@ -81,7 +81,7 @@ class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     // Alpha out the view and add it to faded views array
-    func fadeInView(view: UIView) {
+    func fadeInView(_ view: UIView) {
         view.alpha = 0
         fadedViews.append(view)
     }
@@ -96,7 +96,7 @@ class CustomTransition: NSObject, UIViewControllerAnimatedTransitioning {
     // Iterate through the views to show array and show all views
     func showViews() {
         for view: UIView in viewsToShow {
-            view.hidden = false
+            view.isHidden = false
         }
     }
 }

@@ -6,7 +6,14 @@
 //  Copyright (c) 2015 Triggertrap Limited. All rights reserved.
 //
 
-public struct Delay: Dispatchable {
+public class Delay: Dispatchable {
+    public /** Unwraps the module
+     - parameter completionHandler: informs whether the module has been unwrapped successfully
+     */
+    func unwrap(_ completionHandler: (Bool) -> Void) {
+        
+    }
+
     
     public let name = "Delay"
     public let type: DispatchableType

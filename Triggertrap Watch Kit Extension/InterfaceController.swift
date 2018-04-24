@@ -16,20 +16,20 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var slider: WKInterfaceSlider!
     @IBOutlet weak var timer: WKInterfaceTimer!
     
-    private var session: WCSession?
-    private var delay: Double = 0.0
-    private var isTriggering = false
-    private var delayTimer: NSTimer?
+    fileprivate var session: WCSession?
+    fileprivate var delay: Double = 0.0
+    fileprivate var isTriggering = false
+    fileprivate var delayTimer: Timer?
     
     // MARK: - Lifecycle
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         if WCSession.isSupported() {
-            session = WCSession.defaultSession()
+            session = WCSession.default
             session?.delegate = self
-            session?.activateSession()
+            session?.activate()
         }
     }
     
@@ -44,7 +44,7 @@ class InterfaceController: WKInterfaceController {
         slider.setEnabled(true)
         timer.stop()
         
-        delay == 0 ? timer.setDate(NSDate(timeIntervalSinceNow: 0)) : timer.setDate(NSDate(timeIntervalSinceNow: Double(delay + 1)))
+        delay == 0 ? timer.setDate(Date(timeIntervalSinceNow: 0)) : timer.setDate(Date(timeIntervalSinceNow: Double(delay + 1)))
         
         // Stop the animation and set its default image
         animationGroup.stopAnimating()
@@ -62,50 +62,50 @@ class InterfaceController: WKInterfaceController {
     
     // MARK: - Actions
     
-    @IBAction func triggerButtonTapped(button: WKInterfaceButton) {
+    @IBAction func triggerButtonTapped(_ button: WKInterfaceButton) {
         
         // Start or stop the countdown
         !isTriggering ? startCountdown() : stopCountdown(false)
         isTriggering = !isTriggering
     }
     
-    @IBAction func sliderValueChanged(value: Float) {
+    @IBAction func sliderValueChanged(_ value: Float) {
         delay = Double(value)
         delay == 0 ? timer.setHidden(true) : timer.setHidden(false)
         
         // Apple watch has a delay of 1 sec before it updates the timer
-        timer.setDate(NSDate(timeIntervalSinceNow: Double(value + 1.0)))
+        timer.setDate(Date(timeIntervalSinceNow: Double(value + 1.0)))
     }
     
     // MARK: - Private
     
-    private func startCountdown() {
+    fileprivate func startCountdown() {
         
         // Disable the slider
         slider.setEnabled(false)
         
         // Set timer value and start it
-        timer.setDate(NSDate(timeIntervalSinceNow: delay))
+        timer.setDate(Date(timeIntervalSinceNow: delay))
         timer.start()
         
         animationGroup.setBackgroundImageNamed("WatchShutterButton")
         
         if delay == 0 {
             // Animate the watch shutter button once for 1 sec
-            animationGroup.startAnimatingWithImagesInRange(NSMakeRange(4, 29), duration: 1.0, repeatCount: 1)
+            animationGroup.startAnimatingWithImages(in: NSMakeRange(4, 29), duration: 1.0, repeatCount: 1)
             
             // 1 sec animation and then trigger
             delayStopCountdown(1.0, triggerInstantly: true)
         } else {
             
             // Animate the watch shutter button until it gets stoped from the stopCountdown()
-            animationGroup.startAnimatingWithImagesInRange(NSMakeRange(4, 29), duration: 1.0, repeatCount: 0)
+            animationGroup.startAnimatingWithImages(in: NSMakeRange(4, 29), duration: 1.0, repeatCount: 0)
             
             delayStopCountdown(delay, triggerInstantly: false)
         }
     }
     
-    private func delayStopCountdown(seconds: Double, triggerInstantly: Bool) {
+    fileprivate func delayStopCountdown(_ seconds: Double, triggerInstantly: Bool) {
         
         // Send signal to the main app before the countdown
         if triggerInstantly {
@@ -114,21 +114,21 @@ class InterfaceController: WKInterfaceController {
             })
         }
         
-        delayTimer = NSTimer(timeInterval: seconds, target: self, selector: "delayTimer:", userInfo: ["triggerInstantly": triggerInstantly], repeats: false)
-        NSRunLoop.mainRunLoop().addTimer(delayTimer!, forMode: NSDefaultRunLoopMode)
+        delayTimer = Timer(timeInterval: seconds, target: self, selector: #selector(InterfaceController.delayTimer(_:)), userInfo: ["triggerInstantly": triggerInstantly], repeats: false)
+        RunLoop.main.add(delayTimer!, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
-    func delayTimer(timer: NSTimer) {
+    @objc func delayTimer(_ timer: Timer) {
         
-        let userInfo: Dictionary<String, Bool!> = timer.userInfo as! Dictionary<String, Bool!>
+        let userInfo: Dictionary<String, Bool?> = timer.userInfo as! Dictionary<String, Bool?>
         
         if let triggerInstantly = userInfo["triggerInstantly"] {
-            self.stopCountdown(!triggerInstantly)
+            self.stopCountdown(!triggerInstantly!)
             self.isTriggering = false
         }
     }
     
-    private func stopCountdown(trigger: Bool) {
+    fileprivate func stopCountdown(_ trigger: Bool) {
         
         // Send signal to the main app
         if trigger {
@@ -148,12 +148,18 @@ class InterfaceController: WKInterfaceController {
         
         // Stop the timer and set its value
         self.timer.stop()
-        self.timer.setDate(NSDate(timeIntervalSinceNow: delay + 1.0))
+        self.timer.setDate(Date(timeIntervalSinceNow: delay + 1.0))
     }
 }
 
 extension InterfaceController: WCSessionDelegate {
-    func sessionReachabilityDidChange(session: WCSession) {
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(watchOS 2.2, *)
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
+    func sessionReachabilityDidChange(_ session: WCSession) {
         
     }
 }

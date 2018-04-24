@@ -18,13 +18,13 @@ class PressAndLockViewController: CableReleaseViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -35,7 +35,7 @@ class PressAndLockViewController: CableReleaseViewController {
     
     // MARK: - Actions
     
-    @IBAction func shutterButtonTouchUpInside(sender : UIButton) {
+    @IBAction func shutterButtonTouchUpInside(_ sender : UIButton) {
         
         if sequenceManager.activeViewController == nil {
             
@@ -54,8 +54,8 @@ class PressAndLockViewController: CableReleaseViewController {
     override func feedbackViewShowAnimationCompleted() {
         super.feedbackViewShowAnimationCompleted()
         
-        if let activeViewController = sequenceManager.activeViewController where activeViewController is PressAndLockViewController {
-            feedbackViewController.circleTimer?.progress = 0.4
+        if let activeViewController = sequenceManager.activeViewController, activeViewController is PressAndLockViewController {
+            feedbackViewController.circleTimer?.updateProgress(0.4)
             
             // 1 = true, 0 = false
             feedbackViewController.circleTimer?.indeterminate = 1
@@ -63,7 +63,7 @@ class PressAndLockViewController: CableReleaseViewController {
             feedbackViewController.startAnimations()
             
             prepareForSequence()
-            self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: Double.infinity, unit: .Hours))]), repeatSequence: false)
+            self.sequenceManager.play(Sequence(modules: [Pulse(time: Time(duration: Double.infinity, unit: .hours))]), repeatSequence: false)
         }
     }
 }

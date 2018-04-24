@@ -18,7 +18,7 @@
 //
 
 - (id) initWithLocation:(GeoLocation *)AGeoLocation{
- 
+    
     self = [super init];
     if (self) {
         
@@ -95,7 +95,7 @@
 }
 
 - (NSDate *) adjustedSunsetDateWithSunset:(NSDate*)sunset andSunrise:(NSDate *)sunrise{
- 
+    
     if (sunrise != nil && sunset != nil && ([sunrise timeIntervalSinceDate:sunset] > 0)) {
         sunset = [sunset dateByAddingTimeInterval:kSecondsInADay];
     }
@@ -119,7 +119,7 @@
 - (NSDate *) sunriseOffsetByDegrees:(double)offsetZenith{
     
     double dawn = [self UTCSunrise:offsetZenith];
-   
+    
     if (dawn == NAN) {
         return nil;
     }
@@ -224,14 +224,14 @@
     //  the Gregorian calendar.
     //
     
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] ;
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian] ;
     
     //
     //  Convert the current time
     //  into an NSDateComponents.
     //
     
-    NSDateComponents *components = [gregorianCalendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSEraCalendarUnit  fromDate:date];
+    NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitEra  fromDate:date];
     
     //
     //  Set the componenets time 
@@ -247,7 +247,7 @@
     int minutes = (int) (calculatedTime *= 60);     // retain only the minutes
     calculatedTime -= minutes;
     int seconds = (int)(calculatedTime * 60);       // retain only the seconds
-    //calculatedTime -= seconds;                    // remaining milliseconds - Commented out for Build & Analyze    
+                                                    //calculatedTime -= seconds;                    // remaining milliseconds - Commented out for Build & Analyze    
     
     [components setHour: hours];
     [components setMinute:minutes];
@@ -300,7 +300,7 @@
     }else{
         [form setTimeStyle:NSDateFormatterShortStyle];
     }
-
+    
     [form setTimeZone:tz];
     
     return [form stringFromDate:date];

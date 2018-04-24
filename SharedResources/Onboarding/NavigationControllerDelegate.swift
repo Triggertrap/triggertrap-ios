@@ -19,37 +19,37 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let panGesture = UIPanGestureRecognizer(target: self, action: Selector("panned:"))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(NavigationControllerDelegate.panned(_:)))
         self.navigationController!.view.addGestureRecognizer(panGesture)
     }
   
-    @IBAction func panned(gestureRecognizer: UIPanGestureRecognizer) {
+    @IBAction func panned(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         if interactionDisabled {
-            print("Interaction Disabled - Animation is still in process")
+            print("Interaction Disabled - Animation is still in process", terminator: "")
             return
         }
         
-        let velocity = gestureRecognizer.velocityInView(self.navigationController!.view)
+        let velocity = gestureRecognizer.velocity(in: self.navigationController!.view)
         let rightDirection = velocity.x < 0 ? true : false
         
         switch gestureRecognizer.state {
-            case .Began:
+            case .began:
             initialDirectionIsRight = rightDirection
             
-            if !rightDirection && self.navigationController?.topViewController!.isKindOfClass(KitSelectorViewController) != true && self.navigationController?.topViewController!.isKindOfClass(CameraSelectorViewController) != true && self.navigationController?.topViewController!.isKindOfClass(SplashViewController) != true {
+            if !rightDirection && self.navigationController?.topViewController!.isKind(of: KitSelectorViewController.self) != true && self.navigationController?.topViewController!.isKind(of: CameraSelectorViewController.self) != true && self.navigationController?.topViewController!.isKind(of: SplashViewController.self) != true {
                 self.interactionController = UIPercentDrivenInteractiveTransition()
-                self.navigationController?.popViewControllerAnimated(true)
-            } else if rightDirection && self.navigationController?.topViewController!.isKindOfClass(TestTriggertViewController) != true  {
+                self.navigationController?.popViewController(animated: true)
+            } else if rightDirection && self.navigationController?.topViewController!.isKind(of: TestTriggertViewController.self) != true  {
                 self.interactionController = UIPercentDrivenInteractiveTransition()
-                self.navigationController?.topViewController!.performSegueWithIdentifier("PushSegue", sender: nil)
+                self.navigationController?.topViewController!.performSegue(withIdentifier: "PushSegue", sender: nil)
             }
                 
-            case .Changed:
+            case .changed:
                 
                 if let interactionController = self.interactionController {
                     
-                    let translation = gestureRecognizer.translationInView(self.navigationController!.view)
+                    let translation = gestureRecognizer.translation(in: self.navigationController!.view)
                     
                     let dragAmount: CGFloat = self.navigationController!.view.frame.width / 2
                     let threshold: CGFloat = 0.5
@@ -76,17 +76,17 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
                     percent = fmax(percent, 0.0)
                     percent = fmin(percent, 0.99) 
                     
-                    interactionController.updateInteractiveTransition(percent)
+                    interactionController.update(percent)
                     shouldComplete = percent >= threshold
                 }
                 
-            case .Ended:
+            case .ended:
                 if let interactionController = self.interactionController {
                     if shouldComplete == false {
-                        interactionController.cancelInteractiveTransition()
+                        interactionController.cancel()
                         interactionDisabled = false
                     } else {
-                        interactionController.finishInteractiveTransition()
+                        interactionController.finish()
                         interactionDisabled = true
                     }
                     
@@ -95,123 +95,123 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate {
                 
             default:
                 if let interactionController = self.interactionController {
-                    interactionController.cancelInteractiveTransition()
+                    interactionController.cancel()
                     self.interactionController  = nil
                     interactionDisabled = false
                 }
             }
     }
     
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) { 
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) { 
         interactionDisabled = false
     }
     
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        print("From VC: \(fromVC) To VC: \(toVC)")
+        print("From VC: \(fromVC) To VC: \(toVC)", terminator: "")
         
         // Stage 1 transitions
-        if fromVC.isKindOfClass(KitSelectorViewController) && toVC.isKindOfClass(CameraSelectorViewController) {
+        if fromVC.isKind(of: KitSelectorViewController.self) && toVC.isKind(of: CameraSelectorViewController.self) {
             
-            print("KitToCameraSelectorTransition")
+            print("KitToCameraSelectorTransition", terminator: "")
             return KitToCameraSelectorTransition()
             
-        } else if fromVC.isKindOfClass(KitSelectorViewController) && toVC.isKindOfClass(ConnectKitViewController) {
-            print("KitToConnectTransition Push")
+        } else if fromVC.isKind(of: KitSelectorViewController.self) && toVC.isKind(of: ConnectKitViewController.self) {
+            print("KitToConnectTransition Push", terminator: "")
             
             let transition = KitToConnectTransition()
-            transition.state = KitToConnectTransition.State.Push
+            transition.state = KitToConnectTransition.State.push
             return transition
             
-        } else if fromVC.isKindOfClass(ConnectKitViewController) && toVC.isKindOfClass(KitSelectorViewController) {
+        } else if fromVC.isKind(of: ConnectKitViewController.self) && toVC.isKind(of: KitSelectorViewController.self) {
             
-            print("KitToConnectTransition Pop")
+            print("KitToConnectTransition Pop", terminator: "")
             let transition = KitToConnectTransition()
-            transition.state = KitToConnectTransition.State.Pop
+            transition.state = KitToConnectTransition.State.pop
             return transition
             
-        } else if fromVC.isKindOfClass(CameraSelectorViewController) && toVC.isKindOfClass(ConnectKitViewController) {
+        } else if fromVC.isKind(of: CameraSelectorViewController.self) && toVC.isKind(of: ConnectKitViewController.self) {
             
-            print("CameraSelectorToConnectTransition Push")
+            print("CameraSelectorToConnectTransition Push", terminator: "")
             let transition = CameraSelectorToConnectTransition()
-            transition.state = CameraSelectorToConnectTransition.State.Push
+            transition.state = CameraSelectorToConnectTransition.State.push
             return transition
             
-        } else if fromVC.isKindOfClass(ConnectKitViewController) && toVC.isKindOfClass(CameraSelectorViewController) {
+        } else if fromVC.isKind(of: ConnectKitViewController.self) && toVC.isKind(of: CameraSelectorViewController.self) {
             
-            print("CameraSelectorToConnectTransition Pop")
+            print("CameraSelectorToConnectTransition Pop", terminator: "")
             let transition = CameraSelectorToConnectTransition()
-            transition.state = CameraSelectorToConnectTransition.State.Pop
+            transition.state = CameraSelectorToConnectTransition.State.pop
             return transition
             
-        } else if fromVC.isKindOfClass(ConnectKitViewController) && toVC.isKindOfClass(VolumeViewController) {
+        } else if fromVC.isKind(of: ConnectKitViewController.self) && toVC.isKind(of: VolumeViewController.self) {
             
-            print("ConnectToVolumeTransition Push")
+            print("ConnectToVolumeTransition Push", terminator: "")
             let transition = ConnectToVolumeTransition()
-            transition.state = ConnectToVolumeTransition.State.Push
+            transition.state = ConnectToVolumeTransition.State.push
             return transition
             
-        } else if fromVC.isKindOfClass(VolumeViewController) && toVC.isKindOfClass(ConnectKitViewController) {
+        } else if fromVC.isKind(of: VolumeViewController.self) && toVC.isKind(of: ConnectKitViewController.self) {
             
-            print("ConnectToVolumeTransition Pop")
+            print("ConnectToVolumeTransition Pop", terminator: "")
             let transition = ConnectToVolumeTransition()
-            transition.state = ConnectToVolumeTransition.State.Pop
+            transition.state = ConnectToVolumeTransition.State.pop
             return transition
             
-        } else if fromVC.isKindOfClass(VolumeViewController) && toVC.isKindOfClass(CameraViewController) {
+        } else if fromVC.isKind(of: VolumeViewController.self) && toVC.isKind(of: CameraViewController.self) {
             
-            print("VolumeToCameraTransition Push")
+            print("VolumeToCameraTransition Push", terminator: "")
             let transition = VolumeToCameraTransition()
-            transition.state = VolumeToCameraTransition.State.Push
+            transition.state = VolumeToCameraTransition.State.push
             return transition
             
-        } else if fromVC.isKindOfClass(CameraViewController) && toVC.isKindOfClass(VolumeViewController) {
+        } else if fromVC.isKind(of: CameraViewController.self) && toVC.isKind(of: VolumeViewController.self) {
             
-            print("VolumeToCameraTransition Pop")
+            print("VolumeToCameraTransition Pop", terminator: "")
             let transition = VolumeToCameraTransition()
-            transition.state = VolumeToCameraTransition.State.Pop
+            transition.state = VolumeToCameraTransition.State.pop
             return transition
             
-        } else if fromVC.isKindOfClass(CameraViewController) && toVC.isKindOfClass(ManualFocusViewController) {
+        } else if fromVC.isKind(of: CameraViewController.self) && toVC.isKind(of: ManualFocusViewController.self) {
             
-            print("CameraToManualFocusTransition Push")
+            print("CameraToManualFocusTransition Push", terminator: "")
             let transition = CameraToManualFocusTransition()
-            transition.state = CameraToManualFocusTransition.State.Push
+            transition.state = CameraToManualFocusTransition.State.push
             return transition
             
-        }  else if fromVC.isKindOfClass(ManualFocusViewController) && toVC.isKindOfClass(CameraViewController) {
+        }  else if fromVC.isKind(of: ManualFocusViewController.self) && toVC.isKind(of: CameraViewController.self) {
             
-            print("CameraToManualFocusTransition Pop")
+            print("CameraToManualFocusTransition Pop", terminator: "")
             let transition = CameraToManualFocusTransition()
-            transition.state = CameraToManualFocusTransition.State.Pop
+            transition.state = CameraToManualFocusTransition.State.pop
             return transition
             
-        } else if fromVC.isKindOfClass(ManualFocusViewController) && toVC.isKindOfClass(TestTriggertViewController) {
+        } else if fromVC.isKind(of: ManualFocusViewController.self) && toVC.isKind(of: TestTriggertViewController.self) {
             
-            print("ManualFocusToTestTriggerTransition Push")
+            print("ManualFocusToTestTriggerTransition Push", terminator: "")
             let transition = ManualFocusToTestTriggerTransition()
-            transition.state = ManualFocusToTestTriggerTransition.State.Push
+            transition.state = ManualFocusToTestTriggerTransition.State.push
             return transition
             
-        } else if fromVC.isKindOfClass(TestTriggertViewController) && toVC.isKindOfClass(ManualFocusViewController) {
+        } else if fromVC.isKind(of: TestTriggertViewController.self) && toVC.isKind(of: ManualFocusViewController.self) {
             
-            print("ManualFocusToTestTriggerTransition Pop")
+            print("ManualFocusToTestTriggerTransition Pop", terminator: "")
             let transition = ManualFocusToTestTriggerTransition()
-            transition.state = ManualFocusToTestTriggerTransition.State.Pop
+            transition.state = ManualFocusToTestTriggerTransition.State.pop
             return transition
             
-        } else if fromVC.isKindOfClass(SplashViewController) && toVC.isKindOfClass(KitSelectorViewController) {
+        } else if fromVC.isKind(of: SplashViewController.self) && toVC.isKind(of: KitSelectorViewController.self) {
             
             // Use custom transition here if needed between the splash view controller and the kit selector view controller
             
             return nil
         }
         
-        print("Nil")
+        print("Nil", terminator: "")
         return nil
     }
   
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return self.interactionController
     }
 }
