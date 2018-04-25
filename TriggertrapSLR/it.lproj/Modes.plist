@@ -279,20 +279,6 @@
 		<array>
 			<dict>
 				<key>title</key>
-				<string>Wearables</string>
-				<key>identifier</key>
-				<string>Wearables</string>
-				<key>description</key>
-				<string>Trigger from your wrist</string>
-				<key>icon</key>
-				<string>WearablesIcon</string>
-				<key>wearablesSupported</key>
-				<true/>
-				<key>remoteSupported</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>title</key>
 				<string>Wi-Fi</string>
 				<key>identifier</key>
 				<string>Wi-Fi</string>
