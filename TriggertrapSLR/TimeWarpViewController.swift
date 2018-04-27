@@ -59,6 +59,8 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     fileprivate var sequence: Sequence!
     fileprivate var shutterButtonAnimatingDuringPreview = false
     
+    private let _onceToken = NSUUID().uuidString
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -253,6 +255,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     // MARK: - Private
     
     func controlPointReleased() {
+        
         configureInterpolator()
         
         let triggerLength = settingsManager?.pulseLength.intValue != 100 ? settingsManager?.pulseLength.doubleValue : 100.0
@@ -265,7 +268,11 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
             sequenceLength = sequenceLength + Double(truncating: interpolator?.adjustedPauses()[i] as! NSNumber) + triggerLength!
         }
         
-        durationFeedbackLabel.startValue = CUnsignedLongLong(sequenceLength)
+        
+        DispatchQueue.once(token: _onceToken) {
+            durationFeedbackLabel.startValue = CUnsignedLongLong(sequenceLength)
+        }
+        //
         
         let overlapIndicies = interpolator?.overlapIndicies()
         
@@ -527,5 +534,28 @@ extension TimeWarpViewController: WearableManagerDelegate {
     
     func watchDidTrigger() {
         self.shutterButtonTouchUpInside(UIButton())
+    }
+}
+
+public extension DispatchQueue {
+    
+    private static var _onceTracker = [String]()
+    
+    /**
+     Executes a block of code, associated with a unique token, only once.  The code is thread safe and will
+     only execute the code once even in the presence of multithreaded calls.
+     
+     - parameter token: A unique reverse DNS style name such as com.vectorform.<name> or a GUID
+     - parameter block: Block to execute once
+     */
+    public class func once(token: String, block:()->Void) {
+        objc_sync_enter(self); defer { objc_sync_exit(self) }
+        
+        if _onceTracker.contains(token) {
+            return
+        }
+        
+        _onceTracker.append(token)
+        block()
     }
 }
