@@ -39,9 +39,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.</string>
+	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you&apos;ve moved, and when to trigger your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.</string>
+	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you&apos;ve moved, and when to trigger your camera.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Your Camera will be used when accessing Peakaboo mode.</string>
 	<key>PebbleAppId</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>
