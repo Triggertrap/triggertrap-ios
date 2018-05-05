@@ -22,7 +22,6 @@
 		BD09660B1BF9EE49000C581B /* Triggertrap WatchKit 1 App.app in Resources */ = {isa = PBXBuildFile; fileRef = BD09660A1BF9EE49000C581B /* Triggertrap WatchKit 1 App.app */; };
 		BD0966111BF9EE49000C581B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD09660F1BF9EE49000C581B /* Interface.storyboard */; };
 		BD0966131BF9EE49000C581B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD0966121BF9EE49000C581B /* Assets.xcassets */; };
-		BD0966171BF9EE49000C581B /* Triggertrap WatchKit 1 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BD0965FB1BF9EE49000C581B /* Triggertrap WatchKit 1 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BD098B761BC28CFE00A87FC8 /* TimelapseProViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098B751BC28CFE00A87FC8 /* TimelapseProViewController.swift */; };
 		BD098B7A1BC2946E00A87FC8 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098B791BC2946E00A87FC8 /* CenterViewController.swift */; };
 		BD098B7C1BC29A2200A87FC8 /* TimelapseProPromotion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD098B7B1BC29A2100A87FC8 /* TimelapseProPromotion.jpg */; };
@@ -198,7 +197,6 @@
 		BDD4C3D01BF0E750008CA311 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4C3CF1BF0E750008CA311 /* NotificationController.swift */; };
 		BDD4C3D21BF0E750008CA311 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4C3D11BF0E750008CA311 /* GlanceController.swift */; };
 		BDD4C3D41BF0E750008CA311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD4C3D31BF0E750008CA311 /* Assets.xcassets */; };
-		BDD4C3D81BF0E750008CA311 /* Triggertrap Watch Kit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BDD4C3B81BF0E750008CA311 /* Triggertrap Watch Kit.app */; };
 		BDD75B981BE7799C0014DA3D /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD75B9A1BE7799C0014DA3D /* Feedback.storyboard */; };
 		BDD75B9F1BE779E20014DA3D /* CableReleaseModes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BA11BE779E20014DA3D /* CableReleaseModes.storyboard */; };
 		BDD75BA61BE779F10014DA3D /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BA81BE779F10014DA3D /* Options.storyboard */; };
@@ -229,26 +227,12 @@
 			remoteGlobalIDString = BD0966091BF9EE49000C581B;
 			remoteInfo = "Triggertrap WatchKit 1 App";
 		};
-		BD0966151BF9EE49000C581B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EE1F13B1B1C9DFD00FE6EB7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD0965FA1BF9EE49000C581B;
-			remoteInfo = "Triggertrap WatchKit 1 Extension";
-		};
 		BDD4C3C61BF0E750008CA311 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9EE1F13B1B1C9DFD00FE6EB7 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BDD4C3C31BF0E750008CA311;
 			remoteInfo = "Triggertrap Watch Kit Extension";
-		};
-		BDD4C3D61BF0E750008CA311 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EE1F13B1B1C9DFD00FE6EB7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BDD4C3B71BF0E750008CA311;
-			remoteInfo = "Triggertrap Watch Kit";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -269,7 +253,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				BD0966171BF9EE49000C581B /* Triggertrap WatchKit 1 Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +263,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				BDD4C3D81BF0E750008CA311 /* Triggertrap Watch Kit.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1612,8 +1594,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BDD4C3D71BF0E750008CA311 /* PBXTargetDependency */,
-				BD0966161BF9EE49000C581B /* PBXTargetDependency */,
 			);
 			name = TriggertrapSLR;
 			productName = TriggertrapSLR;
@@ -1702,7 +1682,6 @@
 				TargetAttributes = {
 					9EE1F1A61B1C9FE800FE6EB7 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = S4JEZRL8YY;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1719,24 +1698,20 @@
 					};
 					BD0965FA1BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = S4JEZRL8YY;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					BD0966091BF9EE49000C581B = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = S4JEZRL8YY;
 						ProvisioningStyle = Automatic;
 					};
 					BDD4C3B71BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = S4JEZRL8YY;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 					BDD4C3C31BF0E750008CA311 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = S4JEZRL8YY;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -2126,20 +2101,10 @@
 			target = BD0966091BF9EE49000C581B /* Triggertrap WatchKit 1 App */;
 			targetProxy = BD09660C1BF9EE49000C581B /* PBXContainerItemProxy */;
 		};
-		BD0966161BF9EE49000C581B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD0965FA1BF9EE49000C581B /* Triggertrap WatchKit 1 Extension */;
-			targetProxy = BD0966151BF9EE49000C581B /* PBXContainerItemProxy */;
-		};
 		BDD4C3C71BF0E750008CA311 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BDD4C3C31BF0E750008CA311 /* Triggertrap Watch Kit Extension */;
 			targetProxy = BDD4C3C61BF0E750008CA311 /* PBXContainerItemProxy */;
-		};
-		BDD4C3D71BF0E750008CA311 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BDD4C3B71BF0E750008CA311 /* Triggertrap Watch Kit */;
-			targetProxy = BDD4C3D61BF0E750008CA311 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2523,7 +2488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
@@ -2576,7 +2541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
@@ -2599,7 +2564,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2640,7 +2605,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2674,9 +2639,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -2695,9 +2660,9 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -2717,10 +2682,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2739,10 +2704,10 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2761,8 +2726,9 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -2784,8 +2750,9 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -2810,16 +2777,18 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2834,16 +2803,18 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S4JEZRL8YY;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
