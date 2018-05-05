@@ -2488,7 +2488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "";
@@ -2541,7 +2541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
@@ -2564,7 +2564,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2605,7 +2605,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2639,7 +2639,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -2660,7 +2660,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -2682,7 +2682,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2704,7 +2704,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2726,7 +2726,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -2750,7 +2750,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -2777,7 +2777,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2803,7 +2803,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 935G2KW2FF;
+				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
