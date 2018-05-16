@@ -449,6 +449,7 @@
                     <connections>
                         <outlet property="rotationButton" destination="JD8-2K-251" id="RK7-8X-SHK"/>
                         <outlet property="slider" destination="qeY-6z-abB" id="lOS-Lb-sni"/>
+                        <outlet property="viewBottomSpacing" destination="Hib-IQ-SHF" id="NeI-Sb-eYy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GsW-Dp-MMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
