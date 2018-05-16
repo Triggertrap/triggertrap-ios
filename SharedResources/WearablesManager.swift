@@ -1,5 +1,5 @@
 //
-//  PebbleWatchManager.swift
+//  WearablesManager.swift
 //  TriggertrapSLR
 //
 //  Created by Valentin Kalchev on 07/04/2015.

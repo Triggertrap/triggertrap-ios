@@ -106,7 +106,6 @@
 		BD6464801BF21F7B00B2324B /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD64647F1BF21F7B00B2324B /* SeparatorView.swift */; };
 		BD7144C01BB94F4600E7A34B /* AppleWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BD1BB94F4600E7A34B /* AppleWatchManager.swift */; };
 		BD7144C21BB94F4600E7A34B /* WearablesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BE1BB94F4600E7A34B /* WearablesManager.swift */; };
-		BD7144C41BB94F4600E7A34B /* PebbleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144BF1BB94F4600E7A34B /* PebbleManager.swift */; };
 		BD7144C91BBA877B00E7A34B /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144C71BBA877B00E7A34B /* BorderButton.swift */; };
 		BD7144CB1BBA877B00E7A34B /* ShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144C81BBA877B00E7A34B /* ShutterButton.swift */; };
 		BD7144CF1BBA884D00E7A34B /* AudioListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD7144CE1BBA884D00E7A34B /* AudioListener.mm */; };
@@ -450,7 +449,6 @@
 		BD64647F1BF21F7B00B2324B /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		BD7144BD1BB94F4600E7A34B /* AppleWatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleWatchManager.swift; sourceTree = "<group>"; };
 		BD7144BE1BB94F4600E7A34B /* WearablesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WearablesManager.swift; sourceTree = "<group>"; };
-		BD7144BF1BB94F4600E7A34B /* PebbleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PebbleManager.swift; sourceTree = "<group>"; };
 		BD7144C71BBA877B00E7A34B /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		BD7144C81BBA877B00E7A34B /* ShutterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShutterButton.swift; sourceTree = "<group>"; };
 		BD7144CD1BBA884D00E7A34B /* AudioListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListener.h; sourceTree = "<group>"; };
@@ -1257,7 +1255,6 @@
 			children = (
 				BD7144BD1BB94F4600E7A34B /* AppleWatchManager.swift */,
 				BD7144BE1BB94F4600E7A34B /* WearablesManager.swift */,
-				BD7144BF1BB94F4600E7A34B /* PebbleManager.swift */,
 			);
 			name = Wearables;
 			sourceTree = "<group>";
@@ -1844,7 +1841,6 @@
 				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
-				"${PODS_ROOT}/PebbleKit/PebbleKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RPCircularProgress/RPCircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
 				"${BUILT_PRODUCTS_DIR}/TTCounterLabel/TTCounterLabel.framework",
@@ -1856,7 +1852,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTFeedback.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PebbleKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RPCircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTCounterLabel.framework",
@@ -2008,7 +2003,6 @@
 				BDD44D4A1BB163B200B98FF6 /* SLRConstants.swift in Sources */,
 				BD7144C01BB94F4600E7A34B /* AppleWatchManager.swift in Sources */,
 				BD7D54311BCBBB550030219D /* UIDevice+Camera.m in Sources */,
-				BD7144C41BB94F4600E7A34B /* PebbleManager.swift in Sources */,
 				BD098BE51BC7C30800A87FC8 /* ControlPoint.m in Sources */,
 				BDAB818E1BCBFFC700F84AB6 /* SubSettingsViewController.swift in Sources */,
 				BD1133D81BB3EED1006ED87A /* VolumeToCameraTransition.swift in Sources */,
@@ -2564,7 +2558,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = FMNA99Z5AY;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2605,7 +2599,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = FMNA99Z5AY;
+				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

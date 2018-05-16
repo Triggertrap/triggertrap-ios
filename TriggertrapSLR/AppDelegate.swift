@@ -67,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         DongleObserver.sharedInstance.dongleConnectedToPhone()
-        PebbleManager.sharedInstance.setupPebbleWatch()
         
         return true
     }

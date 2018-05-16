@@ -1,14 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Metric-Light.otf">
+        <array key="Metric-Light.otf">
             <string>Metric-Light</string>
-            <string>Metric-Light</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Wi-Fi-->
@@ -20,7 +23,7 @@
                         <viewControllerLayoutGuide type="bottom" id="aFF-jL-39t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1MK-mN-ZSF">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-Dm-eYU" userLabel="topeLeftView">
@@ -28,7 +31,6 @@
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LqI-pz-Qt0">
                                         <rect key="frame" x="8" y="8" width="584" height="45"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="K6G-dq-jc5"/>
                                         </constraints>
@@ -36,15 +38,14 @@
                                             <segment title="Master"/>
                                             <segment title="Slave"/>
                                         </segments>
-                                        <color key="tintColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="segmentedControllerPressed:" destination="cEr-Ym-acT" eventType="valueChanged" id="O6W-2I-R17"/>
                                         </connections>
                                     </segmentedControl>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xS8-Ic-gCK">
                                         <rect key="frame" x="8" y="60" width="584" height="320"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ewn-Va-A1d">
                                             <size key="itemSize" width="50" height="44"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -55,15 +56,13 @@
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="xg9-O3-ceO">
                                         <rect key="frame" x="20" y="60" width="560" height="312"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="22"/>
-                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="xS8-Ic-gCK" secondAttribute="bottom" id="6gK-7F-3wW"/>
                                     <constraint firstAttribute="trailing" secondItem="xS8-Ic-gCK" secondAttribute="trailing" constant="8" id="CaD-OU-zAk"/>
@@ -81,25 +80,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOm-If-Ypb" userLabel="bottomRightView">
-                                <rect key="frame" x="0.0" y="380" width="600" height="156"/>
+                                <rect key="frame" x="-225" y="447" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-0d-m3o" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="iHL-fe-iSc"/>
                                             <constraint firstAttribute="width" constant="100" id="zzj-2E-2gf"/>
                                         </constraints>
                                         <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="shutterButtonTouchUpInside:" destination="cEr-Ym-acT" eventType="touchUpInside" id="fFQ-GO-Xcr"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="xNK-0d-m3o" secondAttribute="centerX" id="kCU-nd-81a"/>
                                     <constraint firstAttribute="width" constant="600" id="lXA-t2-AdZ"/>
@@ -108,8 +105,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PCK-Dm-eYU" firstAttribute="leading" secondItem="1MK-mN-ZSF" secondAttribute="leading" id="2y5-yw-LXy"/>
                             <constraint firstItem="aFF-jL-39t" firstAttribute="top" secondItem="AOm-If-Ypb" secondAttribute="bottom" id="VzY-M6-RUB"/>
@@ -145,70 +141,47 @@
                         <viewControllerLayoutGuide type="bottom" id="PH2-2H-tE4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X4w-3H-i3d">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGt-mN-PdX" userLabel="topLeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OWD-9d-SuA">
-                                        <rect key="frame" x="8" y="8" width="584" height="45"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="a3S-pm-YnT"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="Pebble"/>
-                                            <segment title="Apple Watch"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="segmentedControllerPressed:" destination="5e0-aH-nTu" eventType="valueChanged" id="qHr-ft-uGB"/>
-                                        </connections>
-                                    </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="wAX-MR-vCf" userLabel="Info Text">
-                                        <rect key="frame" x="20" y="60" width="560" height="312"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="20" y="372" width="560" height="0.0"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="22"/>
-                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wAX-MR-vCf" secondAttribute="trailing" constant="20" id="4Vb-S9-hGl"/>
-                                    <constraint firstItem="OWD-9d-SuA" firstAttribute="leading" secondItem="oGt-mN-PdX" secondAttribute="leading" constant="8" id="6q5-hM-LDt"/>
-                                    <constraint firstAttribute="trailing" secondItem="OWD-9d-SuA" secondAttribute="trailing" constant="8" id="B3M-wN-0R1"/>
                                     <constraint firstAttribute="bottom" secondItem="wAX-MR-vCf" secondAttribute="bottom" constant="8" id="EGB-yj-kQV"/>
                                     <constraint firstAttribute="width" constant="600" id="OFo-GZ-LCc"/>
-                                    <constraint firstItem="wAX-MR-vCf" firstAttribute="top" secondItem="OWD-9d-SuA" secondAttribute="bottom" constant="8" id="qUR-Ui-fPW"/>
-                                    <constraint firstItem="OWD-9d-SuA" firstAttribute="top" secondItem="oGt-mN-PdX" secondAttribute="top" constant="8" id="rxu-rK-aVD"/>
                                     <constraint firstItem="wAX-MR-vCf" firstAttribute="leading" secondItem="oGt-mN-PdX" secondAttribute="leading" constant="20" id="uoZ-bP-7wM"/>
                                     <constraint firstAttribute="height" constant="380" id="yyO-lO-8Nf"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJA-mv-Sww" userLabel="bottomRightView">
-                                <rect key="frame" x="0.0" y="380" width="600" height="156"/>
+                                <rect key="frame" x="-225" y="447" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-tI-bbq" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="YdH-qe-l4W"/>
                                             <constraint firstAttribute="width" constant="100" id="h7g-FO-hvd"/>
                                         </constraints>
                                         <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="shutterButtonTouchUpInside:" destination="5e0-aH-nTu" eventType="touchUpInside" id="N9e-xm-7yD"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <animations/>
-                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="1W8-tI-bbq" secondAttribute="centerY" id="57c-2I-WF8"/>
                                     <constraint firstAttribute="centerX" secondItem="1W8-tI-bbq" secondAttribute="centerX" id="Bzb-XB-88Y"/>
@@ -217,8 +190,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oGt-mN-PdX" firstAttribute="top" secondItem="tcu-RD-zzR" secondAttribute="bottom" id="NYg-FR-cPi"/>
                             <constraint firstItem="oGt-mN-PdX" firstAttribute="leading" secondItem="X4w-3H-i3d" secondAttribute="leading" id="ZMH-Tg-os1"/>
@@ -233,7 +205,6 @@
                         <outlet property="brHeightConstraint" destination="cBy-DF-tLk" id="f9F-jq-bQx"/>
                         <outlet property="brWidthConstraint" destination="ID0-MJ-Tpm" id="L40-FG-Iqw"/>
                         <outlet property="infoText" destination="wAX-MR-vCf" id="SqH-ID-v8N"/>
-                        <outlet property="segmentedControl" destination="OWD-9d-SuA" id="mnC-OQ-NOg"/>
                         <outlet property="shutterButton" destination="1W8-tI-bbq" id="Y6H-ud-IBn"/>
                         <outlet property="tlHeightConstraint" destination="yyO-lO-8Nf" id="WrS-hC-PEn"/>
                         <outlet property="tlWidthConstraint" destination="OFo-GZ-LCc" id="LAD-iA-pOI"/>

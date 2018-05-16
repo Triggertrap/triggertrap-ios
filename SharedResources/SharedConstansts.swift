@@ -43,10 +43,7 @@ let constPhotoTaken = "Photo Taken"
 
 // MARK: - Wearable
 
-let constPebbleAppId = "PebbleAppId"
-let constPebbleIsSelected = "PebbleIsSelected"
 let constWatchDidTrigger = "WatchDidTrigger"
-let constPebbleWatchStatusChanged = "PebbleWatchStatusChanged"
 
 // MARK: - Timelapse Pro
 
