@@ -292,7 +292,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ztm-n1-PRK" firstAttribute="top" secondItem="ddR-CI-Wgs" secondAttribute="bottom" id="agM-Z4-8Yq"/>
+                            <constraint firstAttribute="bottom" secondItem="ddR-CI-Wgs" secondAttribute="bottom" id="agM-Z4-8Yq"/>
                             <constraint firstAttribute="trailing" secondItem="ddR-CI-Wgs" secondAttribute="trailing" id="gxN-TP-yII"/>
                             <constraint firstItem="uTS-wE-a3Y" firstAttribute="leading" secondItem="dws-Wy-2qr" secondAttribute="leading" id="ook-NF-5B6"/>
                             <constraint firstItem="uTS-wE-a3Y" firstAttribute="top" secondItem="npr-lK-kLA" secondAttribute="bottom" id="qgX-jn-t5c"/>
@@ -415,7 +415,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         <constraints>
                             <constraint firstItem="ZTE-uG-0I2" firstAttribute="top" secondItem="PCy-Gg-BMW" secondAttribute="bottom" id="4bT-Mr-gNF"/>
                             <constraint firstItem="ZTE-uG-0I2" firstAttribute="leading" secondItem="YuN-U2-oxq" secondAttribute="leading" id="RY3-YB-Jbx"/>
-                            <constraint firstItem="LEc-Ay-sWm" firstAttribute="top" secondItem="Rob-RT-vx1" secondAttribute="bottom" id="ybL-uC-zWn"/>
+                            <constraint firstAttribute="bottom" secondItem="Rob-RT-vx1" secondAttribute="bottom" id="ybL-uC-zWn"/>
                             <constraint firstAttribute="trailing" secondItem="Rob-RT-vx1" secondAttribute="trailing" id="zWC-Rj-n52"/>
                         </constraints>
                     </view>
@@ -540,7 +540,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Etu-ta-qpL" userLabel="bulbButton">
-                                        <rect key="frame" x="562" y="118" width="30" height="30"/>
+                                        <rect key="frame" x="562" y="8" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="gia-hU-iiu"/>
                                             <constraint firstAttribute="height" constant="30" id="hmo-1T-arr"/>
@@ -558,14 +558,14 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                     <constraint firstAttribute="width" constant="600" id="Any-kd-Bzg"/>
                                     <constraint firstAttribute="centerX" secondItem="12H-fr-zLn" secondAttribute="centerX" id="Dh5-7B-9KR"/>
                                     <constraint firstAttribute="trailing" secondItem="Etu-ta-qpL" secondAttribute="trailing" constant="8" id="VDb-yu-uho"/>
-                                    <constraint firstAttribute="bottom" secondItem="Etu-ta-qpL" secondAttribute="bottom" constant="8" id="pHk-bH-SLK"/>
+                                    <constraint firstItem="Etu-ta-qpL" firstAttribute="top" secondItem="HNo-sV-PT9" secondAttribute="top" constant="8" id="uL1-PQ-6KB"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HNo-sV-PT9" secondAttribute="trailing" id="HX3-6d-CfC"/>
-                            <constraint firstItem="rar-6Z-OZV" firstAttribute="top" secondItem="HNo-sV-PT9" secondAttribute="bottom" id="SAn-Gb-ti8"/>
+                            <constraint firstAttribute="bottom" secondItem="HNo-sV-PT9" secondAttribute="bottom" id="SAn-Gb-ti8"/>
                             <constraint firstItem="UnL-iI-Pbi" firstAttribute="top" secondItem="lnL-ex-dtq" secondAttribute="bottom" id="Vz5-OC-WFI"/>
                             <constraint firstItem="UnL-iI-Pbi" firstAttribute="leading" secondItem="v5d-tS-lLm" secondAttribute="leading" id="dzL-F3-FFL"/>
                         </constraints>
@@ -760,7 +760,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                 <rect key="frame" x="-225" y="447" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esM-A9-dCG" userLabel="bulbButton">
-                                        <rect key="frame" x="562" y="118" width="30" height="30"/>
+                                        <rect key="frame" x="562" y="8" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="iqe-eV-o3f"/>
                                             <constraint firstAttribute="height" constant="30" id="lsU-Fu-Duw"/>
@@ -790,7 +790,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                     <constraint firstAttribute="trailing" secondItem="esM-A9-dCG" secondAttribute="trailing" constant="8" id="c00-WD-tbb"/>
                                     <constraint firstAttribute="width" constant="600" id="cUU-lC-iak"/>
                                     <constraint firstAttribute="centerY" secondItem="0Vo-Yz-ZEE" secondAttribute="centerY" id="eyp-5P-9A9"/>
-                                    <constraint firstAttribute="bottom" secondItem="esM-A9-dCG" secondAttribute="bottom" constant="8" id="s8X-qz-BnK"/>
+                                    <constraint firstItem="esM-A9-dCG" firstAttribute="top" secondItem="vgN-td-UA0" secondAttribute="top" constant="8" id="pA2-eD-tHt"/>
                                     <constraint firstAttribute="centerX" secondItem="0Vo-Yz-ZEE" secondAttribute="centerX" id="sQf-OS-1RI"/>
                                 </constraints>
                             </view>
@@ -800,7 +800,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                             <constraint firstAttribute="trailing" secondItem="vgN-td-UA0" secondAttribute="trailing" id="D2x-2C-nrK"/>
                             <constraint firstItem="SsA-fZ-EQx" firstAttribute="leading" secondItem="hEL-Fr-K37" secondAttribute="leading" id="bbj-yF-xtl"/>
                             <constraint firstItem="SsA-fZ-EQx" firstAttribute="top" secondItem="Jaz-W3-nFz" secondAttribute="bottom" id="dI7-QD-dAz"/>
-                            <constraint firstItem="hdP-el-fOz" firstAttribute="top" secondItem="vgN-td-UA0" secondAttribute="bottom" id="t0L-yk-AHc"/>
+                            <constraint firstAttribute="bottom" secondItem="vgN-td-UA0" secondAttribute="bottom" id="t0L-yk-AHc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Bramping" id="gXk-Tx-JH4"/>
@@ -1154,7 +1154,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gjc-eL-bD6" secondAttribute="trailing" id="XC2-cQ-8Ic"/>
                             <constraint firstItem="0N1-QU-PEL" firstAttribute="leading" secondItem="gxp-dX-EFT" secondAttribute="leading" id="rQA-s5-zru"/>
-                            <constraint firstItem="CUo-nz-uje" firstAttribute="top" secondItem="Gjc-eL-bD6" secondAttribute="bottom" id="wt3-Qb-ogj"/>
+                            <constraint firstAttribute="bottom" secondItem="Gjc-eL-bD6" secondAttribute="bottom" id="wt3-Qb-ogj"/>
                             <constraint firstItem="0N1-QU-PEL" firstAttribute="top" secondItem="d48-xJ-VE4" secondAttribute="bottom" id="yhC-cY-GRT"/>
                         </constraints>
                     </view>
