@@ -36,8 +36,6 @@
 	<string>Access to the Microphone is required to trigger your camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access to your Photo Library is required to send attachments alongside support requests.</string>
-	<key>PebbleAppId</key>
-	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -50,10 +48,6 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
-	<key>UISupportedExternalAccessoryProtocols</key>
-	<array>
-		<string>com.getpebble.public</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
