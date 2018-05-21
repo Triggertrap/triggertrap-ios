@@ -237,7 +237,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImE-SF-vMQ" userLabel="topeLeftView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImE-SF-vMQ" userLabel="topLeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYa-xr-FyX">
@@ -285,9 +285,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ImE-SF-vMQ" firstAttribute="leading" secondItem="IoR-2T-qLK" secondAttribute="leading" id="2fO-aa-bV6"/>
+                            <constraint firstItem="ImE-SF-vMQ" firstAttribute="leading" secondItem="GbH-Zq-U4u" secondAttribute="leading" id="2fO-aa-bV6"/>
                             <constraint firstAttribute="trailing" secondItem="3aa-0t-ef0" secondAttribute="trailing" id="EYd-jI-Mfr"/>
-                            <constraint firstItem="ImE-SF-vMQ" firstAttribute="top" secondItem="IoR-2T-qLK" secondAttribute="top" id="Lao-ZM-XTi"/>
+                            <constraint firstItem="ImE-SF-vMQ" firstAttribute="top" secondItem="GbH-Zq-U4u" secondAttribute="top" id="Lao-ZM-XTi"/>
                             <constraint firstAttribute="bottom" secondItem="3aa-0t-ef0" secondAttribute="bottom" id="w2M-Aj-a1r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IoR-2T-qLK"/>
@@ -316,7 +316,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-SD-niP" userLabel="topeLeftView">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-SD-niP" userLabel="topLeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbl-hH-att">
@@ -366,8 +366,8 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="shF-Xb-gjq" secondAttribute="bottom" id="H9G-I5-N05"/>
                             <constraint firstAttribute="trailing" secondItem="shF-Xb-gjq" secondAttribute="trailing" id="SDZ-WI-vFF"/>
-                            <constraint firstItem="bUv-SD-niP" firstAttribute="leading" secondItem="eOu-mo-JZH" secondAttribute="leading" id="beS-se-opp"/>
-                            <constraint firstItem="bUv-SD-niP" firstAttribute="top" secondItem="eOu-mo-JZH" secondAttribute="top" id="lni-66-ZHh"/>
+                            <constraint firstItem="bUv-SD-niP" firstAttribute="leading" secondItem="umu-vi-ig6" secondAttribute="leading" id="beS-se-opp"/>
+                            <constraint firstItem="bUv-SD-niP" firstAttribute="top" secondItem="umu-vi-ig6" secondAttribute="top" id="lni-66-ZHh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eOu-mo-JZH"/>
                     </view>
@@ -436,10 +436,10 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JD8-2K-251" firstAttribute="top" secondItem="2Bf-Nc-sG2" secondAttribute="top" constant="20" id="025-ll-BkK"/>
-                            <constraint firstItem="2Bf-Nc-sG2" firstAttribute="trailing" secondItem="Bap-eM-WOp" secondAttribute="trailing" id="3ol-Dm-JzD"/>
-                            <constraint firstItem="2Bf-Nc-sG2" firstAttribute="bottom" secondItem="Bap-eM-WOp" secondAttribute="bottom" id="Hib-IQ-SHF"/>
+                            <constraint firstAttribute="trailing" secondItem="Bap-eM-WOp" secondAttribute="trailing" id="3ol-Dm-JzD"/>
+                            <constraint firstAttribute="bottom" secondItem="Bap-eM-WOp" secondAttribute="bottom" id="Hib-IQ-SHF"/>
                             <constraint firstItem="2Bf-Nc-sG2" firstAttribute="trailing" secondItem="JD8-2K-251" secondAttribute="trailing" constant="16" id="pcp-0Q-ywb"/>
-                            <constraint firstItem="Bap-eM-WOp" firstAttribute="leading" secondItem="2Bf-Nc-sG2" secondAttribute="leading" id="zxS-fh-EYo"/>
+                            <constraint firstItem="Bap-eM-WOp" firstAttribute="leading" secondItem="kGV-oe-Xul" secondAttribute="leading" id="zxS-fh-EYo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Bf-Nc-sG2"/>
                     </view>
