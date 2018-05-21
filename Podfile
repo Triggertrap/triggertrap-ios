@@ -16,7 +16,5 @@ end
 
 target 'TriggertrapSLR' do
     common_pods
-    pod 'Crashlytics'
-    pod 'Fabric'
     pod 'Shimmer'
 end

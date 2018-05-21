@@ -22,20 +22,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>935</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>da22b4823644f241318daa762f5b04505a0ea6a8</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
@@ -43,9 +29,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Your Camera will be used when accessing Peakaboo mode.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.</string>
+	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you&apos;ve moved, and when to trigger your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.</string>
+	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you&apos;ve moved, and when to trigger your camera.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Access to the Microphone is required to trigger your camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
