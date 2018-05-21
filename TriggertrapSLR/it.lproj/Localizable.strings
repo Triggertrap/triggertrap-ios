@@ -61,8 +61,8 @@
 /* Bulb Required! */
 "Bulb Required!"="Bulb richiesto!";
 
-/* Buy %@ Cable */
-"Buy %@ Cable"="Compra il cavo %@";
+/* Find a %@ cable on eBay */
+"Find a %@ cable on eBay"="Trova un cavo %@ su eBay";
 
 /* Cancel */
 "Cancel"="Annulla";

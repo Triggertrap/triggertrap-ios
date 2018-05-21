@@ -218,7 +218,7 @@
                                     <constraint firstAttribute="height" constant="44" id="a0V-Un-Aon"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="22"/>
-                                <state key="normal" title="Get one today">
+                                <state key="normal" title="Find one today">
                                     <color key="titleColor" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -397,7 +397,7 @@
                                             <constraint firstAttribute="height" constant="44" id="Xqv-4q-Mv5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="22"/>
-                                        <state key="normal" title="Get this Mobile Kit">
+                                        <state key="normal" title="Find on eBay">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>

@@ -58,8 +58,8 @@
 /* Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device! */
 "Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!"="Broadcasting as:\n\n%@\n\nWait for slave devices to connect to this device!";
 
-/* Buy %@ Cable */
-"Buy %@ Cable"="Buy %@ Cable";
+/* Find a %@ cable on eBay */
+"Find a %@ cable on eBay"="Find a %@ cable on eBay";
 
 /* Close panel */
 "Close panel"="Close panel";
