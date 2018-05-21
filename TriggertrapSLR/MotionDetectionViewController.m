@@ -10,6 +10,11 @@
 #import <CoreImage/CoreImage.h>
 #import "UIDevice+Camera.h"
 
+@interface MotionDetectionViewController()
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *viewBottomSpacing;
+
+@end
+
 @implementation MotionDetectionViewController { 
 }
 
@@ -29,6 +34,13 @@
     
     if (![[UIDevice currentDevice] hasFrontCamera] || ![[UIDevice currentDevice] hasRearCamera]) {
         _rotationButton.hidden = YES;
+    }
+    
+    if (@available(iOS 11.0, *)) {
+        UIWindow *window = UIApplication.sharedApplication.keyWindow;
+        CGFloat bottomPadding = window.safeAreaInsets.bottom;
+        
+        self.viewBottomSpacing.constant += bottomPadding;
     }
 }
 
