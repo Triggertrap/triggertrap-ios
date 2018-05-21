@@ -15,10 +15,7 @@ class TimelapseProViewController: CenterViewController {
     @IBOutlet weak var previewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var tellMeMoreButton: BorderButton!
     @IBOutlet weak var viewInAppStoreButton: BorderButton!
-    @IBOutlet weak var scrollButton: UIButton! 
-    @IBOutlet weak var shimmeringView: FBShimmeringView!
     @IBOutlet weak var bottomBackgroundView: UIView!
     @IBOutlet weak var topGradientView: GradientOverlayView!
     @IBOutlet weak var bottomGradientView: GradientOverlayView!
@@ -28,8 +25,7 @@ class TimelapseProViewController: CenterViewController {
     fileprivate let padding: CGFloat = 8
     
     fileprivate enum ActionSheetType {
-        case tellMeMore,
-        viewInAppStore
+        case viewInAppStore
     }
     
     fileprivate var actionSheetType: ActionSheetType?
@@ -38,8 +34,6 @@ class TimelapseProViewController: CenterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
-        shimmeringView.contentView = scrollButton
         textView.text = NSLocalizedString("Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.", comment: "Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.")
     }
     
@@ -60,13 +54,9 @@ class TimelapseProViewController: CenterViewController {
         super.viewDidLayoutSubviews()
         
         if self.view.bounds.height > self.view.bounds.width {
-            scrollButton.isHidden = true
-            shimmeringView.isShimmering = false
             previewHeightConstraint.constant = self.view.bounds.height / 2
             textViewHeightConstraint.constant = (self.view.frame.height / 2) - (3 * padding + 2 * buttonHeight)
         } else {
-            scrollButton.isHidden = false
-            shimmeringView.isShimmering = true
             previewHeightConstraint.constant = self.view.bounds.height
             textViewHeightConstraint.constant = SizeForText(textView.text! as NSString, withFont: textView.font!, constrainedToSize: CGSize(width: textView.frame.width, height: 1000)).height + 2 * padding
         } 
@@ -94,9 +84,6 @@ class TimelapseProViewController: CenterViewController {
         
         if let actionSheetType = actionSheetType {
             switch actionSheetType {
-            case ActionSheetType.tellMeMore:
-                openLinkTitle = NSLocalizedString("Open in Safari", comment: "Open in Safari")
-                break
                 
             case ActionSheetType.viewInAppStore:
                 openLinkTitle = NSLocalizedString("Open in App Store", comment: "Open in App Store")
@@ -135,10 +122,6 @@ class TimelapseProViewController: CenterViewController {
         textView.backgroundColor = UIColor.triggertrap_fillColor()
         textView.textColor = UIColor.triggertrap_accentColor()
         
-        tellMeMoreButton.fillColor = UIColor.triggertrap_primaryColor()
-        tellMeMoreButton.borderColor = UIColor.triggertrap_primaryColor()
-        tellMeMoreButton.setTitleColor(UIColor.triggertrap_fillColor(), for: UIControlState())
-        
         viewInAppStoreButton.fillColor = UIColor.triggertrap_primaryColor()
         viewInAppStoreButton.borderColor = UIColor.triggertrap_primaryColor()
         viewInAppStoreButton.setTitleColor(UIColor.triggertrap_fillColor(), for: UIControlState())
@@ -151,37 +134,9 @@ class TimelapseProViewController: CenterViewController {
     
     // MARK: - Actions
     
-    @IBAction func scrollButtonTapped(_ button: UIButton) {
-        scrollButton.isHidden = true
-        
-        if scrollView.contentSize.height > (self.view.bounds.height * 2) {
-            scrollView.setContentOffset(CGPoint(x: 0.0, y: self.view.bounds.height), animated: true)
-        } else {
-            scrollView.setContentOffset(CGPoint(x: 0.0, y: scrollView.contentSize.height - self.view.bounds.height), animated: true)
-        }
-    }
-    
-    @IBAction func tellMeMoreButtonTapped(_ button: BorderButton) {
-        actionSheetType = ActionSheetType.tellMeMore
-        showActionSheet(button.frame)
-    }
-    
     @IBAction func viewInAppStoreButtonTapped(_ button: BorderButton) {
         actionSheetType = ActionSheetType.viewInAppStore
         showActionSheet(button.frame)
-    }
-}
-
-extension TimelapseProViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        // User has scrolled to the top of the page and device is in landscape
-        if scrollView.contentOffset.y == 0 && self.view.bounds.height < self.view.bounds.width {
-            scrollButton.isHidden = false
-        } else {
-            scrollButton.isHidden = true
-        }
     }
 }
 
@@ -192,12 +147,6 @@ extension TimelapseProViewController: UIActionSheetDelegate {
         if let actionSheetType = actionSheetType {
             
             switch actionSheetType {
-                
-            case ActionSheetType.tellMeMore:
-                if buttonIndex == 1 {
-                    UIApplication.shared.openURL(URL(string: constTellMeMoreLink)!)
-                }
-                break
                 
             case ActionSheetType.viewInAppStore:
                 if buttonIndex == 1 {

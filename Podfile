@@ -15,5 +15,4 @@ end
 
 target 'TriggertrapSLR' do
     common_pods
-    pod 'Shimmer'
 end

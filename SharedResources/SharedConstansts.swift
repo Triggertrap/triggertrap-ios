@@ -46,5 +46,4 @@ let constWatchDidTrigger = "WatchDidTrigger"
 
 // MARK: - Timelapse Pro
 
-let constTellMeMoreLink = "http://triggertrap.com/products/apps/triggertrap-timelapse-pro/"
 let constViewInAppStoreLink = "https://itunes.apple.com/app/id946115908?mt=8"
