@@ -150,10 +150,6 @@ extension OptionsTableViewController: UITableViewDelegate {
                 applicationDelegate.presentTutorial(self)
                 break
                 
-            case "Inspiration":
-                applicationDelegate.presentInspiration(self)
-                break
-                
             case "Settings":
                 self.performSegue(withIdentifier: "Settings", sender: self)
                 break

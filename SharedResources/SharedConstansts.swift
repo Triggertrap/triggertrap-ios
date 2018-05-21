@@ -14,7 +14,6 @@ let Unspecified = UIDevice.current.userInterfaceIdiom == .unspecified
 
 // MARK: - Storyboard Identifiers
 
-let constStoryboardIdentifierInspiration = "Inspiration"
 let constStoryboardIdentifierCableSelector = "CableSelector"
 let constStoryboardIdentifierOnboarding = "Onboarding"
 
