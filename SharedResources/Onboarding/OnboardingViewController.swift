@@ -16,4 +16,8 @@ class OnboardingViewController: UIViewController {
     @IBAction func dismissViewController(_ button: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }

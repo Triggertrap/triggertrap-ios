@@ -212,6 +212,7 @@
 		BDD75CDD1BEA56310014DA3D /* speedUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CDF1BEA56310014DA3D /* speedUnits.plist */; };
 		BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CE51BEA56380014DA3D /* distanceUnits.plist */; };
 		FA23B3EA208B79D500263445 /* TTCircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23B3E9208B79D500263445 /* TTCircleTimer.swift */; };
+		FAB6639020B4D1AD003C256E /* OptionsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6638F20B4D1AD003C256E /* OptionsNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -640,6 +641,7 @@
 		CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapTLP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.debug.xcconfig"; sourceTree = "<group>"; };
 		FA23B3E9208B79D500263445 /* TTCircleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCircleTimer.swift; sourceTree = "<group>"; };
+		FAB6638F20B4D1AD003C256E /* OptionsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1366,6 +1368,7 @@
 				BDAB81891BCBFFC700F84AB6 /* SettingsTableViewController.swift */,
 				BDAB818A1BCBFFC700F84AB6 /* SubSettingsViewController.swift */,
 				BDAB818B1BCBFFC700F84AB6 /* SensorDelayViewController.swift */,
+				FAB6638F20B4D1AD003C256E /* OptionsNavigationController.swift */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -1909,6 +1912,7 @@
 				BDD44D2E1BB1619300B98FF6 /* UIColor.swift in Sources */,
 				BD098BEF1BC7C53900A87FC8 /* AccelerationAnimation.m in Sources */,
 				BD098BCA1BC6CA3900A87FC8 /* PressAndLockViewController.swift in Sources */,
+				FAB6639020B4D1AD003C256E /* OptionsNavigationController.swift in Sources */,
 				BD1133CE1BB3EED1006ED87A /* CustomTransition.swift in Sources */,
 				BDD44D331BB161A900B98FF6 /* Functions.swift in Sources */,
 				BD7144D31BBA888500E7A34B /* MeterTable.cpp in Sources */,

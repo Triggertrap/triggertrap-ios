@@ -48,18 +48,10 @@ class OptionsTableViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        switch AppTheme() {
-        case .normal:
-            return .lightContent
-        case .night:
-            return .default
-        }
+        return .lightContent
     }
     
     fileprivate func applyTheme() {
-        
-        
-        
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.triggertrap_iconColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
