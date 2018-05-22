@@ -98,9 +98,23 @@ class CameraSelectorViewController: OnboardingViewController {
         
         if (urlForCable != nil) {
             
-            showActionSheet(button.frame)
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let safariAction = UIAlertAction(title: NSLocalizedString("Open in Safari", comment: "Open in Safari"), style: .default) { (action) in
+                UIApplication.shared.openURL(URL(string: self.urlForCable!)!)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alertController.addAction(safariAction)
+            alertController.addAction(cancelAction)
+            
+            if let popoverController = alertController.popoverPresentationController {
+                popoverController.sourceView = button
+                popoverController.sourceRect = CGRect(x: button.bounds.midX, y: button.bounds.minY, width: 0, height: 0)
+            }
         }
     }
+    
+    
 }
 
 extension CameraSelectorViewController: UIPickerViewDelegate {
@@ -166,34 +180,5 @@ extension CameraSelectorViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
-    }
-}
-
-extension CameraSelectorViewController: UIActionSheetDelegate {
-    
-    fileprivate func showActionSheet(_ rect: CGRect) {
-        
-        let actionSheet: UIActionSheet = UIActionSheet(title: nil,
-            delegate: self,
-            cancelButtonTitle: NSLocalizedString("Cancel", comment: "Cancel"),
-            destructiveButtonTitle: nil,
-            otherButtonTitles: NSLocalizedString("Open in Safari", comment: "Open in Safari"))
-        
-        actionSheet.actionSheetStyle = UIActionSheetStyle.blackOpaque
-        
-        let deviceType = UIDevice.current.model
-        
-        if deviceType == "iPhone" {
-            actionSheet.show(in: self.view)
-        } else {
-            // iPad
-            actionSheet.show(from: rect, in: self.view, animated: true)
-        }
-    }
-    
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if buttonIndex == 1 {
-            UIApplication.shared.openURL(URL(string: urlForCable!)!)
-        }
     }
 }
