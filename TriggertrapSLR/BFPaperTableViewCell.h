@@ -36,7 +36,7 @@ static const CGFloat bfPaperTableViewCell_tapCircleDiameterLarge = bfPaperTableV
 static const CGFloat bfPaperTableViewCell_tapCircleDiameterSmall = bfPaperTableViewCell_tapCircleDiameterMedium / 2.f;
 static const CGFloat bfPaperTableViewCell_tapCircleDiameterDefault = -1.f;
 
-@interface BFPaperTableViewCell : UITableViewCell
+@interface BFPaperTableViewCell : UITableViewCell <CAAnimationDelegate>
 
 /*!
  * UIActivityIndicatorView which is shown when a mode is running
