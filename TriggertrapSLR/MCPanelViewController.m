@@ -391,7 +391,7 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
                         animations:^{
                             typeof(self) strongSelf = weakSelf;
                             strongSelf.imageView.image = image;
-                            strongSelf.imageView.frame = CGRectMake(self->_direction == MCPanelAnimationDirectionLeft ? 0 : _imageViewContainer.bounds.size.width - width, 0,
+                            strongSelf.imageView.frame = CGRectMake(self->_direction == MCPanelAnimationDirectionLeft ? 0 : self->_imageViewContainer.bounds.size.width - width, 0,
                                                                     image.size.width * MCPanelViewUndersampling, image.size.height * MCPanelViewUndersampling);
                         } completion:nil];
     } else {
