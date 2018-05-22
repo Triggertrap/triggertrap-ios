@@ -260,7 +260,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         let triggerLength = settingsManager?.pulseLength.intValue != 100 ? settingsManager?.pulseLength.doubleValue : 100.0
         
-        interpolator?.pauses(forExposures: CInt(photosNumberInputView.value), sequenceDuration: Int(durationNumberInputView.value), pulseLength: CLong(triggerLength!), minimumGapBetweenPulses: 150)
+        _ = interpolator?.pauses(forExposures: CInt(photosNumberInputView.value), sequenceDuration: Int(durationNumberInputView.value), pulseLength: CLong(triggerLength!), minimumGapBetweenPulses: 150)
         
         var sequenceLength: Double = 0
         
