@@ -93,7 +93,7 @@ class TimelapseProViewController: CenterViewController {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
             let openLinkAction = UIAlertAction(title: openLinkTitle, style: .default) { (action) in
-                UIApplication.shared.openURL(URL(string: constViewInAppStoreLink)!)
+                UIApplication.shared.open(URL(string: constViewInAppStoreLink)!, options: [:], completionHandler: nil)
             }
 
             let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil)

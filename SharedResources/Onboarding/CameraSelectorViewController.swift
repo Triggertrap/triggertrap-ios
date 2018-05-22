@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class CameraSelectorViewController: OnboardingViewController {
     
@@ -96,22 +97,13 @@ class CameraSelectorViewController: OnboardingViewController {
     // MARK: - IBActions
     @IBAction func buyButtonTapped(_ button: UIButton) {
         
-        if (urlForCable != nil) {
-            
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let safariAction = UIAlertAction(title: NSLocalizedString("Open in Safari", comment: "Open in Safari"), style: .default) { (action) in
-                UIApplication.shared.openURL(URL(string: self.urlForCable!)!)
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
-            alertController.addAction(safariAction)
-            alertController.addAction(cancelAction)
-            
-            if let popoverController = alertController.popoverPresentationController {
-                popoverController.sourceView = button
-                popoverController.sourceRect = CGRect(x: button.bounds.midX, y: button.bounds.minY, width: 0, height: 0)
-            }
+        guard urlForCable != nil else {
+            return
         }
+        
+        let safariController = SFSafariViewController(url: URL(string: urlForCable!)!)
+    
+        self.present(safariController, animated: true, completion: nil)
     }
     
     
