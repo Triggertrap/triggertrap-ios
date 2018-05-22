@@ -115,7 +115,7 @@ class CableSelectorViewController: SplitLayoutViewController {
         
         cableImageView.image = UIImage(named: cable)
         
-        let title = String(format: NSLocalizedString("Buy %@ Cable", comment: "Buy %@ Cable"), cable)
+        let title = String(format: NSLocalizedString("Find a %@ cable on eBay", comment: "Find a %@ cable on eBay"), cable)
         
         buyButton.setTitle(title, for: UIControlState())
         
@@ -174,7 +174,7 @@ extension CableSelectorViewController: UIPickerViewDelegate {
         urlForCable = cableSelector.url(forCable: cable)
         cableImageView.image = UIImage(named: cable)
         
-        let title = String(format: NSLocalizedString("Buy %@ Cable", comment: "Buy %@ Cable"), cable)
+        let title = String(format: NSLocalizedString("Find a %@ cable on eBay", comment: "Find a %@ cable on eBay"), cable)
         
         buyButton.setTitle(title, for: UIControlState())
     }

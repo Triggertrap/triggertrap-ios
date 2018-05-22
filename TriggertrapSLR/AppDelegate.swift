@@ -163,14 +163,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         vc.present(viewController, animated: true, completion: nil)
     }
-    
-    func presentInspiration(_ vc: UIViewController) {
-        let storyboard = UIStoryboard(name: constStoryboardIdentifierInspiration, bundle: Bundle.main)
-        
-        let viewController = storyboard.instantiateInitialViewController()!
-        
-        viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        vc.present(viewController, animated: true, completion: nil)
-    }
+
 }
 

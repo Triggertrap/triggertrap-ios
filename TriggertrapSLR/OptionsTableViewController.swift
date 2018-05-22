@@ -131,7 +131,7 @@ extension OptionsTableViewController: UITableViewDelegate {
                 // Present the feedback and support controller
                 let feedbackViewController = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
                 
-                feedbackViewController?.toRecipients = ["hello@triggertrap.com"]
+                feedbackViewController?.toRecipients = ["rossgibson@me.com"]
                 feedbackViewController?.hidesAppNameCell = true
                 
                 self.navigationController?.navigationBar.barTintColor = UIColor(hex: 0xE2231A, alpha: 1.0)
@@ -148,10 +148,6 @@ extension OptionsTableViewController: UITableViewDelegate {
                 
             case "Tutorial":
                 applicationDelegate.presentTutorial(self)
-                break
-                
-            case "Inspiration":
-                applicationDelegate.presentInspiration(self)
                 break
                 
             case "Settings":

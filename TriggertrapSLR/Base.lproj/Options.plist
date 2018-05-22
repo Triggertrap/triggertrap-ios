@@ -33,21 +33,6 @@
 		</array>
 	</array>
 	<array>
-		<string>Inspiration</string>
-		<array>
-			<dict>
-				<key>title</key>
-				<string>Inspiration</string>
-				<key>identifier</key>
-				<string>Inspiration</string>
-				<key>description</key>
-				<string>Triggering inspiration</string>
-				<key>icon</key>
-				<string>InspirationIcon</string>
-			</dict>
-		</array>
-	</array>
-	<array>
 		<string>Support</string>
 		<array>
 			<dict>

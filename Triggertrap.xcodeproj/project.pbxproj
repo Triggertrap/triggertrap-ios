@@ -111,9 +111,6 @@
 		BD7144CF1BBA884D00E7A34B /* AudioListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD7144CE1BBA884D00E7A34B /* AudioListener.mm */; };
 		BD7144D31BBA888500E7A34B /* MeterTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD7144D21BBA888500E7A34B /* MeterTable.cpp */; };
 		BD7144DB1BBA899000E7A34B /* GradientOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144DA1BBA899000E7A34B /* GradientOverlayView.swift */; };
-		BD7144DE1BBA89A100E7A34B /* InspirationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144DC1BBA89A100E7A34B /* InspirationViewController.swift */; };
-		BD7144DF1BBA89A100E7A34B /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7144DD1BBA89A100E7A34B /* CarouselViewController.swift */; };
-		BD7144E11BBA89D300E7A34B /* InspirationImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7144E01BBA89D300E7A34B /* InspirationImages.xcassets */; };
 		BD7D54221BCBB1DF0030219D /* SoundSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7D541E1BCBB1DF0030219D /* SoundSensorViewController.swift */; };
 		BD7D54231BCBB1DF0030219D /* VibrationSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7D541F1BCBB1DF0030219D /* VibrationSensorViewController.swift */; };
 		BD7D54241BCBB1DF0030219D /* MotionSensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7D54201BCBB1DF0030219D /* MotionSensorViewController.swift */; };
@@ -207,7 +204,6 @@
 		BDD75BD01BE77A8E0014DA3D /* WifiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BD21BE77A8E0014DA3D /* WifiCell.xib */; };
 		BDD75BD71BE77AAB0014DA3D /* Modes.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BD91BE77AAB0014DA3D /* Modes.plist */; };
 		BDD75BDC1BE77AC50014DA3D /* Options.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BDE1BE77AC50014DA3D /* Options.plist */; };
-		BDD75BE11BE77BA70014DA3D /* Inspiration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BE31BE77BA70014DA3D /* Inspiration.storyboard */; };
 		BDD75BE81BE77BB50014DA3D /* CableSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BEB1BE77BB50014DA3D /* CableSelector.storyboard */; };
 		BDD75BF01BE77BC90014DA3D /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD75BF31BE77BC90014DA3D /* Onboarding.storyboard */; };
 		BDD75CA01BE91BEF0014DA3D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BDD75C6E1BE7B8DA0014DA3D /* Localizable.strings */; };
@@ -456,9 +452,6 @@
 		BD7144D11BBA888500E7A34B /* MeterTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterTable.h; sourceTree = "<group>"; };
 		BD7144D21BBA888500E7A34B /* MeterTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeterTable.cpp; sourceTree = "<group>"; };
 		BD7144DA1BBA899000E7A34B /* GradientOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientOverlayView.swift; sourceTree = "<group>"; };
-		BD7144DC1BBA89A100E7A34B /* InspirationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspirationViewController.swift; sourceTree = "<group>"; };
-		BD7144DD1BBA89A100E7A34B /* CarouselViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
-		BD7144E01BBA89D300E7A34B /* InspirationImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = InspirationImages.xcassets; sourceTree = "<group>"; };
 		BD7D541E1BCBB1DF0030219D /* SoundSensorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundSensorViewController.swift; sourceTree = "<group>"; };
 		BD7D541F1BCBB1DF0030219D /* VibrationSensorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibrationSensorViewController.swift; sourceTree = "<group>"; };
 		BD7D54201BCBB1DF0030219D /* MotionSensorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionSensorViewController.swift; sourceTree = "<group>"; };
@@ -513,7 +506,6 @@
 		BDB657831C0C53D0009FE760 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/RemoteModes.strings"; sourceTree = "<group>"; };
 		BDB657841C0C53D0009FE760 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Calculators.strings"; sourceTree = "<group>"; };
 		BDB657851C0C53D0009FE760 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/WifiCell.strings"; sourceTree = "<group>"; };
-		BDB657881C0C53D0009FE760 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Inspiration.strings"; sourceTree = "<group>"; };
 		BDB657891C0C53D0009FE760 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/CableSelector.strings"; sourceTree = "<group>"; };
 		BDB6578A1C0C53D0009FE760 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Onboarding.strings"; sourceTree = "<group>"; };
 		BDB6578B1C0C53D0009FE760 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Interface.strings"; sourceTree = "<group>"; };
@@ -559,7 +551,6 @@
 		BDD4C3AC1BEB7F56008CA311 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/speedUnitsPlist.strings; sourceTree = "<group>"; };
 		BDD4C3AD1BEB7F56008CA311 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/speedUnitsPlist.strings; sourceTree = "<group>"; };
 		BDD4C3AE1BEB7F57008CA311 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/speedUnitsPlist.strings; sourceTree = "<group>"; };
-		BDD4C3B01BED2CF2008CA311 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Inspiration.strings; sourceTree = "<group>"; };
 		BDD4C3B81BF0E750008CA311 /* Triggertrap Watch Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Triggertrap Watch Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD4C3BB1BF0E750008CA311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		BDD4C3BD1BF0E750008CA311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -603,9 +594,6 @@
 		BDD75BD61BE77A910014DA3D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/WifiCell.strings; sourceTree = "<group>"; };
 		BDD75BD81BE77AAB0014DA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Modes.plist; sourceTree = "<group>"; };
 		BDD75BDD1BE77AC50014DA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Options.plist; sourceTree = "<group>"; };
-		BDD75BE21BE77BA70014DA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Inspiration.storyboard; sourceTree = "<group>"; };
-		BDD75BE51BE77BA90014DA3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Inspiration.strings; sourceTree = "<group>"; };
-		BDD75BE71BE77BAC0014DA3D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Inspiration.strings; sourceTree = "<group>"; };
 		BDD75BEA1BE77BB50014DA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CableSelector.storyboard; sourceTree = "<group>"; };
 		BDD75BED1BE77BB90014DA3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CableSelector.strings; sourceTree = "<group>"; };
 		BDD75BEF1BE77BBA0014DA3D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/CableSelector.strings; sourceTree = "<group>"; };
@@ -1270,33 +1258,6 @@
 			name = AudioListener;
 			sourceTree = "<group>";
 		};
-		BD7144D41BBA894900E7A34B /* Inspiration */ = {
-			isa = PBXGroup;
-			children = (
-				BD7144D61BBA895D00E7A34B /* View */,
-				BD7144D71BBA896100E7A34B /* Controller */,
-				BD7144E01BBA89D300E7A34B /* InspirationImages.xcassets */,
-			);
-			path = Inspiration;
-			sourceTree = "<group>";
-		};
-		BD7144D61BBA895D00E7A34B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BDD75BE31BE77BA70014DA3D /* Inspiration.storyboard */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		BD7144D71BBA896100E7A34B /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				BD7144DC1BBA89A100E7A34B /* InspirationViewController.swift */,
-				BD7144DD1BBA89A100E7A34B /* CarouselViewController.swift */,
-			);
-			name = Controller;
-			sourceTree = "<group>";
-		};
 		BD7D541D1BCBB1C30030219D /* Sensor Modes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1485,7 +1446,6 @@
 			children = (
 				BDD44D271BB1619300B98FF6 /* SharedConstansts.swift */,
 				BDD44D321BB161A900B98FF6 /* Functions.swift */,
-				BD7144D41BBA894900E7A34B /* Inspiration */,
 				BD11341E1BB3F149006ED87A /* CableSelector */,
 				BD1133BB1BB3EEB2006ED87A /* Onboarding */,
 				BD11343D1BB3F47F006ED87A /* Model */,
@@ -1586,6 +1546,7 @@
 				BDD75C551BE7B7630014DA3D /* Update Main Stroryboard Strings */,
 				BD09661E1BF9EE49000C581B /* Embed App Extensions */,
 				52768FF90EE30299F8ED9398 /* [CP] Embed Pods Frameworks */,
+				A8F2D1A1BAD4BCF9A268B4E7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1749,7 +1710,6 @@
 				BD11342E1BB3F29A006ED87A /* StoreLinks.JSON in Resources */,
 				BDD75B981BE7799C0014DA3D /* Feedback.storyboard in Resources */,
 				BDD75BD01BE77A8E0014DA3D /* WifiCell.xib in Resources */,
-				BD7144E11BBA89D300E7A34B /* InspirationImages.xcassets in Resources */,
 				BDD75BB41BE77A5C0014DA3D /* SensorModes.storyboard in Resources */,
 				BD1FA20D1BBE806A002C7AEB /* LaunchScreen.xib in Resources */,
 				BD098C0F1BC7D08E00A87FC8 /* PeekabooDataSource.plist in Resources */,
@@ -1784,7 +1744,6 @@
 				BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */,
 				BDD75BA61BE779F10014DA3D /* Options.storyboard in Resources */,
 				BDD75CA01BE91BEF0014DA3D /* Localizable.strings in Resources */,
-				BDD75BE11BE77BA70014DA3D /* Inspiration.storyboard in Resources */,
 				BD1134201BB3F160006ED87A /* CableSelectorImages.xcassets in Resources */,
 				BD098C131BC7D08E00A87FC8 /* middleExposures.plist in Resources */,
 				BDD4C39A1BEB7F41008CA311 /* distanceUnitsPlist.strings in Resources */,
@@ -1841,7 +1800,6 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${BUILT_PRODUCTS_DIR}/RPCircularProgress/RPCircularProgress.framework",
-				"${BUILT_PRODUCTS_DIR}/Shimmer/Shimmer.framework",
 				"${BUILT_PRODUCTS_DIR}/TTCounterLabel/TTCounterLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -1852,7 +1810,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RPCircularProgress.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shimmer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTCounterLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -1878,6 +1835,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8F2D1A1BAD4BCF9A268B4E7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BDD75C551BE7B7630014DA3D /* Update Main Stroryboard Strings */ = {
@@ -1963,7 +1935,6 @@
 				BD7D54241BCBB1DF0030219D /* MotionSensorViewController.swift in Sources */,
 				BDAB4AEB1B677F66009EB328 /* AstronomicalCalculator.m in Sources */,
 				BDAB4ADF1B677C54009EB328 /* SequenceCalculator.swift in Sources */,
-				BD7144DF1BBA89A100E7A34B /* CarouselViewController.swift in Sources */,
 				BD1FB4DE1BCE757F00B7A95C /* BFPaperTableViewCell.m in Sources */,
 				BDD44B011BA98B0300B98FF6 /* AudioPlayer.m in Sources */,
 				BD1133DA1BB3EED1006ED87A /* CameraToManualFocusTransition.swift in Sources */,
@@ -2010,7 +1981,6 @@
 				BD1133F11BB3EFE4006ED87A /* UIBezierPath.swift in Sources */,
 				BD1134061BB3F01A006ED87A /* OnboardingViewController.swift in Sources */,
 				BDD44B0E1BA98B0300B98FF6 /* DispatchableLifecycle.swift in Sources */,
-				BD7144DE1BBA89A100E7A34B /* InspirationViewController.swift in Sources */,
 				BD098BFB1BC7C93D00A87FC8 /* CLLocationManager+Services.m in Sources */,
 				BDD44B0F1BA98B0300B98FF6 /* DispatchableType.swift in Sources */,
 				BD098BFE1BC7CAED00A87FC8 /* HorizontalPicker.m in Sources */,
@@ -2317,18 +2287,6 @@
 				BDB657921C0C53D1009FE760 /* en-GB */,
 			);
 			name = Options.plist;
-			sourceTree = "<group>";
-		};
-		BDD75BE31BE77BA70014DA3D /* Inspiration.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BDD75BE21BE77BA70014DA3D /* Base */,
-				BDD75BE51BE77BA90014DA3D /* de */,
-				BDD75BE71BE77BAC0014DA3D /* it */,
-				BDD4C3B01BED2CF2008CA311 /* en */,
-				BDB657881C0C53D0009FE760 /* en-GB */,
-			);
-			name = Inspiration.storyboard;
 			sourceTree = "<group>";
 		};
 		BDD75BEB1BE77BB50014DA3D /* CableSelector.storyboard */ = {

@@ -1,23 +1,24 @@
+
 /* Class = "UILabel"; text = "EV step"; ObjectID = "7nC-3z-TTL"; */
-"7nC-3z-TTL.text"="EV step";
+"7nC-3z-TTL.text" = "EV step";
 
 /* Class = "UILabel"; text = "Timelapse interval"; ObjectID = "9ZK-Go-Gn3"; */
-"9ZK-Go-Gn3.text"="Timelapse interval";
+"9ZK-Go-Gn3.text" = "Timelapse interval";
 
 /* Class = "UILabel"; text = "Middle exposure"; ObjectID = "dJJ-75-kgd"; */
-"dJJ-75-kgd.text"="Middle exposure";
+"dJJ-75-kgd.text" = "Middle exposure";
 
 /* Class = "UILabel"; text = "EV step"; ObjectID = "hyB-bU-9vA"; */
-"hyB-bU-9vA.text"="EV step";
+"hyB-bU-9vA.text" = "EV step";
 
 /* Class = "UINavigationItem"; title = "LE HDR"; ObjectID = "lIp-qA-TRO"; */
-"lIp-qA-TRO.title"="LE HDR";
+"lIp-qA-TRO.title" = "LE HDR";
 
 /* Class = "UILabel"; text = "Number of exposures"; ObjectID = "q54-Jl-Wzy"; */
-"q54-Jl-Wzy.text"="Number of exposures";
+"q54-Jl-Wzy.text" = "Number of exposures";
 
 /* Class = "UINavigationItem"; title = "LE HDR Timelapse"; ObjectID = "qHk-rj-9ka"; */
-"qHk-rj-9ka.title"="LE HDR Timelapse";
+"qHk-rj-9ka.title" = "LE HDR Timelapse";
 
 /* Class = "UILabel"; text = "Middle exposure"; ObjectID = "tP0-Pw-5Gu"; */
-"tP0-Pw-5Gu.text"="Middle exposure";
+"tP0-Pw-5Gu.text" = "Middle exposure";
