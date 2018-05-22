@@ -103,21 +103,28 @@ class TimelapseProViewController: CenterViewController {
                 break
             }
             
-            // TODO: - l18n - iss#2
-            let actionSheet: UIActionSheet = UIActionSheet(title: nil,
-                                                           delegate: self,
-                                                           cancelButtonTitle: NSLocalizedString("Cancel", comment: "Cancel"),
-                                                           destructiveButtonTitle: nil,
-                                                           otherButtonTitles: openLinkTitle)
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            actionSheet.actionSheetStyle = UIActionSheetStyle.blackOpaque
-            
-            if UIDevice.current.model == "iPhone" {
-                actionSheet.show(in: scrollView)
-            } else {
-                // iPad
-                actionSheet.show(from: rect, in: scrollView, animated: true)
+            let openLinkAction = UIAlertAction(title: openLinkTitle, style: .default) { (action) in
+                if actionSheetType == ActionSheetType.tellMeMore{
+                    UIApplication.shared.openURL(URL(string: constTellMeMoreLink)!)
+                } else {
+                    UIApplication.shared.openURL(URL(string: constViewInAppStoreLink)!)
+                }
             }
+            
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil)
+            
+            alertController.addAction(openLinkAction)
+            alertController.addAction(cancelAction)
+            
+            if let popoverController = alertController.popoverPresentationController {
+                let sourceView = actionSheetType == .tellMeMore ? tellMeMoreButton : viewInAppStoreButton
+                popoverController.sourceView = sourceView
+                popoverController.sourceRect = CGRect(x: (sourceView?.bounds.midX)!, y: (sourceView?.bounds.minY)!, width: 0, height: 0)
+            }
+            
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -184,28 +191,3 @@ extension TimelapseProViewController: UIScrollViewDelegate {
         }
     }
 }
-
-extension TimelapseProViewController: UIActionSheetDelegate {
-    
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        
-        if let actionSheetType = actionSheetType {
-            
-            switch actionSheetType {
-                
-            case ActionSheetType.tellMeMore:
-                if buttonIndex == 1 {
-                    UIApplication.shared.openURL(URL(string: constTellMeMoreLink)!)
-                }
-                break
-                
-            case ActionSheetType.viewInAppStore:
-                if buttonIndex == 1 {
-                    UIApplication.shared.openURL(URL(string: constViewInAppStoreLink)!)
-                }
-                break
-            }
-        }
-    }
-}
-
