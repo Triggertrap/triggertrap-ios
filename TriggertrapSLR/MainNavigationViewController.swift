@@ -93,8 +93,13 @@ class MainNavigationViewController: RotationNavigationViewController {
         let storyboard = UIStoryboard(name: ConstStoryboardIdentifierOptions, bundle: Bundle.main)
         let viewController = storyboard.instantiateInitialViewController()!
         
+        let destinationController = storyboard.instantiateViewController(withIdentifier: "optionsController")
+        
         // Present the options view controller in full screen
         viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        viewController.modalPresentationCapturesStatusBarAppearance = true
+        
+        destinationController.modalPresentationCapturesStatusBarAppearance = true
         
         self.present(viewController, animated: true, completion: nil)
     } 

@@ -9,5 +9,7 @@
 import UIKit
 
 class SplashViewController: UIViewController {
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }

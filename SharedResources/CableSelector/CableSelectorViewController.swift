@@ -47,10 +47,6 @@ class CableSelectorViewController: SplitLayoutViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Hide the status bar with animation
-        
-        self.prefersStatusBarHidden
-        
         cameraManufacturerPicker.selectRow(lastCameraManufacturerSelected, inComponent: 0, animated: false)
         cameraModelPicker.selectRow(lastCameraModelSelected, inComponent: 0, animated: false)
     }

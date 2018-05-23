@@ -202,7 +202,10 @@ failed:
 #if TARGET_IPHONE_SIMULATOR
     return TRUE;
 #else
-    NSUInteger count = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio] count];
+    AVCaptureDeviceDiscoverySession *captureDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInMicrophone]
+                                                                                                                            mediaType:AVMediaTypeAudio
+                                                                                                                             position:AVCaptureDevicePositionUnspecified];
+    NSUInteger count = [[captureDeviceDiscoverySession devices] count];
     return count > 0;
 #endif
 }

@@ -18,6 +18,10 @@ class SubSettingsViewController: UITableViewController {
         distanceUnit = 4
     }
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Properties
     
     var settingsType = SettingsType.sensorDelay
