@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class CameraSelectorViewController: OnboardingViewController {
     
@@ -96,11 +97,16 @@ class CameraSelectorViewController: OnboardingViewController {
     // MARK: - IBActions
     @IBAction func buyButtonTapped(_ button: UIButton) {
         
-        if (urlForCable != nil) {
-            
-            showActionSheet(button.frame)
+        guard urlForCable != nil else {
+            return
         }
+        
+        let safariController = SFSafariViewController(url: URL(string: urlForCable!)!)
+    
+        self.present(safariController, animated: true, completion: nil)
     }
+    
+    
 }
 
 extension CameraSelectorViewController: UIPickerViewDelegate {
@@ -166,34 +172,5 @@ extension CameraSelectorViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
-    }
-}
-
-extension CameraSelectorViewController: UIActionSheetDelegate {
-    
-    fileprivate func showActionSheet(_ rect: CGRect) {
-        
-        let actionSheet: UIActionSheet = UIActionSheet(title: nil,
-            delegate: self,
-            cancelButtonTitle: NSLocalizedString("Cancel", comment: "Cancel"),
-            destructiveButtonTitle: nil,
-            otherButtonTitles: NSLocalizedString("Open in Safari", comment: "Open in Safari"))
-        
-        actionSheet.actionSheetStyle = UIActionSheetStyle.blackOpaque
-        
-        let deviceType = UIDevice.current.model
-        
-        if deviceType == "iPhone" {
-            actionSheet.show(in: self.view)
-        } else {
-            // iPad
-            actionSheet.show(from: rect, in: self.view, animated: true)
-        }
-    }
-    
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if buttonIndex == 1 {
-            UIApplication.shared.openURL(URL(string: urlForCable!)!)
-        }
     }
 }

@@ -18,7 +18,7 @@
 
 @end
 
-@interface RemoteOutputServer : NSObject <NSNetServiceDelegate> {
+@interface RemoteOutputServer : NSObject <NSNetServiceDelegate, GCDAsyncSocketDelegate> {
     GCDAsyncSocket *_asyncSocket;
     NSData *_PING;
     NSNetService *_netService; 

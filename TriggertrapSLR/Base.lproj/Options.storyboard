@@ -20,7 +20,7 @@
         <!--Options-->
         <scene sceneID="I8w-Uc-a1E">
             <objects>
-                <viewController id="9bP-R0-uGl" customClass="OptionsTableViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="optionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9bP-R0-uGl" customClass="OptionsTableViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BDx-n1-QeS"/>
                         <viewControllerLayoutGuide type="bottom" id="vbn-5l-Fb2"/>
@@ -536,10 +536,10 @@
             </objects>
             <point key="canvasLocation" x="3644" y="1768"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Options Navigation Controller-->
         <scene sceneID="HPj-EQ-JHt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6F-3z-ZHf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d6F-3z-ZHf" customClass="OptionsNavigationController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lgc-nM-5Pw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="02L-Oz-vNL">

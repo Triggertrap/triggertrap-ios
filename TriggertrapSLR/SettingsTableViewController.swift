@@ -101,12 +101,7 @@ class SettingsTableViewController : UITableViewController {
     // MARK: - Private
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        switch AppTheme() {
-        case .normal:
-            return .lightContent
-        case .night:
-            return .default
-        }
+        return .lightContent
     }
     
     fileprivate func performThemeUpdate() {

@@ -165,7 +165,6 @@ class ManualFocusToTestTriggerTransition: CustomTransition {
                 
                 separatorLine.frame = self.containerView.convert(toViewController.separatorLine.frame, from: toViewController.separatorLine.superview)
                 
-                UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
                 
                 redView.frame = CGRect(x: 0, y: -64, width: redView.frame.width, height: redView.frame.height)
                 
@@ -191,7 +190,6 @@ class ManualFocusToTestTriggerTransition: CustomTransition {
                     self.removeSnapshotViews()
                     
                     if (transitionContext.transitionWasCancelled) {
-                        UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.slide)
                         transitionContext.completeTransition(false)
                     } else {
                         transitionContext.completeTransition(true)

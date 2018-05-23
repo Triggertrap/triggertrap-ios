@@ -10,6 +10,10 @@ import UIKit
 
 class RotationNavigationViewController: UINavigationController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
