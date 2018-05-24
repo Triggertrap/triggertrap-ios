@@ -41,6 +41,7 @@ class LeftPanelViewController: UIViewController {
         self.tableView.reloadData()
         
         self.view.backgroundColor = UIColor.triggertrap_fillColor()
+        self.tableView.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
     }
     
