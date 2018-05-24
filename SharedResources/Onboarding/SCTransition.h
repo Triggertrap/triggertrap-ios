@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SCPercentDrivenInteractiveTransition.h"
 
-@interface SCTransition : SCPercentDrivenInteractiveTransition
+@interface SCTransition : SCPercentDrivenInteractiveTransition <CAAnimationDelegate>
 
 @end

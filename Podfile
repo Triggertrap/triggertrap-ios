@@ -7,7 +7,6 @@ inhibit_all_warnings!
 def common_pods
     pod 'CTFeedback'
     pod 'GPUImage'
-    pod 'PebbleKit'
     pod 'pop'
     pod 'TTCounterLabel'
     pod 'CocoaAsyncSocket'
@@ -16,7 +15,4 @@ end
 
 target 'TriggertrapSLR' do
     common_pods
-    pod 'Crashlytics'
-    pod 'Fabric'
-    pod 'Shimmer'
 end

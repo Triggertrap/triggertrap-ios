@@ -61,8 +61,8 @@
 /* Bulb Required! */
 "Bulb Required!"="Bulb erforderlich!";
 
-/* Buy %@ Cable */
-"Buy %@ Cable"="%@-Kabel kaufen";
+/* Find a %@ cable on eBay */
+"Find a %@ cable on eBay"="Suchen Sie ein %@-Kabel bei eBay";
 
 /* Cancel */
 "Cancel"="Abbrechen";
@@ -90,9 +90,6 @@
 
 /* First light at %@ */
 "First light at %@"="Erstes Licht um %@";
-
-/* Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson */
-"Get Inspired! Everything we create, we create so photographers like you can get out there and take fantastic photographs. Why not take a couple of minutes to check out the awesome photographs by our users on Flickr, or images tagged #triggertrap on Instagram? We also have our Twitter and Facebook feeds full of our favourite images, brilliant techniques and the latest Triggertrap news.\n\nWe love seeing photographs that have been Powered by Triggertrap - and we’d love to see what you create, so don’t forget to tag your photos @triggertrap, or use #triggertrap!\n\nMany thanks to:\nImage 1 - Lurking by Tim Gamble\nImage 2 - Windmill and Thunder by Riku Kupainen\nImage 3 - by David Hopley\nImage 4 - Northern Lights by Kolbein Svensson "="Lassen Sie sich inspirieren! Alles, was wir erschaffen, tun wir, um Fotografen wie Ihnen dabei zu helfen, in die Welt hinaus zu gehen und fantastische Fotos zu schießen. Warum nehmen Sie sich nicht ein paar Minuten Zeit, um sich die eindrucksvollen Fotos unserer Nutzer auf Flickr oder Bilder mit dem #triggertrap Tag auf Instagram anzuschauen? Auch unsere Twitter- und Facebook-Seiten sind voll von unseren Lieblingsfotos, zusammen mit brillanten Techniken und den neuesten Triggertrap News.\n\nWir lieben es, Fotos zu sehen, die mit der Hilfe von Triggertrap geschossen wurden - und wir würden uns wirklich darüber freuen, zu sehen, was Sie damit anstellen. Also bitte nicht vergessen, die Fotos mit @triggertrap zu taggen oder #triggertrap zu nutzen!\n\nVielen Dank an:\nFoto 1 - Lurking von Tim Gamble\nFoto 2 - Windmill and Thunder von Riku Kupainen\nFoto 3 - von David Hopley\nFoto 4 - Northern Lights von Kolbein Svensson";
 
 /* I can't hear you */
 "I can't hear you"="Wie bitte?";
@@ -232,8 +229,6 @@
 /* Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch. */
 "Tap on the red button to start listening for your Apple Watch. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Apple Watch."="Klicken Sie auf den roten Knopf, um anzufangen, auf Signale der Apple Watch zu reagieren.\n\nSobald der Wearables Modus aktiv ist, können Sie einen beliebigen anderen Modus öffnen, der das Auslösen durch Wearables unterstützt. Stellen Sie alles so ein, wie Sie es haben möchten, und drücken Sie dann auf den Auslöser auf Ihrer Apple Watch.";
 
-/* Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble. */
-"Tap on the red button to start listening for your Pebble. Once Wearables mode is active just open any mode that supports wearable triggering, setup the mode just how you like it, and press the trigger button on your Pebble."="Klicken Sie auf den roten Knopf, um anzufangen, auf Signale der Pebble zu reagieren.\n\nSobald der Wearables Modus aktiv ist, können Sie einen beliebigen anderen Modus öffnen, der das Auslösen durch Wearables unterstützt. Stellen Sie alles so ein, wie Sie es haben möchten, und drücken Sie dann auf den Auslöser auf Ihrer Pebble.";
 
 /* Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active. */
 "Tap the big red button to start broadcasting as a Wi-Fi Master, then go to any mode that supports Wi-Fi triggering and use it like normal. When your Master device triggers, your connected Wi-Fi slaves will trigger too! The number of connected Slave devices will appear here when active."="Klicken Sie auf den großen roten Knopf, um als WLAN-Master zu übertragen. Gehen Sie dann in irgendeinen Modus der WLAN-Auslösung unterstützt und nutzen Sie ihn ganz normal. Wenn Ihr Master-Gerät auslöst, lösen die verbundenen Slave-Geräte auch aus! Die Anzahl der angeschlossenen Slave-Geräte wird hier angezeigt, sobald der Knopf gedrückt wurde.";

@@ -14,7 +14,6 @@ let Unspecified = UIDevice.current.userInterfaceIdiom == .unspecified
 
 // MARK: - Storyboard Identifiers
 
-let constStoryboardIdentifierInspiration = "Inspiration"
 let constStoryboardIdentifierCableSelector = "CableSelector"
 let constStoryboardIdentifierOnboarding = "Onboarding"
 
@@ -43,12 +42,8 @@ let constPhotoTaken = "Photo Taken"
 
 // MARK: - Wearable
 
-let constPebbleAppId = "PebbleAppId"
-let constPebbleIsSelected = "PebbleIsSelected"
 let constWatchDidTrigger = "WatchDidTrigger"
-let constPebbleWatchStatusChanged = "PebbleWatchStatusChanged"
 
 // MARK: - Timelapse Pro
 
-let constTellMeMoreLink = "http://triggertrap.com/products/apps/triggertrap-timelapse-pro/"
 let constViewInAppStoreLink = "https://itunes.apple.com/app/id946115908?mt=8"

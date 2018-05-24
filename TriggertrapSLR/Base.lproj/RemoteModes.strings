@@ -1,17 +1,12 @@
+
 /* Class = "UISegmentedControl"; LqI-pz-Qt0.segmentTitles[0] = "Master"; ObjectID = "LqI-pz-Qt0"; */
-"LqI-pz-Qt0.segmentTitles[0]"="Master";
+"LqI-pz-Qt0.segmentTitles[0]" = "Master";
 
 /* Class = "UISegmentedControl"; LqI-pz-Qt0.segmentTitles[1] = "Slave"; ObjectID = "LqI-pz-Qt0"; */
-"LqI-pz-Qt0.segmentTitles[1]"="Slave";
+"LqI-pz-Qt0.segmentTitles[1]" = "Slave";
 
 /* Class = "UINavigationItem"; title = "Wi-Fi"; ObjectID = "Mbn-wc-wn6"; */
-"Mbn-wc-wn6.title"="Wi-Fi";
-
-/* Class = "UISegmentedControl"; OWD-9d-SuA.segmentTitles[0] = "Pebble"; ObjectID = "OWD-9d-SuA"; */
-"OWD-9d-SuA.segmentTitles[0]"="Pebble";
-
-/* Class = "UISegmentedControl"; OWD-9d-SuA.segmentTitles[1] = "Apple Watch"; ObjectID = "OWD-9d-SuA"; */
-"OWD-9d-SuA.segmentTitles[1]"="Apple Watch";
+"Mbn-wc-wn6.title" = "Wi-Fi";
 
 /* Class = "UINavigationItem"; title = "Wearables"; ObjectID = "ee8-vF-7lb"; */
-"ee8-vF-7lb.title"="Wearables";
+"ee8-vF-7lb.title" = "Wearables";

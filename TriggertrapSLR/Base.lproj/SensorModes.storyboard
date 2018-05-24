@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Metric-Light.otf">
+        <array key="Metric-Light.otf">
             <string>Metric-Light</string>
-            <string>Metric-Light</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Sound Sensor-->
         <scene sceneID="5Di-k8-eBQ">
             <objects>
                 <viewController storyboardIdentifier="Sound Sensor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LKw-Q9-G3B" customClass="SoundSensorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vBz-Re-oeh"/>
-                        <viewControllerLayoutGuide type="bottom" id="Pg4-Aa-hOQ"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M3P-4C-miE">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUU-Po-X81" userLabel="topeLeftView">
@@ -29,7 +29,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIY-s5-73I" userLabel="circularSoundLevel" customClass="TTCircularSlider">
                                         <rect key="frame" x="110" y="0.0" width="380" height="380"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uIY-s5-73I" secondAttribute="height" multiplier="1:1" id="neJ-EL-p7O"/>
                                         </constraints>
@@ -40,18 +40,18 @@
                                             <constraint firstAttribute="height" constant="60" id="JyR-mD-W2f"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="44"/>
-                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6t-e8-KjC" userLabel="circularSlider" customClass="TTCircularSlider">
                                         <rect key="frame" x="130" y="20" width="340" height="340"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="E6t-e8-KjC" secondAttribute="height" multiplier="1:1" id="yKh-y1-AKY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="380" id="5v2-3m-IJ9"/>
                                     <constraint firstItem="uIY-s5-73I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MUU-Po-X81" secondAttribute="leading" id="7KY-cv-kyA"/>
@@ -70,7 +70,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9VI-4I-jQT" userLabel="bottomRightView">
-                                <rect key="frame" x="0.0" y="380" width="600" height="156"/>
+                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gak-hM-mxD" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -79,14 +79,14 @@
                                             <constraint firstAttribute="height" constant="100" id="Kq1-zf-TN7"/>
                                         </constraints>
                                         <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="shutterButtonTouchUpInside:" destination="LKw-Q9-G3B" eventType="touchUpInside" id="5fl-qU-2n7"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="Gak-hM-mxD" secondAttribute="centerY" id="2l9-tz-aoQ"/>
                                     <constraint firstAttribute="centerX" secondItem="Gak-hM-mxD" secondAttribute="centerX" id="MMe-Kx-fIy"/>
@@ -95,13 +95,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MUU-Po-X81" firstAttribute="top" secondItem="vBz-Re-oeh" secondAttribute="bottom" id="306-Rd-zdM"/>
+                            <constraint firstItem="MUU-Po-X81" firstAttribute="top" secondItem="GJS-GT-ZCY" secondAttribute="top" id="306-Rd-zdM"/>
                             <constraint firstAttribute="trailing" secondItem="9VI-4I-jQT" secondAttribute="trailing" id="FWK-Gs-gQa"/>
-                            <constraint firstItem="Pg4-Aa-hOQ" firstAttribute="top" secondItem="9VI-4I-jQT" secondAttribute="bottom" id="cpk-N4-IeQ"/>
-                            <constraint firstItem="MUU-Po-X81" firstAttribute="leading" secondItem="M3P-4C-miE" secondAttribute="leading" id="sdg-dY-zOV"/>
+                            <constraint firstAttribute="bottom" secondItem="9VI-4I-jQT" secondAttribute="bottom" id="cpk-N4-IeQ"/>
+                            <constraint firstItem="MUU-Po-X81" firstAttribute="leading" secondItem="GJS-GT-ZCY" secondAttribute="leading" id="sdg-dY-zOV"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="GJS-GT-ZCY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sound Sensor" id="hL0-6m-xwa"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -126,12 +127,8 @@
         <scene sceneID="DdX-Nd-Oqb">
             <objects>
                 <viewController storyboardIdentifier="Vibration Sensor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ab1-ws-6jg" customClass="VibrationSensorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="goo-g1-yjH"/>
-                        <viewControllerLayoutGuide type="bottom" id="2sU-l4-SRM"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hGq-1I-cka">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eko-1E-nil" userLabel="topLeftView">
@@ -139,7 +136,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9D6-m2-h4Q" userLabel="circularVibrationLevel" customClass="TTCircularSlider">
                                         <rect key="frame" x="110" y="0.0" width="380" height="380"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9D6-m2-h4Q" secondAttribute="height" multiplier="1:1" id="q52-7Y-G1g"/>
                                         </constraints>
@@ -150,12 +147,12 @@
                                             <constraint firstAttribute="height" constant="60" id="WCU-0T-oIq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="44"/>
-                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJN-Ul-ab8" userLabel="circularSlider" customClass="TTCircularSlider">
                                         <rect key="frame" x="130" y="20" width="340" height="340"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hJN-Ul-ab8" secondAttribute="height" multiplier="1:1" id="8pL-pg-0kb"/>
                                         </constraints>
@@ -179,7 +176,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-2q-c6b" userLabel="bottomRightView">
-                                <rect key="frame" x="0.0" y="380" width="600" height="156"/>
+                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWH-oV-O0p" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -188,14 +185,14 @@
                                             <constraint firstAttribute="width" constant="100" id="Ma0-sz-Sso"/>
                                         </constraints>
                                         <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="shutterButtonTouchUpInside:" destination="ab1-ws-6jg" eventType="touchUpInside" id="Ody-e1-dIz"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="156" id="4GN-Or-P5Z"/>
                                     <constraint firstAttribute="centerX" secondItem="RWH-oV-O0p" secondAttribute="centerX" id="UaK-6u-AAK"/>
@@ -204,13 +201,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eko-1E-nil" firstAttribute="top" secondItem="goo-g1-yjH" secondAttribute="bottom" id="2pK-6i-msE"/>
+                            <constraint firstItem="eko-1E-nil" firstAttribute="top" secondItem="8Si-DD-KDY" secondAttribute="top" id="2pK-6i-msE"/>
                             <constraint firstAttribute="trailing" secondItem="XHl-2q-c6b" secondAttribute="trailing" id="KgK-oP-3n5"/>
-                            <constraint firstItem="2sU-l4-SRM" firstAttribute="top" secondItem="XHl-2q-c6b" secondAttribute="bottom" id="wNi-8g-Y88"/>
-                            <constraint firstItem="eko-1E-nil" firstAttribute="leading" secondItem="hGq-1I-cka" secondAttribute="leading" id="xmQ-8X-b7P"/>
+                            <constraint firstAttribute="bottom" secondItem="XHl-2q-c6b" secondAttribute="bottom" id="wNi-8g-Y88"/>
+                            <constraint firstItem="eko-1E-nil" firstAttribute="leading" secondItem="8Si-DD-KDY" secondAttribute="leading" id="xmQ-8X-b7P"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Si-DD-KDY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Vibration Sensor" id="wxM-on-Kox"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -235,15 +233,11 @@
         <scene sceneID="kc2-nb-TLN">
             <objects>
                 <viewController storyboardIdentifier="Motion Sensor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3q8-XI-cn9" customClass="MotionSensorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Mfe-gG-W2N"/>
-                        <viewControllerLayoutGuide type="bottom" id="dDU-jR-1cR"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GbH-Zq-U4u">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImE-SF-vMQ" userLabel="topeLeftView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImE-SF-vMQ" userLabel="topLeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYa-xr-FyX">
@@ -253,7 +247,7 @@
                                         </connections>
                                     </containerView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="MYa-xr-FyX" firstAttribute="top" secondItem="ImE-SF-vMQ" secondAttribute="top" id="7lN-gc-nzl"/>
                                     <constraint firstAttribute="trailing" secondItem="MYa-xr-FyX" secondAttribute="trailing" id="Rve-Yu-hTU"/>
@@ -264,7 +258,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aa-0t-ef0" userLabel="bottomRightView">
-                                <rect key="frame" x="0.0" y="380" width="600" height="156"/>
+                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-P7-Nhg" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -273,14 +267,14 @@
                                             <constraint firstAttribute="width" constant="100" id="xfc-8L-vrp"/>
                                         </constraints>
                                         <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="shutterButtonTouchUpInside:" destination="3q8-XI-cn9" eventType="touchUpInside" id="MLg-Va-rqT"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="9L9-P7-Nhg" secondAttribute="centerY" id="3Wp-aa-c8A"/>
                                     <constraint firstAttribute="width" constant="600" id="V9f-U9-4D0"/>
@@ -289,13 +283,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ImE-SF-vMQ" firstAttribute="leading" secondItem="GbH-Zq-U4u" secondAttribute="leading" id="2fO-aa-bV6"/>
                             <constraint firstAttribute="trailing" secondItem="3aa-0t-ef0" secondAttribute="trailing" id="EYd-jI-Mfr"/>
-                            <constraint firstItem="ImE-SF-vMQ" firstAttribute="top" secondItem="Mfe-gG-W2N" secondAttribute="bottom" id="Lao-ZM-XTi"/>
-                            <constraint firstItem="dDU-jR-1cR" firstAttribute="top" secondItem="3aa-0t-ef0" secondAttribute="bottom" id="w2M-Aj-a1r"/>
+                            <constraint firstItem="ImE-SF-vMQ" firstAttribute="top" secondItem="GbH-Zq-U4u" secondAttribute="top" id="Lao-ZM-XTi"/>
+                            <constraint firstAttribute="bottom" secondItem="3aa-0t-ef0" secondAttribute="bottom" id="w2M-Aj-a1r"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="IoR-2T-qLK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Motion Sensor" id="Xmw-3Q-SiX"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -317,25 +312,21 @@
         <scene sceneID="xbk-sY-TJn">
             <objects>
                 <viewController storyboardIdentifier="Peekaboo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yuQ-SD-eLB" customClass="PeekabooViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NTY-U9-fMC"/>
-                        <viewControllerLayoutGuide type="bottom" id="XQ3-AM-T02"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="umu-vi-ig6">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-SD-niP" userLabel="topeLeftView">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-SD-niP" userLabel="topLeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbl-hH-att">
+                                    <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbl-hH-att">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                         <connections>
                                             <segue destination="ff9-3H-aYU" kind="embed" id="bVF-h4-BeH"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="sbl-hH-att" firstAttribute="top" secondItem="bUv-SD-niP" secondAttribute="top" id="Mw5-9O-GgG"/>
                                     <constraint firstAttribute="height" constant="380" id="nkh-ne-KIc"/>
@@ -346,7 +337,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shF-Xb-gjq" userLabel="bottomRightView">
-                                <rect key="frame" x="0.0" y="380" width="600" height="156"/>
+                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSo-EH-TRn" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -355,14 +346,14 @@
                                             <constraint firstAttribute="height" constant="100" id="rdf-gr-gRj"/>
                                         </constraints>
                                         <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="shutterButtonTouchUpInside:" destination="yuQ-SD-eLB" eventType="touchUpInside" id="JpH-4T-mXS"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="DSo-EH-TRn" secondAttribute="centerX" id="1Mq-xg-aE7"/>
                                     <constraint firstAttribute="height" constant="156" id="Q5M-OJ-wm3"/>
@@ -371,13 +362,14 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XQ3-AM-T02" firstAttribute="top" secondItem="shF-Xb-gjq" secondAttribute="bottom" id="H9G-I5-N05"/>
+                            <constraint firstAttribute="bottom" secondItem="shF-Xb-gjq" secondAttribute="bottom" id="H9G-I5-N05"/>
                             <constraint firstAttribute="trailing" secondItem="shF-Xb-gjq" secondAttribute="trailing" id="SDZ-WI-vFF"/>
                             <constraint firstItem="bUv-SD-niP" firstAttribute="leading" secondItem="umu-vi-ig6" secondAttribute="leading" id="beS-se-opp"/>
-                            <constraint firstItem="bUv-SD-niP" firstAttribute="top" secondItem="NTY-U9-fMC" secondAttribute="bottom" id="lni-66-ZHh"/>
+                            <constraint firstItem="bUv-SD-niP" firstAttribute="top" secondItem="umu-vi-ig6" secondAttribute="top" id="lni-66-ZHh"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="eOu-mo-JZH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Peekaboo" id="zWD-iB-8pw"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -393,16 +385,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="es7-i5-dbE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3372" y="-936"/>
+            <point key="canvasLocation" x="3372" y="-936.88155922038993"/>
         </scene>
         <!--Motion Detection View Controller-->
         <scene sceneID="y1F-ov-8iv">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="tSR-4h-ZaH" customClass="MotionDetectionViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d3B-4L-Dkd"/>
-                        <viewControllerLayoutGuide type="bottom" id="v9A-bg-Nm6"/>
-                    </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="kGV-oe-Xul" customClass="GPUImageView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -414,7 +402,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Qse-3u-Uz3"/>
                                 </constraints>
                                 <state key="normal" image="Camera-Rotate">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="rotateCameraTapped:" destination="tSR-4h-ZaH" eventType="touchUpInside" id="A9f-Pi-OlX"/>
@@ -428,15 +416,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Y8Z-yD-OnN"/>
                                         </constraints>
-                                        <color key="minimumTrackTintColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="maximumTrackTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="minimumTrackTintColor" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="thumbTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="updatedFilterFromSlider:" destination="tSR-4h-ZaH" eventType="valueChanged" id="uCQ-jW-03I"/>
                                         </connections>
                                     </slider>
                                 </subviews>
-                                <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.14442044496536255" green="0.14441612362861633" blue="0.14441859722137451" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qeY-6z-abB" secondAttribute="trailing" constant="8" id="2DM-UT-sRr"/>
                                     <constraint firstAttribute="height" constant="44" id="eVp-Vp-Fty"/>
@@ -445,14 +433,15 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JD8-2K-251" firstAttribute="top" secondItem="d3B-4L-Dkd" secondAttribute="bottom" constant="20" id="025-ll-BkK"/>
+                            <constraint firstItem="JD8-2K-251" firstAttribute="top" secondItem="2Bf-Nc-sG2" secondAttribute="top" constant="20" id="025-ll-BkK"/>
                             <constraint firstAttribute="trailing" secondItem="Bap-eM-WOp" secondAttribute="trailing" id="3ol-Dm-JzD"/>
-                            <constraint firstItem="v9A-bg-Nm6" firstAttribute="top" secondItem="Bap-eM-WOp" secondAttribute="bottom" id="Hib-IQ-SHF"/>
-                            <constraint firstAttribute="trailing" secondItem="JD8-2K-251" secondAttribute="trailing" constant="16" id="pcp-0Q-ywb"/>
+                            <constraint firstAttribute="bottom" secondItem="Bap-eM-WOp" secondAttribute="bottom" id="Hib-IQ-SHF"/>
+                            <constraint firstItem="2Bf-Nc-sG2" firstAttribute="trailing" secondItem="JD8-2K-251" secondAttribute="trailing" constant="16" id="pcp-0Q-ywb"/>
                             <constraint firstItem="Bap-eM-WOp" firstAttribute="leading" secondItem="kGV-oe-Xul" secondAttribute="leading" id="zxS-fh-EYo"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Bf-Nc-sG2"/>
                     </view>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -460,6 +449,7 @@
                     <connections>
                         <outlet property="rotationButton" destination="JD8-2K-251" id="RK7-8X-SHK"/>
                         <outlet property="slider" destination="qeY-6z-abB" id="lOS-Lb-sni"/>
+                        <outlet property="viewBottomSpacing" destination="Hib-IQ-SHF" id="NeI-Sb-eYy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GsW-Dp-MMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -470,17 +460,13 @@
         <scene sceneID="G8t-zu-tfy">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ff9-3H-aYU" customClass="FaceDetectionViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TGF-6G-Nbe"/>
-                        <viewControllerLayoutGuide type="bottom" id="y3Z-68-Zv9"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Qel-op-a1y" customClass="GPUImageView">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" id="Qel-op-a1y" customClass="GPUImageView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-gp-bmC" userLabel="ndFilterStrengthPicker" customClass="HorizontalPicker">
+                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-gp-bmC" userLabel="ndFilterStrengthPicker" customClass="HorizontalPicker">
                                 <rect key="frame" x="0.0" y="336" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="266" id="1cO-N5-lAP"/>
                                     <constraint firstAttribute="height" constant="44" id="d7G-RH-rvq"/>
@@ -491,41 +477,44 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqp-LZ-RUc">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqp-LZ-RUc">
                                 <rect key="frame" x="554" y="20" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QOy-uO-ymi"/>
                                     <constraint firstAttribute="width" constant="30" id="y83-zE-aQq"/>
                                 </constraints>
                                 <state key="normal" image="Camera-Rotate">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="rotateCameraTapped:" destination="ff9-3H-aYU" eventType="touchUpInside" id="59G-dy-VDT"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="UFO-gp-bmC" secondAttribute="bottom" id="003-0P-Als"/>
                             <constraint firstAttribute="trailing" secondItem="wqp-LZ-RUc" secondAttribute="trailing" constant="16" id="EjW-b1-0fY"/>
-                            <constraint firstItem="wqp-LZ-RUc" firstAttribute="top" secondItem="TGF-6G-Nbe" secondAttribute="bottom" constant="20" id="Fwb-Xy-fhV"/>
-                            <constraint firstItem="y3Z-68-Zv9" firstAttribute="top" secondItem="UFO-gp-bmC" secondAttribute="bottom" id="RFx-7g-Nni"/>
+                            <constraint firstItem="wqp-LZ-RUc" firstAttribute="top" secondItem="Qel-op-a1y" secondAttribute="top" constant="20" id="Fwb-Xy-fhV"/>
                             <constraint firstAttribute="trailing" secondItem="UFO-gp-bmC" secondAttribute="trailing" id="U5S-vy-BOb"/>
                             <constraint firstItem="UFO-gp-bmC" firstAttribute="leading" secondItem="Qel-op-a1y" secondAttribute="leading" id="aXx-7C-iTa"/>
                             <constraint firstAttribute="centerX" secondItem="UFO-gp-bmC" secondAttribute="centerX" id="bBX-N4-8Yh"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Ik-d6-lOy"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="380"/>
                     <connections>
+                        <outlet property="NDBottomConstraint" destination="003-0P-Als" id="MKr-v1-9eJ"/>
                         <outlet property="picker" destination="UFO-gp-bmC" id="8f4-xy-knW"/>
                         <outlet property="rotationButton" destination="wqp-LZ-RUc" id="tac-Bo-Lmz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ec-PQ-xIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4198" y="-936"/>
+            <point key="canvasLocation" x="4507" y="-937"/>
         </scene>
     </scenes>
     <resources>

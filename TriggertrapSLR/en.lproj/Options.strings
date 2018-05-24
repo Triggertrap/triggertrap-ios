@@ -4,9 +4,6 @@
 /* Class = "UILabel"; text = "Kilometers per hour"; ObjectID = "7uh-K5-75U"; */
 "7uh-K5-75U.text"="Kilometers per hour";
 
-/* Class = "UILabel"; text = "Image Credit"; ObjectID = "8P7-qA-pgX"; */
-"8P7-qA-pgX.text"="Image Credit";
-
 /* Class = "UILabel"; text = "Version"; ObjectID = "93i-aI-ylI"; */
 "93i-aI-ylI.text"="Version";
 
@@ -36,9 +33,6 @@
 
 /* Class = "UITableViewSection"; headerTitle = "Settings"; ObjectID = "Y07-na-HOe"; */
 "Y07-na-HOe.headerTitle"="Settings";
-
-/* Class = "UILabel"; text = "Chris Martino"; ObjectID = "Y18-26-Qsv"; */
-"Y18-26-Qsv.text"="Chris Martino";
 
 /* Class = "UITableViewSection"; headerTitle = "Preferences"; ObjectID = "bbK-rO-8Nr"; */
 "bbK-rO-8Nr.headerTitle"="Preferences";
