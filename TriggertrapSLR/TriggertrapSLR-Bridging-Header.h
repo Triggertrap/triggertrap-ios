@@ -11,9 +11,6 @@
 // Cable Selector
 #import "CableSelector.h" 
 
-// Facebook Shimmer (Inspiration)
-@import Shimmer;
-
 // TriggertrapKit
 #import "Reachability.h"
 #import "PreciseTimer.h"

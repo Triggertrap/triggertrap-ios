@@ -19,9 +19,6 @@ class OnboardingNavigationViewController: UINavigationController {
             // Force the device in portrait mode when the navigation controller gets loaded
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         }
-        
-        // Hide the status bar with animation
-        UIApplication.shared.setStatusBarHidden(true, with: UIStatusBarAnimation.slide)
     }
     
     override var shouldAutorotate : Bool {
@@ -43,8 +40,9 @@ class OnboardingNavigationViewController: UINavigationController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        // Show the status bar with animation
-        UIApplication.shared.setStatusBarHidden(false, with: UIStatusBarAnimation.slide)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }

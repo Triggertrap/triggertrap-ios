@@ -34,8 +34,8 @@
 /* Class = "UILabel"; text = "Triggertrap"; ObjectID = "Tel-gq-TVZ"; */
 "Tel-gq-TVZ.text"="Triggertrap";
 
-/* Class = "UIButton"; normalTitle = "Get this Mobile Kit"; ObjectID = "TwK-ix-ltr"; */
-"TwK-ix-ltr.normalTitle"="Holen Sie sich dieses Mobile Kit";
+/* Class = "UIButton"; normalTitle = "Find on eBay"; ObjectID = "TwK-ix-ltr"; */
+"TwK-ix-ltr.normalTitle"="Finden Sie bei eBay";
 
 /* Class = "UILabel"; text = "Looks like you've set things up nicely."; ObjectID = "Ucp-qm-usC"; */
 "Ucp-qm-usC.text"="Sieht aus, als hätten Sie alles schön eingerichtet.";
@@ -67,8 +67,8 @@
 /* Class = "UILabel"; text = "Let's get the show on the road"; ObjectID = "afR-Bz-tXh"; */
 "afR-Bz-tXh.text"="Lassen Sie uns die Sache zum Laufen bringen";
 
-/* Class = "UIButton"; normalTitle = "Get one today"; ObjectID = "eXY-JH-gzG"; */
-"eXY-JH-gzG.normalTitle"="Holen Sie sich eines noch heute";
+/* Class = "UIButton"; normalTitle = "Find one today"; ObjectID = "eXY-JH-gzG"; */
+"eXY-JH-gzG.normalTitle"="Finde heute einen";
 
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "fRG-sd-rWr"; */
 "fRG-sd-rWr.normalTitle"="Weiter";

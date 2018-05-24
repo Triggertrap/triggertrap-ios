@@ -148,6 +148,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navController.viewControllers = [viewController]
             
             navController.modalPresentationStyle = UIModalPresentationStyle.formSheet
+            
+            //allows the onboarding process to controll it's own status bar
+            navController.modalPresentationCapturesStatusBarAppearance = true
+            viewController.modalPresentationCapturesStatusBarAppearance = true
+            
+            
             vc.present(navController, animated: true, completion: nil)
         } else {
             print("Warning: View Controller Identifier is nil. Cannot show onboarding")
@@ -163,14 +169,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         vc.present(viewController, animated: true, completion: nil)
     }
-    
-    func presentInspiration(_ vc: UIViewController) {
-        let storyboard = UIStoryboard(name: constStoryboardIdentifierInspiration, bundle: Bundle.main)
-        
-        let viewController = storyboard.instantiateInitialViewController()!
-        
-        viewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        vc.present(viewController, animated: true, completion: nil)
-    }
+
 }
 

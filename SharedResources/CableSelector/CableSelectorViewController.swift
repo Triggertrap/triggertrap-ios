@@ -47,10 +47,6 @@ class CableSelectorViewController: SplitLayoutViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Hide the status bar with animation
-        
-        self.prefersStatusBarHidden
-        
         cameraManufacturerPicker.selectRow(lastCameraManufacturerSelected, inComponent: 0, animated: false)
         cameraModelPicker.selectRow(lastCameraModelSelected, inComponent: 0, animated: false)
     }
@@ -115,7 +111,7 @@ class CableSelectorViewController: SplitLayoutViewController {
         
         cableImageView.image = UIImage(named: cable)
         
-        let title = String(format: NSLocalizedString("Buy %@ Cable", comment: "Buy %@ Cable"), cable)
+        let title = String(format: NSLocalizedString("Find a %@ cable on eBay", comment: "Find a %@ cable on eBay"), cable)
         
         buyButton.setTitle(title, for: UIControlState())
         
@@ -174,7 +170,7 @@ extension CableSelectorViewController: UIPickerViewDelegate {
         urlForCable = cableSelector.url(forCable: cable)
         cableImageView.image = UIImage(named: cable)
         
-        let title = String(format: NSLocalizedString("Buy %@ Cable", comment: "Buy %@ Cable"), cable)
+        let title = String(format: NSLocalizedString("Find a %@ cable on eBay", comment: "Find a %@ cable on eBay"), cable)
         
         buyButton.setTitle(title, for: UIControlState())
     }

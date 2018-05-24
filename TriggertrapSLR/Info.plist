@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.1.3</string>
+	<string>4.1.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>935</string>
+	<string>937</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
@@ -29,9 +29,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Your Camera will be used when accessing Peakaboo mode.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you&apos;ve moved, and when to trigger your camera.</string>
+	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you&apos;ve moved, and when to trigger your camera.</string>
+	<string>Your location will be used in the DistanceLapse mode, so the app knows how far you've moved, and when to trigger your camera.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Access to the Microphone is required to trigger your camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -70,6 +70,6 @@
 		</array>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

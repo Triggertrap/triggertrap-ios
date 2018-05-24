@@ -108,7 +108,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PCK-Dm-eYU" firstAttribute="leading" secondItem="1MK-mN-ZSF" secondAttribute="leading" id="2y5-yw-LXy"/>
-                            <constraint firstItem="aFF-jL-39t" firstAttribute="top" secondItem="AOm-If-Ypb" secondAttribute="bottom" id="VzY-M6-RUB"/>
+                            <constraint firstAttribute="bottom" secondItem="AOm-If-Ypb" secondAttribute="bottom" id="VzY-M6-RUB"/>
                             <constraint firstAttribute="trailing" secondItem="AOm-If-Ypb" secondAttribute="trailing" id="eFP-PN-BkE"/>
                             <constraint firstItem="PCK-Dm-eYU" firstAttribute="top" secondItem="EHg-uF-98c" secondAttribute="bottom" id="wzb-Uk-mAg"/>
                         </constraints>

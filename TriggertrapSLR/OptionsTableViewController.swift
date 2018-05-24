@@ -48,18 +48,10 @@ class OptionsTableViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        switch AppTheme() {
-        case .normal:
-            return .lightContent
-        case .night:
-            return .default
-        }
+        return .lightContent
     }
     
     fileprivate func applyTheme() {
-        
-        
-        
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.triggertrap_iconColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
@@ -131,7 +123,7 @@ extension OptionsTableViewController: UITableViewDelegate {
                 // Present the feedback and support controller
                 let feedbackViewController = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
                 
-                feedbackViewController?.toRecipients = ["hello@triggertrap.com"]
+                feedbackViewController?.toRecipients = ["rossgibson@me.com"]
                 feedbackViewController?.hidesAppNameCell = true
                 
                 self.navigationController?.navigationBar.barTintColor = UIColor(hex: 0xE2231A, alpha: 1.0)
@@ -148,10 +140,6 @@ extension OptionsTableViewController: UITableViewDelegate {
                 
             case "Tutorial":
                 applicationDelegate.presentTutorial(self)
-                break
-                
-            case "Inspiration":
-                applicationDelegate.presentInspiration(self)
                 break
                 
             case "Settings":

@@ -68,9 +68,6 @@
 /* Class = "UILabel"; text = "End:"; ObjectID = "ub3-Wu-w1f"; */
 "ub3-Wu-w1f.text" = "End:";
 
-/* Class = "UIButton"; normalTitle = "Tell me more!"; ObjectID = "w9v-tG-RB7"; */
-"w9v-tG-RB7.normalTitle" = "Tell me more!";
-
 /* Class = "UILabel"; text = "exposures of duration"; ObjectID = "y6f-Fr-B2U"; */
 "y6f-Fr-B2U.text" = "exposures of duration";
 

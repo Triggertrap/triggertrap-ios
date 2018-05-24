@@ -302,7 +302,7 @@
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             [self->numberPadView setFrame:coveredView.frame];
+                             [self->numberPadView setFrame:self->coveredView.frame];
                              
                          } completion:^(BOOL finished) {
                              [self setNeedsDisplay];

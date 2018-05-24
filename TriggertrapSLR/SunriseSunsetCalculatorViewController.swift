@@ -497,8 +497,8 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         
         let components: DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.hour, NSCalendar.Unit.minute], from: date)
         
-        var hour: NSNumber = NSNumber(value: components.hour as! Int)
-        let minute: NSNumber = NSNumber(value: components.minute as! Int)
+        var hour: NSNumber = NSNumber(value: components.hour!)
+        let minute: NSNumber = NSNumber(value: components.minute!)
         
         if !is24hSettingsOn() {
             if hour.int32Value > 12 {

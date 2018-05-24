@@ -36,10 +36,6 @@ class SettingsTableViewController : UITableViewController {
     @IBOutlet weak var versionTitle: UILabel!
     @IBOutlet weak var version: UILabel!
     
-    @IBOutlet weak var imageCreditCell: BFPaperTableViewCell!
-    @IBOutlet weak var imageCreditTitle: UILabel!
-    @IBOutlet weak var imageCredit: UILabel!
-    
     @IBOutlet weak var resetCell: BFPaperTableViewCell!
     @IBOutlet weak var resetLabel: UILabel!
     
@@ -105,12 +101,7 @@ class SettingsTableViewController : UITableViewController {
     // MARK: - Private
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        switch AppTheme() {
-        case .normal:
-            return .lightContent
-        case .night:
-            return .default
-        }
+        return .lightContent
     }
     
     fileprivate func performThemeUpdate() {
@@ -148,7 +139,6 @@ class SettingsTableViewController : UITableViewController {
         applyThemeToCell(speedUnitCell, titleLabel: speedUnitTitle, descriptionLabel: speedUnit)
         applyThemeToCell(distanceCell, titleLabel: distanceTitle, descriptionLabel: distanceUnit)
         applyThemeToCell(versionCell, titleLabel: versionTitle, descriptionLabel: version)
-        applyThemeToCell(imageCreditCell, titleLabel: imageCreditTitle, descriptionLabel: imageCredit)
         
         nightModeCell.backgroundColor = UIColor.triggertrap_fillColor()
         nightTimeLabel.textColor = UIColor.triggertrap_accentColor()
