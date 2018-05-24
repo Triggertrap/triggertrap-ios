@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,10 +27,6 @@
         <scene sceneID="9ta-hR-8DW">
             <objects>
                 <viewController storyboardIdentifier="ND Calculator" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2yH-Zv-NW2" userLabel="ND Calculator" customClass="NeutralDensityCalculatorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kTV-cs-aSv"/>
-                        <viewControllerLayoutGuide type="bottom" id="hme-Hl-0Ai"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tuv-1M-bzf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,10 +204,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="eev-eR-8Aq" secondAttribute="bottom" id="ICo-QV-Vxt"/>
-                            <constraint firstAttribute="trailing" secondItem="eev-eR-8Aq" secondAttribute="trailing" id="Pep-U6-xXh"/>
-                            <constraint firstItem="KGR-Fg-mn7" firstAttribute="leading" secondItem="tuv-1M-bzf" secondAttribute="leading" id="ZeF-pm-nze"/>
-                            <constraint firstItem="KGR-Fg-mn7" firstAttribute="top" secondItem="kTV-cs-aSv" secondAttribute="bottom" id="iGe-oX-HbM"/>
+                            <constraint firstItem="IaI-42-g60" firstAttribute="trailing" secondItem="eev-eR-8Aq" secondAttribute="trailing" id="Pep-U6-xXh"/>
+                            <constraint firstItem="KGR-Fg-mn7" firstAttribute="leading" secondItem="IaI-42-g60" secondAttribute="leading" id="ZeF-pm-nze"/>
+                            <constraint firstItem="KGR-Fg-mn7" firstAttribute="top" secondItem="IaI-42-g60" secondAttribute="top" id="iGe-oX-HbM"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="IaI-42-g60"/>
                     </view>
                     <navigationItem key="navigationItem" title="ND Calculator" id="weN-B0-eKU"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -242,10 +240,6 @@
         <scene sceneID="76T-wm-rJF">
             <objects>
                 <viewController storyboardIdentifier="Solar Calculator" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uh6-f7-CY3" userLabel="Sunrise Sunset Calculator" customClass="SunriseSunsetCalculatorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YO2-Sv-56e"/>
-                        <viewControllerLayoutGuide type="bottom" id="zz3-S5-Kfc"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wpf-If-ivb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,8 +277,8 @@
                                                     <constraint firstAttribute="width" secondItem="qzl-xq-kgw" secondAttribute="height" multiplier="400:202" id="gcy-US-LIS"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ue1-XQ-LFD" userLabel="sunriseTimeLabel">
-                                                <rect key="frame" x="20" y="96" width="40" height="18"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ue1-XQ-LFD" userLabel="sunriseTimeLabel">
+                                                <rect key="frame" x="20" y="97.5" width="40" height="16.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="HK6-bw-ELJ"/>
                                                 </constraints>
@@ -292,8 +286,8 @@
                                                 <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxu-oq-Nen" userLabel="sunsetTimeLabel">
-                                                <rect key="frame" x="230" y="96" width="40" height="18"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxu-oq-Nen" userLabel="sunsetTimeLabel">
+                                                <rect key="frame" x="230" y="97.5" width="40" height="16.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="ZLc-NC-P1b"/>
                                                 </constraints>
@@ -301,8 +295,8 @@
                                                 <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bl0-H5-udS" userLabel="lastLightLabel">
-                                                <rect key="frame" x="230" y="143" width="40" height="18"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bl0-H5-udS" userLabel="lastLightLabel">
+                                                <rect key="frame" x="230" y="143" width="40" height="16.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="he2-69-eZY"/>
                                                 </constraints>
@@ -354,8 +348,8 @@
                                                     <constraint firstItem="xv0-67-RUZ" firstAttribute="leading" secondItem="5rC-DI-IN7" secondAttribute="trailing" constant="68" id="ppc-gc-6Sh"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpM-9S-HlQ" userLabel="firstLightLabel">
-                                                <rect key="frame" x="20" y="143" width="40" height="18"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpM-9S-HlQ" userLabel="firstLightLabel">
+                                                <rect key="frame" x="20" y="143" width="40" height="16.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="axs-Oj-ZC4"/>
                                                 </constraints>
@@ -412,50 +406,50 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMh-e6-acs" userLabel="bottomRightView">
                                 <rect key="frame" x="-225" y="335" width="600" height="268"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="In 6 hrs 30 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3tC-z5-GBq" userLabel="timeRemainingLabelTop">
-                                        <rect key="frame" x="261" y="91" width="79" height="18"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In 6 hrs 30 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3tC-z5-GBq" userLabel="timeRemainingLabelTop">
+                                        <rect key="frame" x="254" y="93" width="93" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="14"/>
                                         <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sunrise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nrq-04-7Aq" userLabel="titleLabelTop">
-                                        <rect key="frame" x="270" y="29" width="61" height="28"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunrise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nrq-04-7Aq" userLabel="titleLabelTop">
+                                        <rect key="frame" x="263.5" y="32" width="74" height="26"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="22"/>
                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Next Sunset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-Si-bMn" userLabel="titleLabelBottom">
-                                        <rect key="frame" x="250" y="136" width="100" height="28"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Sunset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-Si-bMn" userLabel="titleLabelBottom">
+                                        <rect key="frame" x="239.5" y="136" width="121" height="26"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="22"/>
                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="First light at 4:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="guo-ZI-Xnw" userLabel="lightTimeLabelTop">
-                                        <rect key="frame" x="256" y="108" width="89" height="18"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First light at 4:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="guo-ZI-Xnw" userLabel="lightTimeLabelTop">
+                                        <rect key="frame" x="248" y="109.5" width="105" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="14"/>
                                         <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="05:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="j60-FM-Oiv" userLabel="timeLabelTop">
-                                        <rect key="frame" x="267" y="56" width="67" height="36"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="j60-FM-Oiv" userLabel="timeLabelTop">
+                                        <rect key="frame" x="267" y="58" width="67" height="36"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="26"/>
                                         <color key="textColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="In 6 hrs 30 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yDi-fk-pi9" userLabel="timeRemainingLabelBottom">
-                                        <rect key="frame" x="261" y="199" width="79" height="18"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In 6 hrs 30 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yDi-fk-pi9" userLabel="timeRemainingLabelBottom">
+                                        <rect key="frame" x="254" y="198" width="93" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="14"/>
                                         <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="22:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-C4-e4S" userLabel="timeLabelBottom">
-                                        <rect key="frame" x="267" y="163" width="67" height="36"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-C4-e4S" userLabel="timeLabelBottom">
+                                        <rect key="frame" x="267" y="162" width="67" height="36"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="26"/>
                                         <color key="textColor" red="0.8862745098" green="0.13725490200000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last light at 23:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4cl-4T-aMj" userLabel="lightTimeLabelBottom">
-                                        <rect key="frame" x="254" y="215" width="94" height="18"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last light at 23:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4cl-4T-aMj" userLabel="lightTimeLabelBottom">
+                                        <rect key="frame" x="244" y="213.5" width="112" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="14"/>
                                         <color key="textColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -492,11 +486,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="UMh-e6-acs" secondAttribute="trailing" id="7kJ-59-5a4"/>
-                            <constraint firstItem="WAr-QV-niu" firstAttribute="leading" secondItem="wpf-If-ivb" secondAttribute="leading" id="b1m-v8-1Ic"/>
+                            <constraint firstItem="wdC-Pp-Mby" firstAttribute="trailing" secondItem="UMh-e6-acs" secondAttribute="trailing" id="7kJ-59-5a4"/>
+                            <constraint firstItem="WAr-QV-niu" firstAttribute="leading" secondItem="wdC-Pp-Mby" secondAttribute="leading" id="b1m-v8-1Ic"/>
                             <constraint firstAttribute="bottom" secondItem="UMh-e6-acs" secondAttribute="bottom" id="bFr-MS-5fW"/>
-                            <constraint firstItem="WAr-QV-niu" firstAttribute="top" secondItem="YO2-Sv-56e" secondAttribute="bottom" id="lrz-2K-uVq"/>
+                            <constraint firstItem="WAr-QV-niu" firstAttribute="top" secondItem="wdC-Pp-Mby" secondAttribute="top" id="lrz-2K-uVq"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="wdC-Pp-Mby"/>
                     </view>
                     <navigationItem key="navigationItem" title="Solar Calculator" id="hed-2I-WeY"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

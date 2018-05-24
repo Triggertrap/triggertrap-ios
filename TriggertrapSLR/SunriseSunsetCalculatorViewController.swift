@@ -547,9 +547,10 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     }
     
     fileprivate func updateSunConstraint() {
-        let diagramCalculations = self.whiteView.frame.size.width / 2 - self.sunriseDiagramLabel.frame.origin.x - self.sunriseDiagramLabel.frame.size.width
-        let sunviewCalculations = self.sunImageView.frame.size.width / 2.0 - self.sunRotationCenterView.frame.size.width / 2.0
-        self.sunToCenterConstraint.constant =  diagramCalculations - sunviewCalculations
+        let diagramCalculations = self.arcImageView.frame.width / 2 - self.sunImageView.frame.width / 2 - self.flatLineImageView.frame.height / 10
+        //deal with half pixels depending on the device's scale ratio
+        let scale = UIScreen.main.scale
+        self.sunToCenterConstraint.constant =  round(diagramCalculations - 1.0 / scale)
     }
     
     // MARK: - Timer
