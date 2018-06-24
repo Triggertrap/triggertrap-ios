@@ -100,10 +100,6 @@ class SettingsTableViewController : UITableViewController {
     
     // MARK: - Private
     
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
-    }
-    
     fileprivate func performThemeUpdate() {
         
         self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()
@@ -155,6 +151,8 @@ class SettingsTableViewController : UITableViewController {
         
         nightTimeSwitch.thumbTintColor = nightTimeSwitch.isOn ? UIColor.triggertrap_fillColor() : UIColor.triggertrap_foregroundColor()
         nightTimeSwitch.onTintColor = UIColor.triggertrap_primaryColor()
+        
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     fileprivate func applyThemeToCell(_ cell: BFPaperTableViewCell, titleLabel: UILabel, descriptionLabel: UILabel) {

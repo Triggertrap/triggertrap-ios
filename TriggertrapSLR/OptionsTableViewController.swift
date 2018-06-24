@@ -46,11 +46,7 @@ class OptionsTableViewController: UIViewController {
     @IBAction func doneButtonTapped(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
-    }
-    
+
     fileprivate func applyTheme() {
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.triggertrap_iconColor()

@@ -22,7 +22,7 @@ class OptionsNavigationController: UINavigationController {
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
+        return AppTheme() == .normal ? .lightContent : .default
     }
 
     /*

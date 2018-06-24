@@ -19,7 +19,7 @@ class SubSettingsViewController: UITableViewController {
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
+        return AppTheme() == .normal ? .lightContent : .default
     }
     
     // MARK: - Properties
