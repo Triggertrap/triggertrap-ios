@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTCounterLabel
 
 class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate {
     

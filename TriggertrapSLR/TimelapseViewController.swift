@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTCounterLabel
 
 class TimelapseViewController: TTViewController, TTNumberInputDelegate {
     @IBOutlet weak var numberInputView: TTTimeInput!

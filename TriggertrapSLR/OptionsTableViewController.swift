@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CTFeedback
 
 class OptionsTableViewController: UIViewController {
     

@@ -9,6 +9,8 @@
 import UIKit
 import CoreGraphics
 import AVFoundation
+import MPGNotification
+import pop
 
 /**
  The `TTViewController`
@@ -34,6 +36,8 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
                                                subtitle: nil,
                                                backgroundColor: UIColor.triggertrap_primaryColor(1.0),
                                                iconImage: nil)
+    
+    fileprivate var notificationIsVisible = false
     
     fileprivate var shownVolumeAlert = false
     
@@ -163,17 +167,36 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     }
     
     fileprivate func showVolumeNotification() {
+        guard !self.notificationIsVisible else {
+            return
+        }
+        
+        //run on the main thread to avoid race conditions
+        DispatchQueue.main.async {
+            self.notificationIsVisible = true
+        }
+        
         let delay = 0.3
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
-            
-            // Only show the notification again if it is not currently presented
-            if !(self.notification?.isAnimating)! {
-                self.notification?.backgroundColor = UIColor.triggertrap_primaryColor()
-                self.notification?.titleColor = UIColor.triggertrap_fillColor()
-                self.notification?.show()
-                self.notification?.duration = 2.0
+            //called when the notification is dismissed
+            self.notification?.dismissHandler = {(_ notification: MPGNotification?) -> Void in
+                //run on the main thread to avoid race conditions
+                DispatchQueue.main.async {
+                    self.notificationIsVisible = false
+                }
             }
+            
+            self.notification?.backgroundColor = UIColor.triggertrap_primaryColor()
+            self.notification?.titleColor = UIColor.triggertrap_fillColor()
+            self.notification?.duration = 2.0
+            self.notification?.restyleNotification();
+            self.notification?.show()
+            //this needs to be reinstantiated each time to avoid glitchy behavior (sadly)
+            self.notification = MPGNotification(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
+                                                subtitle: nil,
+                                                backgroundColor: UIColor.triggertrap_primaryColor(1.0),
+                                                iconImage: nil)
         })
     }
     

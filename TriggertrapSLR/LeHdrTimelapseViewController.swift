@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTCounterLabel
 
 class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTNumberPadViewDelegate {
     
