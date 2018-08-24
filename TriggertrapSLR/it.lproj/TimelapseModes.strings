@@ -19,6 +19,9 @@
 /* Class = "UINavigationItem"; title = "DistanceLapse"; ObjectID = "Lr9-Gc-v4e"; */
 "Lr9-Gc-v4e.title"="DistanceLapse";
 
+/* Class = "UITextView"; text = "Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed."; ObjectID = "RfS-cX-Ugc"; */
+"RfS-cX-Ugc.text" = "Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.";
+
 /* Class = "UILabel"; text = "00m:00s.00"; ObjectID = "S40-Uq-DQC"; */
 "S40-Uq-DQC.text"="00m:00s.00";
 
@@ -33,9 +36,6 @@
 
 /* Class = "UILabel"; text = "Interval:"; ObjectID = "XL3-wx-zPv"; */
 "XL3-wx-zPv.text"="Intervallo:";
-
-/* Class = "UITextView"; text = "Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!\n\nTimelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed."; ObjectID = "YZp-3P-pTL"; */
-"YZp-3P-pTL.text"="Triggertrap Timelapse Pro è un nuovo approccio per la creazione di incredibili timelapse. Connetti il tuo dispositivo alla tua fotocamera con il Mobile kit Triggertrap, e sei pronto per nuove creazioni!\n\nTimelapse Pro ha un approccio modulare alla creazione di timelapse, e ti lascia creare sequenze utilizzando i blocchi costruttivi dei timelapse: intervallometri e ritardi. Con questi blocchi puoi creare timelapse di qualsiasi formato e dimensione. Gli intervallometri di Timelapse Pro ti consentono di stabilire l'intervallo tra gli scatti, e anche quando vorresti che l'intervallometro si spegnesse, sia dopo un determinato numero di scatto oppure dopo che sia trascorso un determinato lasso di tempo.";
 
 /* Class = "UILabel"; text = "Exposures:"; ObjectID = "Zdp-h4-7Yl"; */
 "Zdp-h4-7Yl.text"="Esposizioni:";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,171 +26,139 @@
         <scene sceneID="M6Y-yd-r9m">
             <objects>
                 <viewController storyboardIdentifier="Timelapse Pro" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xZ7-ua-bQT" customClass="TimelapseProViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="304-Lz-HJJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="HT1-CT-1k9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FmP-1D-OQf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FmP-1D-OQf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-b8-zCy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULb-b8-zCy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimelapseProPromotion.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-2s-rc6">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="6Q6-lh-XXy"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZp-3P-pTL">
-                                        <rect key="frame" x="8" y="300" width="359" height="128"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <rect key="contentStretch" x="0.0" y="0.050000000000000003" width="1" height="1"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="yNM-7C-Jnk"/>
-                                        </constraints>
-                                        <string key="text">Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QcO-6j-Bue">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="697.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="TimelapseProPromotion.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-2s-rc6">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="rUh-6s-sDp"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHK-y1-wiW" userLabel="Separator View">
+                                                <rect key="frame" x="0.0" y="620.5" width="375" height="1"/>
+                                                <color key="backgroundColor" red="0.14442044496536255" green="0.14441612362861633" blue="0.14441859722137451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="anf-yl-bHe"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oW-Hp-Jnd" customClass="BorderButton" customModule="TriggertrapSLR" customModuleProvider="target">
+                                                <rect key="frame" x="93" y="637.5" width="189" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="SCl-cu-Lbw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="20"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                                <state key="normal" title="View in App Store">
+                                                    <color key="titleColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                        <color key="value" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="viewInAppStoreButtonTapped:" destination="xZ7-ua-bQT" eventType="touchUpInside" id="Fxc-P8-VNB"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxI-De-uEL">
+                                                <rect key="frame" x="0.0" y="300" width="375" height="320.5"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RfS-cX-Ugc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="320.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <mutableString key="text">Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
 
-Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</string>
-                                        <color key="textColor" red="0.43873488903045654" green="0.43872174620628357" blue="0.43872916698455811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2D-15-njO" customClass="GradientOverlayView" customModule="TriggertrapSLR" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="300" width="375" height="8"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</mutableString>
+                                                        <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="C7U-Om-zW3" firstAttribute="trailing" secondItem="RfS-cX-Ugc" secondAttribute="trailing" id="EJY-Id-VQn"/>
+                                                    <constraint firstItem="RfS-cX-Ugc" firstAttribute="bottom" secondItem="C7U-Om-zW3" secondAttribute="bottom" id="Mnj-er-xmi"/>
+                                                    <constraint firstItem="C7U-Om-zW3" firstAttribute="leading" secondItem="RfS-cX-Ugc" secondAttribute="leading" id="NmT-8q-FA0"/>
+                                                    <constraint firstItem="C7U-Om-zW3" firstAttribute="top" secondItem="RfS-cX-Ugc" secondAttribute="top" id="yt8-qA-MTP"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="safeArea" id="C7U-Om-zW3"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="8" id="1ti-tp-MVl"/>
+                                            <constraint firstItem="cHK-y1-wiW" firstAttribute="leading" secondItem="QcO-6j-Bue" secondAttribute="leading" id="0xU-Se-CcV"/>
+                                            <constraint firstItem="Og3-2s-rc6" firstAttribute="trailing" secondItem="QcO-6j-Bue" secondAttribute="trailing" id="3i9-m2-XRw"/>
+                                            <constraint firstItem="5oW-Hp-Jnd" firstAttribute="top" secondItem="cHK-y1-wiW" secondAttribute="bottom" constant="16" id="5Cj-yG-tEq"/>
+                                            <constraint firstItem="Og3-2s-rc6" firstAttribute="top" secondItem="Fl8-WR-otE" secondAttribute="top" id="A4O-1H-OBX"/>
+                                            <constraint firstAttribute="trailing" secondItem="dxI-De-uEL" secondAttribute="trailing" id="KeF-TA-ukz"/>
+                                            <constraint firstItem="Fl8-WR-otE" firstAttribute="bottom" secondItem="5oW-Hp-Jnd" secondAttribute="bottom" constant="16" id="UVw-Ux-0wC"/>
+                                            <constraint firstItem="5oW-Hp-Jnd" firstAttribute="centerX" secondItem="Fl8-WR-otE" secondAttribute="centerX" id="bRY-2D-7Tk"/>
+                                            <constraint firstItem="cHK-y1-wiW" firstAttribute="top" secondItem="dxI-De-uEL" secondAttribute="bottom" id="gmT-yP-xov"/>
+                                            <constraint firstItem="dxI-De-uEL" firstAttribute="leading" secondItem="QcO-6j-Bue" secondAttribute="leading" id="i91-iQ-tKC"/>
+                                            <constraint firstAttribute="trailing" secondItem="cHK-y1-wiW" secondAttribute="trailing" id="olx-vh-gOC"/>
+                                            <constraint firstItem="dxI-De-uEL" firstAttribute="top" secondItem="Og3-2s-rc6" secondAttribute="bottom" id="syT-Aa-LbA"/>
+                                            <constraint firstAttribute="leading" secondItem="Og3-2s-rc6" secondAttribute="leading" id="w2p-TL-v7C"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="direction">
-                                                <integer key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <viewLayoutGuide key="safeArea" id="Fl8-WR-otE"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ajZ-eN-Pvy" customClass="GradientOverlayView" customModule="TriggertrapSLR" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="420" width="375" height="8"/>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="8" id="gEy-9a-R4Q"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="direction">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOg-ni-nIs" userLabel="Buttons Background View">
-                                        <rect key="frame" x="0.0" y="428" width="375" height="112"/>
-                                        <color key="backgroundColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cHK-y1-wiW" userLabel="Separator View">
-                                        <rect key="frame" x="0.0" y="428" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.14442044496536255" green="0.14441612362861633" blue="0.14441859722137451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="anf-yl-bHe"/>
-                                        </constraints>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oW-Hp-Jnd" customClass="BorderButton" customModule="TriggertrapSLR" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="445" width="343" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="SCl-cu-Lbw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Metric-Light" family="Metric" pointSize="20"/>
-                                        <state key="normal" title="View in App Store">
-                                            <color key="titleColor" red="0.92150187492370605" green="0.92147433757781982" blue="0.92148995399475098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                                <color key="value" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="viewInAppStoreButtonTapped:" destination="xZ7-ua-bQT" eventType="touchUpInside" id="Fxc-P8-VNB"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="5oW-Hp-Jnd" secondAttribute="centerX" id="1D7-NT-7Bf"/>
-                                    <constraint firstAttribute="trailing" secondItem="YZp-3P-pTL" secondAttribute="trailing" constant="8" id="82G-Ne-eQD"/>
-                                    <constraint firstItem="Og3-2s-rc6" firstAttribute="top" secondItem="ULb-b8-zCy" secondAttribute="top" id="9yf-Rx-yfd"/>
-                                    <constraint firstAttribute="trailing" secondItem="Og3-2s-rc6" secondAttribute="trailing" id="EO6-Y1-A3v"/>
-                                    <constraint firstAttribute="bottom" secondItem="UOg-ni-nIs" secondAttribute="bottom" id="KYi-sB-Bjj"/>
-                                    <constraint firstItem="YZp-3P-pTL" firstAttribute="top" secondItem="Og3-2s-rc6" secondAttribute="bottom" id="Ltg-bY-IFN"/>
-                                    <constraint firstItem="UOg-ni-nIs" firstAttribute="width" secondItem="ULb-b8-zCy" secondAttribute="width" id="NF3-kZ-22v"/>
-                                    <constraint firstItem="ajZ-eN-Pvy" firstAttribute="leading" secondItem="ULb-b8-zCy" secondAttribute="leading" id="OQF-YX-M9d"/>
-                                    <constraint firstItem="cHK-y1-wiW" firstAttribute="top" secondItem="UOg-ni-nIs" secondAttribute="top" id="OQm-dS-OkB"/>
-                                    <constraint firstItem="YZp-3P-pTL" firstAttribute="leading" secondItem="ULb-b8-zCy" secondAttribute="leading" constant="8" id="TAr-Fe-yUD"/>
-                                    <constraint firstItem="5oW-Hp-Jnd" firstAttribute="leading" secondItem="ULb-b8-zCy" secondAttribute="leading" constant="16" id="Vd2-Fg-nnK"/>
-                                    <constraint firstItem="5oW-Hp-Jnd" firstAttribute="top" secondItem="cHK-y1-wiW" secondAttribute="bottom" constant="16" id="W9T-jH-idf"/>
-                                    <constraint firstAttribute="trailing" secondItem="b2D-15-njO" secondAttribute="trailing" id="WOD-LV-r3L"/>
-                                    <constraint firstAttribute="trailing" secondItem="ajZ-eN-Pvy" secondAttribute="trailing" id="WcN-sw-0lt"/>
-                                    <constraint firstAttribute="trailing" secondItem="5oW-Hp-Jnd" secondAttribute="trailing" constant="16" id="bum-Ii-gur"/>
-                                    <constraint firstItem="YZp-3P-pTL" firstAttribute="bottom" secondItem="ajZ-eN-Pvy" secondAttribute="bottom" id="hc4-MZ-zn7"/>
-                                    <constraint firstAttribute="centerX" secondItem="UOg-ni-nIs" secondAttribute="centerX" id="kXH-6s-hNe"/>
-                                    <constraint firstItem="UOg-ni-nIs" firstAttribute="top" secondItem="YZp-3P-pTL" secondAttribute="bottom" id="lGo-8J-WsZ"/>
-                                    <constraint firstItem="b2D-15-njO" firstAttribute="leading" secondItem="ULb-b8-zCy" secondAttribute="leading" id="lnx-yd-qaU"/>
-                                    <constraint firstAttribute="centerX" secondItem="cHK-y1-wiW" secondAttribute="centerX" id="q7j-kE-Fyw"/>
-                                    <constraint firstItem="cHK-y1-wiW" firstAttribute="width" secondItem="UOg-ni-nIs" secondAttribute="width" id="tPn-1H-XfX"/>
-                                    <constraint firstItem="YZp-3P-pTL" firstAttribute="top" secondItem="b2D-15-njO" secondAttribute="top" id="wsD-YV-ziU"/>
-                                    <constraint firstItem="Og3-2s-rc6" firstAttribute="leading" secondItem="ULb-b8-zCy" secondAttribute="leading" id="xOL-T8-tXf"/>
+                                    <constraint firstItem="QcO-6j-Bue" firstAttribute="top" secondItem="ULb-b8-zCy" secondAttribute="top" id="23Q-oe-2Fd"/>
+                                    <constraint firstAttribute="trailing" secondItem="QcO-6j-Bue" secondAttribute="trailing" id="3t9-0A-H36"/>
+                                    <constraint firstAttribute="bottom" secondItem="QcO-6j-Bue" secondAttribute="bottom" id="9tk-jl-h9F"/>
+                                    <constraint firstItem="QcO-6j-Bue" firstAttribute="leading" secondItem="ULb-b8-zCy" secondAttribute="leading" id="WiL-NI-RiM"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="Oyn-cK-YTa"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ULb-b8-zCy" secondAttribute="trailing" id="1BN-sz-ttd"/>
                             <constraint firstItem="ULb-b8-zCy" firstAttribute="leading" secondItem="FmP-1D-OQf" secondAttribute="leading" id="5U4-gG-JfO"/>
-                            <constraint firstItem="YZp-3P-pTL" firstAttribute="width" secondItem="FmP-1D-OQf" secondAttribute="width" constant="-16" id="JBS-SK-rys"/>
                             <constraint firstItem="ULb-b8-zCy" firstAttribute="top" secondItem="FmP-1D-OQf" secondAttribute="top" id="Oib-0G-gEO"/>
-                            <constraint firstItem="HT1-CT-1k9" firstAttribute="top" secondItem="ULb-b8-zCy" secondAttribute="bottom" id="YRk-TY-3jx"/>
+                            <constraint firstItem="QcO-6j-Bue" firstAttribute="width" secondItem="FmP-1D-OQf" secondAttribute="width" id="QOd-TL-hh4"/>
+                            <constraint firstAttribute="bottom" secondItem="ULb-b8-zCy" secondAttribute="bottom" id="YRk-TY-3jx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Timelapse Pro" id="d8l-9z-3Gq"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="bottomBackgroundView" destination="UOg-ni-nIs" id="6Fe-0r-TzJ"/>
-                        <outlet property="bottomGradientView" destination="ajZ-eN-Pvy" id="hLP-Bc-Vni"/>
-                        <outlet property="previewHeightConstraint" destination="6Q6-lh-XXy" id="I9x-yB-Wqp"/>
                         <outlet property="previewImageView" destination="Og3-2s-rc6" id="F63-Sj-PQN"/>
                         <outlet property="scrollView" destination="ULb-b8-zCy" id="H45-EV-Zt0"/>
                         <outlet property="separatorView" destination="cHK-y1-wiW" id="wOZ-1W-9WT"/>
-                        <outlet property="textView" destination="YZp-3P-pTL" id="rJ7-Vj-qKk"/>
-                        <outlet property="textViewHeightConstraint" destination="yNM-7C-Jnk" id="UlE-kI-ZHY"/>
-                        <outlet property="topGradientView" destination="b2D-15-njO" id="4b3-Lm-YB0"/>
+                        <outlet property="textView" destination="RfS-cX-Ugc" id="ssA-S5-pKB"/>
+                        <outlet property="textViewBackground" destination="dxI-De-uEL" id="f73-5n-1yR"/>
                         <outlet property="viewInAppStoreButton" destination="5oW-Hp-Jnd" id="rCj-Pc-AjQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83h-uN-fI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2544" y="401"/>
+            <point key="canvasLocation" x="2564" y="563.11844077961018"/>
         </scene>
         <!--Timelapse-->
         <scene sceneID="1gD-0h-xDK">
             <objects>
                 <viewController storyboardIdentifier="Timelapse" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qL8-tL-GNN" customClass="TimelapseViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="npr-lK-kLA"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ztm-n1-PRK"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dws-Wy-2qr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,10 +262,11 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ddR-CI-Wgs" secondAttribute="bottom" id="agM-Z4-8Yq"/>
-                            <constraint firstAttribute="trailing" secondItem="ddR-CI-Wgs" secondAttribute="trailing" id="gxN-TP-yII"/>
-                            <constraint firstItem="uTS-wE-a3Y" firstAttribute="leading" secondItem="dws-Wy-2qr" secondAttribute="leading" id="ook-NF-5B6"/>
-                            <constraint firstItem="uTS-wE-a3Y" firstAttribute="top" secondItem="npr-lK-kLA" secondAttribute="bottom" id="qgX-jn-t5c"/>
+                            <constraint firstItem="qM7-RT-sJg" firstAttribute="trailing" secondItem="ddR-CI-Wgs" secondAttribute="trailing" id="gxN-TP-yII"/>
+                            <constraint firstItem="uTS-wE-a3Y" firstAttribute="leading" secondItem="qM7-RT-sJg" secondAttribute="leading" id="ook-NF-5B6"/>
+                            <constraint firstItem="uTS-wE-a3Y" firstAttribute="top" secondItem="qM7-RT-sJg" secondAttribute="top" id="qgX-jn-t5c"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qM7-RT-sJg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Timelapse" id="i8a-cr-FXA"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -320,10 +290,6 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
         <scene sceneID="dGo-9b-mz2">
             <objects>
                 <viewController storyboardIdentifier="DistanceLapse" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Vhv-yv-2ds" customClass="DistanceLapseViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PCy-Gg-BMW"/>
-                        <viewControllerLayoutGuide type="bottom" id="LEc-Ay-sWm"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YuN-U2-oxq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -331,11 +297,11 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTE-uG-0I2" userLabel="topeLeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-9C-91W">
-                                        <rect key="frame" x="150" y="106" width="300" height="168"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-9C-91W">
+                                        <rect key="frame" x="150" y="107.5" width="300" height="165"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MhF-dy-zl0" userLabel="numberInputView" customClass="TTNumberInput">
-                                                <rect key="frame" x="40" y="61" width="220" height="45"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhF-dy-zl0" userLabel="numberInputView" customClass="TTNumberInput">
+                                                <rect key="frame" x="40" y="60" width="220" height="45"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="fU9-cy-RAJ"/>
@@ -345,8 +311,8 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                                     <action selector="openKeyboard:" destination="Vhv-yv-2ds" eventType="touchUpInside" id="jcN-m1-asn"/>
                                                 </connections>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7M-aL-qBb" userLabel="meters">
-                                                <rect key="frame" x="40" y="132" width="220" height="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="meters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7M-aL-qBb" userLabel="meters">
+                                                <rect key="frame" x="40" y="131" width="220" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="ixk-VP-EPo"/>
                                                 </constraints>
@@ -354,8 +320,8 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                                 <color key="textColor" red="0.43873488903045654" green="0.43872174620628357" blue="0.43872916698455811" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Trigger the shutter every" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4lv-da-Ccd">
-                                                <rect key="frame" x="40" y="8" width="220" height="28"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trigger the shutter every" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4lv-da-Ccd">
+                                                <rect key="frame" x="40" y="8" width="220" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="Z8B-ba-fJ7"/>
                                                 </constraints>
@@ -413,11 +379,12 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZTE-uG-0I2" firstAttribute="top" secondItem="PCy-Gg-BMW" secondAttribute="bottom" id="4bT-Mr-gNF"/>
-                            <constraint firstItem="ZTE-uG-0I2" firstAttribute="leading" secondItem="YuN-U2-oxq" secondAttribute="leading" id="RY3-YB-Jbx"/>
+                            <constraint firstItem="ZTE-uG-0I2" firstAttribute="top" secondItem="57o-8V-O5N" secondAttribute="top" id="4bT-Mr-gNF"/>
+                            <constraint firstItem="ZTE-uG-0I2" firstAttribute="leading" secondItem="57o-8V-O5N" secondAttribute="leading" id="RY3-YB-Jbx"/>
                             <constraint firstAttribute="bottom" secondItem="Rob-RT-vx1" secondAttribute="bottom" id="ybL-uC-zWn"/>
-                            <constraint firstAttribute="trailing" secondItem="Rob-RT-vx1" secondAttribute="trailing" id="zWC-Rj-n52"/>
+                            <constraint firstItem="57o-8V-O5N" firstAttribute="trailing" secondItem="Rob-RT-vx1" secondAttribute="trailing" id="zWC-Rj-n52"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="57o-8V-O5N"/>
                     </view>
                     <navigationItem key="navigationItem" title="DistanceLapse" id="Lr9-Gc-v4e"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -442,10 +409,6 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
         <scene sceneID="hke-FP-PfF">
             <objects>
                 <viewController storyboardIdentifier="Star Trail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R5R-V4-Hit" customClass="StarTrailViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lnL-ex-dtq"/>
-                        <viewControllerLayoutGuide type="bottom" id="rar-6Z-OZV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v5d-tS-lLm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -564,11 +527,12 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="HNo-sV-PT9" secondAttribute="trailing" id="HX3-6d-CfC"/>
+                            <constraint firstItem="dLC-Th-zbu" firstAttribute="trailing" secondItem="HNo-sV-PT9" secondAttribute="trailing" id="HX3-6d-CfC"/>
                             <constraint firstAttribute="bottom" secondItem="HNo-sV-PT9" secondAttribute="bottom" id="SAn-Gb-ti8"/>
-                            <constraint firstItem="UnL-iI-Pbi" firstAttribute="top" secondItem="lnL-ex-dtq" secondAttribute="bottom" id="Vz5-OC-WFI"/>
-                            <constraint firstItem="UnL-iI-Pbi" firstAttribute="leading" secondItem="v5d-tS-lLm" secondAttribute="leading" id="dzL-F3-FFL"/>
+                            <constraint firstItem="UnL-iI-Pbi" firstAttribute="top" secondItem="dLC-Th-zbu" secondAttribute="top" id="Vz5-OC-WFI"/>
+                            <constraint firstItem="UnL-iI-Pbi" firstAttribute="leading" secondItem="dLC-Th-zbu" secondAttribute="leading" id="dzL-F3-FFL"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="dLC-Th-zbu"/>
                     </view>
                     <navigationItem key="navigationItem" title="Star Trail" id="hsB-MO-TwE"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -596,10 +560,6 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
         <scene sceneID="0Tn-Pn-kxp">
             <objects>
                 <viewController storyboardIdentifier="Bramping" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tmc-OV-1VK" customClass="BrampingViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jaz-W3-nFz"/>
-                        <viewControllerLayoutGuide type="bottom" id="hdP-el-fOz"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hEL-Fr-K37">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -797,11 +757,12 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vgN-td-UA0" secondAttribute="trailing" id="D2x-2C-nrK"/>
-                            <constraint firstItem="SsA-fZ-EQx" firstAttribute="leading" secondItem="hEL-Fr-K37" secondAttribute="leading" id="bbj-yF-xtl"/>
-                            <constraint firstItem="SsA-fZ-EQx" firstAttribute="top" secondItem="Jaz-W3-nFz" secondAttribute="bottom" id="dI7-QD-dAz"/>
+                            <constraint firstItem="l7A-np-sdz" firstAttribute="trailing" secondItem="vgN-td-UA0" secondAttribute="trailing" id="D2x-2C-nrK"/>
+                            <constraint firstItem="SsA-fZ-EQx" firstAttribute="leading" secondItem="l7A-np-sdz" secondAttribute="leading" id="bbj-yF-xtl"/>
+                            <constraint firstItem="SsA-fZ-EQx" firstAttribute="top" secondItem="l7A-np-sdz" secondAttribute="top" id="dI7-QD-dAz"/>
                             <constraint firstAttribute="bottom" secondItem="vgN-td-UA0" secondAttribute="bottom" id="t0L-yk-AHc"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="l7A-np-sdz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bramping" id="gXk-Tx-JH4"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -834,10 +795,6 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
         <scene sceneID="ITk-LT-FBD">
             <objects>
                 <viewController storyboardIdentifier="TimeWarp" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HlX-Td-JdI" customClass="TimeWarpViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d48-xJ-VE4"/>
-                        <viewControllerLayoutGuide type="bottom" id="CUo-nz-uje"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gxp-dX-EFT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -956,13 +913,13 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="19v-yZ-mwk" userLabel="durationLabel">
-                                                                <rect key="frame" x="428.5" y="6.5" width="69.5" height="20"/>
+                                                                <rect key="frame" x="429" y="6.5" width="69.5" height="20"/>
                                                                 <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00m:00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S40-Uq-DQC" userLabel="durationFeedbackLabel" customClass="TTCounterLabel">
-                                                                <rect key="frame" x="503" y="7" width="92" height="23"/>
+                                                                <rect key="frame" x="503.5" y="7.5" width="91.5" height="23.5"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1152,11 +1109,12 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Gjc-eL-bD6" secondAttribute="trailing" id="XC2-cQ-8Ic"/>
-                            <constraint firstItem="0N1-QU-PEL" firstAttribute="leading" secondItem="gxp-dX-EFT" secondAttribute="leading" id="rQA-s5-zru"/>
+                            <constraint firstItem="1ox-KV-Zwk" firstAttribute="trailing" secondItem="Gjc-eL-bD6" secondAttribute="trailing" id="XC2-cQ-8Ic"/>
+                            <constraint firstItem="0N1-QU-PEL" firstAttribute="leading" secondItem="1ox-KV-Zwk" secondAttribute="leading" id="rQA-s5-zru"/>
                             <constraint firstAttribute="bottom" secondItem="Gjc-eL-bD6" secondAttribute="bottom" id="wt3-Qb-ogj"/>
-                            <constraint firstItem="0N1-QU-PEL" firstAttribute="top" secondItem="d48-xJ-VE4" secondAttribute="bottom" id="yhC-cY-GRT"/>
+                            <constraint firstItem="0N1-QU-PEL" firstAttribute="top" secondItem="1ox-KV-Zwk" secondAttribute="top" id="yhC-cY-GRT"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ox-KV-Zwk"/>
                     </view>
                     <navigationItem key="navigationItem" title="TimeWarp" id="ya0-mI-drS"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
