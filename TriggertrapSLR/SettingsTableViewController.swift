@@ -147,6 +147,16 @@ class SettingsTableViewController : UITableViewController {
         self.tableView.backgroundColor = UIColor.triggertrap_backgroundColor()
         self.tableView.separatorColor = UIColor.triggertrap_foregroundColor()
         
+        
+        let numSections = self.tableView.numberOfSections
+        for i in 0..<numSections{
+            let header = self.tableView.headerView(forSection: i)
+            guard header != nil else{
+                continue
+            }
+            header?.backgroundView?.backgroundColor = UIColor.triggertrap_tableHeaderBackgroundColor()
+        }
+        
         self.tableView.reloadData()
         
         nightTimeSwitch.thumbTintColor = nightTimeSwitch.isOn ? UIColor.triggertrap_fillColor() : UIColor.triggertrap_foregroundColor()
@@ -272,21 +282,6 @@ class SettingsTableViewController : UITableViewController {
             }
         } else {
             return ("\(hrs)h \(mins)m \(secs)s \(frac)ms")
-        }
-    }
-    
-    // MARK: - TableView Data Source
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let headerView = view as? UITableViewHeaderFooterView {
-            
-            // There is a bug with Apple's API for version 8.0.x where changing the font of the header view causes a crash
-            if (UIDevice.current.systemVersion as NSString).doubleValue >= 8.1 || (UIDevice.current.systemVersion as NSString).doubleValue < 8.0 {
-                // Set the font to Metric
-                headerView.textLabel?.font = UIFont.triggertrap_metric_regular(18.0)
-                headerView.textLabel?.textColor = UIColor.triggertrap_accentColor()
-                headerView.contentView.backgroundColor = UIColor.triggertrap_backgroundColor()
-            }
         }
     }
     

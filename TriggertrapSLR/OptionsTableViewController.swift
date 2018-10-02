@@ -94,8 +94,8 @@ extension OptionsTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 22.0))
-        view.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
+        let sectionBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 22.0))
+        sectionBackgroundView.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
         
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: self.tableView.frame.width, height: 22.0))
         
@@ -103,9 +103,16 @@ extension OptionsTableViewController: UITableViewDataSource {
         label.font = UIFont.triggertrap_metric_regular(18.0)
         label.textColor = UIColor.triggertrap_accentColor(1.0)
         
-        view.addSubview(label)
+        sectionBackgroundView.addSubview(label)
         
-        return view
+        label.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                label.leftAnchor.constraint(equalTo: sectionBackgroundView.safeAreaLayoutGuide.leftAnchor, constant: 5.0)
+            ])
+        }
+        
+        return sectionBackgroundView
     }
 }
 

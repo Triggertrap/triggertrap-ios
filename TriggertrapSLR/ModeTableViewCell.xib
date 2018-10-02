@@ -47,10 +47,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Bd-we-u6N" userLabel="Colour Square">
-                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="59" height="60"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="guW-kl-vHL">
-                            <rect key="frame" x="18" y="18" width="25" height="25"/>
+                            <rect key="frame" x="17" y="18" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="Ecv-LM-2mA"/>
                                 <constraint firstAttribute="width" constant="25" id="Orb-Dq-2UU"/>
@@ -63,6 +63,8 @@
                         <constraint firstItem="guW-kl-vHL" firstAttribute="leading" secondItem="7UD-7b-ecA" secondAttribute="leading" constant="18" id="qrm-NQ-58x"/>
                         <constraint firstAttribute="height" constant="60" id="rNe-nW-zoi"/>
                         <constraint firstAttribute="centerY" secondItem="guW-kl-vHL" secondAttribute="centerY" id="wQi-ps-hC1"/>
+                        <constraint firstItem="guW-kl-vHL" firstAttribute="leading" secondItem="Vai-Pf-tGe" secondAttribute="leading" constant="17" id="yh4-IQ-ucF"/>
+                        <constraint firstAttribute="trailing" secondItem="guW-kl-vHL" secondAttribute="trailing" constant="17" id="zyp-zH-wlj"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="7UD-7b-ecA"/>
                 </view>

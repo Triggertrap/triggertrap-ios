@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d6F-3z-ZHf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d6F-3z-ZHf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,15 +22,11 @@
         <scene sceneID="I8w-Uc-a1E">
             <objects>
                 <viewController storyboardIdentifier="optionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9bP-R0-uGl" customClass="OptionsTableViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BDx-n1-QeS"/>
-                        <viewControllerLayoutGuide type="bottom" id="vbn-5l-Fb2"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Eik-KN-IkT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OlL-DM-mNJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OlL-DM-mNJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,10 +39,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OlL-DM-mNJ" firstAttribute="leading" secondItem="Eik-KN-IkT" secondAttribute="leading" id="O09-cA-VRW"/>
-                            <constraint firstItem="OlL-DM-mNJ" firstAttribute="top" secondItem="BDx-n1-QeS" secondAttribute="bottom" id="esG-0e-fpa"/>
+                            <constraint firstItem="OlL-DM-mNJ" firstAttribute="top" secondItem="BDG-pY-PCy" secondAttribute="top" id="esG-0e-fpa"/>
                             <constraint firstAttribute="trailing" secondItem="OlL-DM-mNJ" secondAttribute="trailing" id="gRc-RZ-2DH"/>
-                            <constraint firstItem="vbn-5l-Fb2" firstAttribute="top" secondItem="OlL-DM-mNJ" secondAttribute="bottom" id="hEs-jM-QzF"/>
+                            <constraint firstAttribute="bottom" secondItem="OlL-DM-mNJ" secondAttribute="bottom" id="hEs-jM-QzF"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="BDG-pY-PCy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Options" id="HD4-rz-LCi">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="cxe-fg-elU">
@@ -68,7 +66,7 @@
         <scene sceneID="5F2-gH-uUs">
             <objects>
                 <tableViewController title="Settings" id="Rpn-fS-YBe" customClass="SettingsTableViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="4xE-Jf-gOU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="4xE-Jf-gOU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -445,7 +443,7 @@
         <scene sceneID="SF3-me-05b">
             <objects>
                 <tableViewController id="Jau-WN-5xD" customClass="SubSettingsViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="ydb-y4-aVE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="ydb-y4-aVE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -473,10 +471,6 @@
         <scene sceneID="bCZ-OB-IXp">
             <objects>
                 <viewController id="iMW-8r-G0b" customClass="SensorDelayViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9p3-eu-du1"/>
-                        <viewControllerLayoutGuide type="bottom" id="gp7-Ed-5A3"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CQx-Lu-0ev">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -512,11 +506,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="s3B-GZ-8UO" secondAttribute="trailing" id="9Xc-Dy-G5O"/>
-                            <constraint firstItem="gp7-Ed-5A3" firstAttribute="top" secondItem="s3B-GZ-8UO" secondAttribute="bottom" id="OeS-Al-6qn"/>
-                            <constraint firstItem="Iov-a2-eCl" firstAttribute="top" secondItem="9p3-eu-du1" secondAttribute="bottom" id="P8Z-gr-J1T"/>
-                            <constraint firstItem="Iov-a2-eCl" firstAttribute="leading" secondItem="CQx-Lu-0ev" secondAttribute="leading" id="weN-Zf-it3"/>
+                            <constraint firstItem="5Ay-gE-6za" firstAttribute="trailing" secondItem="s3B-GZ-8UO" secondAttribute="trailing" id="9Xc-Dy-G5O"/>
+                            <constraint firstItem="5Ay-gE-6za" firstAttribute="bottom" secondItem="s3B-GZ-8UO" secondAttribute="bottom" id="OeS-Al-6qn"/>
+                            <constraint firstItem="Iov-a2-eCl" firstAttribute="top" secondItem="5Ay-gE-6za" secondAttribute="top" id="P8Z-gr-J1T"/>
+                            <constraint firstItem="Iov-a2-eCl" firstAttribute="leading" secondItem="5Ay-gE-6za" secondAttribute="leading" id="weN-Zf-it3"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Ay-gE-6za"/>
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="displayMenuButton" value="NO"/>
