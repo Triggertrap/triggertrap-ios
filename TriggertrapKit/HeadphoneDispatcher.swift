@@ -7,7 +7,7 @@
 //
 
 open class HeadphoneDispatcher: NSObject, Dispatcher {
-    open static let sharedInstance = HeadphoneDispatcher()
+    public static let sharedInstance = HeadphoneDispatcher()
     
     fileprivate var dispatchable: Dispatchable!
     

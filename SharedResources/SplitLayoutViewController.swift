@@ -76,17 +76,17 @@ class SplitLayoutViewController: CenterViewController {
         
             // Set the constraints for the separatorView
             if portrait {
-                separatorView!.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[separatorView(==1)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                separatorView!.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[separatorView(==1)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
                 
-                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[separatorView]-(0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[separatorView]-(0)-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
                 
-                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[separatorView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[separatorView]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
             } else {
-                separatorView!.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[separatorView(==1)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                separatorView!.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[separatorView(==1)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
                 
-                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[separatorView]-(0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(0)-[separatorView]-(0)-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
                 
-                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[separatorView]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
+                bottomRightView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[separatorView]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["separatorView": separatorView!]))
             }
         }
     }
@@ -96,16 +96,16 @@ class SplitLayoutViewController: CenterViewController {
         self.view.backgroundColor = UIColor.triggertrap_fillColor()
         
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
         self.topLeftView.backgroundColor = UIColor.triggertrap_fillColor()
         self.bottomRightView.backgroundColor = UIColor.triggertrap_backgroundColor()
         
         self.separatorView?.backgroundColor = UIColor.triggertrap_accentColor(1.0)
         
-        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControlState())
+        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControl.State())
         
-        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControlState())
+        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControl.State())
         
         self.viewControllerTheme = AppTheme()
     }

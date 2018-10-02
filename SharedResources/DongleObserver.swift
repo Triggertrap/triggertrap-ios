@@ -21,7 +21,7 @@ class DongleObserver {
         let session = AVAudioSession.sharedInstance()
         if session.currentRoute.outputs.count != 0 {
             let output: AVAudioSessionPortDescription = session.currentRoute.outputs[0]
-            self.dongleConnected = (output.portType == AVAudioSessionPortHeadphones) ? true : false
+            self.dongleConnected = (convertFromAVAudioSessionPort(output.portType) == convertFromAVAudioSessionPort(AVAudioSession.Port.headphones)) ? true : false
         
             print("Dongle Connected: \(self.dongleConnected)")
         }
@@ -29,7 +29,7 @@ class DongleObserver {
     
     func startSession() {
         audioJackObserver = NotificationCenter.default.addObserver(
-            forName: NSNotification.Name.AVAudioSessionRouteChange, object: nil, queue: OperationQueue.main, using: {
+            forName: AVAudioSession.routeChangeNotification, object: nil, queue: OperationQueue.main, using: {
                 (note:Notification!) in
                 
                 // Determine whether dongle is connected to the phone
@@ -40,4 +40,9 @@ class DongleObserver {
     func endSession() {
         NotificationCenter.default.removeObserver(self.audioJackObserver)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionPort(_ input: AVAudioSession.Port) -> String {
+	return input.rawValue
 }

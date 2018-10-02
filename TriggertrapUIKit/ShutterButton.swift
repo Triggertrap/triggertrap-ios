@@ -137,11 +137,11 @@ class ShutterButton: UIButton {
     fileprivate func commonInit() {
         // Initialization code
 
-        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: UIInterpolatingMotionEffectType.tiltAlongVerticalAxis)
+        let verticalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: UIInterpolatingMotionEffect.EffectType.tiltAlongVerticalAxis)
         verticalMotionEffect.minimumRelativeValue = -motionOffset
         verticalMotionEffect.maximumRelativeValue = motionOffset
         
-        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: UIInterpolatingMotionEffectType.tiltAlongHorizontalAxis)
+        let horizontalMotionEffect: UIInterpolatingMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: UIInterpolatingMotionEffect.EffectType.tiltAlongHorizontalAxis)
         horizontalMotionEffect.minimumRelativeValue = -motionOffset
         horizontalMotionEffect.maximumRelativeValue = motionOffset
         
@@ -185,7 +185,7 @@ class ShutterButton: UIButton {
         let animation = CAAnimationGroup()
         animation.animations = [scaleAnimation, alphaAnimation]
         animation.duration = 0.7
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         
         ring1.add(animation, forKey: "sonarAnimation")
         
@@ -209,7 +209,7 @@ class ShutterButton: UIButton {
         let animation = CAAnimationGroup()
         animation.animations = [scaleAnimation, alphaAnimation]
         animation.duration = 0.4
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         
         self.ring2.add(animation, forKey: "sonarAnimation2")
     }

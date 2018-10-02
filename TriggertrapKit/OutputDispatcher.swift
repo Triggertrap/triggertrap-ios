@@ -7,9 +7,9 @@
 // 
 
 open class OutputDispatcher {
-    open static let sharedInstance = OutputDispatcher()
+    public static let sharedInstance = OutputDispatcher()
     
     open var activeDispatchers: [Dispatcher]?
     
-    open let audioPlayer = AudioPlayer.sharedInstance()
+    public let audioPlayer = AudioPlayer.sharedInstance()
 }

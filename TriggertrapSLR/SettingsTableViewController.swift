@@ -58,7 +58,7 @@ class SettingsTableViewController : UITableViewController {
         super.viewDidLoad()
         
         // Hide previous screen title from the back button in case we use SettingsTableViewController as initial screen as opposed to OptionsTableViewController
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
@@ -104,7 +104,7 @@ class SettingsTableViewController : UITableViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
         self.view.backgroundColor = UIColor.triggertrap_fillColor()
         

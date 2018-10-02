@@ -44,8 +44,8 @@
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -114,7 +114,7 @@
         // Middle Horizontal Picker
         let middleExposureValues = Bundle.main.path(forResource: "middleExposures", ofType: "plist")!
         middleExposureHorizontalPicker.delegate = self
-        middleExposureHorizontalPicker.dataSource = NSArray(contentsOfFile: middleExposureValues) as! Array
+        middleExposureHorizontalPicker.dataSource = NSArray(contentsOfFile: middleExposureValues) as? Array
         middleExposureHorizontalPicker.minimumValue = NSNumber(value: 63 as Int)
         middleExposureHorizontalPicker.maximumValue = NSNumber(value: 6800000 as Int)
         middleExposureHorizontalPicker.defaultIndex = 15
@@ -123,7 +123,7 @@
         // EV Horizontal Picker
         let evValues = Bundle.main.path(forResource: "evValues", ofType: "plist")!
         evHorizontalPicker.delegate = self
-        evHorizontalPicker.dataSource = NSArray(contentsOfFile:evValues) as! Array
+        evHorizontalPicker.dataSource = NSArray(contentsOfFile:evValues) as? Array
         evHorizontalPicker.minimumValue = NSNumber(value: 0 as Int)
         evHorizontalPicker.maximumValue = NSNumber(value: 3 as Int)
         evHorizontalPicker.defaultIndex = 1
@@ -132,7 +132,7 @@
         // Exposures Horizontal Picker
         let exposuresValues = Bundle.main.path(forResource: "numberOfExposures", ofType: "plist")!
         numberOfExposuresHorizontalPicker.delegate = self
-        numberOfExposuresHorizontalPicker.dataSource = NSArray(contentsOfFile: exposuresValues) as! Array
+        numberOfExposuresHorizontalPicker.dataSource = NSArray(contentsOfFile: exposuresValues) as? Array
         numberOfExposuresHorizontalPicker.minimumValue = NSNumber(value: 0 as Int)
         numberOfExposuresHorizontalPicker.maximumValue = NSNumber(value: 19 as Int)
         numberOfExposuresHorizontalPicker.defaultIndex = 0

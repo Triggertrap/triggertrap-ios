@@ -73,7 +73,7 @@ class TTCircleTimer: RPCircularProgress {
         
         self.clockTime = Timer(timeInterval: 0.02, target: self, selector: #selector(self.clockDidTick(timer:)), userInfo: nil, repeats: true)
         
-        RunLoop.main.add(self.clockTime!, forMode: .commonModes)
+        RunLoop.main.add(self.clockTime!, forMode: RunLoop.Mode.common)
         
         self.running = true
         self.isRunning = true

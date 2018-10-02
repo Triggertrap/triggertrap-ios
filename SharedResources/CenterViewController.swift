@@ -28,11 +28,11 @@ import UIKit
         if displayMenuButton {
             
             leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
-            leftButton?.addTarget(self.navigationController, action: Selector(("menuButtonTapped:")), for: UIControlEvents.touchDown)
+            leftButton?.addTarget(self.navigationController, action: Selector(("menuButtonTapped:")), for: UIControl.Event.touchDown)
             leftButton?.setBackgroundImage(#imageLiteral(resourceName: "MenuIcon"), for: .normal)
             
             let leftBarButton = UIBarButtonItem(customView: leftButton!)
-            leftBarButton.style = UIBarButtonItemStyle.plain
+            leftBarButton.style = UIBarButtonItem.Style.plain
             
             // This does not need translation.
             leftBarButton.accessibilityLabel = "Menu"
@@ -43,10 +43,10 @@ import UIKit
             // Set the right bar button item.
             
             rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
-            rightButton?.addTarget(self.navigationController, action: Selector(("optionsButtonTapped:")), for: UIControlEvents.touchDown)
+            rightButton?.addTarget(self.navigationController, action: Selector(("optionsButtonTapped:")), for: UIControl.Event.touchDown)
             rightButton?.setBackgroundImage(#imageLiteral(resourceName: "OptionsIcon"), for: .normal)
             let rightBarButton = UIBarButtonItem(customView: rightButton!)
-            rightBarButton.style = UIBarButtonItemStyle.plain
+            rightBarButton.style = UIBarButtonItem.Style.plain
             self.navigationItem.rightBarButtonItem = rightBarButton
         }
     }

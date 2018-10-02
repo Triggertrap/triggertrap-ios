@@ -69,8 +69,8 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -200,14 +200,14 @@ class BrampingViewController: TTViewController, HorizontalPickerDelegate, TTNumb
         let shutterSpeeedValues: String = Bundle.main.path(forResource: "middleExposures", ofType: "plist")!
         
         startExposurePicker.delegate = self
-        startExposurePicker.dataSource = NSArray(contentsOfFile: shutterSpeeedValues) as! Array
+        startExposurePicker.dataSource = NSArray(contentsOfFile: shutterSpeeedValues) as? Array
         startExposurePicker.minimumValue = NSNumber(value: 63 as Int)
         startExposurePicker.maximumValue = NSNumber(value: 6800000 as Int)
         startExposurePicker.defaultIndex = 15
         startExposurePicker.tag = kStartExposurePickerTag
         
         endExposurePicker.delegate = self
-        endExposurePicker.dataSource = NSArray(contentsOfFile: shutterSpeeedValues) as! Array
+        endExposurePicker.dataSource = NSArray(contentsOfFile: shutterSpeeedValues) as? Array
         endExposurePicker.minimumValue = NSNumber(value: 63 as Int)
         endExposurePicker.maximumValue = NSNumber(value: 6800000 as Int)
         endExposurePicker.defaultIndex = 21

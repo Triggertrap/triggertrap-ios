@@ -15,7 +15,7 @@ open class WifiDispatcher: NSObject, Dispatcher {
     var remoteOutputServer: RemoteOutputServer!
     var wifiIsAvailable = false
     
-    open static let sharedInstance = WifiDispatcher()
+    public static let sharedInstance = WifiDispatcher()
     
     fileprivate override init() {
         super.init()

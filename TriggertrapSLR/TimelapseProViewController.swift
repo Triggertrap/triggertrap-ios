@@ -102,7 +102,7 @@ class TimelapseProViewController: CenterViewController {
 
     @objc func performThemeUpdate() {
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
 
         self.leftButton?.setBackgroundImage(#imageLiteral(resourceName: "MenuIcon"), for: .normal)
 
@@ -117,7 +117,7 @@ class TimelapseProViewController: CenterViewController {
 
         viewInAppStoreButton.fillColor = UIColor.triggertrap_primaryColor()
         viewInAppStoreButton.borderColor = UIColor.triggertrap_primaryColor()
-        viewInAppStoreButton.setTitleColor(UIColor.triggertrap_fillColor(), for: UIControlState())
+        viewInAppStoreButton.setTitleColor(UIColor.triggertrap_fillColor(), for: UIControl.State())
 
         //bottomBackgroundView.backgroundColor = UIColor.triggertrap_naturalColor()
         //topGradientView.color = UIColor.triggertrap_fillColor()

@@ -119,8 +119,8 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -166,7 +166,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         tickImageView.image = ImageWithColor(UIImage(named: "tickDown")!, color: UIColor.triggertrap_fillColor())
         
-        previewButton.setBackgroundImage(ImageWithColor(UIImage(named: "timeWarpPreviewButton")!, color: UIColor.triggertrap_primaryColor()), for: UIControlState())
+        previewButton.setBackgroundImage(ImageWithColor(UIImage(named: "timeWarpPreviewButton")!, color: UIColor.triggertrap_primaryColor()), for: UIControl.State())
         
         clockImageView.image = ImageWithColor(UIImage(named: "timeWarpClockCircle")!, color: UIColor.triggertrap_primaryColor())
         
@@ -311,13 +311,13 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
         
         if clockIsAnimating == false {
             
-            UIView.transition(with: clockView, duration: kShutterButtonAnimationDuration, options: [UIViewAnimationOptions.transitionFlipFromRight, UIViewAnimationOptions.showHideTransitionViews], animations: { () -> Void in
+            UIView.transition(with: clockView, duration: kShutterButtonAnimationDuration, options: [UIView.AnimationOptions.transitionFlipFromRight, UIView.AnimationOptions.showHideTransitionViews], animations: { () -> Void in
                 self.shutterButton.alpha = self.clockView.isHidden ? 1 : 0
                 }, completion: { (finished: Bool) -> Void in
                     self.clockView.isHidden = !self.clockView.isHidden
             })
             
-            UIView.transition(with: shutterButton, duration: kShutterButtonAnimationDuration, options: [UIViewAnimationOptions.transitionFlipFromRight, UIViewAnimationOptions.showHideTransitionViews], animations: { () -> Void in
+            UIView.transition(with: shutterButton, duration: kShutterButtonAnimationDuration, options: [UIView.AnimationOptions.transitionFlipFromRight, UIView.AnimationOptions.showHideTransitionViews], animations: { () -> Void in
                 self.shutterButton.alpha = self.clockView.isHidden ? 0 : 1
                 self.clockView.alpha = self.clockView.isHidden ? 1 : 0
                 }, completion: { (finished: Bool) -> Void in
@@ -349,7 +349,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
     fileprivate func showPreviewButtonAnimation() {
         animateShutterButton()
         
-        UIView.animate(withDuration: kShutterButtonAnimationDuration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+        UIView.animate(withDuration: kShutterButtonAnimationDuration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
             self.previewButton.transform = CGAffineTransform(scaleX: 1, y: 1)
         }) { (finished: Bool) -> Void in
             
@@ -403,7 +403,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
             
             self.tickImageView.transform = verticalFlip
             
-            UIView.animate(withDuration: duration - delay, delay: delay, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { () -> Void in
+            UIView.animate(withDuration: duration - delay, delay: delay, options: UIView.AnimationOptions.transitionCrossDissolve, animations: { () -> Void in
                 self.feedbackToWhiteViewConstraint.constant = 0
                 self.view.layoutIfNeeded()
                 }, completion: { (finished: Bool) -> Void in
@@ -437,7 +437,7 @@ class TimeWarpViewController: TTViewController, TTNumberInputDelegate, TTKeyboar
             self.tickImageView.transform = verticalFlip
             self.feedbackToWhiteViewConstraint.constant = self.topLeftView.frame.size.height - self.visibleView.frame.size.height
             
-            UIView.animate(withDuration: duration - delay, delay: delay, options: UIViewAnimationOptions.transitionCrossDissolve, animations: { () -> Void in
+            UIView.animate(withDuration: duration - delay, delay: delay, options: UIView.AnimationOptions.transitionCrossDissolve, animations: { () -> Void in
                 
                 for i in 0..<self.timeWarpView.subviews.count {
                     let subView: UIView = self.timeWarpView.subviews[i] 

@@ -11,7 +11,7 @@ func onMain(_ block: @escaping ()->()) {
 }
 
 open class SequenceManager {
-    open static let sharedInstance = SequenceManager()
+    public static let sharedInstance = SequenceManager()
     
     // Delagate for informing the subscribed classes/structures/enums about the progress of the unwrappables (mirrorlockup/intervalometer/repeat)
     open var unwrappableDelegate: UnwrappableLifecycle?

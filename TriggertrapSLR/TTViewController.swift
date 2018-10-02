@@ -113,8 +113,8 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         }
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -133,7 +133,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         self.rightButton?.setBackgroundImage(#imageLiteral(resourceName: "OptionsIcon"), for: .normal)
         self.rightButton?.tintColor = UIColor.triggertrap_fillColor(1)
         
-        self.bulbButton?.setImage(ImageWithColor(UIImage(named: "BulbIcon")!, color: UIColor.triggertrap_primaryColor()), for: UIControlState())
+        self.bulbButton?.setImage(ImageWithColor(UIImage(named: "BulbIcon")!, color: UIColor.triggertrap_primaryColor()), for: UIControl.State())
         self.bulbButton?.imageView?.contentMode = .scaleAspectFit
     }
     
@@ -151,13 +151,13 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         DispatchQueue.main.async(execute: {
             let alert = UIAlertController(title: NSLocalizedString("Low Volume", comment: "Low Volume"),
                 message: NSLocalizedString("Please set the volume to maximum to use Triggertrap mobile", comment: "Please set the volume to maximum to use Triggertrap mobile"),
-                preferredStyle: UIAlertControllerStyle.alert)
+                preferredStyle: UIAlertController.Style.alert)
             
             // The order in which we add the buttons matters.
             // Add the Cancel button first to match the iOS 7 default style,
             // where the cancel button is at index 0.
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK"),
-                style: UIAlertActionStyle.default,
+                style: UIAlertAction.Style.default,
                 handler: { (action: UIAlertAction!) in
                     self.handelCancel()
             }))
@@ -242,7 +242,7 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
     func pop(_ viewToAnimate: UIView, fromScale: CGFloat, toScale: CGFloat) {
         onMain {
             let springAnimation = POPSpringAnimation()
-            springAnimation.property = POPAnimatableProperty.property(withName: kPOPViewScaleXY) as! POPAnimatableProperty
+            springAnimation.property = POPAnimatableProperty.property(withName: kPOPViewScaleXY) as? POPAnimatableProperty
             springAnimation.springBounciness = 8.0
             springAnimation.springSpeed = 10.0
             springAnimation.fromValue = NSValue(cgSize: CGSize(width: fromScale, height: fromScale))
@@ -321,16 +321,16 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
         guard let _ = self.feedbackViewController else {
             let storyboard = UIStoryboard(name: ConstStoryboardIdentifierFeedback, bundle: nil);
             
-            self.feedbackViewController = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! FeedbackViewController
+            self.feedbackViewController = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as? FeedbackViewController
             
-            self.addChildViewController(self.feedbackViewController!)
+            self.addChild(self.feedbackViewController!)
             
-            self.feedbackViewController.didMove(toParentViewController: self)
+            self.feedbackViewController.didMove(toParent: self)
             self.feedbackViewController.view.frame = topLeftView.frame
             self.feedbackView = self.feedbackViewController.view
             
             self.feedbackView.autoresizesSubviews = true
-            self.feedbackView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+            self.feedbackView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
             
             topLeftView.addSubview(self.feedbackView)
             return

@@ -40,7 +40,7 @@ class TestTriggertViewController: OnboardingViewController {
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: 0xE2231A, alpha: 1.0)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.white]
         
         shutterButton.ringColor = UIColor(hex: 0xDBDBDB, alpha: 1.0)
         shutterButton.centerColor = UIColor(hex: 0xE2231A, alpha: 1.0)

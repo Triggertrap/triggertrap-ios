@@ -161,8 +161,8 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         stopTimer()
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         
         removeLocationManager()
         NotificationCenter.default.removeObserver(self)
@@ -202,9 +202,9 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     // MARK: - Private
     
     fileprivate func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.startLocationManager), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.stopLocationManager), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.updateTodayTomorrow), name: NSNotification.Name.UIApplicationSignificantTimeChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.startLocationManager), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.stopLocationManager), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.updateTodayTomorrow), name: UIApplication.significantTimeChangeNotification, object: nil)
     }
     
     fileprivate func createEmptyUI() {

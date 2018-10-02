@@ -20,7 +20,7 @@ class MotionSensorViewController: SensorViewController, MotionDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        motionDetectionViewController = self.childViewControllers.last as! MotionDetectionViewController
+        motionDetectionViewController = self.children.last as? MotionDetectionViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,8 +28,8 @@ class MotionSensorViewController: SensorViewController, MotionDelegate {
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -88,7 +88,7 @@ class MotionSensorViewController: SensorViewController, MotionDelegate {
     override func performThemeUpdate() {
         super.performThemeUpdate()
         
-        motionDetectionViewController.rotationButton?.setImage(ImageWithColor(UIImage(named: "Camera-Rotate")!, color: UIColor.triggertrap_fillColor()), for: UIControlState())
+        motionDetectionViewController.rotationButton?.setImage(ImageWithColor(UIImage(named: "Camera-Rotate")!, color: UIColor.triggertrap_fillColor()), for: UIControl.State())
         motionDetectionViewController.slider?.thumbTintColor = UIColor.triggertrap_fillColor()
         motionDetectionViewController.slider?.maximumTrackTintColor = UIColor.triggertrap_naturalColor()
         motionDetectionViewController.slider?.minimumTrackTintColor = UIColor.triggertrap_primaryColor()
