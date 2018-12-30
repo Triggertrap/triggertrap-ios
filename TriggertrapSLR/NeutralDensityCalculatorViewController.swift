@@ -46,12 +46,10 @@ class NeutralDensityCalculatorViewController: SplitLayoutViewController, Horizon
         if isEmbedded {
             
             let leftBarButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .plain, target: self, action: #selector(NeutralDensityCalculatorViewController.cancelButtonTapped(_:)))
-            leftBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0)], for: UIControl.State())
             self.navigationItem.leftBarButtonItem = leftBarButton
             
             // Set the right bar button item.
             let rightBarButton = UIBarButtonItem(title: NSLocalizedString("OK", comment: "OK"), style: .plain, target: self, action: #selector(NeutralDensityCalculatorViewController.calculateButtonTapped(_:)))
-            rightBarButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0)], for: UIControl.State())
             self.navigationItem.rightBarButtonItem = rightBarButton
             
             self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()

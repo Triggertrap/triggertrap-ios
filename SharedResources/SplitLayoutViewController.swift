@@ -58,8 +58,24 @@ class SplitLayoutViewController: CenterViewController {
             
             // Unwrap the values and update the constraints.
             let portrait = self.view.bounds.size.width < self.view.bounds.size.height ? true : false
+
+
+            var insetPadding:CGFloat = 0
+
+
+            let orientation = UIDevice.current.orientation
+
+            if #available(iOS 11.0, *) {
+                let window = UIApplication.shared.keyWindow
+                if orientation == .landscapeLeft{
+                    insetPadding =  window?.safeAreaInsets.left ?? 0
+                } else if orientation == .landscapeRight{
+                    insetPadding =  window?.safeAreaInsets.right ?? 0
+                }
+
+            }
             
-            self.tlWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["top"]!)
+            self.tlWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["top"]! - insetPadding)
             self.tlHeightConstraint.constant = portrait ? (self.view.frame.size.height * layoutRatio["top"]!) : self.view.frame.size.height
             self.brWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["bottom"]!)
             self.brHeightConstraint.constant = portrait ? (self.view.frame.size.height * layoutRatio["bottom"]!) : self.view.frame.size.height

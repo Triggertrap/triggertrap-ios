@@ -92,7 +92,7 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
         viewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         viewController.isEmbedded = true
         
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = NeutralDensityCalculatorNavigationController(rootViewController: viewController)
         navigationController.navigationBar.isTranslucent = false
 
         navigationController.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)

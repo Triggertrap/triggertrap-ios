@@ -211,6 +211,7 @@
 		BDD75CDD1BEA56310014DA3D /* speedUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CDF1BEA56310014DA3D /* speedUnits.plist */; };
 		BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CE51BEA56380014DA3D /* distanceUnits.plist */; };
 		FA23B3EA208B79D500263445 /* TTCircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23B3E9208B79D500263445 /* TTCircleTimer.swift */; };
+		FA56926F217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56926E217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift */; };
 		FAB3553F20BF011E003CCF66 /* MPGNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB3553E20BF011E003CCF66 /* MPGNotification.m */; };
 		FAB6639020B4D1AD003C256E /* OptionsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6638F20B4D1AD003C256E /* OptionsNavigationController.swift */; };
 /* End PBXBuildFile section */
@@ -639,6 +640,7 @@
 		CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapTLP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.debug.xcconfig"; sourceTree = "<group>"; };
 		FA23B3E9208B79D500263445 /* TTCircleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCircleTimer.swift; sourceTree = "<group>"; };
+		FA56926E217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeutralDensityCalculatorNavigationController.swift; sourceTree = "<group>"; };
 		FAB3553D20BF011E003CCF66 /* MPGNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPGNotification.h; sourceTree = "<group>"; };
 		FAB3553E20BF011E003CCF66 /* MPGNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPGNotification.m; sourceTree = "<group>"; };
 		FAB6638F20B4D1AD003C256E /* OptionsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsNavigationController.swift; sourceTree = "<group>"; };
@@ -1339,6 +1341,7 @@
 				BDAB4AD41B677B20009EB328 /* Calculators */,
 				BDAB817D1BCBFB0A00F84AB6 /* NeutralDensityCalculatorViewController.swift */,
 				BDAB817E1BCBFB0A00F84AB6 /* SunriseSunsetCalculatorViewController.swift */,
+				FA56926E217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift */,
 			);
 			name = Calculators;
 			sourceTree = "<group>";
@@ -1958,6 +1961,7 @@
 				BDAB4AEE1B677F67009EB328 /* SunriseAndSunset.m in Sources */,
 				BD11340A1BB3F01A006ED87A /* KitSelectorViewController.swift in Sources */,
 				BDD44B071BA98B0300B98FF6 /* RemoteClient.swift in Sources */,
+				FA56926F217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift in Sources */,
 				BD7144C21BB94F4600E7A34B /* WearablesManager.swift in Sources */,
 				BDD44B101BA98B0300B98FF6 /* Dispatchable.swift in Sources */,
 				BD1133F11BB3EFE4006ED87A /* UIBezierPath.swift in Sources */,
