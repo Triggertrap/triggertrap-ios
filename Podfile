@@ -10,7 +10,7 @@ def common_pods
     pod 'pop'
     pod 'TTCounterLabel'
     pod 'CocoaAsyncSocket'
-    pod 'RPCircularProgress', :git => 'https://github.com/alex-taffe/RPCircularProgress.git'
+    pod 'RPCircularProgress'
     pod 'MPGNotification'
 end
 
