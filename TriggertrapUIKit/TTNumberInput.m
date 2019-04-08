@@ -275,10 +275,28 @@
     }
     
     _keyboardOpen = YES;
-    CGRect rect = CGRectMake(coveredView.frame.origin.x,
-                             coveredView.frame.origin.y + coveredView.frame.size.height,
-                             coveredView.frame.size.width,
-                             coveredView.frame.size.height);
+    CGRect rect;
+
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+
+    //this nightmare is required because we can't collapse the 2 if statements because the compiler sucks and thinks an error could occur
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && orientation == UIInterfaceOrientationPortrait) {
+        if(@available(iOS 11.0, *))
+            rect = CGRectMake(coveredView.frame.origin.x,
+                          coveredView.frame.origin.y + coveredView.frame.size.height,
+                          coveredView.frame.size.width,
+                          coveredView.frame.size.height + self.safeAreaInsets.bottom);
+        else
+            rect = CGRectMake(coveredView.frame.origin.x,
+                              coveredView.frame.origin.y + coveredView.frame.size.height,
+                              coveredView.frame.size.width,
+                              coveredView.frame.size.height);
+    } else {
+        rect = CGRectMake(coveredView.frame.origin.x,
+                          coveredView.frame.origin.y + coveredView.frame.size.height,
+                          coveredView.frame.size.width,
+                          coveredView.frame.size.height);
+    }
     
     if (!numberPadView) {
         numberPadView = [[TTNumberPadView alloc] initWithFrame:rect];
