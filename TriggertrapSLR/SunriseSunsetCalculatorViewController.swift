@@ -398,7 +398,8 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             absoluteTimeBetweenSunriseAndSunset = absoluteTimeSunriseForAnimation - absoluteTimeSunsetForAnimation
             
             //Degrees are calculated from 180 to 360 degrees, sun starts its animation from 180.
-            degrees = Int((sunTime / absoluteTimeBetweenSunriseAndSunset) * 180 + 180);
+            let degreeCalculation = sunTime / absoluteTimeBetweenSunriseAndSunset * 180 //had to separate due to some swift compiler complexity bug
+            degrees = Int(degreeCalculation + 180)
             break
             
         default:

@@ -1636,7 +1636,7 @@
 				TargetAttributes = {
 					9EE1F1A61B1C9FE800FE6EB7 = {
 						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
@@ -1673,7 +1673,7 @@
 			};
 			buildConfigurationList = 9EE1F13E1B1C9DFD00FE6EB7 /* Build configuration list for PBXProject "Triggertrap" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1792,7 +1792,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
@@ -1815,7 +1815,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		587C73C2F1DF313FAD18D578 /* [CP] Check Pods Manifest.lock */ = {
@@ -2509,7 +2509,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2549,7 +2549,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
