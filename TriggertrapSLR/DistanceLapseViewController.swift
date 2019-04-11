@@ -68,8 +68,8 @@ class DistanceLapseViewController: TTViewController, CicularSliderDelegate, TTKe
         } 
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         removeNotificationObservers()
         
         WearablesManager.sharedInstance.delegate = nil

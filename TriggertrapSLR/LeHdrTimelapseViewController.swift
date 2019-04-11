@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTCounterLabel
 
 class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTNumberPadViewDelegate {
     
@@ -48,8 +49,8 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -138,7 +139,7 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         let middleExposureValues: String = Bundle.main.path(forResource: "middleExposures", ofType: "plist")!
         middleExposureHorizontalPicker.delegate = self
         
-        middleExposureHorizontalPicker.dataSource = NSArray(contentsOfFile: middleExposureValues) as! Array
+        middleExposureHorizontalPicker.dataSource = NSArray(contentsOfFile: middleExposureValues) as? Array
         middleExposureHorizontalPicker.minimumValue = NSNumber(value: 63 as Int)
         middleExposureHorizontalPicker.maximumValue = NSNumber(value: 6800000 as Int)
         middleExposureHorizontalPicker.defaultIndex = 15
@@ -147,7 +148,7 @@ class LeHdrTimelapseViewController: TTViewController, TTNumberInputDelegate, TTN
         // EV Horizontal Picker
         let evValues: String = Bundle.main.path(forResource: "evValues", ofType: "plist")!
         evHorizontalPicker.delegate = self
-        evHorizontalPicker.dataSource = NSArray(contentsOfFile:evValues) as! Array
+        evHorizontalPicker.dataSource = NSArray(contentsOfFile:evValues) as? Array
         evHorizontalPicker.minimumValue = NSNumber(value: 0 as Int)
         evHorizontalPicker.maximumValue = NSNumber(value: 3 as Int)
         evHorizontalPicker.defaultIndex = 1

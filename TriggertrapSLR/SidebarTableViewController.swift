@@ -28,6 +28,7 @@ class SidebarTableViewController: UITableViewController, UINavigationControllerD
         super.viewDidLoad()
         self.navigationController?.delegate = self
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(SidebarTableViewController.sidebarDidSelectCellWithIdentifier(_:)), name: NSNotification.Name(rawValue: "SidebarDidSelectCellWithIdentifier"), object: nil)
         
         if let lastSelectedViewControllerIdentifier = UserDefaults.standard.object(forKey: ConstDefaultLastSelectedMode) as? String, let storyboardName = StoryboardNameForViewControllerIdentifier(lastSelectedViewControllerIdentifier) {

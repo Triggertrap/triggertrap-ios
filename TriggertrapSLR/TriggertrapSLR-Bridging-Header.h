@@ -6,7 +6,6 @@
 #import "CachedPushNoAnimationStoryboardSegue.h"
 #import "SettingsManager.h"
 #import "CubicBezierInterpolator.h" 
-#import "MPGNotification.h"
 
 // Cable Selector
 #import "CableSelector.h" 
@@ -15,13 +14,9 @@
 #import "Reachability.h"
 #import "PreciseTimer.h"
 #import "AudioPlayer.h"
-@import CocoaAsyncSocket;
 #import "A440SineWaveGenerator.h"
 #import "Constants.h"
 #import "RemoteOutputServer.h"
-
-// Pods
-@import pop;
 
 // Menu
 #import "MCPanelViewController.h"
@@ -32,7 +27,6 @@
 //#import "TTCircleTimer.h"
 #import "TTTimeInput.h"
 #import "TTCircularSlider.h"
-@import TTCounterLabel;
 
 // TimeWarp
 
@@ -49,14 +43,13 @@
 #import "AudioListener.h"
 #import "FaceDetectionViewController.h"
 #import "MotionDetectionViewController.h"
-@import GPUImage;
 #import "AccelerometerFilter.h"
 
 // Calculators
 #import "SunriseSunsetCalculator.h"
 #import "NSString+TimeFormatting.h"
 
-// Options
-@import CTFeedback;
+//Restyle notifications
+#import "MPGNotification.h"
 
 #import "Constants.h"

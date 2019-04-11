@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4hi-an-0Ol">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4hi-an-0Ol">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,15 +57,11 @@
         <scene sceneID="Ji1-Vv-9Ye">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="iXj-J5-eTK" userLabel="LeftPanelViewController" customClass="LeftPanelViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="buN-fE-0Rq"/>
-                        <viewControllerLayoutGuide type="bottom" id="TMh-tk-BHn"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nuL-jf-H3I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-Ez-qKK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-Ez-qKK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <sections/>
@@ -76,11 +73,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="AJc-Ez-qKK" firstAttribute="top" secondItem="buN-fE-0Rq" secondAttribute="bottom" id="72A-1o-VqZ"/>
+                            <constraint firstItem="AJc-Ez-qKK" firstAttribute="top" secondItem="I6L-4H-n6o" secondAttribute="top" id="72A-1o-VqZ"/>
                             <constraint firstItem="AJc-Ez-qKK" firstAttribute="leading" secondItem="nuL-jf-H3I" secondAttribute="leading" id="F4Y-7L-llY"/>
                             <constraint firstAttribute="trailing" secondItem="AJc-Ez-qKK" secondAttribute="trailing" id="HnB-5Y-AGV"/>
-                            <constraint firstItem="TMh-tk-BHn" firstAttribute="top" secondItem="AJc-Ez-qKK" secondAttribute="bottom" id="VRx-b1-KRh"/>
+                            <constraint firstAttribute="bottom" secondItem="AJc-Ez-qKK" secondAttribute="bottom" id="VRx-b1-KRh"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="I6L-4H-n6o"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ew8-0J-FNA"/>
                     <connections>

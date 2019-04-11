@@ -159,7 +159,7 @@ class ConnectToVolumeTransition: CustomTransition {
                     }
             })
             */
-            UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+            UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                 phoneSnapshot.frame = self.containerView.convert(fromViewController.phoneImageView.frame, from: fromViewController.phoneImageView.superview)
                 dongleViewSnapshot.frame = self.containerView.convert(fromViewController.dongleView.frame, from: fromViewController.dongleView.superview)
                 dongleCoilViewSnapshot.frame = self.containerView.convert(fromViewController.dongleCoilImageView.frame, from: fromViewController.dongleCoilImageView.superview)
@@ -209,7 +209,7 @@ class ConnectToVolumeTransition: CustomTransition {
                     
                     self.transitionContext!.completeTransition(false)
                 } else {
-                    UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+                    UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                         
                         plugSnapshot.frame = self.containerView.convert(toViewController.plugView.frame, from: toViewController.plugView.superview)
                         dongleViewSnapshot.frame = self.containerView.convert(CGRect(x: toViewController.dongleView.frame.origin.x, y: toViewController.dongleView.frame.origin.y, width: dongleViewSnapshot.frame.size.width, height: dongleViewSnapshot.frame.size.height), from: toViewController.dongleView.superview)
@@ -320,7 +320,7 @@ class ConnectToVolumeTransition: CustomTransition {
             
             toViewController.view.layoutIfNeeded()
             
-            UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+            UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                 
                 // Move plug and phone to the top of the screen
                 
@@ -375,7 +375,7 @@ class ConnectToVolumeTransition: CustomTransition {
                         self.transitionContext!.completeTransition(false)
                     } else {
                         
-                        UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+                        UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                             
                             // Unplug dongle from phone
                             plugViewSnapshot.frame = self.containerView.convert(toViewController.plugView.frame, from: toViewController.plugView.superview)

@@ -105,7 +105,7 @@ class VolumeToCameraTransition: CustomTransition {
         
         toViewController.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+        UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
             
             cameraCoilSnapshot.frame = self.containerView.convert(toViewController.dongleCoilImageView.frame, from:toViewController.dongleCoilImageView.superview)
             
@@ -275,7 +275,7 @@ class VolumeToCameraTransition: CustomTransition {
         
         toViewController.view.layoutIfNeeded()
         
-        UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+        UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
             
             cameraCoilSnapshot.frame = self.containerView.convert(toViewController.cameraCoilImageView.frame, from:toViewController.cameraCoilImageView.superview)
             

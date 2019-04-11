@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTCounterLabel
 
 class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate {
     
@@ -33,8 +34,8 @@ class SelfTimerViewController: CableReleaseViewController, TTNumberInputDelegate
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
 

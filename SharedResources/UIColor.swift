@@ -149,4 +149,15 @@ public extension UIColor {
             return UIColor(hex: 0x980013, alpha: alpha)
         }
     }
+    
+    class func triggertrap_tableHeaderBackgroundColor() -> UIColor {
+        switch AppTheme() {
+        case .normal:
+            return UIColor(displayP3Red: 0.907255, green: 0.907255, blue: 0.907255, alpha: 1.0)
+
+        case .night:
+            return UIColor(displayP3Red: 0.333333, green: 0.333333, blue: 0.333333, alpha: 1.0)
+            
+        }
+    }
 }

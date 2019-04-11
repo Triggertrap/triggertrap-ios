@@ -11,7 +11,7 @@ import UIKit
 func ShowAlertInViewController(_ viewController: UIViewController, title: String, message: String, cancelButton: String) {
     let alert = UIAlertController(title: title,
                                   message: message,
-                                  preferredStyle: UIAlertControllerStyle.alert)
+                                  preferredStyle: UIAlertController.Style.alert)
     
     // The order in which we add the buttons matters.
     // Add the Cancel button first to match the iOS 7 default style,
@@ -89,7 +89,7 @@ func delay(_ delay:Double, closure:@escaping ()->()) {
 }
 
 func SizeForText(_ text: NSString, withFont font: UIFont, constrainedToSize size: CGSize) -> CGSize {
-    return text.boundingRect(with: size, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], attributes: [NSAttributedStringKey.font: font], context: nil).size;
+    return text.boundingRect(with: size, options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil).size;
 } 
 
 func pathForResource(_ resource: String!) -> String {
@@ -120,7 +120,7 @@ func ImageWithColor(_ image: UIImage, color: UIColor) -> UIImage {
     let img = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    let flippedImage = UIImage(cgImage: (img?.cgImage!)!, scale: 1.0, orientation: UIImageOrientation.downMirrored)
+    let flippedImage = UIImage(cgImage: (img?.cgImage!)!, scale: 1.0, orientation: UIImage.Orientation.downMirrored)
     return flippedImage
 }
 

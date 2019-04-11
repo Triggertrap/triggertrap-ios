@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTCounterLabel
 
 class FeedbackViewController: UIViewController, TTCounterLabelDelegate, TTCircleTimerDelegate {
     

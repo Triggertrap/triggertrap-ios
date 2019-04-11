@@ -20,7 +20,7 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        faceDetectionViewController = self.childViewControllers.last as! FaceDetectionViewController
+        faceDetectionViewController = self.children.last as? FaceDetectionViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,8 +28,8 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -83,7 +83,7 @@ class PeekabooViewController: SensorViewController, FaceDetectorDelegate {
     override func performThemeUpdate() {
         super.performThemeUpdate()
         
-        faceDetectionViewController.rotationButton?.setImage(ImageWithColor(UIImage(named: "Camera-Rotate")!, color: UIColor.triggertrap_fillColor()), for: UIControlState())
+        faceDetectionViewController.rotationButton?.setImage(ImageWithColor(UIImage(named: "Camera-Rotate")!, color: UIColor.triggertrap_fillColor()), for: UIControl.State())
         
         applyThemeUpdateToPicker(faceDetectionViewController.picker)
     }

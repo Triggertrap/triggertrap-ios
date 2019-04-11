@@ -161,8 +161,8 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
         stopTimer()
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         
         removeLocationManager()
         NotificationCenter.default.removeObserver(self)
@@ -202,9 +202,9 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     // MARK: - Private
     
     fileprivate func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.startLocationManager), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.stopLocationManager), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.updateTodayTomorrow), name: NSNotification.Name.UIApplicationSignificantTimeChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.startLocationManager), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.stopLocationManager), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SunriseSunsetCalculatorViewController.updateTodayTomorrow), name: UIApplication.significantTimeChangeNotification, object: nil)
     }
     
     fileprivate func createEmptyUI() {
@@ -398,7 +398,8 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             absoluteTimeBetweenSunriseAndSunset = absoluteTimeSunriseForAnimation - absoluteTimeSunsetForAnimation
             
             //Degrees are calculated from 180 to 360 degrees, sun starts its animation from 180.
-            degrees = Int((sunTime / absoluteTimeBetweenSunriseAndSunset) * 180 + 180);
+            let degreeCalculation = sunTime / absoluteTimeBetweenSunriseAndSunset * 180 //had to separate due to some swift compiler complexity bug
+            degrees = Int(degreeCalculation + 180)
             break
             
         default:
@@ -547,9 +548,10 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
     }
     
     fileprivate func updateSunConstraint() {
-        let diagramCalculations = self.whiteView.frame.size.width / 2 - self.sunriseDiagramLabel.frame.origin.x - self.sunriseDiagramLabel.frame.size.width
-        let sunviewCalculations = self.sunImageView.frame.size.width / 2.0 - self.sunRotationCenterView.frame.size.width / 2.0
-        self.sunToCenterConstraint.constant =  diagramCalculations - sunviewCalculations
+        let diagramCalculations = self.arcImageView.frame.width / 2 - self.sunImageView.frame.width / 2 - self.flatLineImageView.frame.height / 10
+        //deal with half pixels depending on the device's scale ratio
+        let scale = UIScreen.main.scale
+        self.sunToCenterConstraint.constant =  round(diagramCalculations - 1.0 / scale)
     }
     
     // MARK: - Timer

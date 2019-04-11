@@ -16,7 +16,7 @@ import UIKit
 }
 
 open class RemoteClient: NSObject {
-    open static let sharedInstance = RemoteClient()
+    public static let sharedInstance = RemoteClient()
     
     open var delegate: RemoteClientDelegate?
     

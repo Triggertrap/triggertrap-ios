@@ -22,7 +22,7 @@ class LeftPanelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.tableView.separatorColor = UIColor.clear
         
         tableView.register(UINib(nibName: "ModeTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "ModeTableViewCell")
@@ -41,6 +41,7 @@ class LeftPanelViewController: UIViewController {
         self.tableView.reloadData()
         
         self.view.backgroundColor = UIColor.triggertrap_fillColor()
+        self.tableView.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
     }
     
@@ -123,8 +124,8 @@ extension LeftPanelViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 22.0))
-        view.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
+        let sectionBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 22.0))
+        sectionBackgroundView.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
         
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: self.tableView.frame.width, height: 22.0))
         
@@ -132,9 +133,16 @@ extension LeftPanelViewController: UITableViewDataSource {
         label.font = UIFont.triggertrap_metric_regular(18.0)
         label.textColor = UIColor.triggertrap_accentColor(1.0)
         
-        view.addSubview(label)
+        sectionBackgroundView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                label.leftAnchor.constraint(equalTo: sectionBackgroundView.safeAreaLayoutGuide.leftAnchor, constant: 5.0)
+            ])
+        }
         
-        return view
+        
+        return sectionBackgroundView
     } 
 }
 

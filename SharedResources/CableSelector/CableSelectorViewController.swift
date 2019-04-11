@@ -113,7 +113,7 @@ class CableSelectorViewController: SplitLayoutViewController {
         
         let title = String(format: NSLocalizedString("Find a %@ cable on eBay", comment: "Find a %@ cable on eBay"), cable)
         
-        buyButton.setTitle(title, for: UIControlState())
+        buyButton.setTitle(title, for: UIControl.State())
         
         urlForCable = cableSelector.url(forCable: cable)
     }
@@ -123,7 +123,7 @@ class CableSelectorViewController: SplitLayoutViewController {
     @IBAction func buyButtonTapped(_: AnyObject) {
         
         if (urlForCable != nil) {
-            UIApplication.shared.openURL(URL(string: urlForCable!)!)
+            UIApplication.shared.open(URL(string: urlForCable!)!, options: [:], completionHandler: nil)
         }
     }
     
@@ -172,7 +172,7 @@ extension CableSelectorViewController: UIPickerViewDelegate {
         
         let title = String(format: NSLocalizedString("Find a %@ cable on eBay", comment: "Find a %@ cable on eBay"), cable)
         
-        buyButton.setTitle(title, for: UIControlState())
+        buyButton.setTitle(title, for: UIControl.State())
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {

@@ -43,14 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Index all activities that can be searched using spotlight
         indexActivities()
         
 //        generateStringsFromPlists()
         
         // Set the navigation bar appearance
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(21.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_fillColor(1.0)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(21.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_fillColor(1.0)]
         
         UINavigationBar.appearance().barTintColor = UIColor.triggertrap_primaryColor()
         
@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
             
         // Check that user activity title is not the same as the current view controller as otherwise iOS will try to allocate a view controller which is being deallocated and crash the app
         if let identifier = userActivity.title, identifier != UserDefaults.standard.object(forKey: ConstDefaultLastSelectedMode) as? String {

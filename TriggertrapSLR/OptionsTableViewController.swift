@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CTFeedback
 
 class OptionsTableViewController: UIViewController {
     
@@ -23,13 +24,13 @@ class OptionsTableViewController: UIViewController {
         options = NSArray(contentsOfFile: pathForResource("Options"))
         //        GenerateStringsFileFromPlist("Options")
         
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.tableView.separatorColor = UIColor.clear
         
         tableView.register(UINib(nibName: "ModeTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "ModeTableViewCell")
         
         // Hide previous screen title from the back button
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,15 +47,11 @@ class OptionsTableViewController: UIViewController {
     @IBAction func doneButtonTapped(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
-    }
-    
+
     fileprivate func applyTheme() {
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.triggertrap_iconColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
         self.view.backgroundColor = UIColor.triggertrap_naturalColor()
         self.tableView.backgroundColor = UIColor.triggertrap_naturalColor()
@@ -97,8 +94,8 @@ extension OptionsTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 22.0))
-        view.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
+        let sectionBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 22.0))
+        sectionBackgroundView.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
         
         let label = UILabel(frame: CGRect(x: 8, y: 0, width: self.tableView.frame.width, height: 22.0))
         
@@ -106,9 +103,16 @@ extension OptionsTableViewController: UITableViewDataSource {
         label.font = UIFont.triggertrap_metric_regular(18.0)
         label.textColor = UIColor.triggertrap_accentColor(1.0)
         
-        view.addSubview(label)
+        sectionBackgroundView.addSubview(label)
         
-        return view
+        label.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                label.leftAnchor.constraint(equalTo: sectionBackgroundView.safeAreaLayoutGuide.leftAnchor, constant: 5.0)
+            ])
+        }
+        
+        return sectionBackgroundView
     }
 }
 
@@ -128,7 +132,7 @@ extension OptionsTableViewController: UITableViewDelegate {
                 
                 self.navigationController?.navigationBar.barTintColor = UIColor(hex: 0xE2231A, alpha: 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.white]
+                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.white]
                 
                 
                 self.navigationController?.pushViewController(feedbackViewController!, animated: true)

@@ -43,9 +43,9 @@ class ManualFocusToTestTriggerTransition: CustomTransition {
             
             triggertrapLabel.translatesAutoresizingMaskIntoConstraints = false
             
-            redView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[triggertrapLabel(42)]-(0)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["triggertrapLabel": triggertrapLabel]))
+            redView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[triggertrapLabel(42)]-(0)-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["triggertrapLabel": triggertrapLabel]))
             
-            redView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(8)-[triggertrapLabel]-(8)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["triggertrapLabel": triggertrapLabel]))
+            redView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-(8)-[triggertrapLabel]-(8)-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["triggertrapLabel": triggertrapLabel]))
             
             let informationViewSnapshot: UIView = UIView(frame: fromViewController.informationView.frame)
             informationViewSnapshot.backgroundColor = fromViewController.informationView.backgroundColor

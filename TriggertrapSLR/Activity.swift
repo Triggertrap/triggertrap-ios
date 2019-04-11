@@ -25,7 +25,7 @@ extension Activity {
         attr.contentDescription = description
         
         if let image = UIImage(named: iconName) {
-            attr.thumbnailData = UIImagePNGRepresentation(image)
+            attr.thumbnailData = image.pngData()
         } else {
             print("Not found")
         }

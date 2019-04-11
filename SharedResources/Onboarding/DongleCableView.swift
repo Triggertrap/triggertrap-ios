@@ -42,7 +42,7 @@ class DongleCableView: UIView {
         
         shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineJoin = kCALineJoinBevel
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.bevel
         shapeLayer.lineWidth = 7
         shapeLayer.strokeColor = UIColor(hex: 0xE2231A, alpha: 1.0).cgColor
         
@@ -84,8 +84,8 @@ class DongleCableView: UIView {
         let curveAnimation = CABasicAnimation(keyPath: "path")
         curveAnimation.duration = duration
         curveAnimation.toValue = newPath
-        curveAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        curveAnimation.fillMode = kCAFillModeForwards
+        curveAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        curveAnimation.fillMode = CAMediaTimingFillMode.forwards
         curveAnimation.isRemovedOnCompletion = false
         
         self.shapeLayer.add(curveAnimation, forKey: "path")

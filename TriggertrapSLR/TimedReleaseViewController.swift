@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTCounterLabel
 
 class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDelegate, TTKeyboardDelegate {
     
@@ -38,8 +39,8 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
         WearablesManager.sharedInstance.delegate = self
     }
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         WearablesManager.sharedInstance.delegate = nil
     }
     
@@ -91,12 +92,12 @@ class TimedReleaseViewController: CableReleaseViewController, TTNumberInputDeleg
         viewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         viewController.isEmbedded = true
         
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = NeutralDensityCalculatorNavigationController(rootViewController: viewController)
         navigationController.navigationBar.isTranslucent = false
 
         navigationController.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
         
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
  
         
         viewController.ndCalculatorCompletionBlock = ({ duration in

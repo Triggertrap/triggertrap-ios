@@ -70,7 +70,7 @@ class CameraToManualFocusTransition: CustomTransition {
             
             toViewController.view.layoutIfNeeded()
             
-            UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+            UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                 cameraConnectorSnapshot.frame = self.containerView.convert(plugedInViewFrame, from: fromViewController.pluggedView.superview)
                 
                 // Update path frame to follow from View controller dongle cable view
@@ -115,7 +115,7 @@ class CameraToManualFocusTransition: CustomTransition {
                         
                         self.transitionContext!.completeTransition(false)
                     } else {
-                        UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+                        UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                             
                             phoneSnapshot.frame = self.containerView.convert(toViewController.phoneImageView.frame, from: toViewController.phoneImageView.superview)
                             dongleCableViewSnapshot.frame = self.containerView.convert(toViewController.dongleCableView.frame, from: toViewController.dongleCableView.superview)
@@ -235,7 +235,7 @@ class CameraToManualFocusTransition: CustomTransition {
             
             toViewController.view.layoutIfNeeded()
             
-            UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+            UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                 cameraConnectorSnapshot.frame = self.containerView.convert(plugedInViewFrame, from: toViewController.pluggedView.superview)
                 phoneSnapshot.frame = self.containerView.convert(toViewController.phoneImageView.frame, from: toViewController.phoneImageView.superview)
                 dongleCableViewSnapshot.frame = self.containerView.convert(toViewController.dongleCableView.frame, from: toViewController.dongleCableView.superview)
@@ -281,7 +281,7 @@ class CameraToManualFocusTransition: CustomTransition {
                         
                         self.transitionContext!.completeTransition(false)
                     } else {
-                        UIView.animate(withDuration: self.duration, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: { () -> Void in
+                        UIView.animate(withDuration: self.duration, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: { () -> Void in
                             
                             // Update path frame to follow from View controller dongle cable view
                             

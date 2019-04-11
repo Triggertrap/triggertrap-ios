@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,7 +26,6 @@
 		BD098B7A1BC2946E00A87FC8 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098B791BC2946E00A87FC8 /* CenterViewController.swift */; };
 		BD098B7C1BC29A2200A87FC8 /* TimelapseProPromotion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD098B7B1BC29A2100A87FC8 /* TimelapseProPromotion.jpg */; };
 		BD098B861BC5282B00A87FC8 /* TTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD098B851BC5282B00A87FC8 /* TTViewController.swift */; };
-		BD098BA21BC6BC6100A87FC8 /* MPGNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BA11BC6BC6100A87FC8 /* MPGNotification.m */; };
 		BD098BB11BC6C6E400A87FC8 /* TTNumberInput.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BA81BC6C6E400A87FC8 /* TTNumberInput.m */; };
 		BD098BB21BC6C6E400A87FC8 /* TTNumberPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAA1BC6C6E400A87FC8 /* TTNumberPadView.m */; };
 		BD098BB31BC6C6E400A87FC8 /* TTTimeInput.m in Sources */ = {isa = PBXBuildFile; fileRef = BD098BAC1BC6C6E400A87FC8 /* TTTimeInput.m */; };
@@ -212,6 +211,8 @@
 		BDD75CDD1BEA56310014DA3D /* speedUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CDF1BEA56310014DA3D /* speedUnits.plist */; };
 		BDD75CE31BEA56380014DA3D /* distanceUnits.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDD75CE51BEA56380014DA3D /* distanceUnits.plist */; };
 		FA23B3EA208B79D500263445 /* TTCircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23B3E9208B79D500263445 /* TTCircleTimer.swift */; };
+		FA56926F217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56926E217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift */; };
+		FAB3553F20BF011E003CCF66 /* MPGNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB3553E20BF011E003CCF66 /* MPGNotification.m */; };
 		FAB6639020B4D1AD003C256E /* OptionsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6638F20B4D1AD003C256E /* OptionsNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -311,8 +312,6 @@
 		BD098B791BC2946E00A87FC8 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		BD098B7B1BC29A2100A87FC8 /* TimelapseProPromotion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TimelapseProPromotion.jpg; sourceTree = "<group>"; };
 		BD098B851BC5282B00A87FC8 /* TTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTViewController.swift; sourceTree = "<group>"; };
-		BD098BA01BC6BC6100A87FC8 /* MPGNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGNotification.h; sourceTree = "<group>"; };
-		BD098BA11BC6BC6100A87FC8 /* MPGNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGNotification.m; sourceTree = "<group>"; };
 		BD098BA71BC6C6E400A87FC8 /* TTNumberInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNumberInput.h; sourceTree = "<group>"; };
 		BD098BA81BC6C6E400A87FC8 /* TTNumberInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNumberInput.m; sourceTree = "<group>"; };
 		BD098BA91BC6C6E400A87FC8 /* TTNumberPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNumberPadView.h; sourceTree = "<group>"; };
@@ -641,6 +640,9 @@
 		CB967E2D798D1D1B89F18478 /* libPods-TriggertrapTLP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TriggertrapTLP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF051A1D93B1F5CCBE291968 /* Pods-TriggertrapSLR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TriggertrapSLR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR.debug.xcconfig"; sourceTree = "<group>"; };
 		FA23B3E9208B79D500263445 /* TTCircleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTCircleTimer.swift; sourceTree = "<group>"; };
+		FA56926E217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeutralDensityCalculatorNavigationController.swift; sourceTree = "<group>"; };
+		FAB3553D20BF011E003CCF66 /* MPGNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPGNotification.h; sourceTree = "<group>"; };
+		FAB3553E20BF011E003CCF66 /* MPGNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPGNotification.m; sourceTree = "<group>"; };
 		FAB6638F20B4D1AD003C256E /* OptionsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -792,6 +794,8 @@
 				BD7144DA1BBA899000E7A34B /* GradientOverlayView.swift */,
 				BD7144C71BBA877B00E7A34B /* BorderButton.swift */,
 				BD7144C81BBA877B00E7A34B /* ShutterButton.swift */,
+				FAB3553D20BF011E003CCF66 /* MPGNotification.h */,
+				FAB3553E20BF011E003CCF66 /* MPGNotification.m */,
 			);
 			path = TriggertrapUIKit;
 			sourceTree = "<group>";
@@ -847,15 +851,6 @@
 				BD0966141BF9EE49000C581B /* Info.plist */,
 			);
 			path = "Triggertrap WatchKit 1 App";
-			sourceTree = "<group>";
-		};
-		BD098B9F1BC6BC5600A87FC8 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				BD098BA01BC6BC6100A87FC8 /* MPGNotification.h */,
-				BD098BA11BC6BC6100A87FC8 /* MPGNotification.m */,
-			);
-			name = Notifications;
 			sourceTree = "<group>";
 		};
 		BD098BBF1BC6CA1E00A87FC8 /* Modes */ = {
@@ -1346,6 +1341,7 @@
 				BDAB4AD41B677B20009EB328 /* Calculators */,
 				BDAB817D1BCBFB0A00F84AB6 /* NeutralDensityCalculatorViewController.swift */,
 				BDAB817E1BCBFB0A00F84AB6 /* SunriseSunsetCalculatorViewController.swift */,
+				FA56926E217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift */,
 			);
 			name = Calculators;
 			sourceTree = "<group>";
@@ -1399,7 +1395,6 @@
 				BD17D5601C0CBFF500843404 /* NSUserActivity */,
 				BD00984F1BCD1C9C0062C7C8 /* MCPanelViewController */,
 				BDAB81841BCBFDA900F84AB6 /* Categories */,
-				BD098B9F1BC6BC5600A87FC8 /* Notifications */,
 				BD7D542C1BCBB9680030219D /* AccelerometerFilter.h */,
 				BD7D542D1BCBB9680030219D /* AccelerometerFilter.m */,
 			);
@@ -1642,7 +1637,7 @@
 				TargetAttributes = {
 					9EE1F1A61B1C9FE800FE6EB7 = {
 						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
@@ -1678,8 +1673,8 @@
 				};
 			};
 			buildConfigurationList = 9EE1F13E1B1C9DFD00FE6EB7 /* Build configuration list for PBXProject "Triggertrap" */;
-			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1798,10 +1793,11 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${BUILT_PRODUCTS_DIR}/MPGNotification/MPGNotification.framework",
 				"${BUILT_PRODUCTS_DIR}/RPCircularProgress/RPCircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/TTCounterLabel/TTCounterLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
@@ -1812,6 +1808,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTFeedback.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MPGNotification.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RPCircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTCounterLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
@@ -1819,7 +1816,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		587C73C2F1DF313FAD18D578 /* [CP] Check Pods Manifest.lock */ = {
@@ -1838,21 +1835,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8F2D1A1BAD4BCF9A268B4E7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TriggertrapSLR/Pods-TriggertrapSLR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BDD75C551BE7B7630014DA3D /* Update Main Stroryboard Strings */ = {
@@ -1903,7 +1885,6 @@
 				BDD44B0A1BA98B0300B98FF6 /* SequenceManager.swift in Sources */,
 				BD098BD51BC7BFE300A87FC8 /* StarTrailViewController.swift in Sources */,
 				BD7D54351BCBC4240030219D /* SensorViewController.swift in Sources */,
-				BD098BA21BC6BC6100A87FC8 /* MPGNotification.m in Sources */,
 				BDAB4AEF1B677F67009EB328 /* MathAdditions.c in Sources */,
 				BDD44B161BA98B0300B98FF6 /* MirrorLockup.swift in Sources */,
 				BD11340C1BB3F01A006ED87A /* CameraSelectorViewController.swift in Sources */,
@@ -1916,6 +1897,7 @@
 				BD1133CE1BB3EED1006ED87A /* CustomTransition.swift in Sources */,
 				BDD44D331BB161A900B98FF6 /* Functions.swift in Sources */,
 				BD7144D31BBA888500E7A34B /* MeterTable.cpp in Sources */,
+				FAB3553F20BF011E003CCF66 /* MPGNotification.m in Sources */,
 				BD098BBC1BC6C7EE00A87FC8 /* UIColor+branding.m in Sources */,
 				BD098BC91BC6CA3900A87FC8 /* PressAndHoldViewController.swift in Sources */,
 				BD098BF91BC7C93D00A87FC8 /* CLLocation+DMSFormatting.m in Sources */,
@@ -1980,6 +1962,7 @@
 				BDAB4AEE1B677F67009EB328 /* SunriseAndSunset.m in Sources */,
 				BD11340A1BB3F01A006ED87A /* KitSelectorViewController.swift in Sources */,
 				BDD44B071BA98B0300B98FF6 /* RemoteClient.swift in Sources */,
+				FA56926F217E587C00A4575F /* NeutralDensityCalculatorNavigationController.swift in Sources */,
 				BD7144C21BB94F4600E7A34B /* WearablesManager.swift in Sources */,
 				BDD44B101BA98B0300B98FF6 /* Dispatchable.swift in Sources */,
 				BD1133F11BB3EFE4006ED87A /* UIBezierPath.swift in Sources */,
@@ -2486,7 +2469,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2514,7 +2498,10 @@
 				);
 				INFOPLIST_FILE = TriggertrapSLR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACH_O_TYPE = mh_execute;
 				OTHER_SWIFT_FLAGS = "-DSLR -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
@@ -2523,8 +2510,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2551,17 +2537,20 @@
 				);
 				INFOPLIST_FILE = TriggertrapSLR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACH_O_TYPE = mh_execute;
 				OTHER_SWIFT_FLAGS = "-DSLR";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "TriggertrapSLR/TriggertrapSLR-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2575,7 +2564,11 @@
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -2596,7 +2589,11 @@
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -2662,7 +2659,11 @@
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -2686,7 +2687,11 @@
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";

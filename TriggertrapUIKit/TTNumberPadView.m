@@ -93,6 +93,14 @@
     [collectionView setDelegate:self];
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
     collectionView.backgroundColor = [UIColor colorWithRed:49.0/255.0 green:49.0/255.0 blue:49.0/255.0 alpha:1.0];
+
+    //modern device fix
+    UIEdgeInsets contentInset = collectionView.contentInset;
+
+    collectionView.contentInset = contentInset;
+    if (@available(iOS 11.0, *)) {
+        collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAlways;
+    }
     [self addSubview:collectionView];
 }
 
@@ -106,11 +114,12 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger pos = [indexPath indexAtPosition:1];
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if(@available(iOS 11.0, *))
+       if(pos >= 9 && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && orientation == UIInterfaceOrientationPortrait)
+           return CGSizeMake((self.frame.size.width) / 3, (self.frame.size.height - self.safeAreaInsets.bottom) / 4 + self.safeAreaInsets.bottom);
     return CGSizeMake((self.frame.size.width) / 3, (self.frame.size.height) / 4);
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -153,7 +162,7 @@
     for (cView in cell.contentView.subviews) {
         [cView removeFromSuperview];
     }
-    
+
     UIButton *button = [[UIButton alloc] initWithFrame:cell.bounds];
     button.layer.borderWidth = 0.5;
     button.layer.borderColor = [[self fillColor] CGColor];
@@ -181,7 +190,24 @@
         longPress.minimumPressDuration = 1.0;
         [button addGestureRecognizer:longPress];
     }
-    
+
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+
+    //this if can't be collapsed or the compiler freaks out
+    if (@available(iOS 11.0, *)){
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && orientation == UIInterfaceOrientationPortrait){
+            if(pos == 9){
+                button.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+                button.contentEdgeInsets = UIEdgeInsetsMake((button.frame.size.height - self.safeAreaInsets.bottom) / 4, 0, 0, 0);
+            } else if(pos == 10){
+                button.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+                button.contentEdgeInsets = UIEdgeInsetsMake((button.frame.size.height - self.safeAreaInsets.bottom) / 8, 0, 0, 0);
+            } else if(pos == 11){
+                button.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
+                button.contentEdgeInsets = UIEdgeInsetsMake((button.frame.size.height - self.safeAreaInsets.bottom) / 8, 0, 0, 0);
+            }
+        }
+    }
     [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = self.font;
     [button setTitleColor:[self fillColor] forState:UIControlStateNormal];

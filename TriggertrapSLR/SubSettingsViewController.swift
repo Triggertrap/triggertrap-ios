@@ -19,7 +19,7 @@ class SubSettingsViewController: UITableViewController {
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
+        return AppTheme() == .normal ? .lightContent : .default
     }
     
     // MARK: - Properties
@@ -84,7 +84,7 @@ class SubSettingsViewController: UITableViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.triggertrap_iconColor()
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedStringKey.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
     }
     
     // MARK: - UITableView Data Source
@@ -112,8 +112,8 @@ class SubSettingsViewController: UITableViewController {
         cell.textLabel?.text = strings[indexPath.row]
         
         // Clear all checkmarks when reloading the cells
-        if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
-            cell.accessoryType = UITableViewCellAccessoryType.none
+        if cell.accessoryType == UITableViewCell.AccessoryType.checkmark {
+            cell.accessoryType = UITableViewCell.AccessoryType.none
         }
         
         var value: Int?
@@ -146,7 +146,7 @@ class SubSettingsViewController: UITableViewController {
         
         // Add red checkmark to the cell with value equal to value from settings
         if value == (values[indexPath.row] as Int) {
-            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            cell.accessoryType = UITableViewCell.AccessoryType.checkmark
             cell.tintColor = UIColor.triggertrap_primaryColor(1.0)
         }
         
