@@ -51,14 +51,7 @@
     if (![[UIDevice currentDevice] hasFrontCamera] || ![[UIDevice currentDevice] hasRearCamera]) {
         _rotationButton.hidden = YES;
     }
-    
-    //adjust faces slider upwards on devices with safespace
-    if (@available(iOS 11.0, *)) {
-        UIWindow *window = UIApplication.sharedApplication.keyWindow;
-        CGFloat bottomPadding = window.safeAreaInsets.bottom;
-        
-        self.NDBottomConstraint.constant += bottomPadding;
-    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {

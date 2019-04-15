@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -84,9 +83,9 @@
                                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RfS-cX-Ugc">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="320.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <mutableString key="text">Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
+                                                        <string key="text">Triggertrap Timelapse Pro is a new approach to creating awesome timelapses. Connect your device to your camera with a Triggertrap Mobile kit, and you're set to get creative!
 
-Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</mutableString>
+Timelapse Pro has a modular approach to timelapse creation, letting you create sequences using the building blocks of timelapses - intervalometers and delays. With these blocks you can create timelapses of all shapes and sizes. Timelapse Pro's intervalometers allow you to set your interval between shots, as well as when you'd like the intervalometer to stop; either by the number of shots or after a set amount of time has passed.</string>
                                                         <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -138,6 +137,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                             <constraint firstItem="QcO-6j-Bue" firstAttribute="width" secondItem="FmP-1D-OQf" secondAttribute="width" id="QOd-TL-hh4"/>
                             <constraint firstAttribute="bottom" secondItem="ULb-b8-zCy" secondAttribute="bottom" id="YRk-TY-3jx"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Z2-Tu-AxO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Timelapse Pro" id="d8l-9z-3Gq"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -181,7 +181,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                                 </connections>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an interval between shots, and then tap the button." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="Tzg-Ue-pji">
-                                                <rect key="frame" x="0.0" y="0.0" width="540" height="225"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="530" height="225"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="3b4-bc-RHC"/>
                                                 </constraints>
@@ -197,7 +197,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Tzg-Ue-pji" secondAttribute="trailing" id="DGc-Bg-VrO"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tzg-Ue-pji" secondAttribute="trailing" constant="10" id="DGc-Bg-VrO"/>
                                             <constraint firstItem="Tzg-Ue-pji" firstAttribute="top" secondItem="Cth-EE-HZR" secondAttribute="top" id="DaE-0c-HLF"/>
                                             <constraint firstItem="Tzg-Ue-pji" firstAttribute="leading" secondItem="Cth-EE-HZR" secondAttribute="leading" id="Sd5-5f-x2z"/>
                                             <constraint firstItem="8Bh-Qm-y7M" firstAttribute="top" secondItem="Tzg-Ue-pji" secondAttribute="bottom" constant="20" id="ZXD-z7-moY"/>
@@ -262,8 +262,8 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ddR-CI-Wgs" secondAttribute="bottom" id="agM-Z4-8Yq"/>
-                            <constraint firstItem="qM7-RT-sJg" firstAttribute="trailing" secondItem="ddR-CI-Wgs" secondAttribute="trailing" id="gxN-TP-yII"/>
-                            <constraint firstItem="uTS-wE-a3Y" firstAttribute="leading" secondItem="qM7-RT-sJg" secondAttribute="leading" id="ook-NF-5B6"/>
+                            <constraint firstAttribute="trailing" secondItem="ddR-CI-Wgs" secondAttribute="trailing" id="gxN-TP-yII"/>
+                            <constraint firstItem="uTS-wE-a3Y" firstAttribute="leading" secondItem="dws-Wy-2qr" secondAttribute="leading" id="ook-NF-5B6"/>
                             <constraint firstItem="uTS-wE-a3Y" firstAttribute="top" secondItem="qM7-RT-sJg" secondAttribute="top" id="qgX-jn-t5c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qM7-RT-sJg"/>
@@ -380,9 +380,9 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZTE-uG-0I2" firstAttribute="top" secondItem="57o-8V-O5N" secondAttribute="top" id="4bT-Mr-gNF"/>
-                            <constraint firstItem="ZTE-uG-0I2" firstAttribute="leading" secondItem="57o-8V-O5N" secondAttribute="leading" id="RY3-YB-Jbx"/>
+                            <constraint firstItem="ZTE-uG-0I2" firstAttribute="leading" secondItem="YuN-U2-oxq" secondAttribute="leading" id="RY3-YB-Jbx"/>
                             <constraint firstAttribute="bottom" secondItem="Rob-RT-vx1" secondAttribute="bottom" id="ybL-uC-zWn"/>
-                            <constraint firstItem="57o-8V-O5N" firstAttribute="trailing" secondItem="Rob-RT-vx1" secondAttribute="trailing" id="zWC-Rj-n52"/>
+                            <constraint firstAttribute="trailing" secondItem="Rob-RT-vx1" secondAttribute="trailing" id="zWC-Rj-n52"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="57o-8V-O5N"/>
                     </view>
@@ -417,7 +417,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-V9-At7" userLabel="gapNumberInputView" customClass="TTTimeInput">
-                                        <rect key="frame" x="190" y="266" width="220" height="45"/>
+                                        <rect key="frame" x="190" y="266.5" width="220" height="45"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Tw8-rm-mRs"/>
@@ -428,7 +428,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="exposures of duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-Fr-B2U">
-                                        <rect key="frame" x="190" y="127" width="220" height="26"/>
+                                        <rect key="frame" x="190" y="127.5" width="220" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="220" id="N6a-A8-gae"/>
                                             <constraint firstAttribute="height" constant="26" id="NLv-ak-b1i"/>
@@ -438,7 +438,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfU-3T-WCo" userLabel="exposuresNumberInputView" customClass="TTNumberInput">
-                                        <rect key="frame" x="190" y="68" width="220" height="45"/>
+                                        <rect key="frame" x="190" y="68.5" width="220" height="45"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Vl1-Q4-rfd"/>
@@ -449,7 +449,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XI4-aB-f91" userLabel="durationNumberInputView" customClass="TTTimeInput">
-                                        <rect key="frame" x="190" y="167" width="220" height="45"/>
+                                        <rect key="frame" x="190" y="167.5" width="220" height="45"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="aMS-KJ-We6"/>
@@ -460,7 +460,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with a gap between each of" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fJq-Hi-t1C">
-                                        <rect key="frame" x="190" y="226" width="220" height="26"/>
+                                        <rect key="frame" x="190" y="226.5" width="220" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="220" id="HgW-lf-eMO"/>
                                             <constraint firstAttribute="height" constant="26" id="VVP-TZ-XRu"/>
@@ -527,10 +527,10 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dLC-Th-zbu" firstAttribute="trailing" secondItem="HNo-sV-PT9" secondAttribute="trailing" id="HX3-6d-CfC"/>
+                            <constraint firstAttribute="trailing" secondItem="HNo-sV-PT9" secondAttribute="trailing" id="HX3-6d-CfC"/>
                             <constraint firstAttribute="bottom" secondItem="HNo-sV-PT9" secondAttribute="bottom" id="SAn-Gb-ti8"/>
                             <constraint firstItem="UnL-iI-Pbi" firstAttribute="top" secondItem="dLC-Th-zbu" secondAttribute="top" id="Vz5-OC-WFI"/>
-                            <constraint firstItem="UnL-iI-Pbi" firstAttribute="leading" secondItem="dLC-Th-zbu" secondAttribute="leading" id="dzL-F3-FFL"/>
+                            <constraint firstItem="UnL-iI-Pbi" firstAttribute="leading" secondItem="v5d-tS-lLm" secondAttribute="leading" id="dzL-F3-FFL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dLC-Th-zbu"/>
                     </view>
@@ -757,8 +757,8 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="l7A-np-sdz" firstAttribute="trailing" secondItem="vgN-td-UA0" secondAttribute="trailing" id="D2x-2C-nrK"/>
-                            <constraint firstItem="SsA-fZ-EQx" firstAttribute="leading" secondItem="l7A-np-sdz" secondAttribute="leading" id="bbj-yF-xtl"/>
+                            <constraint firstAttribute="trailing" secondItem="vgN-td-UA0" secondAttribute="trailing" id="D2x-2C-nrK"/>
+                            <constraint firstItem="SsA-fZ-EQx" firstAttribute="leading" secondItem="hEL-Fr-K37" secondAttribute="leading" id="bbj-yF-xtl"/>
                             <constraint firstItem="SsA-fZ-EQx" firstAttribute="top" secondItem="l7A-np-sdz" secondAttribute="top" id="dI7-QD-dAz"/>
                             <constraint firstAttribute="bottom" secondItem="vgN-td-UA0" secondAttribute="bottom" id="t0L-yk-AHc"/>
                         </constraints>
@@ -898,13 +898,13 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="32"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exposures:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Zdp-h4-7Yl" userLabel="exposuresLabel">
-                                                                <rect key="frame" x="5" y="6.5" width="85" height="20"/>
+                                                                <rect key="frame" x="5" y="6" width="85" height="20"/>
                                                                 <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10099" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SfC-po-dSS" userLabel="exposuresFeedbackLabel">
-                                                                <rect key="frame" x="95" y="6.5" width="52" height="23.5"/>
+                                                                <rect key="frame" x="95" y="5.5" width="52" height="23.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="52" id="rx6-4k-lSf"/>
                                                                 </constraints>
@@ -913,13 +913,13 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="19v-yZ-mwk" userLabel="durationLabel">
-                                                                <rect key="frame" x="429" y="6.5" width="69.5" height="20"/>
+                                                                <rect key="frame" x="429" y="6" width="69.5" height="20"/>
                                                                 <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00m:00s.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="S40-Uq-DQC" userLabel="durationFeedbackLabel" customClass="TTCounterLabel">
-                                                                <rect key="frame" x="503.5" y="7.5" width="91.5" height="23.5"/>
+                                                                <rect key="frame" x="503.5" y="6.5" width="91.5" height="23.5"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1109,8 +1109,8 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1ox-KV-Zwk" firstAttribute="trailing" secondItem="Gjc-eL-bD6" secondAttribute="trailing" id="XC2-cQ-8Ic"/>
-                            <constraint firstItem="0N1-QU-PEL" firstAttribute="leading" secondItem="1ox-KV-Zwk" secondAttribute="leading" id="rQA-s5-zru"/>
+                            <constraint firstAttribute="trailing" secondItem="Gjc-eL-bD6" secondAttribute="trailing" id="XC2-cQ-8Ic"/>
+                            <constraint firstItem="0N1-QU-PEL" firstAttribute="leading" secondItem="gxp-dX-EFT" secondAttribute="leading" id="rQA-s5-zru"/>
                             <constraint firstAttribute="bottom" secondItem="Gjc-eL-bD6" secondAttribute="bottom" id="wt3-Qb-ogj"/>
                             <constraint firstItem="0N1-QU-PEL" firstAttribute="top" secondItem="1ox-KV-Zwk" secondAttribute="top" id="yhC-cY-GRT"/>
                         </constraints>
@@ -1160,7 +1160,7 @@ Timelapse Pro has a modular approach to timelapse creation, letting you create s
         <image name="tickDown" width="14" height="9"/>
         <image name="timeWarpClockCenter" width="19" height="19"/>
         <image name="timeWarpClockCircle" width="120" height="120"/>
-        <image name="timeWarpClockHand" width="10" height="60"/>
+        <image name="timeWarpClockHand" width="10" height="60.5"/>
         <image name="timeWarpPreviewButton" width="44" height="44"/>
     </resources>
 </document>

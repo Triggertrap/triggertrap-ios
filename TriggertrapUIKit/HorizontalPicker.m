@@ -158,15 +158,26 @@
             [subview removeFromSuperview];
         }
         
-        UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 4, [self width] / 3, [self height] / 2)];
+        UILabel *textLabel;
+        if (@available(iOS 11.0, *)) {
+            textLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.window.safeAreaInsets.left / 2, 4, [self width] / 3, [self height] / 2)];
+        } else {
+            textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 4, [self width] / 3, [self height] / 2)];
+        }
         
         [self setLabel:textLabel withText:[[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"string"]];
         [textLabel setAdjustsFontSizeToFitWidth:YES];
         [textLabel setMinimumScaleFactor:0.5f];
         
         [cell.contentView addSubview:textLabel];
-        
-        UILabel *detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, [self height] / 2 - 8, [self width] / 3, [self height] / 2)];
+
+        UILabel *detailLabel;
+        if (@available(iOS 11.0, *)) {
+            textLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.window.safeAreaInsets.left / 2, [self height] / 2 - 8, [self width] / 3, [self height] / 2)];
+        } else {
+            textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, [self height] / 2 - 8, [self width] / 3, [self height] / 2)];
+        }
+
         
         [self setLabel:detailLabel withText:[[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"string1"]];
         [detailLabel setAdjustsFontSizeToFitWidth:YES];
@@ -177,14 +188,12 @@
         for (UIView *subview in [cell.contentView subviews]) {
             [subview removeFromSuperview];
         }
-        
         UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [self width] / 3, [self height])];
-        
         [self setLabel:textLabel withText:[[self.dataSource objectAtIndex:indexPath.row] objectForKey:@"string"]];
         [textLabel setAdjustsFontSizeToFitWidth:YES];
         [textLabel setMinimumScaleFactor:0.5f];
-        
-        [cell.contentView addSubview:textLabel];
+
+         [cell.contentView addSubview:textLabel];
     }
     
     return cell;

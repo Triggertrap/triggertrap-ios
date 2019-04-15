@@ -36,12 +36,6 @@
         _rotationButton.hidden = YES;
     }
     
-    if (@available(iOS 11.0, *)) {
-        UIWindow *window = UIApplication.sharedApplication.keyWindow;
-        CGFloat bottomPadding = window.safeAreaInsets.bottom;
-        
-        self.viewBottomSpacing.constant += bottomPadding;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

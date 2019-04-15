@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +20,7 @@
             <objects>
                 <viewController storyboardIdentifier="Sound Sensor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LKw-Q9-G3B" customClass="SoundSensorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M3P-4C-miE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUU-Po-X81" userLabel="topeLeftView">
@@ -70,7 +69,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9VI-4I-jQT" userLabel="bottomRightView">
-                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
+                                <rect key="frame" x="-225" y="568" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gak-hM-mxD" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -100,7 +99,7 @@
                             <constraint firstItem="MUU-Po-X81" firstAttribute="top" secondItem="GJS-GT-ZCY" secondAttribute="top" id="306-Rd-zdM"/>
                             <constraint firstAttribute="trailing" secondItem="9VI-4I-jQT" secondAttribute="trailing" id="FWK-Gs-gQa"/>
                             <constraint firstAttribute="bottom" secondItem="9VI-4I-jQT" secondAttribute="bottom" id="cpk-N4-IeQ"/>
-                            <constraint firstItem="MUU-Po-X81" firstAttribute="leading" secondItem="GJS-GT-ZCY" secondAttribute="leading" id="sdg-dY-zOV"/>
+                            <constraint firstItem="MUU-Po-X81" firstAttribute="leading" secondItem="M3P-4C-miE" secondAttribute="leading" id="sdg-dY-zOV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GJS-GT-ZCY"/>
                     </view>
@@ -128,7 +127,7 @@
             <objects>
                 <viewController storyboardIdentifier="Vibration Sensor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ab1-ws-6jg" customClass="VibrationSensorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hGq-1I-cka">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eko-1E-nil" userLabel="topLeftView">
@@ -176,7 +175,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHl-2q-c6b" userLabel="bottomRightView">
-                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
+                                <rect key="frame" x="-225" y="568" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWH-oV-O0p" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -206,7 +205,7 @@
                             <constraint firstItem="eko-1E-nil" firstAttribute="top" secondItem="8Si-DD-KDY" secondAttribute="top" id="2pK-6i-msE"/>
                             <constraint firstAttribute="trailing" secondItem="XHl-2q-c6b" secondAttribute="trailing" id="KgK-oP-3n5"/>
                             <constraint firstAttribute="bottom" secondItem="XHl-2q-c6b" secondAttribute="bottom" id="wNi-8g-Y88"/>
-                            <constraint firstItem="eko-1E-nil" firstAttribute="leading" secondItem="8Si-DD-KDY" secondAttribute="leading" id="xmQ-8X-b7P"/>
+                            <constraint firstItem="eko-1E-nil" firstAttribute="leading" secondItem="hGq-1I-cka" secondAttribute="leading" id="xmQ-8X-b7P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Si-DD-KDY"/>
                     </view>
@@ -234,7 +233,7 @@
             <objects>
                 <viewController storyboardIdentifier="Motion Sensor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3q8-XI-cn9" customClass="MotionSensorViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GbH-Zq-U4u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImE-SF-vMQ" userLabel="topLeftView">
@@ -242,6 +241,7 @@
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYa-xr-FyX">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
+                                        <viewLayoutGuide key="safeArea" id="Cli-ux-Uso"/>
                                         <connections>
                                             <segue destination="tSR-4h-ZaH" kind="embed" id="PaO-lM-38B"/>
                                         </connections>
@@ -258,7 +258,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3aa-0t-ef0" userLabel="bottomRightView">
-                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
+                                <rect key="frame" x="-225" y="568" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9L9-P7-Nhg" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -313,7 +313,7 @@
             <objects>
                 <viewController storyboardIdentifier="Peekaboo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yuQ-SD-eLB" customClass="PeekabooViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="umu-vi-ig6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-SD-niP" userLabel="topLeftView">
@@ -337,7 +337,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="shF-Xb-gjq" userLabel="bottomRightView">
-                                <rect key="frame" x="-186" y="516" width="600" height="156"/>
+                                <rect key="frame" x="-225" y="568" width="600" height="156"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSo-EH-TRn" userLabel="shutterButton" customClass="ShutterButton" customModule="TriggertrapSLR" customModuleProvider="target">
                                         <rect key="frame" x="250" y="28" width="100" height="100"/>
@@ -396,7 +396,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JD8-2K-251">
-                                <rect key="frame" x="554" y="20" width="30" height="30"/>
+                                <rect key="frame" x="554" y="64" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="7sQ-15-XYn"/>
                                     <constraint firstAttribute="height" constant="30" id="Qse-3u-Uz3"/>
@@ -409,10 +409,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bap-eM-WOp">
-                                <rect key="frame" x="0.0" y="336" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="306" width="600" height="74"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qeY-6z-abB">
-                                        <rect key="frame" x="6" y="7" width="588" height="31"/>
+                                        <rect key="frame" x="6" y="5" width="588" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Y8Z-yD-OnN"/>
                                         </constraints>
@@ -426,11 +426,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.14442044496536255" green="0.14441612362861633" blue="0.14441859722137451" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="qeY-6z-abB" secondAttribute="trailing" constant="8" id="2DM-UT-sRr"/>
-                                    <constraint firstAttribute="height" constant="44" id="eVp-Vp-Fty"/>
-                                    <constraint firstItem="qeY-6z-abB" firstAttribute="leading" secondItem="Bap-eM-WOp" secondAttribute="leading" constant="8" id="ttH-gL-XQF"/>
-                                    <constraint firstAttribute="centerY" secondItem="qeY-6z-abB" secondAttribute="centerY" id="zQt-pe-B6W"/>
+                                    <constraint firstItem="oEG-z5-wGL" firstAttribute="trailing" secondItem="qeY-6z-abB" secondAttribute="trailing" constant="8" id="2DM-UT-sRr"/>
+                                    <constraint firstItem="qeY-6z-abB" firstAttribute="bottom" secondItem="oEG-z5-wGL" secondAttribute="bottom" constant="-5" id="hVA-db-96Y"/>
+                                    <constraint firstItem="qeY-6z-abB" firstAttribute="leading" secondItem="oEG-z5-wGL" secondAttribute="leading" constant="8" id="ttH-gL-XQF"/>
+                                    <constraint firstItem="qeY-6z-abB" firstAttribute="top" secondItem="Bap-eM-WOp" secondAttribute="top" constant="5" id="uu9-lE-CAq"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="oEG-z5-wGL"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -464,18 +465,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="380"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-gp-bmC" userLabel="ndFilterStrengthPicker" customClass="HorizontalPicker">
-                                <rect key="frame" x="0.0" y="336" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gA-uP-ytx">
+                                <rect key="frame" x="0.0" y="302" width="600" height="78"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-gp-bmC" userLabel="ndFilterStrengthPicker" customClass="HorizontalPicker">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="266" id="1cO-N5-lAP"/>
+                                            <constraint firstAttribute="height" constant="44" id="d7G-RH-rvq"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1cO-N5-lAP"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19215686274509802" green="0.19215686274509802" blue="0.19215686274509802" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="266" id="1cO-N5-lAP"/>
-                                    <constraint firstAttribute="height" constant="44" id="d7G-RH-rvq"/>
+                                    <constraint firstItem="UFO-gp-bmC" firstAttribute="leading" secondItem="2gA-uP-ytx" secondAttribute="leading" id="NDi-eg-hhw"/>
+                                    <constraint firstItem="UFO-gp-bmC" firstAttribute="top" secondItem="2gA-uP-ytx" secondAttribute="top" id="Y9R-f3-kAh"/>
+                                    <constraint firstAttribute="trailing" secondItem="UFO-gp-bmC" secondAttribute="trailing" id="m98-Tk-fLK"/>
+                                    <constraint firstItem="f0h-eC-YRA" firstAttribute="bottom" secondItem="UFO-gp-bmC" secondAttribute="bottom" id="tUX-ut-o76"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1cO-N5-lAP"/>
-                                    </mask>
-                                </variation>
+                                <viewLayoutGuide key="safeArea" id="f0h-eC-YRA"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqp-LZ-RUc">
                                 <rect key="frame" x="554" y="20" width="30" height="30"/>
@@ -493,12 +507,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="UFO-gp-bmC" secondAttribute="bottom" id="003-0P-Als"/>
+                            <constraint firstAttribute="bottom" secondItem="2gA-uP-ytx" secondAttribute="bottom" id="1oL-Vd-FG7"/>
+                            <constraint firstItem="2gA-uP-ytx" firstAttribute="leading" secondItem="Qel-op-a1y" secondAttribute="leading" id="5D4-oG-Y6S"/>
                             <constraint firstAttribute="trailing" secondItem="wqp-LZ-RUc" secondAttribute="trailing" constant="16" id="EjW-b1-0fY"/>
                             <constraint firstItem="wqp-LZ-RUc" firstAttribute="top" secondItem="Qel-op-a1y" secondAttribute="top" constant="20" id="Fwb-Xy-fhV"/>
-                            <constraint firstAttribute="trailing" secondItem="UFO-gp-bmC" secondAttribute="trailing" id="U5S-vy-BOb"/>
-                            <constraint firstItem="UFO-gp-bmC" firstAttribute="leading" secondItem="Qel-op-a1y" secondAttribute="leading" id="aXx-7C-iTa"/>
-                            <constraint firstAttribute="centerX" secondItem="UFO-gp-bmC" secondAttribute="centerX" id="bBX-N4-8Yh"/>
+                            <constraint firstItem="2gA-uP-ytx" firstAttribute="trailing" secondItem="7Ik-d6-lOy" secondAttribute="trailing" id="nxT-FR-Aax"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Ik-d6-lOy"/>
                     </view>
@@ -507,7 +520,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="380"/>
                     <connections>
-                        <outlet property="NDBottomConstraint" destination="003-0P-Als" id="MKr-v1-9eJ"/>
                         <outlet property="picker" destination="UFO-gp-bmC" id="8f4-xy-knW"/>
                         <outlet property="rotationButton" destination="wqp-LZ-RUc" id="tac-Bo-Lmz"/>
                     </connections>

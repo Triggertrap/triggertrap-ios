@@ -75,7 +75,11 @@ class SplitLayoutViewController: CenterViewController {
 
             }
             
-            self.tlWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["top"]! - insetPadding)
+            if #available(iOS 11.0, *) {
+                self.tlWidthConstraint.constant = portrait ? self.view.frame.size.width : ((self.view.frame.size.width + self.view.safeAreaInsets.left / 2 + self.view.safeAreaInsets.right) * layoutRatio["top"]! - insetPadding)
+            } else {
+                self.tlWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["top"]! - insetPadding)
+            }
             self.tlHeightConstraint.constant = portrait ? (self.view.frame.size.height * layoutRatio["top"]!) : self.view.frame.size.height
             self.brWidthConstraint.constant = portrait ? self.view.frame.size.width : (self.view.frame.size.width * layoutRatio["bottom"]!)
             self.brHeightConstraint.constant = portrait ? (self.view.frame.size.height * layoutRatio["bottom"]!) : self.view.frame.size.height
