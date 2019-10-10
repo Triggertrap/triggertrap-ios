@@ -2472,6 +2472,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				ENABLE_BITCODE = YES;
@@ -2487,6 +2488,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 4.1.9;
 				OTHER_SWIFT_FLAGS = "-DSLR -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2511,6 +2513,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = S4JEZRL8YY;
 				ENABLE_BITCODE = YES;
@@ -2526,6 +2529,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 4.1.9;
 				OTHER_SWIFT_FLAGS = "-DSLR";
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2544,6 +2548,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
@@ -2553,6 +2558,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -2570,6 +2576,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2578,6 +2585,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -2595,11 +2603,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2618,10 +2628,12 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_WatchKit_1_Extension;
 				INFOPLIST_FILE = "Triggertrap WatchKit 1 App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2639,6 +2651,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
@@ -2648,6 +2661,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -2668,6 +2682,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				INFOPLIST_FILE = "Triggertrap Watch Kit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2676,6 +2691,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -2698,11 +2714,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2725,10 +2743,12 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Triggertrap Ltd";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 942;
 				DEVELOPMENT_TEAM = FMNA99Z5AY;
 				IBSC_MODULE = Triggertrap_Watch_Kit_Extension;
 				INFOPLIST_FILE = "Triggertrap Watch Kit/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 4.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.triggertrap.Triggertrap.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
