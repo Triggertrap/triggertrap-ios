@@ -199,6 +199,12 @@ class TTViewController: SplitLayoutViewController, DispatchableLifecycle, Sequen
                                                 iconImage: nil)
         })
     }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *){
+            performThemeUpdate()
+        }
+    }
     
     // MARK: - Actions
     

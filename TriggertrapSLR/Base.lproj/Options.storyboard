@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d6F-3z-ZHf">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d6F-3z-ZHf">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,11 +21,11 @@
             <objects>
                 <viewController storyboardIdentifier="optionsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9bP-R0-uGl" customClass="OptionsTableViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eik-KN-IkT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OlL-DM-mNJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -67,7 +65,7 @@
             <objects>
                 <tableViewController title="Settings" id="Rpn-fS-YBe" customClass="SettingsTableViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="4xE-Jf-gOU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
@@ -77,7 +75,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p9N-sj-qER" id="2FU-ws-a1o">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="347.5" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.003 s" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K35-ET-8FB" userLabel="sensorDelayValueLabel">
@@ -106,7 +104,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VQu-eZ-TVL" id="Dtt-7Y-7CE">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="347.5" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sensor Reset Delay" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6md-Q4-l2r" userLabel="sensorResetDelayLabel">
@@ -139,7 +137,7 @@
                                         <rect key="frame" x="0.0" y="148" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K9h-K0-mzb" id="omB-Qs-xPS">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="347.5" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pulse Length" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="y79-Fn-iQi" userLabel="pulseLengthLabel">
@@ -173,10 +171,10 @@
                             <tableViewSection headerTitle="Preferences" id="bbK-rO-8Nr">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="SpeedUnitCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpeedUnitCell" id="hZW-cv-Y7U" customClass="BFPaperTableViewCell">
-                                        <rect key="frame" x="0.0" y="236" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="264" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hZW-cv-Y7U" id="MZV-cs-Pgm">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="347.5" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kilometers per hour" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-K5-75U" userLabel="speedUnitValueLabel">
@@ -222,10 +220,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="DistanceUnitCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DistanceUnitCell" id="TKK-g1-UXH" customClass="BFPaperTableViewCell">
-                                        <rect key="frame" x="0.0" y="296" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="324" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TKK-g1-UXH" id="48p-sy-Z4y">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="347.5" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Distance Unit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yN5-5E-e75" userLabel="distanceUnitsLabel">
@@ -271,10 +269,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="NightModeCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="NightModeCell" id="Jeh-dq-ZV5" userLabel="Night Mode Cell">
-                                        <rect key="frame" x="0.0" y="356" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="384" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jeh-dq-ZV5" id="ERd-11-ICT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Night mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-Gn-65x" userLabel="nightModeLabel">
@@ -293,12 +291,18 @@
                                                     </variation>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-Rj-yfH">
-                                                    <rect key="frame" x="306" y="14" width="51" height="31"/>
+                                                    <rect key="frame" x="306" y="14.5" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.69252232140000003" green="0.077199767229999994" blue="0.054649954229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <connections>
                                                         <action selector="nightTimeSwitchValueChanged:" destination="Rpn-fS-YBe" eventType="valueChanged" id="uUO-S9-XLv"/>
                                                     </connections>
                                                 </switch>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOP-Rx-Zgy">
+                                                    <rect key="frame" x="318" y="18" width="25" height="24"/>
+                                                    <connections>
+                                                        <action selector="nightTimeInfoTapped:" destination="Rpn-fS-YBe" eventType="touchUpInside" id="yRo-eo-c2A"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XKg-Gn-65x" firstAttribute="top" secondItem="ERd-11-ICT" secondAttribute="top" constant="10" id="3GS-K0-WwB"/>
@@ -307,7 +311,9 @@
                                                 <constraint firstItem="XKg-Gn-65x" firstAttribute="centerY" secondItem="ERd-11-ICT" secondAttribute="centerY" id="X3W-zK-9QG"/>
                                                 <constraint firstItem="4hs-Rj-yfH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XKg-Gn-65x" secondAttribute="trailing" constant="8" id="YDp-Ho-P96"/>
                                                 <constraint firstItem="4hs-Rj-yfH" firstAttribute="centerY" secondItem="ERd-11-ICT" secondAttribute="centerY" id="cfz-7r-z8I"/>
+                                                <constraint firstItem="vOP-Rx-Zgy" firstAttribute="centerY" secondItem="4hs-Rj-yfH" secondAttribute="centerY" id="g7E-Jr-xPM"/>
                                                 <constraint firstAttribute="trailing" secondItem="4hs-Rj-yfH" secondAttribute="trailing" constant="20" id="sWA-rk-8N6"/>
+                                                <constraint firstItem="vOP-Rx-Zgy" firstAttribute="centerX" secondItem="4hs-Rj-yfH" secondAttribute="centerX" id="v2O-E2-K7n"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -322,10 +328,10 @@
                             <tableViewSection headerTitle="App Info" id="GIz-xK-QjM">
                                 <cells>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="VersionCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="VersionCell" id="J5h-Yc-jqi" customClass="BFPaperTableViewCell">
-                                        <rect key="frame" x="0.0" y="444" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="500" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J5h-Yc-jqi" id="fYw-Qc-6hC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3.0 (241)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWd-W7-Sf9" userLabel="versionValueLabel">
@@ -377,14 +383,14 @@
                             <tableViewSection headerTitle=" " id="Txu-nB-aB3">
                                 <cells>
                                     <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="ResetCell" selectionStyle="gray" indentationWidth="10" reuseIdentifier="ResetCell" id="e6x-4L-Eh4" customClass="BFPaperTableViewCell">
-                                        <rect key="frame" x="0.0" y="532" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="616" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="e6x-4L-Eh4" id="9Gi-Sg-fXZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujl-M8-xRn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="Metric-Regular" family="Metric" pointSize="22"/>
                                                     <color key="textColor" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -412,6 +418,7 @@
                         <outlet property="distanceTitle" destination="yN5-5E-e75" id="5DB-QU-p2o"/>
                         <outlet property="distanceUnit" destination="XDZ-6q-vor" id="QtZ-2s-KIu"/>
                         <outlet property="nightModeCell" destination="Jeh-dq-ZV5" id="KDK-bt-VIW"/>
+                        <outlet property="nightTimeInfo" destination="vOP-Rx-Zgy" id="7wz-JH-U6C"/>
                         <outlet property="nightTimeLabel" destination="XKg-Gn-65x" id="Edf-25-J63"/>
                         <outlet property="nightTimeSwitch" destination="4hs-Rj-yfH" id="ExC-T3-cCh"/>
                         <outlet property="pulseLength" destination="CAo-u6-J8W" id="XtY-mv-MH2"/>
@@ -444,15 +451,15 @@
             <objects>
                 <tableViewController id="Jau-WN-5xD" customClass="SubSettingsViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="ydb-y4-aVE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="GCa-Az-khL" customClass="BFPaperTableViewCell">
-                                <rect key="frame" x="0.0" y="22" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GCa-Az-khL" id="0ve-Xr-PYB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -472,14 +479,14 @@
             <objects>
                 <viewController id="iMW-8r-G0b" customClass="SensorDelayViewController" customModule="TriggertrapSLR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CQx-Lu-0ev">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iov-a2-eCl" userLabel="topLeftView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ts-1i-e9b" userLabel="photosNumberInput" customClass="TTTimeInput">
-                                        <rect key="frame" x="210" y="112" width="180" height="45"/>
+                                        <rect key="frame" x="210" y="111.5" width="180" height="45"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="iZU-1x-MU0"/>
@@ -496,7 +503,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3B-GZ-8UO" userLabel="bottomRightView">
-                                <rect key="frame" x="-225" y="335" width="600" height="268"/>
+                                <rect key="frame" x="-225" y="355" width="600" height="268"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="268" id="4fc-fw-UPr"/>
@@ -538,7 +545,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lgc-nM-5Pw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="02L-Oz-vNL">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.84712600708007812" green="0.032903812825679779" blue="0.084094814956188202" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

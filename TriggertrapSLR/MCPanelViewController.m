@@ -303,13 +303,6 @@ const static NSString *MCPanelViewGestureAnimationDirectionKey = @"MCPanelViewGe
     }];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    CGRect bounds = self.parentViewController.view.bounds;
-    self.maxHeight = CGRectGetHeight(bounds);
-    
-    [self refreshBackgroundAnimated:YES];
-}
-
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     CGRect bounds = self.parentViewController.view.bounds;

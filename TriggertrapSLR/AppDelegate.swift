@@ -56,11 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set the window background colour so that we don't see a black flicker when rotating
         window?.backgroundColor = UIColor.triggertrap_fillColor(1.0)
-        
-        // Show the status bar
-        UIApplication.shared.isStatusBarHidden = false
-        
-        
+
         DongleObserver.sharedInstance.dongleConnectedToPhone()
         
         return true

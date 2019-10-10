@@ -678,6 +678,9 @@ class SunriseSunsetCalculatorViewController: SplitLayoutViewController, CLLocati
             }
             
             break 
+        @unknown default:
+            updateInterfaceForUnknownLocation()
+            break
         }
     }
     

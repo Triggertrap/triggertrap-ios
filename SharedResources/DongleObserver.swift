@@ -38,7 +38,7 @@ class DongleObserver {
     }
     
     func endSession() {
-        NotificationCenter.default.removeObserver(self.audioJackObserver)
+        NotificationCenter.default.removeObserver(self.audioJackObserver as Any)
     }
 }
 

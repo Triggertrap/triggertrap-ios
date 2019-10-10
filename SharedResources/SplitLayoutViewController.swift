@@ -49,7 +49,13 @@ class SplitLayoutViewController: CenterViewController {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
     }
-    
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *){
+            performThemeUpdate()
+        }
+    }
+
     override func viewWillLayoutSubviews()  {
         super.viewWillLayoutSubviews()
         
@@ -116,6 +122,7 @@ class SplitLayoutViewController: CenterViewController {
         self.view.backgroundColor = UIColor.triggertrap_fillColor()
         
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.triggertrap_metric_regular(23.0), NSAttributedString.Key.foregroundColor: UIColor.triggertrap_iconColor(1.0)]
         
         self.topLeftView.backgroundColor = UIColor.triggertrap_fillColor()
@@ -123,9 +130,11 @@ class SplitLayoutViewController: CenterViewController {
         
         self.separatorView?.backgroundColor = UIColor.triggertrap_accentColor(1.0)
         
-        self.leftButton?.setBackgroundImage(ImageWithColor(UIImage(named: "MenuIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControl.State())
-        
-        self.rightButton?.setBackgroundImage(ImageWithColor(UIImage(named: "OptionsIcon")!, color: UIColor.triggertrap_iconColor()) , for: UIControl.State())
+        self.leftButton?.setBackgroundImage(#imageLiteral(resourceName: "MenuIcon"), for: .normal)
+        self.leftButton?.tintColor = UIColor.triggertrap_fillColor(1)
+
+        self.rightButton?.setBackgroundImage(#imageLiteral(resourceName: "OptionsIcon"), for: .normal)
+        self.rightButton?.tintColor = UIColor.triggertrap_fillColor(1)
         
         self.viewControllerTheme = AppTheme()
     }

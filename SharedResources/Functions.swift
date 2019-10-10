@@ -58,11 +58,16 @@ enum Theme: Int {
 }
 
 func AppTheme() -> Theme {
-    if let appTheme = UserDefaults.standard.object(forKey: ConstAppTheme) as? Int, let theme = Theme(rawValue: appTheme) {
-        return theme
+    if #available(iOS 13.0, *) {
+        return UIApplication.shared.keyWindow?.rootViewController?.traitCollection.userInterfaceStyle == .dark ? .night : .normal
     } else {
-        return Theme.normal
+        if let appTheme = UserDefaults.standard.object(forKey: ConstAppTheme) as? Int, let theme = Theme(rawValue: appTheme) {
+            return theme
+        } else {
+            return Theme.normal
+        }
     }
+
 }
 
 func IdentifiersForModesInSection(_ index: Int) -> [String] {

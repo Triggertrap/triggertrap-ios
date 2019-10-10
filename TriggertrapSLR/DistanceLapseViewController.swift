@@ -360,6 +360,9 @@ extension DistanceLapseViewController: CLLocationManagerDelegate {
             }
             
             break
+        @unknown default:
+            updateInterfaceForUnknownLocation()
+            break
         }
     }
     

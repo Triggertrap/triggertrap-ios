@@ -67,6 +67,8 @@ class SidebarTableViewController: UITableViewController, UINavigationControllerD
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "SidebarDidSelectCellWithIdentifier"), object: nil)
     }
 
+    
+
     // MARK: NSUserActivity
     
     fileprivate func createUserActivityWithIdentifier(_ identifier: String) {

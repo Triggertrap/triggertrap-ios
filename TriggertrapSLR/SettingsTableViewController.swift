@@ -41,6 +41,7 @@ class SettingsTableViewController : UITableViewController {
     
     @IBOutlet weak var nightModeCell: UITableViewCell!
     @IBOutlet weak var nightTimeSwitch: UISwitch!
+    @IBOutlet var nightTimeInfo: UIButton!
     @IBOutlet weak var nightTimeLabel: UILabel!
     
     // MARK: - Properties
@@ -60,6 +61,12 @@ class SettingsTableViewController : UITableViewController {
         // Hide previous screen title from the back button in case we use SettingsTableViewController as initial screen as opposed to OptionsTableViewController
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+
+        if #available(iOS 13.0, *) {
+            self.nightTimeSwitch.isHidden = true
+        } else {
+            self.nightTimeInfo.isHidden = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +74,14 @@ class SettingsTableViewController : UITableViewController {
         performThemeUpdate()
     }
     
+    @IBAction func nightTimeInfoTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "This option has moved", message: "iOS 13 now has dark mode built in. Either visit Settings or Control Center to enable or disable it.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     @IBAction func nightTimeSwitchValueChanged(_ nightTimeSwitch: UISwitch) {
         UserDefaults.standard.set(nightTimeSwitch.isOn ? 1 : 0, forKey: ConstAppTheme)
         UserDefaults.standard.synchronize()
@@ -78,6 +93,11 @@ class SettingsTableViewController : UITableViewController {
         NotificationCenter.default.post(name: Notification.Name(rawValue: ConstThemeHasBeenUpdated), object: nil)
         
         performThemeUpdate()
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *){
+            performThemeUpdate()
+        }
     }
     
     // MARK: - Navigation

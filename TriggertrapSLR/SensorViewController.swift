@@ -43,6 +43,9 @@ class SensorViewController: TTViewController {
         case .restricted:
             showCameraPermissionDeniedNotification()
             return false
+        @unknown default:
+            showCameraPermissionDeniedNotification()
+            return false
         }
     }
     

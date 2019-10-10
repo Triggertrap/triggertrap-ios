@@ -65,6 +65,12 @@ class FeedbackViewController: UIViewController, TTCounterLabelDelegate, TTCircle
         
         performThemeUpdate()
     }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *){
+            performThemeUpdate()
+        }
+    }
     
     func performThemeUpdate() {
         self.view.backgroundColor = UIColor.triggertrap_primaryColor()

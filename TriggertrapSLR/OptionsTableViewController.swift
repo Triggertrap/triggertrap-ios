@@ -43,6 +43,12 @@ class OptionsTableViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *){
+            applyTheme()
+        }
+    }
     
     @IBAction func doneButtonTapped(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)

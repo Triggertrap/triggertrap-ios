@@ -44,7 +44,8 @@ class LeftPanelViewController: UIViewController {
         self.tableView.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
         self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
     }
-    
+
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews() 
         
@@ -69,7 +70,16 @@ class LeftPanelViewController: UIViewController {
     
     @objc func removeActiveCell(_ sender: Notification) {
         self.tableView.reloadData()
-    } 
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 13.0, *){
+            self.tableView.reloadData()
+            self.view.backgroundColor = UIColor.triggertrap_fillColor()
+            self.tableView.backgroundColor = UIColor.triggertrap_backgroundColor(1.0)
+            self.navigationController?.navigationBar.barTintColor = UIColor.triggertrap_primaryColor(1.0)
+        }
+    }
 }
 
 extension LeftPanelViewController: UITableViewDataSource {
